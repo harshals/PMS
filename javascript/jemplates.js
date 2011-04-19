@@ -97,7 +97,23 @@ Jemplate.templateMap['bill-menu.html'] = function(context) {
     var output = '';
 
     try {
-output += '<p>Action</p>\n<ul>\n\n    <li><a id="create">Add New Bill</a></li>\n\n    <li><a id="delete">Delete this Bill</a></li>\n\n    <li><a id="update">Print this Bill</a></li>\n\n    <li><a id="search">Search Bill</a></li>\n\n</ul>';
+output += '<p>Action</p>\n<ul>\n\n    <li><a id="create">Add New Bill</a></li>\n\n    <li><a id="delete">Delete this Bill</a></li>\n\n    <li><a id="update">Print this Bill</a></li>\n\n    <li><a id="search" href="#/bill-search">Search Bill</a></li>\n\n</ul>';
+    }
+    catch(e) {
+        var error = context.set_error(e, output);
+        throw(error);
+    }
+
+    return output;
+}
+
+Jemplate.templateMap['bill-menu.html.bak'] = function(context) {
+    if (! context) throw('Jemplate function called without context\n');
+    var stash = context.stash;
+    var output = '';
+
+    try {
+output += '<p>Action</p>\n<ul>\n\n    <li><a id="create">Add New Bill</a></li>\n\n    <li><a id="delete">Delete this Bill</a></li>\n\n    <li><a id="update">Print this Bill</a></li>\n\n    <li><a id="search" href="bill-search">Search Bill</a></li>\n\n</ul>';
     }
     catch(e) {
         var error = context.set_error(e, output);
