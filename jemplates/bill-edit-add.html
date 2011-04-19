@@ -4,15 +4,15 @@
             <ul class="vhh">
                 <li>
                     <label style="border-bottom : none"class="">Bill No</label>
-                    <input class="" type="text" name="bill_no" value=""/>
+                    <input class="" type="text" name="bill_no" value="[% list.bill_no %]"/>
                 </li>
                 <li>
                     <label class="">Bill Date</label>
-                    <input class=" datepicker" type="text" name="bill_date" value="" />
+                    <input class=" datepicker" type="text" name="bill_date" value="[% bill_date %]" />
                 </li>
                 <li>
                     <label class="">Broker</label>
-                    <select class="" name="broker">
+                    <select class="" name="broker" value="[% list.broker %]">
                         <option value="rss">RSS
                         <option value="hdfc">HDFC
                     </select>
@@ -21,18 +21,18 @@
             <ul class="vhh">
                 <li>
                     <label class="grid_3">Settlement No</label>
-                    <input class="" type="text" name="settlement_no" value=""/>
+                    <input class="" type="text" name="settlement_no" value="[% list.settlement_no %]"/>
                 </li>
                 <li>
                     <label class="grid_3">Settlement Type</label>
-                    <select class="" name="settlement_type">
+                    <select class="" name="settlement_type" value="[% list.settlement_no %]">
                         <option value="normal">NORMAL
                         <option value="rolling">ROLLING
                     </select>
                 </li>
                 <li>
                     <label class="grid_3">Exchange</label>
-                    <select class="" name="exchange">
+                    <select class="" name="exchange" vlaue="[% list.exchange %]">
                         <option value="bse">BSE
                         <option value="nse">NSE
                         <option value="cmx">CMX
@@ -44,10 +44,10 @@
                     <label class="">Period</label>
                 </li>
                 <li>
-                    <input class="" type="text" name="from_period" value=""/>
+                    <input class="" type="text" name="from_period" value="[% list.form_period %]"/>
                 </li>
                 <li>
-                    <input type="text" name="to_period" value=""/>
+                    <input type="text" name="to_period" value="[% list.to_period %]"/>
                 </li>
             </ul>
     </fieldset>
@@ -60,33 +60,32 @@
                 <tr>
                     <td style="border-right : none">
                     <label class="pull_5"> List Of Trasactions </label>
-                    <label class="push_5" id="add-new"><a>Add New Transaction</a></label>
+                    <label class="push_5" id="new"><a>Add New Transaction</a></label>
                     </td>
                 </tr>
                 <tr>
-                    <td class="grid_3"> Transaction No </td>
-                    <td class="grid_3"> Transaction Date </td>
-                    <td class="grid_3"> Security </td>
-                    <td class="grid_3"> Type </td>
-                    <td class="grid_3"> Amount </td>
+                    <th class="grid_3"> Transaction No </th>
+                    <th class="grid_3"> Transaction Date </th>
+                    <th class="grid_3"> Security </th>
+                    <th class="grid_3"> Type </th>
+                    <th class="grid_3"> Amount </th>
                 </tr>
             </thead>
             <tbody id="new-row">
-
                 [% FOREACH item IN list %]
 
 			[% PROCESS "transaction-list-item.html" %]
 
 		[% END %]
-
-
+            </tbody>
+            <tfoot>
                 <tr>
                     <td class="" style="border-right : none" >
                         <label class="pull_6">Total</label>
-                        <label class="push_6">total</label>
+                        <label class="push_6">[% total %]</label>
                     </td>
                 </tr>
-            </tbody>
+            </tfoot>
         </table>
     </li>
 </ul>
