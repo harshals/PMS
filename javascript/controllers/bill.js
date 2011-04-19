@@ -21,6 +21,7 @@ BillController = function(app) {with (app) {
 //-----------------------------------BILL LIST VIEW-----------------------------
         app.get('#/bill-list-view', function(context) {
             alert("I M IN LIST VIEW");
+            console("I m here");
             context .load("api/bill.json")
                     .then(function(json) {
                         this.wait();
