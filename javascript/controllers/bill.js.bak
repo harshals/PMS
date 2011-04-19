@@ -43,10 +43,7 @@ BillController = function(app) {with (app) {
 						   $("#section-menu").find("a#search").click(function() {
 						     context.jemplate('bill_report.html',{},'#main-content',this);
 						   });
-						   
-					}).then(function(){
-					   this.wait();
-					   $("#main-content" ).find("input.datepicker").datepicker( {altFormat: 'yy-mm-dd' ,dateFormat : 'dd-mm-yy'});
+						   $("#main-content" ).find("input.datepicker").datepicker( {altFormat: 'yy-mm-dd' ,dateFormat : 'dd-mm-yy'});
 					})
                     .then(function(){
 						   this.wait();

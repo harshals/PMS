@@ -9,6 +9,41 @@
 if (typeof(Jemplate) == 'undefined')
     throw('Jemplate.js must be loaded before any Jemplate template files');
 
+Jemplate.templateMap['Total.html'] = function(context) {
+    if (! context) throw('Jemplate function called without context\n');
+    var stash = context.stash;
+    var output = '';
+
+    try {
+output += '<tr><td class="" style="border-right : none" >\n    <label class="pull_6">Total</label>\n    <!--<label class="push_6">';
+//line 3 "Total.html"
+output += stash.get('total_amount');
+output += '</label>-->\n    </td>\n</tr>';
+    }
+    catch(e) {
+        var error = context.set_error(e, output);
+        throw(error);
+    }
+
+    return output;
+}
+
+Jemplate.templateMap['add_security.html'] = function(context) {
+    if (! context) throw('Jemplate function called without context\n');
+    var stash = context.stash;
+    var output = '';
+
+    try {
+output += '<form class="grid_6 yellow box">\n	<p><b>Add Security</b></p>\n	<input type="text" id="autocomplete" />\n	<li class="form hii">\n       	<input type="submit" value="Save" class="button" />\n        <input type=reset value="Reset" name="reset" class="button" />\n	</li>\n</form>';
+    }
+    catch(e) {
+        var error = context.set_error(e, output);
+        throw(error);
+    }
+
+    return output;
+}
+
 Jemplate.templateMap['bill-edit-add.html'] = function(context) {
     if (! context) throw('Jemplate function called without context\n');
     var stash = context.stash;
@@ -63,6 +98,38 @@ Jemplate.templateMap['bill-menu.html'] = function(context) {
 
     try {
 output += '<p>Action</p>\n<ul>\n\n    <li><a id="create">Add New Bill</a></li>\n\n    <li><a id="delete">Delete this Bill</a></li>\n\n    <li><a id="update">Print this Bill</a></li>\n\n    <li><a id="search">Search Bill</a></li>\n\n</ul>';
+    }
+    catch(e) {
+        var error = context.set_error(e, output);
+        throw(error);
+    }
+
+    return output;
+}
+
+Jemplate.templateMap['bill_report.html'] = function(context) {
+    if (! context) throw('Jemplate function called without context\n');
+    var stash = context.stash;
+    var output = '';
+
+    try {
+output += '\n	  <div class="grid_17 main blue box" id="bill_report">\n        <form method="post">\n		   <fieldset class="">\n		        <ul class="form hii">\n				  <li class="grid_8">\n				    <label class="grid_3">From Date</label>\n				    <input type="text" class="datepicker grid_4" name="bill_from_dt">	\n				  </li>\n				  <li  class="grid_8">\n                             <label class="grid_3">Settelment No.</label>\n                            <input   type="text" class="grid_4" name="settelment_no" value="" />\n                  </li>\n      <!-- ---------------------------------------------------------------------------- -->\n				  <li class="grid_8">\n				    <label class="grid_3">To Date</label>\n				    <input type="text" class="datepicker grid_4" name="bill_to_dt">	\n				  </li>\n				  <li class="grid_8">\n                        <label class="grid_3">Security</label>\n                        <select class="grid_4">\n							<option>Reliance</option>\n						    <option>Tata</option>\n                        </select>\n						<span class="leftNote offset1 small"> <a id="add_security">Not found ? Click here to add</a></span>\n                  </li>\n	 <!-- ---------------------------------------------------------------------------- -->\n				  <li class="grid_17">\n				     <label class="grid_3">Settlement Type</label>\n					   <select class="grid_4">\n					     <option>Normal</option>\n						 <option>Rolling</option>\n                       </select>\n				  </li>\n				   <li class="grid_8">\n				     <label class="grid_3">Exchange</label>\n					   <select class="grid_4">\n					     <option>BSE</option>\n						 <option>NSE</option>\n                         <option>CMX</option>\n					  </select>\n				  </li>\n				  <li>\n                        <label class="grid_3">Family/Group</label>\n                        <input type="text" class="grid_4" id="" />\n						<span class="bottomNote offset1 small"><a>Not found ? Click here to add</a></span>\n                  </li>\n	<!-- ---------------------------------------------------------------------------- -->\n				 \n				  <li class="grid_17">\n				     <label class="grid_3">Transcation Type</label>\n					   <select class="grid_4">\n					     <option>Bought</option>\n						 <option>Sold</option>\n                       </select>\n				  </li>\n				  <li class="grid_8"></li>\n				  <li class="grid_8">\n                        <label class="grid_3">Broker</label>\n                        <input type="text" class="grid_4" id=""/>\n						<span class="bottomNote offset1 small"><a>Not found ? Click here to add</a></span>\n                  </li>\n				   <li class="grid_17">\n				     <label class="grid_3">Report Name</label>\n					   <input type="text" class="grid_4" id="report_name" />\n				  </li>\n				  <li class="grid_8"></li>\n				  <li class="grid_8">\n                        <label class="grid_3">Account</label>\n                        <input type="text" class="grid_4" id=""/>\n						<span class="bottomNote offset1 small"><a>Not found ? Click here to add</a></span>\n                  </li> \n				</ul>\n		   </fieldset>\n		      <li class="form hii">\n                    <input type="button" value="Search" class="button" />\n					<input type="submit" value="Save" class="button" />\n                    <input type=reset value="Reset" name="reset" class="button" />\n			  </li>\n		</form>\n      </div>\n';
+    }
+    catch(e) {
+        var error = context.set_error(e, output);
+        throw(error);
+    }
+
+    return output;
+}
+
+Jemplate.templateMap['delete_save.html'] = function(context) {
+    if (! context) throw('Jemplate function called without context\n');
+    var stash = context.stash;
+    var output = '';
+
+    try {
+output += '<ul class="form hii vvv">\n    <li>\n        <input type="button" value="Delete" class="button grid_3"/>\n    </li>\n    <li>\n        <input type="button" value="Edit/Save" class="button grid_3"/>\n    </li>\n</ul>';
     }
     catch(e) {
         var error = context.set_error(e, output);
