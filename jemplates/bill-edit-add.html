@@ -1,0 +1,79 @@
+<form class="form blue" action="">
+    <fieldset>
+        <legend></legend>
+            <ul class="vhh">
+                <li>
+                    <label style="border-bottom : none"class="">Bill No</label>
+                    <input class="" type="text" name="bill_no" value=""/>
+                </li>
+                <li>
+                    <label class="">Bill Date</label>
+                    <input class=" datepicker" type="text" name="bill_date" value="" />
+                </li>
+                <li>
+                    <label class="">Broker</label>
+                    <select class="" name="broker">
+                        <option value="rss">RSS
+                        <option value="hdfc">HDFC
+                    </select>
+                </li>
+            </ul>
+            <ul class="vhh">
+                <li>
+                    <label class="grid_3">Settlement No</label>
+                    <input class="" type="text" name="settlement_no" value=""/>
+                </li>
+                <li>
+                    <label class="grid_3">Settlement Type</label>
+                    <select class="" name="settlement_type">
+                        <option value="normal">NORMAL
+                        <option value="rolling">ROLLING
+                    </select>
+                </li>
+                <li>
+                    <label class="grid_3">Exchange</label>
+                    <select class="" name="exchange">
+                        <option value="bse">BSE
+                        <option value="nse">NSE
+                        <option value="cmx">CMX
+                    </select>
+                </li>
+            </ul>
+            <ul class="vhh">
+                <li>
+                    <label class="">Period</label>
+                </li>
+                <li>
+                    <input class="" type="text" name="from_period" value=""/>
+                </li>
+                <li>
+                    <input type="text" name="to_period" value=""/>
+                </li>
+            </ul>
+    </fieldset>
+</form>
+<ul>
+    
+    <li>
+        <table class="basetable tablesorter" id="MyTable"  >
+            <thead>
+                <tr>
+                    <td style="border-right : none">
+                    <label class="pull_5"> List Of Trasactions </label>
+                    <label class="push_5" id="add-new"><a>Add New Transaction</a></label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="grid_3"> Transaction No </td>
+                    <td class="grid_3"> Transaction Date </td>
+                    <td class="grid_3"> Security </td>
+                    <td class="grid_3"> Type </td>
+                    <td class="grid_3"> Amount </td>
+                </tr>
+            </thead>
+            <tbody id="new-row">
+
+            </tbody>
+        </table>
+    </li>
+</ul>
