@@ -73,6 +73,19 @@
             </thead>
             <tbody id="new-row">
 
+                [% FOREACH item IN list %]
+
+			[% PROCESS "transaction-list-item.html" %]
+
+		[% END %]
+
+
+                <tr>
+                    <td class="" style="border-right : none" >
+                        <label class="pull_6">Total</label>
+                        <label class="push_6">total</label>
+                    </td>
+                </tr>
             </tbody>
         </table>
     </li>

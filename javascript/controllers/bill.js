@@ -19,20 +19,25 @@ BillController = function(app) {with (app) {
         });
 //---------------------------------EDIT ADD TRANSACTION-------------------------
         app.get('#/bill-edit-add', function(context) {
-            context .load("null.html")
+            context .load("api/transaction.json")
                     .then(function(json) {
                         this.wait();
-                            context .jemplate('bill-edit-add.html',{}, "#main-content", this);
+                        context .jemplate('bill-edit-add.html',{list:json}, "#main-content", this);
                     })
                     .then(function(){
+                        this.wait();
+                        context .jemplate('bill-menu.html', {}, "#section-menu", this);
                         $("#main-content" ).find("input.datepicker").datepicker( {altFormat: 'yy-mm-dd' ,dateFormat : 'dd-mm-yy'});
-                        context .load('api/transaction.json')
-                                .then(function(json_list) {
-                                    this.wait();
-                                    context .jemplate('Process.html', {}, "#section-menu", this);
-                                    context .jemplate('transaction-list-item.html',{list:json_list}, "#new-row", this);
-                                    context .jemplate('Total.html', {}, "#content-extra", this);
-                            })
+                    })
+                    .then(function(){
+                        $("#MyTable").click(function(){
+                            alert("HELLO");
+                            context .jemplate('transaction-detail.html', {}, null, this)
+                                    .then(function(content){
+                                        alert("STEP2");
+                                        $.facebox(content);
+                                })
+                        })
                     })
         });
 //---------------------------------EDIT ADD TRANSACTION-------------------------
