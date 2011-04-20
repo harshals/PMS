@@ -1,37 +1,707 @@
-[
-    {
-        "transaction_no": "1",
-        "transaction_date": "1/2/20011",
-        "security": "Reliance",
-        "transaction_type": "Brought",
-        "amount": "58454"
+{
+    "1": {
+        "bill_no" : "1",
+        "bill_date": "1/1/2001",
+        "broker" : "RSS",
+        "settlement_no" : "1",
+        "settlement_type" : "ROLLING",
+        "exchange" : "BSE",
+        "from_period" : "1/1/2001",
+        "to_period" : "1/1/2002",
+        "transaction" : [
+            {
+                "transaction_no": "1",
+                "transaction_date": "1/1/2001",
+                "security": "1Reliance",
+                "transaction_type": "Sold",
+                "amount" : "11111"
+            } ,
+            {
+                "transaction_no": "2",
+                "transaction_date": "2/2/2002",
+                "security": "1Reliance2",
+                "transaction_type": "Brought",
+                "amount" : "22222"
+            },
+            {
+                "transaction_no": "3",
+                "transaction_date": "3/3/2003",
+                "security": "1Reliance3",
+                "transaction_type": "Sold",
+                "amount" : "33333"
+            },
+            {
+                "transaction_no": "4",
+                "transaction_date": "4/4/2004",
+                "security": "1Reliance4",
+                "transaction_type": "Brought",
+                "amount" : "44444"
+            },
+            {
+                "transaction_no": "5",
+                "transaction_date": "5/5/2005",
+                "security": "1Reliance5",
+                "transaction_type": "Sold",
+                "amount" : "55555"
+            }
+        ]
     },
-    {
-        "transaction_no": "2",
-        "transaction_date": "5/2/20011",
-        "security": "Reliance2",
-        "transaction_type": "Brought",
-        "amount": "465456"
+    "2": {
+        "bill_no" : "2",
+        "bill_date": "2/2/2002",
+        "broker" : "HDFC",
+        "settlement_no" : "2",
+        "settlement_type" : "NORMAL",
+        "exchange" : "NSE",
+        "from_period" : "2/2/2002",
+        "to_period" : "2/2/2003",
+        "transaction" : [
+            {
+                "transaction_no": "1",
+                "transaction_date": "1/1/2001",
+                "security": "2Reliance",
+                "transaction_type": "Sold",
+                "amount" : "11111"
+            } ,
+            {
+                "transaction_no": "2",
+                "transaction_date": "2/2/2002",
+                "security": "2Reliance2",
+                "transaction_type": "Brought",
+                "amount" : "22222"
+            },
+            {
+                "transaction_no": "3",
+                "transaction_date": "3/3/2003",
+                "security": "2Reliance3",
+                "transaction_type": "Sold",
+                "amount" : "33333"
+            },
+            {
+                "transaction_no": "4",
+                "transaction_date": "4/4/2004",
+                "security": "2Reliance4",
+                "transaction_type": "Brought",
+                "amount" : "44444"
+            },
+            {
+                "transaction_no": "5",
+                "transaction_date": "5/5/2005",
+                "security": "2Reliance5",
+                "transaction_type": "Sold",
+                "amount" : "55555"
+            }
+        ]
     },
-    {
-        "transaction_no": "3",
-        "transaction_date": "9/2/20011",
-        "security": "Reliance3",
-        "transaction_type": "Brought",
-        "amount": "584489"
+    "3": {
+        "bill_no" : "3",
+        "bill_date": "3/3/2003",
+        "broker" : "RSS",
+        "settlement_no" : "3",
+        "settlement_type" : "ROLLING",
+        "exchange" : "CMX",
+        "from_period" : "3/3/2003",
+        "to_period" : "3/3/2004",
+        "transaction" : [
+            {
+                "transaction_no": "1",
+                "transaction_date": "1/1/2001",
+                "security": "3Reliance",
+                "transaction_type": "Sold",
+                "amount" : "11111"
+            } ,
+            {
+                "transaction_no": "2",
+                "transaction_date": "2/2/2002",
+                "security": "3Reliance2",
+                "transaction_type": "Brought",
+                "amount" : "22222"
+            },
+            {
+                "transaction_no": "3",
+                "transaction_date": "3/3/2003",
+                "security": "3Reliance3",
+                "transaction_type": "Sold",
+                "amount" : "33333"
+            },
+            {
+                "transaction_no": "4",
+                "transaction_date": "4/4/2004",
+                "security": "3Reliance4",
+                "transaction_type": "Brought",
+                "amount" : "44444"
+            },
+            {
+                "transaction_no": "5",
+                "transaction_date": "5/5/2005",
+                "security": "3Reliance5",
+                "transaction_type": "Sold",
+                "amount" : "55555"
+            }
+        ]
     },
-    {
-        "transaction_no": "4",
-        "transaction_date": "21/2/20011",
-        "security": "Reliance4",
-        "transaction_type": "Brought",
-        "amount": "478456"
+    "4": {
+        "bill_no" : "4",
+        "bill_date": "4/4/2004",
+        "broker" : "HDFC",
+        "settlement_no" : "4",
+        "settlement_type" : "NORMAL",
+        "exchange" : "BSE",
+        "from_period" : "4/4/2004",
+        "to_period" : "4/4/2005",
+        "transaction" : [
+            {
+                "transaction_no": "1",
+                "transaction_date": "1/1/2001",
+                "security": "4Reliance",
+                "transaction_type": "Sold",
+                "amount" : "11111"
+            } ,
+            {
+                "transaction_no": "2",
+                "transaction_date": "2/2/2002",
+                "security": "4Reliance2",
+                "transaction_type": "Brought",
+                "amount" : "22222"
+            },
+            {
+                "transaction_no": "3",
+                "transaction_date": "3/3/2003",
+                "security": "4Reliance3",
+                "transaction_type": "Sold",
+                "amount" : "33333"
+            },
+            {
+                "transaction_no": "4",
+                "transaction_date": "4/4/2004",
+                "security": "4Reliance4",
+                "transaction_type": "Brought",
+                "amount" : "44444"
+            },
+            {
+                "transaction_no": "5",
+                "transaction_date": "5/5/2005",
+                "security": "4Reliance5",
+                "transaction_type": "Sold",
+                "amount" : "55555"
+            }
+        ]
     },
-    {
-        "transaction_no": "5",
-        "transaction_date": "28/2/20011",
-        "security": "Reliance5",
-        "transaction_type": "Brought",
-        "amount": "5484565"
+    "5": {
+        "bill_no" : "5",
+        "bill_date": "5/5/2005",
+        "broker" : "RSS",
+        "settlement_no" : "5",
+        "settlement_type" : "ROLLING",
+        "exchange" : "NSE",
+        "from_period" : "5/5/2005",
+        "to_period" : "5/5/2006",
+        "transaction" : [
+            {
+                "transaction_no": "1",
+                "transaction_date": "1/1/2001",
+                "security": "5Reliance",
+                "transaction_type": "Sold",
+                "amount" : "11111"
+            } ,
+            {
+                "transaction_no": "2",
+                "transaction_date": "2/2/2002",
+                "security": "5Reliance2",
+                "transaction_type": "Brought",
+                "amount" : "22222"
+            },
+            {
+                "transaction_no": "3",
+                "transaction_date": "3/3/2003",
+                "security": "5Reliance3",
+                "transaction_type": "Sold",
+                "amount" : "33333"
+            },
+            {
+                "transaction_no": "4",
+                "transaction_date": "4/4/2004",
+                "security": "5Reliance4",
+                "transaction_type": "Brought",
+                "amount" : "44444"
+            },
+            {
+                "transaction_no": "5",
+                "transaction_date": "5/5/2005",
+                "security": "5Reliance5",
+                "transaction_type": "Sold",
+                "amount" : "55555"
+            }
+        ]
+    },
+    "6": {
+        "bill_no" : "6",
+        "bill_date": "6/6/2006",
+        "broker" : "HDFC",
+        "settlement_no" : "6",
+        "settlement_type" : "NORMAL",
+        "exchange" : "CMX",
+        "from_period" : "6/6/2006",
+        "to_period" : "6/6/2007",
+        "transaction" : [
+            {
+                "transaction_no": "1",
+                "transaction_date": "1/1/2001",
+                "security": "6Reliance",
+                "transaction_type": "Sold",
+                "amount" : "11111"
+            } ,
+            {
+                "transaction_no": "2",
+                "transaction_date": "2/2/2002",
+                "security": "6Reliance2",
+                "transaction_type": "Brought",
+                "amount" : "22222"
+            },
+            {
+                "transaction_no": "3",
+                "transaction_date": "3/3/2003",
+                "security": "6Reliance3",
+                "transaction_type": "Sold",
+                "amount" : "33333"
+            },
+            {
+                "transaction_no": "4",
+                "transaction_date": "4/4/2004",
+                "security": "6Reliance4",
+                "transaction_type": "Brought",
+                "amount" : "44444"
+            },
+            {
+                "transaction_no": "5",
+                "transaction_date": "5/5/2005",
+                "security": "Reliance5",
+                "transaction_type": "Sold",
+                "amount" : "55555"
+            }
+        ]
+    },
+    "7": {
+        "bill_no" : "7",
+        "bill_date": "7/7/2007",
+        "broker" : "RSS",
+        "settlement_no" : "7",
+        "settlement_type" : "ROLLING",
+        "exchange" : "BSE",
+        "from_period" : "7/7/2007",
+        "to_period" : "7/7/2008",
+        "transaction" : [
+            {
+                "transaction_no": "1",
+                "transaction_date": "1/1/2001",
+                "security": "7Reliance",
+                "transaction_type": "Sold",
+                "amount" : "11111"
+            } ,
+            {
+                "transaction_no": "2",
+                "transaction_date": "2/2/2002",
+                "security": "7Reliance2",
+                "transaction_type": "Brought",
+                "amount" : "22222"
+            },
+            {
+                "transaction_no": "3",
+                "transaction_date": "3/3/2003",
+                "security": "7Reliance3",
+                "transaction_type": "Sold",
+                "amount" : "33333"
+            },
+            {
+                "transaction_no": "4",
+                "transaction_date": "4/4/2004",
+                "security": "7Reliance4",
+                "transaction_type": "Brought",
+                "amount" : "44444"
+            },
+            {
+                "transaction_no": "5",
+                "transaction_date": "5/5/2005",
+                "security": "7Reliance5",
+                "transaction_type": "Sold",
+                "amount" : "55555"
+            }
+        ]
+    },
+    "8": {
+        "bill_no" : "8",
+        "bill_date": "8/8/2008",
+        "broker" : "HDFC",
+        "settlement_no" : "8",
+        "settlement_type" : "NORMAL",
+        "exchange" : "NSE",
+        "from_period" : "8/8/2008",
+        "to_period" : "8/8/2009",
+        "transaction" : [
+            {
+                "transaction_no": "1",
+                "transaction_date": "1/1/2001",
+                "security": "8Reliance",
+                "transaction_type": "Sold",
+                "amount" : "11111"
+            } ,
+            {
+                "transaction_no": "2",
+                "transaction_date": "2/2/2002",
+                "security": "8Reliance2",
+                "transaction_type": "Brought",
+                "amount" : "22222"
+            },
+            {
+                "transaction_no": "3",
+                "transaction_date": "3/3/2003",
+                "security": "8Reliance3",
+                "transaction_type": "Sold",
+                "amount" : "33333"
+            },
+            {
+                "transaction_no": "4",
+                "transaction_date": "4/4/2004",
+                "security": "8Reliance4",
+                "transaction_type": "Brought",
+                "amount" : "44444"
+            },
+            {
+                "transaction_no": "5",
+                "transaction_date": "5/5/2005",
+                "security": "8Reliance5",
+                "transaction_type": "Sold",
+                "amount" : "55555"
+            }
+        ]
+    },
+    "9": {
+        "bill_no" : "9",
+        "bill_date": "9/9/2009",
+        "broker" : "RSS",
+        "settlement_no" : "9",
+        "settlement_type" : "ROLLING",
+        "exchange" : "CMX",
+        "from_period" : "9/9/2009",
+        "to_period" : "9/9/2010",
+        "transaction" : [
+            {
+                "transaction_no": "1",
+                "transaction_date": "1/1/2001",
+                "security": "9Reliance",
+                "transaction_type": "Sold",
+                "amount" : "11111"
+            } ,
+            {
+                "transaction_no": "2",
+                "transaction_date": "2/2/2002",
+                "security": "9Reliance2",
+                "transaction_type": "Brought",
+                "amount" : "22222"
+            },
+            {
+                "transaction_no": "3",
+                "transaction_date": "3/3/2003",
+                "security": "9Reliance3",
+                "transaction_type": "Sold",
+                "amount" : "33333"
+            },
+            {
+                "transaction_no": "4",
+                "transaction_date": "4/4/2004",
+                "security": "9Reliance4",
+                "transaction_type": "Brought",
+                "amount" : "44444"
+            },
+            {
+                "transaction_no": "5",
+                "transaction_date": "5/5/2005",
+                "security": "9Reliance5",
+                "transaction_type": "Sold",
+                "amount" : "55555"
+            }
+        ]
+    },
+    "10": {
+        "bill_no" : "10",
+        "bill_date": "10/10/2010",
+        "broker" : "HDFC",
+        "settlement_no" : "10",
+        "settlement_type" : "NORMAL",
+        "exchange" : "BSE",
+        "from_period" : "10/10/2010",
+        "to_period" : "10/10/2011",
+        "transaction" : [
+            {
+                "transaction_no": "1",
+                "transaction_date": "1/1/2001",
+                "security": "10Reliance",
+                "transaction_type": "Sold",
+                "amount" : "11111"
+            } ,
+            {
+                "transaction_no": "2",
+                "transaction_date": "2/2/2002",
+                "security": "10Reliance2",
+                "transaction_type": "Brought",
+                "amount" : "22222"
+            },
+            {
+                "transaction_no": "3",
+                "transaction_date": "3/3/2003",
+                "security": "10Reliance3",
+                "transaction_type": "Sold",
+                "amount" : "33333"
+            },
+            {
+                "transaction_no": "4",
+                "transaction_date": "4/4/2004",
+                "security": "10Reliance4",
+                "transaction_type": "Brought",
+                "amount" : "44444"
+            },
+            {
+                "transaction_no": "5",
+                "transaction_date": "5/5/2005",
+                "security": "10Reliance5",
+                "transaction_type": "Sold",
+                "amount" : "55555"
+            }
+        ]
+    },
+    "11": {
+        "bill_no" : "11",
+        "bill_date": "11/11/2011",
+        "broker" : "RSS",
+        "settlement_no" : "11",
+        "settlement_type" : "ROLLING",
+        "exchange" : "NSE",
+        "from_period" : "11/11/2011",
+        "to_period" : "11/11/2012",
+        "transaction" : [
+            {
+                "transaction_no": "1",
+                "transaction_date": "1/1/2001",
+                "security": "11Reliance",
+                "transaction_type": "Sold",
+                "amount" : "11111"
+            } ,
+            {
+                "transaction_no": "2",
+                "transaction_date": "2/2/2002",
+                "security": "11Reliance2",
+                "transaction_type": "Brought",
+                "amount" : "22222"
+            },
+            {
+                "transaction_no": "3",
+                "transaction_date": "3/3/2003",
+                "security": "11Reliance3",
+                "transaction_type": "Sold",
+                "amount" : "33333"
+            },
+            {
+                "transaction_no": "4",
+                "transaction_date": "4/4/2004",
+                "security": "11Reliance4",
+                "transaction_type": "Brought",
+                "amount" : "44444"
+            },
+            {
+                "transaction_no": "5",
+                "transaction_date": "5/5/2005",
+                "security": "11Reliance5",
+                "transaction_type": "Sold",
+                "amount" : "55555"
+            }
+        ]
+    },
+    "12": {
+        "bill_no" : "12",
+        "bill_date": "12/12/2012",
+        "broker" : "HDFC",
+        "settlement_no" : "12",
+        "settlement_type" : "NORMAL",
+        "exchange" : "CMX",
+        "from_period" : "12/12/2012",
+        "to_period" : "12/12/2013",
+        "transaction" : [
+            {
+                "transaction_no": "1",
+                "transaction_date": "1/1/2001",
+                "security": "12Reliance",
+                "transaction_type": "Sold",
+                "amount" : "11111"
+            } ,
+            {
+                "transaction_no": "2",
+                "transaction_date": "2/2/2002",
+                "security": "12Reliance2",
+                "transaction_type": "Brought",
+                "amount" : "22222"
+            },
+            {
+                "transaction_no": "3",
+                "transaction_date": "3/3/2003",
+                "security": "12Reliance3",
+                "transaction_type": "Sold",
+                "amount" : "33333"
+            },
+            {
+                "transaction_no": "4",
+                "transaction_date": "4/4/2004",
+                "security": "12Reliance4",
+                "transaction_type": "Brought",
+                "amount" : "44444"
+            },
+            {
+                "transaction_no": "5",
+                "transaction_date": "5/5/2005",
+                "security": "12Reliance5",
+                "transaction_type": "Sold",
+                "amount" : "55555"
+            }
+        ]
+    },
+    "13": {
+        "bill_no" : "13",
+        "bill_date": "13/12/2013",
+        "broker" : "RSS",
+        "settlement_no" : "13",
+        "settlement_type" : "ROLLING",
+        "exchange" : "BSE",
+        "from_period" : "13/12/2013",
+        "to_period" : "13/12/2014",
+        "transaction" : [
+            {
+                "transaction_no": "1",
+                "transaction_date": "1/1/2001",
+                "security": "13Reliance",
+                "transaction_type": "Sold",
+                "amount" : "11111"
+            } ,
+            {
+                "transaction_no": "2",
+                "transaction_date": "2/2/2002",
+                "security": "13Reliance2",
+                "transaction_type": "Brought",
+                "amount" : "22222"
+            },
+            {
+                "transaction_no": "3",
+                "transaction_date": "3/3/2003",
+                "security": "13Reliance3",
+                "transaction_type": "Sold",
+                "amount" : "33333"
+            },
+            {
+                "transaction_no": "4",
+                "transaction_date": "4/4/2004",
+                "security": "13Reliance4",
+                "transaction_type": "Brought",
+                "amount" : "44444"
+            },
+            {
+                "transaction_no": "5",
+                "transaction_date": "5/5/2005",
+                "security": "13Reliance5",
+                "transaction_type": "Sold",
+                "amount" : "55555"
+            }
+        ]
+    },
+    "14": {
+        "bill_no" : "14",
+        "bill_date": "14/12/2014",
+        "broker" : "HDFC",
+        "settlement_no" : "14",
+        "settlement_type" : "NORMAL",
+        "exchange" : "NSE",
+        "from_period" : "14/12/2014",
+        "to_period" : "14/12/2015",
+        "transaction" : [
+            {
+                "transaction_no": "1",
+                "transaction_date": "1/1/2001",
+                "security": "14Reliance",
+                "transaction_type": "Sold",
+                "amount" : "11111"
+            } ,
+            {
+                "transaction_no": "2",
+                "transaction_date": "2/2/2002",
+                "security": "14Reliance2",
+                "transaction_type": "Brought",
+                "amount" : "22222"
+            },
+            {
+                "transaction_no": "3",
+                "transaction_date": "3/3/2003",
+                "security": "14Reliance3",
+                "transaction_type": "Sold",
+                "amount" : "33333"
+            },
+            {
+                "transaction_no": "4",
+                "transaction_date": "4/4/2004",
+                "security": "14Reliance4",
+                "transaction_type": "Brought",
+                "amount" : "44444"
+            },
+            {
+                "transaction_no": "5",
+                "transaction_date": "5/5/2005",
+                "security": "14Reliance5",
+                "transaction_type": "Sold",
+                "amount" : "55555"
+            }
+        ]
+    },
+    "15": {
+        "bill_no" : "15",
+        "bill_date": "15/12/2015",
+        "broker" : "RSS",
+        "settlement_no" : "15",
+        "settlement_type" : "ROLLING",
+        "exchange" : "CMX",
+        "from_period" : "15/12/2015",
+        "to_period" : "15/12/2016",
+        "transaction" : [
+            {
+                "transaction_no": "1",
+                "transaction_date": "1/1/2001",
+                "security": "15Reliance",
+                "transaction_type": "Sold",
+                "amount" : "11111"
+            } ,
+            {
+                "transaction_no": "2",
+                "transaction_date": "2/2/2002",
+                "security": "15Reliance2",
+                "transaction_type": "Brought",
+                "amount" : "22222"
+            },
+            {
+                "transaction_no": "3",
+                "transaction_date": "3/3/2003",
+                "security": "15Reliance3",
+                "transaction_type": "Sold",
+                "amount" : "33333"
+            },
+            {
+                "transaction_no": "4",
+                "transaction_date": "4/4/2004",
+                "security": "15Reliance4",
+                "transaction_type": "Brought",
+                "amount" : "44444"
+            },
+            {
+                "transaction_no": "5",
+                "transaction_date": "5/5/2005",
+                "security": "15Reliance5",
+                "transaction_type": "Sold",
+                "amount" : "55555"
+            }
+        ]
     }
-]
+}

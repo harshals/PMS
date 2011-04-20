@@ -19,7 +19,7 @@ MainController = function(app) { with (app) {
 
         app.get('#/misc', function(context) {
             context.render('').replace("#section-menu");
-            context.redirect("#/");
+            context.redirect("#/misc-list");
 	});
 
         app.get('#/mis_reports', function(context) {

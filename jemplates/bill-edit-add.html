@@ -8,7 +8,7 @@
                 </li>
                 <li>
                     <label class="">Bill Date</label>
-                    <input class=" datepicker" type="text" name="bill_date" value="[% bill_date %]" />
+                    <input class=" datepicker" type="text" name="bill_date" value="[% list.bill_date %]" />
                 </li>
                 <li>
                     <label class="">Broker</label>
@@ -44,7 +44,7 @@
                     <label class="">Period</label>
                 </li>
                 <li>
-                    <input class="" type="text" name="from_period" value="[% list.form_period %]"/>
+                    <input class="" type="text" name="from_period" value="[% list.from_period %]"/>
                 </li>
                 <li>
                     <input type="text" name="to_period" value="[% list.to_period %]"/>
@@ -72,7 +72,7 @@
                 </tr>
             </thead>
             <tbody id="new-row">
-                [% FOREACH item IN list %]
+                [% FOREACH item IN list.transaction %]
 
 			[% PROCESS "transaction-list-item.html" %]
 
