@@ -11,124 +11,97 @@ BillController = function(app) {with (app) {
                 $("#content-extra").html('');
                 $("#section-menu").html('');
         });
- 
-//===================================LOADING FUNCTION===========================
-     var sec,group,broker,acc;
-		 bind('process',function(){
-		     var context = this;
-					 
-//------------------------------------ FIR ADD SECURITY ------------------------				
-				$("#main-content").find("a#add_security").click(function() {
-					
-					 context.load("api/security.json")
-							.then(function(json) {
-								
-								this.wait();
-								context.jemplate('add_security.html',{data:json},
-									                                     '#sidebar-content', this);
-								
-							})
-							.then(function(html) {
+//===================================BEFORE LOADING=============================
 
-								$("#sidebar-content").find("select[name=add_security]")
-													 .select_autocomplete();
+//===================================BINDING FUNCTION===========================
+         var sec,group,broker,acc;
+                bind('process',function(){
+                var context = this;
 
-								$("#sidebar-content").find("input#add").click(function() {
-									sec = $("#sidebar-content").find("select[name=add_security]")
-															   .val();
-									alert("You select "+sec)
-									
-									var security_el = $("#main-content").find("input[name=security]");
-									$(security_el).val( $(security_el).val() + "," + sec );
-								});
-							});
-				});
-//-------------------------------  ADD FAMILY / GROUP --------------------------------
-				$("#main-content").find("a#family_group").click(function() {
-					
-					 context.load("api/family.json")
-							.then(function(json) {
-								
-								this.wait();
-								context.jemplate('group.html',{data:json},
-									                              '#sidebar-content', this);
-								
-							})
-							.then(function(html) {
+//----------------------------------------Add Security--------------------------
+            $("#main-content").find("a#add_security").click(function() {
+                context .load("api/security.json")
+                        .then(function(json) {
+                            this.wait();
+                            context.jemplate('add_security.html',{data:json},'#sidebar-content', this);
+                        })
+                        .then(function(html) {
+                            $("#sidebar-content").find("select[name=add_security]").select_autocomplete();
+                            $("#sidebar-content").find("input#add").click(function() {
+                                sec = $("#sidebar-content").find("select[name=add_security]").val();
+                                alert("You select "+sec)
+                                var security_el = $("#main-content").find("input[name=security]");
+                                $(security_el).val( $(security_el).val() + "," + sec );
+                            });
+                        });
+            });
+//----------------------------------------Add Security--------------------------
 
-								$("#sidebar-content").find("select[name=family_group]")
-													 .select_autocomplete();
-	 
-								$("#sidebar-content").find("input#add").click(function() {
-									group = $("#sidebar-content").find("select[name=family_group]")
-															   .val();
-									alert("You select "+group);
-									var family = $("#main-content" ).find("input[name=family_group]");
-									$(family).val( $(family).val() + "," + group );
-									
-								});
-							});
-				});
-//------------------------------------ ADD BROKER -------------------------------------------
-				$("#main-content").find("a#broker").click(function() {
-					
-						 context.load("api/broker.json")
-								.then(function(json) {
-									
-									this.wait();
-									context.jemplate('broker.html',{data:json},
-										                               '#sidebar-content', this);
-									
-								})
-								.then(function(html) {
+//-------------------------------------Add Family & Group-----------------------
+            $("#main-content").find("a#family_group").click(function() {
+                context .load("api/family.json")
+                        .then(function(json) {
+                            this.wait();
+                            context.jemplate('group.html',{data:json},'#sidebar-content', this);
+                        })
+                        .then(function(html) {
+                            $("#sidebar-content").find("select[name=family_group]").select_autocomplete();
+                            $("#sidebar-content").find("input#add").click(function() {
+                                group = $("#sidebar-content").find("select[name=family_group]").val();
+                                alert("You select "+group);
+                                var family = $("#main-content" ).find("input[name=family_group]");
+                                $(family).val( $(family).val() + "," + group );
+                            });
+                        });
+            });
+//-------------------------------------Add Family & Group-----------------------
 
-									$("#sidebar-content").find("select[name=add_broker]")
-														 .select_autocomplete();
+//--------------------------------------Add Broker------------------------------
+            $("#main-content").find("a#broker").click(function() {
+                context .load("api/broker.json")
+                        .then(function(json) {
+                            this.wait();
+                            context.jemplate('broker.html',{data:json},'#sidebar-content', this);
+                        })
+                        .then(function(html) {
+                            $("#sidebar-content").find("select[name=add_broker]").select_autocomplete();
+                            $("#sidebar-content").find("input#add").click(function() {
+                                broker = $("#sidebar-content").find("select[name=add_broker]").val();
+                                alert("You select "+broker);
+                                var brokername= $("#main-content" ).find("input[name=broker_name]");
+                                $(brokername).val( $(brokername).val() + "," + broker )
+                            });
+                        });
+            });
+//--------------------------------------Add Broker------------------------------
 
-									$("#sidebar-content").find("input#add").click(function() {
-										broker = $("#sidebar-content").find("select[name=add_broker]")
-																	  .val();
-										alert("You select "+broker);
-										var brokername= $("#main-content" ).find("input[name=broker_name]");
-										 $(brokername).val( $(brokername).val() + "," + broker )
-									 });
-						 });
-				});
-//------------------------------------------- ADD ACCOUNT -------------------------------------
-				$("#main-content").find("a#account").click(function() {
-					
-							 context.load("api/account.json")
-									.then(function(json) {
-										
-										this.wait();
-										context.jemplate('account.html',{data:json},
-											                                '#sidebar-content', this);
-										
-									})
-									.then(function(html) {
-
-										$("#sidebar-content").find("select[name=add_account]")
-															.select_autocomplete();
-
-										$("#sidebar-content").find("input#add").click(function() {
-											acc = $("#sidebar-content").find("select[name=add_account]")
-																	   .val();
-											alert("You select "+acc);
-											var acc_no = $("#main-content" ).find("input[name=account]");
-											  $(acc_no).val( $(acc_no).val() + "," + acc )
-										});
-							 });
-				});
-//-------------------------------------------END OF ALL FUNCTION -----------------------------------			
+//--------------------------------------Add Account------------------------------
+            $("#main-content").find("a#account").click(function() {
+                context .load("api/account.json")
+                        .then(function(json) {
+                            this.wait();
+                            context.jemplate('account.html',{data:json},'#sidebar-content', this);
+                        })
+                        .then(function(html) {
+                            $("#sidebar-content").find("select[name=add_account]").select_autocomplete();
+                            $("#sidebar-content").find("input#add").click(function() {
+                                acc = $("#sidebar-content").find("select[name=add_account]").val();
+                                alert("You select "+acc);
+                                var acc_no = $("#main-content" ).find("input[name=account]");
+                                $(acc_no).val( $(acc_no).val() + "," + acc )
+                            });
+                        });
+            });
+//--------------------------------------Add Account------------------------------
         });
-			  
+//===================================BINDING FUNCTION===========================
 
 //===================================AFTER LOADING==============================
         app.get('#/bill-list', function(context) {
             context.redirect("#/bill-list-view");
         });
 
-//-----------------------------------BILL LIST VIEW-----------------------------
+//-----------------------------------Bill List View-----------------------------
         app.get('#/bill-list-view', function(context) {
             alert("I m in List View");
             console.log("I m in List View");
@@ -158,19 +131,19 @@ BillController = function(app) {with (app) {
                             alert(id + "need to redirect");
                             context.redirect("#/bill-edit-add/"+id)
                         })
-                        context .jemplate('Pager.html', {}, '#page');//pager
+                        context .jemplate('Pager.html', {}, '#sidebar-content');//pager
                     //.................To Add n Search Bill.....................
                        
                     })
                     //..................TableSorter N Pagination................
                     .then(function(){
                         $("#MyTable").tablesorter()
-                                     .tablesorterPager({container : $("#page") , positionFixed: false});
+                                     .tablesorterPager({container : $("#sidebar-content") , positionFixed: false});
                     });
         });
-//-----------------------------------BILL LIST VIEW-----------------------------
+//-----------------------------------Bill List View-----------------------------
 
-//---------------------------------EDIT ADD TRANSACTION-------------------------
+//---------------------------------Edit Add Transaction-------------------------
         app.get('#/bill-edit-add/:id', function(context) {
             var id = context.params['id']
             alert("ID is" + id)
@@ -211,44 +184,37 @@ BillController = function(app) {with (app) {
                         $("#MyTable").tablesorter();
                     })
         });
+//---------------------------------Edit Add Transaction-------------------------
 
+//-------------------------------Bill Add View ---------------------------------
+        app.get('#/bill-add', function(context) {
+            context .load("null.html")
+                    .then(function(html){
+                        context.jemplate('new-bill.html',{},'#main-content',this);
+                    })
+                    .then(function(){
+                        this.wait();
+                        context .jemplate('bill-edit-add-menu.html', {}, "#section-menu",this);
+                        $("#main-content" ).find("input.datepicker").datepicker( {altFormat: 'yy-mm-dd' ,dateFormat : 'dd-mm-yy'});
+                        context.trigger('process');
 
-//-------------------------------BILL ADD VIEW ---------------------------------
-	   app.get('#/bill-add', function(context) { 
-			 context.load("null.html")
-					.then(function(html){
-					 context.jemplate('new-bill.html',{},'#main-content',this);
-				  }).then(function(){
-						this.wait();
-						context .jemplate('bill-edit-add-menu.html', {}, "#section-menu",this);
-						 $("#main-content" ).find("input.datepicker")
-											.datepicker( {altFormat: 'yy-mm-dd' ,
-															dateFormat : 'dd-mm-yy'});
-						 context.trigger('process');
-						  
-				   })
-	   });
-//---------------------------------SEARCH REPORT FORM---------------------------
-		app.get('#/bill-search', function(context) { 
-				   context.load("null.html")
-						  .then(function(html) {
-							   context.jemplate('bill_report.html',{},'#main-content',this);
-							   
-						  
-						  }).then(function(){
-							  context .jemplate('bill-edit-add-menu.html', {}, "#section-menu", this);
-							  $("#main-content" ).find("input.datepicker")
-													.datepicker( {altFormat: 'yy-mm-dd' ,
-																	dateFormat : 'dd-mm-yy'});
+                    })
+        });
+//-------------------------------Bill Add View ---------------------------------
 
-							  context.trigger('process');
-															 
-						  });
-					   
-		});
-
-//---------------------------------EDIT ADD TRANSACTION-------------------------
+//---------------------------------Search Report Form---------------------------
+        app.get('#/bill-search', function(context) {
+            context .load("null.html")
+                    .then(function(html) {
+                        context.jemplate('bill_report.html',{},'#main-content',this);
+                    })
+                    .then(function(){
+                        context .jemplate('bill-edit-add-menu.html', {}, "#section-menu", this);
+                        $("#main-content" ).find("input.datepicker").datepicker( {altFormat: 'yy-mm-dd' ,dateFormat : 'dd-mm-yy'});
+                        context.trigger('process');
+                    });
+        });
+//---------------------------------Search Report Form---------------------------
 
 //===================================AFTER LOADING==============================
-
 }}
