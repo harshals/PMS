@@ -1,0 +1,33 @@
+ 
+    [
+        {
+            "company_name": "TATA",
+            "id": "9905",
+            "price": "1254.36" 
+        },
+        {
+            "company_name": "RELIANCE",
+            "id": "9906",
+            "price": "2254.36" 
+        },
+        {
+            "company_name": "INFOSYS",
+            "id": "9907",
+            "price": "3254.36" 
+        },
+        {
+            "company_name": "NIFTY",
+            "id": "9908",
+            "price": "4254.36" 
+        },
+        {
+            "company_name": "SENSEX",
+            "id": "9909",
+            "price": "22254.36" 
+        },
+        {
+            "company_name": "BHEL",
+            "id": "9910",
+            "price": "254.36" 
+        } 
+    ]

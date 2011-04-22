@@ -1,13 +1,13 @@
 <div id="sidebar-content" class="">
-    <h2>Add Security</h2>
+    <h2>Add Broker</h2>
 
      <fieldset class="yellow box">
 			 <ul class="form vvv thin">
 				   <li>
-					   <select name="add_security" class="grid_3">
-						   [% FOREACH company IN  data %][%#.look_for.serialize%] 
-							   <option value="[% company.company_name %]" >
-												[% company.company_name %]
+					   <select name="add_broker" >
+						   [% FOREACH broker IN  data %] 
+							   <option value="[% broker.broker_name %]" >
+												[% broker.broker_name %]
 							   </option>
 						   [% END %]
 						 </select>
@@ -21,3 +21,4 @@
        </fieldset> 
 
 </div>
+

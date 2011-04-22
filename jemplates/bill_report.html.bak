@@ -19,7 +19,9 @@
 					  <li class="grid_8">
 							<label class="grid_3">Security</label>
 							 <input type="text" class="grid_4" name="security" id="security" />
-							 <span class="leftNote offset1 small"> <a id="add_security">Not found ? Click here to add</a></span>
+							 <span>[% sec_data %]</span>
+							<span name="sec_id">security_el</span>
+							<span class="leftNote offset1 small"> <a id="add_security">Not found ? Click here to add</a></span>
 					  </li>
 		 <!-- ---------------------------------------------------------------------------- -->
 					  <li class="grid_8">

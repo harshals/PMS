@@ -1,11 +1,11 @@
 
-	  <div class="grid_17 main blue box" id="bill_report" >
+	  <div class="grid_17 main yellow box" id="bill_report" onLoad="displaydata()">
         <form method="post">
 		   <fieldset class="">
 		        <ul class="form hii">
 					  <li class="grid_8">
 						<label class="grid_3">From Date</label>
-						<input type="text" class="datepicker grid_4" name="bill_from_dt"/>	
+						<input type="text" class="datepicker grid_4" name="bill_from_dt" />	
 					  </li>
 					  <li  class="grid_8">
 								 <label class="grid_3">Settelment No.</label>
@@ -18,8 +18,9 @@
 					  </li>
 					  <li class="grid_8">
 							<label class="grid_3">Security</label>
-							 <input type="text" class="grid_4" name="security" id="security" />
-							 <span class="leftNote offset1 small"> <a id="add_security">Not found ? Click here to add</a></span>
+							 <input type="text" class="grid_4" name="security" />
+							
+							<span class="leftNote offset1 small"> <a id="add_security">Not found ? Click here to add</a></span>
 					  </li>
 		 <!-- ---------------------------------------------------------------------------- -->
 					  <li class="grid_8">

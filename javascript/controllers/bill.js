@@ -11,7 +11,117 @@ BillController = function(app) {with (app) {
                 $("#content-extra").html('');
                 $("#section-menu").html('');
         });
-//===================================BEFORE LOADING=============================
+ 
+//===================================LOADING FUNCTION===========================
+     var sec,group,broker,acc;
+		 bind('process',function(){
+		     var context = this;
+					 
+//------------------------------------ FIR ADD SECURITY ------------------------				
+				$("#main-content").find("a#add_security").click(function() {
+					
+					 context.load("api/security.json")
+							.then(function(json) {
+								
+								this.wait();
+								context.jemplate('add_security.html',{data:json},
+									                                     '#sidebar-content', this);
+								
+							})
+							.then(function(html) {
+
+								$("#sidebar-content").find("select[name=add_security]")
+													 .select_autocomplete();
+
+								$("#sidebar-content").find("input#add").click(function() {
+									sec = $("#sidebar-content").find("select[name=add_security]")
+															   .val();
+									alert("You select "+sec)
+									
+									var security_el = $("#main-content").find("input[name=security]");
+									$(security_el).val( $(security_el).val() + "," + sec );
+								});
+							});
+				});
+//-------------------------------  ADD FAMILY / GROUP --------------------------------
+				$("#main-content").find("a#family_group").click(function() {
+					
+					 context.load("api/family.json")
+							.then(function(json) {
+								
+								this.wait();
+								context.jemplate('group.html',{data:json},
+									                              '#sidebar-content', this);
+								
+							})
+							.then(function(html) {
+
+								$("#sidebar-content").find("select[name=family_group]")
+													 .select_autocomplete();
+	 
+								$("#sidebar-content").find("input#add").click(function() {
+									group = $("#sidebar-content").find("select[name=family_group]")
+															   .val();
+									alert("You select "+group);
+									var family = $("#main-content" ).find("input[name=family_group]");
+									$(family).val( $(family).val() + "," + group );
+									
+								});
+							});
+				});
+//------------------------------------ ADD BROKER -------------------------------------------
+				$("#main-content").find("a#broker").click(function() {
+					
+						 context.load("api/broker.json")
+								.then(function(json) {
+									
+									this.wait();
+									context.jemplate('broker.html',{data:json},
+										                               '#sidebar-content', this);
+									
+								})
+								.then(function(html) {
+
+									$("#sidebar-content").find("select[name=add_broker]")
+														 .select_autocomplete();
+
+									$("#sidebar-content").find("input#add").click(function() {
+										broker = $("#sidebar-content").find("select[name=add_broker]")
+																	  .val();
+										alert("You select "+broker);
+										var brokername= $("#main-content" ).find("input[name=broker_name]");
+										 $(brokername).val( $(brokername).val() + "," + broker )
+									 });
+						 });
+				});
+//------------------------------------------- ADD ACCOUNT -------------------------------------
+				$("#main-content").find("a#account").click(function() {
+					
+							 context.load("api/account.json")
+									.then(function(json) {
+										
+										this.wait();
+										context.jemplate('account.html',{data:json},
+											                                '#sidebar-content', this);
+										
+									})
+									.then(function(html) {
+
+										$("#sidebar-content").find("select[name=add_account]")
+															.select_autocomplete();
+
+										$("#sidebar-content").find("input#add").click(function() {
+											acc = $("#sidebar-content").find("select[name=add_account]")
+																	   .val();
+											alert("You select "+acc);
+											var acc_no = $("#main-content" ).find("input[name=account]");
+											  $(acc_no).val( $(acc_no).val() + "," + acc )
+										});
+							 });
+				});
+//-------------------------------------------END OF ALL FUNCTION -----------------------------------			
+        });
+			  
 
 //===================================AFTER LOADING==============================
         app.get('#/bill-list', function(context) {
@@ -50,16 +160,13 @@ BillController = function(app) {with (app) {
                         })
                         context .jemplate('Pager.html', {}, '#page');//pager
                     //.................To Add n Search Bill.....................
-                        $("#section-menu").find("a").click(function(){
-                            var id = $(this).attr("id");
-                            alert(id)
-                        })
+                       
                     })
                     //..................TableSorter N Pagination................
                     .then(function(){
                         $("#MyTable").tablesorter()
-                                         .tablesorterPager({container : $("#page") , positionFixed: false})
-                    })
+                                     .tablesorterPager({container : $("#page") , positionFixed: false});
+                    });
         });
 //-----------------------------------BILL LIST VIEW-----------------------------
 
@@ -98,16 +205,47 @@ BillController = function(app) {with (app) {
                                         $.facebox(content);
                                     })
                         })
-                    //...............To Add Delete N Print Bill.................
-                        $("#section-menu").find("a").click(function(){
-                            var id = $(this).attr("id");
-                            alert(id)
-                        })
+                    
                     })
                     .then(function(){
                         $("#MyTable").tablesorter();
                     })
         });
+
+
+//-------------------------------BILL ADD VIEW ---------------------------------
+	   app.get('#/bill-add', function(context) { 
+			 context.load("null.html")
+					.then(function(html){
+					 context.jemplate('new-bill.html',{},'#main-content',this);
+				  }).then(function(){
+						this.wait();
+						context .jemplate('bill-edit-add-menu.html', {}, "#section-menu",this);
+						 $("#main-content" ).find("input.datepicker")
+											.datepicker( {altFormat: 'yy-mm-dd' ,
+															dateFormat : 'dd-mm-yy'});
+						 context.trigger('process');
+						  
+				   })
+	   });
+//---------------------------------SEARCH REPORT FORM---------------------------
+		app.get('#/bill-search', function(context) { 
+				   context.load("null.html")
+						  .then(function(html) {
+							   context.jemplate('bill_report.html',{},'#main-content',this);
+							   
+						  
+						  }).then(function(){
+							  context .jemplate('bill-edit-add-menu.html', {}, "#section-menu", this);
+							  $("#main-content" ).find("input.datepicker")
+													.datepicker( {altFormat: 'yy-mm-dd' ,
+																	dateFormat : 'dd-mm-yy'});
+
+							  context.trigger('process');
+															 
+						  });
+					   
+		});
 //---------------------------------EDIT ADD TRANSACTION-------------------------
 
 //===================================AFTER LOADING==============================
