@@ -1,0 +1,77 @@
+[
+    {
+        "key_name" : "family",
+        "values" : "shah",
+        "sequence_no" : "1"
+    },
+    {
+        "key_name" : "family",
+        "values" : "patil",
+        "sequence_no" : "2"
+    },
+    {
+        "key_name" : "broker",
+        "values" : "RSS",
+        "sequence_no" : "1"
+    },
+    {
+        "key_name" : "broker",
+        "values" : "HDFC",
+        "sequence_no" : "2"
+    },
+    {
+        "key_name" : "exchange",
+        "values" : "BSE",
+        "sequence_no" : "2"
+    },
+    {
+        "key_name" : "exchange",
+        "values" : "NSE",
+        "sequence_no" : "2"
+    },
+    {
+        "key_name" : "exchange",
+        "values" : "CMX",
+        "sequence_no" : "3"
+    },
+    {
+        "key_name" : "settlement_type",
+        "values" : "NORMAL",
+        "sequence_no" : "1"
+    },
+    {
+        "key_name" : "settlement_type",
+        "values" : "ROLLING",
+        "sequence_no" : "2"
+    },
+    {
+        "key_name" : "security_type",
+        "values" : "EQUITY",
+        "sequence_no" : "1"
+    },
+    {
+        "key_name" : "security_type",
+        "values" : "DERIVATIVE",
+        "sequence_no" : "2"
+    },
+    {
+        "key_name" : "transcation_type",
+        "values" : "SPECULATIVE",
+        "sequence_no" : "1"
+    },
+    {
+        "key_name" : "transcation_type",
+        "values" : "DELIVERY",
+        "sequence_no" : "2"
+    },
+    {
+        "key_name" : "bought_sold",
+        "values" : "BOUGHT",
+        "sequence_no" : "2"
+    },
+    {
+        "key_name" : "bought_sold",
+        "values" : "SOLD",
+        "sequence_no" : "2"
+    }
+]

@@ -1,0 +1,38 @@
+<ul>
+
+    <li>
+        <table class="basetable tablesorter" id="MyTable"  >
+            <thead>
+                <tr>
+                    <th class="grid_3"> Key </th>
+                    <th class="grid_3"> Value </th>
+                </tr>
+            </thead>
+            <tbody id="new-row">
+
+                [% FOREACH item IN list %]
+
+                [% item.key_name_temp = item.key_name %]
+
+                    [% IF item.key_name_temp == item.key_name %]
+
+                            [% PROCESS "view-enumeration-list.html" %]
+
+                    [% END %]
+
+                    [% item.key_name_temp = item.key_name %]
+
+                [% END %]
+
+
+
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td class="" style="border-right : none" >
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </li>
+</ul>

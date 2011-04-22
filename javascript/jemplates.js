@@ -25,34 +25,6 @@ output += '<div id="pager" class="pager box blue ">\n	<form>\n		<span class="ico
     return output;
 }
 
-Jemplate.templateMap['account-edit.html'] = function(context) {
-    if (! context) throw('Jemplate function called without context\n');
-    var stash = context.stash;
-    var output = '';
-
-    try {
-output += '<ul class="form vhh">\n    <li>\n        <label class="" >Name</label>\n        <input type="text" value="';
-//line 4 "account-edit.html"
-output += stash.get(['item', 0, 'account_name', 0]);
-output += '" name="account_name" >\n    </li>\n    <li>\n        <label class="" >Address</label>\n        <input type="text" value="';
-//line 8 "account-edit.html"
-output += stash.get(['item', 0, 'address', 0]);
-output += '" name="address" >\n    </li>\n    <li>\n        <label class="" >Birth Date</label>\n        <input type="text" value="';
-//line 12 "account-edit.html"
-output += stash.get(['item', 0, 'birth_date', 0]);
-output += '" name="birth_date" >\n    </li>\n    <li>\n        <label class="" >Family</label>\n        <select class="grid_3" name="family" value="';
-//line 16 "account-edit.html"
-output += stash.get(['item', 0, 'family', 0]);
-output += '" >\n            <option value="shah">shah\n            <option value="desai">desai\n        </select>\n    </li>\n</ul>';
-    }
-    catch(e) {
-        var error = context.set_error(e, output);
-        throw(error);
-    }
-
-    return output;
-}
-
 Jemplate.templateMap['add_security.html'] = function(context) {
     if (! context) throw('Jemplate function called without context\n');
     var stash = context.stash;
@@ -91,22 +63,22 @@ Jemplate.templateMap['bill-edit-add.html'] = function(context) {
     var output = '';
 
     try {
-output += '<form class="form blue" action="">\n    <fieldset>\n        <legend></legend>\n            <ul class="vhh">\n                <li>\n                    <label style="border-bottom : none"class="">Bill No</label>\n                    <input class="" type="text" name="bill_no" value="';
+output += '<form class="form blue" action="">\n    <fieldset >\n        <legend></legend>\n            <ul class="vhh" >\n                <li>\n                    <label class="grid_3"style="border-bottom : none"class="">Bill No</label>\n                    <input class="grid_3" type="text" name="bill_no" value="';
 //line 7 "bill-edit-add.html"
 output += stash.get(['list', 0, 'bill_no', 0]);
-output += '"/>\n                </li>\n                <li>\n                    <label class="">Bill Date</label>\n                    <input class=" datepicker" type="text" name="bill_date" value="';
+output += '"/>\n                </li>\n                <li>\n                    <label class="grid_3">Bill Date</label>\n                    <input class="grid_3 datepicker" type="text" name="bill_date" value="';
 //line 11 "bill-edit-add.html"
 output += stash.get(['list', 0, 'bill_date', 0]);
-output += '" />\n                </li>\n                <li>\n                    <label class="">Broker</label>\n                    <select class="" name="broker" value="';
+output += '" />\n                </li>\n                <li>\n                    <label class="grid_3">Broker</label>\n                    <select class="grid_3" name="broker" value="';
 //line 15 "bill-edit-add.html"
 output += stash.get(['list', 0, 'broker', 0]);
-output += '">\n                        <option value="rss">RSS\n                        <option value="hdfc">HDFC\n                    </select>\n                </li>\n            </ul>\n            <ul class="vhh">\n                <li>\n                    <label class="grid_3">Settlement No</label>\n                    <input class="" type="text" name="settlement_no" value="';
+output += '">\n                        <option value="rss">RSS\n                        <option value="hdfc">HDFC\n                    </select>\n                </li>\n            </ul>\n            <ul class="vhh">\n                <li>\n                    <label class="grid_3">Settlement No</label>\n                    <input class="grid_3" type="text" name="settlement_no" value="';
 //line 24 "bill-edit-add.html"
 output += stash.get(['list', 0, 'settlement_no', 0]);
-output += '"/>\n                </li>\n                <li>\n                    <label class="grid_3">Settlement Type</label>\n                    <select class="" name="settlement_type" value="';
+output += '"/>\n                </li>\n                <li>\n                    <label class="grid_3">Settlement Type</label>\n                    <select class="grid_3" name="settlement_type" value="';
 //line 28 "bill-edit-add.html"
 output += stash.get(['list', 0, 'settlement_no', 0]);
-output += '">\n                        <option value="normal">NORMAL\n                        <option value="rolling">ROLLING\n                    </select>\n                </li>\n                <li>\n                    <label class="grid_3">Exchange</label>\n                    <select class="" name="exchange" vlaue="';
+output += '">\n                        <option value="normal">NORMAL\n                        <option value="rolling">ROLLING\n                    </select>\n                </li>\n                <li>\n                    <label class="grid_3">Exchange</label>\n                    <select class="grid_3" name="exchange" vlaue="';
 //line 35 "bill-edit-add.html"
 output += stash.get(['list', 0, 'exchange', 0]);
 output += '">\n                        <option value="bse">BSE\n                        <option value="nse">NSE\n                        <option value="cmx">CMX\n                    </select>\n                </li>\n            </ul>\n            <ul class="vhh">\n                <li>\n                    <label class="">Period</label>\n                </li>\n                <li>\n                    <input class="" type="text" name="from_period" value="';
@@ -278,28 +250,25 @@ output += '\n	  <div class="grid_17 main blue box" id="bill_report">\n        <f
     return output;
 }
 
-Jemplate.templateMap['misc-report-list-item.html'] = function(context) {
+Jemplate.templateMap['edit-account.html'] = function(context) {
     if (! context) throw('Jemplate function called without context\n');
     var stash = context.stash;
     var output = '';
 
     try {
-output += '\n<tr>\n        <td class=" grid_3" >';
-//line 3 "misc-report-list-item.html"
+output += '<fieldset>\n    <ul class="form vhh">\n        <li>\n            <label class="grid_3" >Name</label>\n            <input class="grid_3" type="text" value="';
+//line 5 "edit-account.html"
 output += stash.get(['item', 0, 'account_name', 0]);
-output += '</td>\n\n        <td class=" grid_3">';
-//line 5 "misc-report-list-item.html"
+output += '" name="account_name" >\n        </li>\n        <li>\n            <label class="grid_3" >Address</label>\n            <input class="grid_3" type="text" value="';
+//line 9 "edit-account.html"
 output += stash.get(['item', 0, 'address', 0]);
-output += '</td>\n\n        <td class=" grid_3">';
-//line 7 "misc-report-list-item.html"
-output += stash.get(['item', 0, 'total_outstanding', 0]);
-output += '</td>\n\n        <td class=" grid_3">';
-//line 9 "misc-report-list-item.html"
-output += stash.get(['item', 0, 'total_brokerage', 0]);
-output += '</td>\n\n        <td class=" grid_3">';
-//line 11 "misc-report-list-item.html"
-output += stash.get(['item', 0, 'total_amount', 0]);
-output += '</td>\n\n</tr>\n\n\n';
+output += '" name="address" >\n        </li>\n        <li>\n            <label class="grid_3" >Birth Date</label>\n            <input class="grid_3" type="text" value="';
+//line 13 "edit-account.html"
+output += stash.get(['item', 0, 'birth_date', 0]);
+output += '" name="birth_date" >\n        </li>\n        <li>\n            <label class="grid_3" >Family</label>\n            <select class="grid_3" name="family" value="';
+//line 17 "edit-account.html"
+output += stash.get(['item', 0, 'family', 0]);
+output += '" >\n                <option value="shah">shah\n                <option value="desai">desai\n            </select>\n        </li>\n        <li class="hii push_1">\n            <input type="button" value="Save" class="button grid_3"/>\n        </li>\n    </ul>\n</fieldset>\n';
     }
     catch(e) {
         var error = context.set_error(e, output);
@@ -309,63 +278,13 @@ output += '</td>\n\n</tr>\n\n\n';
     return output;
 }
 
-Jemplate.templateMap['misc-report-menu.html'] = function(context) {
+Jemplate.templateMap['misc-menu.html'] = function(context) {
     if (! context) throw('Jemplate function called without context\n');
     var stash = context.stash;
     var output = '';
 
     try {
-output += '<p>Action</p>\n<ul>\n\n    <li><a id="create">Add New Account</a></li>\n\n</ul>';
-    }
-    catch(e) {
-        var error = context.set_error(e, output);
-        throw(error);
-    }
-
-    return output;
-}
-
-Jemplate.templateMap['misc-report.html'] = function(context) {
-    if (! context) throw('Jemplate function called without context\n');
-    var stash = context.stash;
-    var output = '';
-
-    try {
-output += '<ul>\n\n    <li>\n        <table class="basetable tablesorter" id="MyTable"  >\n            <thead>\n                <tr>\n                    <th class="grid_3"> Account Name </th>\n                    <th class="grid_3"> Address </th>\n                    <th class="grid_3"> Total Outstanding </th>\n                    <th class="grid_3"> Total Brokerage </th>\n                    <th class="grid_3"> Total Amount </th>\n                </tr>\n            </thead>\n            <tbody id="new-row">\n\n                ';
-//line 20 "misc-report.html"
-
-// FOREACH 
-(function() {
-    var list = stash.get('list');
-    list = new Jemplate.Iterator(list);
-    var retval = list.get_first();
-    var value = retval[0];
-    var done = retval[1];
-    var oldloop;
-    try { oldloop = stash.get('loop') } finally {}
-    stash.set('loop', list);
-    try {
-        while (! done) {
-            stash.data['item'] = value;
-output += '\n\n			';
-//line 18 "misc-report.html"
-output += context.process('misc-report-list-item.html');
-output += '\n\n		';;
-            retval = list.get_next();
-            value = retval[0];
-            done = retval[1];
-        }
-    }
-    catch(e) {
-        throw(context.set_error(e, output));
-    }
-    stash.set('loop', oldloop);
-})();
-
-output += '\n\n\n\n            </tbody>\n            <tfoot>\n                <tr>\n                    <td class="" style="border-right : none" >\n                        <label class="push_1">Total</label>\n                        <label class="push_7">';
-//line 29 "misc-report.html"
-output += stash.get('total_amount');
-output += '</label>\n                    </td>\n                </tr>\n            </tfoot>\n        </table>\n    </li>\n</ul>';
+output += '<p>Action</p>\n<ul>\n\n    <li><a id="update" name="view_account">View Account</a></li>\n\n    <li><a id="create" name="edit_account">Add New Account</a></li>\n\n    <li><a id="update" name="view_enumeration">View Enumeration</a></li>\n\n    <li><a id="create" name="edit_enumeration">Add New Enumeration</a></li>\n\n</ul>';
     }
     catch(e) {
         var error = context.set_error(e, output);
@@ -449,6 +368,192 @@ output += '</td>\n\n        <td class=" grid_3">';
 //line 11 "transaction-list-item.html"
 output += stash.get(['item', 0, 'amount', 0]);
 output += '</td>\n\n</tr>\n\n\n';
+    }
+    catch(e) {
+        var error = context.set_error(e, output);
+        throw(error);
+    }
+
+    return output;
+}
+
+Jemplate.templateMap['view-account-list.html'] = function(context) {
+    if (! context) throw('Jemplate function called without context\n');
+    var stash = context.stash;
+    var output = '';
+
+    try {
+output += '\n<tr>\n        <td class=" grid_3" >';
+//line 3 "view-account-list.html"
+output += stash.get(['item', 0, 'account_name', 0]);
+output += '</td>\n\n        <td class=" grid_3">';
+//line 5 "view-account-list.html"
+output += stash.get(['item', 0, 'address', 0]);
+output += '</td>\n\n        <td class=" grid_3">';
+//line 7 "view-account-list.html"
+output += stash.get(['item', 0, 'total_outstanding', 0]);
+output += '</td>\n\n        <td class=" grid_3">';
+//line 9 "view-account-list.html"
+output += stash.get(['item', 0, 'total_brokerage', 0]);
+output += '</td>\n\n        <td class=" grid_3">';
+//line 11 "view-account-list.html"
+output += stash.get(['item', 0, 'total_amount', 0]);
+output += '</td>\n\n</tr>\n\n\n';
+    }
+    catch(e) {
+        var error = context.set_error(e, output);
+        throw(error);
+    }
+
+    return output;
+}
+
+Jemplate.templateMap['view-account.html'] = function(context) {
+    if (! context) throw('Jemplate function called without context\n');
+    var stash = context.stash;
+    var output = '';
+
+    try {
+output += '<ul>\n\n    <li>\n        <table class="basetable tablesorter" id="MyTable"  >\n            <thead>\n                <tr>\n                    <th class="grid_3"> Account Name </th>\n                    <th class="grid_3"> Address </th>\n                    <th class="grid_3"> Total Outstanding </th>\n                    <th class="grid_3"> Total Brokerage </th>\n                    <th class="grid_3"> Total Amount </th>\n                </tr>\n            </thead>\n            <tbody id="new-row">\n\n                ';
+//line 20 "view-account.html"
+
+// FOREACH 
+(function() {
+    var list = stash.get('list');
+    list = new Jemplate.Iterator(list);
+    var retval = list.get_first();
+    var value = retval[0];
+    var done = retval[1];
+    var oldloop;
+    try { oldloop = stash.get('loop') } finally {}
+    stash.set('loop', list);
+    try {
+        while (! done) {
+            stash.data['item'] = value;
+output += '\n\n			';
+//line 18 "view-account.html"
+output += context.process('view-account-list.html');
+output += '\n\n		';;
+            retval = list.get_next();
+            value = retval[0];
+            done = retval[1];
+        }
+    }
+    catch(e) {
+        throw(context.set_error(e, output));
+    }
+    stash.set('loop', oldloop);
+})();
+
+output += '\n\n\n\n            </tbody>\n            <tfoot>\n                <tr>\n                    <td class="" style="border-right : none" >\n                        <label class="push_1">Total</label>\n                        <label class="push_7">';
+//line 29 "view-account.html"
+output += stash.get('total_amount');
+output += '</label>\n                    </td>\n                </tr>\n            </tfoot>\n        </table>\n    </li>\n</ul>';
+    }
+    catch(e) {
+        var error = context.set_error(e, output);
+        throw(error);
+    }
+
+    return output;
+}
+
+Jemplate.templateMap['view-enumeration-list.html'] = function(context) {
+    if (! context) throw('Jemplate function called without context\n');
+    var stash = context.stash;
+    var output = '';
+
+    try {
+output += '<tr>\n        <td class=" grid_3" >';
+//line 2 "view-enumeration-list.html"
+output += stash.get(['item', 0, 'key_name', 0]);
+output += '</td>\n        <td class="grid_3" >';
+//line 3 "view-enumeration-list.html"
+output += stash.get(['item', 0, 'key_name_temp', 0]);
+output += '</td>\n\n        ';
+//line 13 "view-enumeration-list.html"
+if (stash.get(['item', 0, 'key_name_temp', 0]) == stash.get(['item', 0, 'key_name', 0])) {
+output += '\n\n            ';
+//line 7 "view-enumeration-list.html"
+stash.set('data', stash.get('data') + stash.get(['item', 0, 'values', 0]));
+output += '\n\n        ';
+}
+else {
+output += '\n\n            ';
+//line 11 "view-enumeration-list.html"
+stash.set('data', stash.get(['item', 0, 'values', 0]));
+output += '\n\n        ';
+}
+
+output += '\n\n        ';
+//line 15 "view-enumeration-list.html"
+stash.set(['item', 0, 'key_name_temp', 0], stash.get(['item', 0, 'key_name', 0]));
+output += '\n\n        <td class="grid_3" >';
+//line 17 "view-enumeration-list.html"
+output += stash.get(['item', 0, 'key_name_temp', 0]);
+output += '</td>\n        <td class="grid_3" >';
+//line 18 "view-enumeration-list.html"
+output += stash.get('data');
+output += '</td>\n        \n</tr>\n\n\n';
+    }
+    catch(e) {
+        var error = context.set_error(e, output);
+        throw(error);
+    }
+
+    return output;
+}
+
+Jemplate.templateMap['view-enumeration.html'] = function(context) {
+    if (! context) throw('Jemplate function called without context\n');
+    var stash = context.stash;
+    var output = '';
+
+    try {
+output += '<ul>\n\n    <li>\n        <table class="basetable tablesorter" id="MyTable"  >\n            <thead>\n                <tr>\n                    <th class="grid_3"> Key </th>\n                    <th class="grid_3"> Value </th>\n                </tr>\n            </thead>\n            <tbody id="new-row">\n\n                ';
+//line 25 "view-enumeration.html"
+
+// FOREACH 
+(function() {
+    var list = stash.get('list');
+    list = new Jemplate.Iterator(list);
+    var retval = list.get_first();
+    var value = retval[0];
+    var done = retval[1];
+    var oldloop;
+    try { oldloop = stash.get('loop') } finally {}
+    stash.set('loop', list);
+    try {
+        while (! done) {
+            stash.data['item'] = value;
+output += '\n\n                ';
+//line 15 "view-enumeration.html"
+stash.set(['item', 0, 'key_name_temp', 0], stash.get(['item', 0, 'key_name', 0]));
+output += '\n\n                    ';
+//line 21 "view-enumeration.html"
+if (stash.get(['item', 0, 'key_name_temp', 0]) == stash.get(['item', 0, 'key_name', 0])) {
+output += '\n\n                            ';
+//line 19 "view-enumeration.html"
+output += context.process('view-enumeration-list.html');
+output += '\n\n                    ';
+}
+
+output += '\n\n                    ';
+//line 23 "view-enumeration.html"
+stash.set(['item', 0, 'key_name_temp', 0], stash.get(['item', 0, 'key_name', 0]));
+output += '\n\n                ';;
+            retval = list.get_next();
+            value = retval[0];
+            done = retval[1];
+        }
+    }
+    catch(e) {
+        throw(context.set_error(e, output));
+    }
+    stash.set('loop', oldloop);
+})();
+
+output += '\n\n\n\n            </tbody>\n            <tfoot>\n                <tr>\n                    <td class="" style="border-right : none" >\n                    </td>\n                </tr>\n            </tfoot>\n        </table>\n    </li>\n</ul>';
     }
     catch(e) {
         var error = context.set_error(e, output);

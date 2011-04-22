@@ -15,7 +15,7 @@ BillController = function(app) {with (app) {
 
 //===================================AFTER LOADING==============================
         app.get('#/bill-list', function(context) {
-            context.redirect("#/bill-edit-add/"+12);
+            context.redirect("#/bill-list-view");
         });
 
 //-----------------------------------BILL LIST VIEW-----------------------------
@@ -102,10 +102,6 @@ BillController = function(app) {with (app) {
                         $("#section-menu").find("a").click(function(){
                             var id = $(this).attr("id");
                             alert(id)
-                            if(id=="create")
-                                {
-                                    context.redirect("#/bill-list-view")
-                                }
                         })
                     })
                     .then(function(){
