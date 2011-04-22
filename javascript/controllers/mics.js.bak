@@ -97,8 +97,7 @@ MiscController = function(app) {with (app) {
 						  }).then(function(){
 							     this.wait();
 						         $("#sidebar-content").find("#value_add").click(function(){
-									context.jemplate('add-enum-value.html',{},null,this);
-									$.facebox( this );
+									context.jemplate('add-enum-value.html',{},null,this).facebox( this );
 								 });
                           });
 		});

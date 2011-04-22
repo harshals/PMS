@@ -246,6 +246,29 @@ BillController = function(app) {with (app) {
 						  });
 					   
 		});
+
+//------------------------------ ADD ENUMARATION KEY & VALUE -------------------
+   app.get('#/add-enum', function(context) { 
+				   context.load("null.html")
+						  .then(function(html) {
+					           context .jemplate('misc-menu.html', {}, "#section-menu",this);
+							   
+						  }).then(function(){
+							     this.wait();
+							     context.jemplate('add-enumeration.html',{},'#sidebar-content',this);
+
+						  }).then(function(){
+							     this.wait();
+						         $("#sidebar-content").find("#add_value").click(function(){
+									 context.load("null.html")
+										    .then(function({
+										       context.jemplate('add-enum-value.html',{},null,this);
+									
+									       }).then(function(context){
+                                             $.facebox(context);
+                                 });
+						  })
+		});
 //---------------------------------EDIT ADD TRANSACTION-------------------------
 
 //===================================AFTER LOADING==============================

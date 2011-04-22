@@ -1,0 +1,18 @@
+<div id="sidebar-content" class="">
+    <h2>Add value</h2>
+
+     <fieldset class="yellow box">
+			 <ul class="form vvv thin grid_6">
+				   <li>
+					  <label>Enter Your Value<label>
+					  <input type="text" name="value_add" />
+				   </li>
+				   
+				   <li>
+							  <input type="button" name="add_detail" value="ADD" class="button" />
+							  <input type=reset name="reset" value="Reset" class="button" />
+				   </li>
+			  </ul>
+       </fieldset> 
+
+</div>

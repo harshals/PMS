@@ -7,6 +7,6 @@
 
     <li><a id="update" name="view_enumeration">View Enumeration</a></li>
 
-    <li><a id="create" name="edit_enumeration" href="#/add-enum">Add New Enumeration</a></li>
+    <li><a id="create" name="edit_enumeration">Add New Enumeration</a></li>
 
 </ul>

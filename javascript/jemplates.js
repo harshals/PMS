@@ -138,6 +138,70 @@ output += '\n						 </select>\n				   </li>\n				   \n				   <li>\n							  <inp
     return output;
 }
 
+Jemplate.templateMap['add-enum-value.html'] = function(context) {
+    if (! context) throw('Jemplate function called without context\n');
+    var stash = context.stash;
+    var output = '';
+
+    try {
+output += '<div id="sidebar-content" class="">\n    <h2>Add value</h2>\n\n     <fieldset class="yellow box">\n			 <ul class="form vvv thin">\n				   <li>\n					  <label>Enter Your Value<label>\n					  <input type="text" name="value_add" />\n				   </li>\n				   \n				   <li>\n							  <input type="button" name="add_detail" value="ADD" class="button" />\n							  <input type=reset name="reset" value="Reset" class="button" />\n				   </li>\n			  </ul>\n       </fieldset> \n\n</div>';
+    }
+    catch(e) {
+        var error = context.set_error(e, output);
+        throw(error);
+    }
+
+    return output;
+}
+
+Jemplate.templateMap['add-enum-value.html.bak'] = function(context) {
+    if (! context) throw('Jemplate function called without context\n');
+    var stash = context.stash;
+    var output = '';
+
+    try {
+output += '<div id="sidebar-content" class="">\n    <h2>Add value</h2>\n\n     <fieldset class="yellow box">\n			 <ul class="form vvv thin grid_6">\n				   <li>\n					  <label>Enter Your Value<label>\n					  <input type="text" name="value_add" />\n				   </li>\n				   \n				   <li>\n							  <input type="button" name="add_detail" value="ADD" class="button" />\n							  <input type=reset name="reset" value="Reset" class="button" />\n				   </li>\n			  </ul>\n       </fieldset> \n\n</div>';
+    }
+    catch(e) {
+        var error = context.set_error(e, output);
+        throw(error);
+    }
+
+    return output;
+}
+
+Jemplate.templateMap['add-enumeration.html'] = function(context) {
+    if (! context) throw('Jemplate function called without context\n');
+    var stash = context.stash;
+    var output = '';
+
+    try {
+output += '<div class="">\n    <h2>Add Enumeration</h2>\n\n     <fieldset class="yellow box">\n			 <ul class="form vvv thin">\n				   <li>\n					   <label>Enter Name</label>\n					   <input type="text" name="key_name">\n				   </li>\n				   <li>\n					   <label>Enter value</label>\n					   <input type="text" name="key_value">\n				   </li>\n				   <span class="bottomNote"> <a id="value_add">Add more values</a></span>\n				   <li>\n							  <input type="button" id="add" value="ADD" class="button" />\n							  <input type=reset name="reset" value="Reset" class="button" />\n				   </li>\n				   \n			  </ul>\n       </fieldset> \n\n</div>';
+    }
+    catch(e) {
+        var error = context.set_error(e, output);
+        throw(error);
+    }
+
+    return output;
+}
+
+Jemplate.templateMap['add-enumeration.html.bak'] = function(context) {
+    if (! context) throw('Jemplate function called without context\n');
+    var stash = context.stash;
+    var output = '';
+
+    try {
+output += '<div class="">\n    <h2>Add Enumeration</h2>\n\n     <fieldset class="yellow box">\n			 <ul class="form vvv thin">\n				   <li>\n					   <label>Enter Name</label>\n					   <input type="text" name="key_name">\n				   </li>\n				   <li>\n					   <label>Enter value</label>\n					   <input type="text" name="key_value">\n				   </li>\n				   <li>\n							  <input type="button" id="add" value="ADD" class="button" />\n							  <input type=reset name="reset" value="Reset" class="button" />\n				   </li>\n				   <span class="bottomNote"> <a id="value_add">Add more values</a></span>\n			  </ul>\n       </fieldset> \n\n</div>';
+    }
+    catch(e) {
+        var error = context.set_error(e, output);
+        throw(error);
+    }
+
+    return output;
+}
+
 Jemplate.templateMap['add_security.html'] = function(context) {
     if (! context) throw('Jemplate function called without context\n');
     var stash = context.stash;
@@ -609,6 +673,22 @@ output += '\n						 </select>\n				   </li>\n				   \n				   <li>\n							  <inp
 }
 
 Jemplate.templateMap['misc-menu.html'] = function(context) {
+    if (! context) throw('Jemplate function called without context\n');
+    var stash = context.stash;
+    var output = '';
+
+    try {
+output += '<p>Action</p>\n<ul>\n\n    <li><a id="update" name="view_account">View Account</a></li>\n\n    <li><a id="create" name="edit_account">Add New Account</a></li>\n\n    <li><a id="update" name="view_enumeration">View Enumeration</a></li>\n\n    <li><a id="create" name="edit_enumeration" href="#/add-enum">Add New Enumeration</a></li>\n\n</ul>';
+    }
+    catch(e) {
+        var error = context.set_error(e, output);
+        throw(error);
+    }
+
+    return output;
+}
+
+Jemplate.templateMap['misc-menu.html.bak'] = function(context) {
     if (! context) throw('Jemplate function called without context\n');
     var stash = context.stash;
     var output = '';
