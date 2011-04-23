@@ -77,21 +77,22 @@ BillController = function(app) {with (app) {
 
 //--------------------------------------Add Account------------------------------
             $("#main-content").find("a#account").click(function() {
-                context .load("api/account.json")
-                        .then(function(json) {
-                            this.wait();
-                            context.jemplate('account.html',{data:json},'#sidebar-content', this);
-                        })
-                        .then(function(html) {
-                            $("#sidebar-content").find("select[name=add_account]").select_autocomplete();
-                            $("#sidebar-content").find("input#add").click(function() {
-                                acc = $("#sidebar-content").find("select[name=add_account]").val();
-                                alert("You select "+acc);
-                                var acc_no = $("#main-content" ).find("input[name=account]");
-                                $(acc_no).val( $(acc_no).val() + "," + acc )
-                            });
-                        });
-            });
+				 context.load("api/acc.json")
+				 		.then(function(json) {
+							this.wait();
+							context.jemplate('account.html',{data:json},"#sidebar-content", this);
+							})
+							.then(function(html) {
+								$("#sidebar-content").find("select[name=add_account]")
+													 .select_autocomplete();
+							    $("#sidebar-content").find("input#add").click(function() {
+									acc = $("#sidebar-content").find("select[name=add_account]")
+									alert("You select "+acc);
+									var acc_no = $("#main-content" ).find("input[name=account]");
+									 $(acc_no).val( $(acc_no).val() + "," + acc )
+								});
+							});
+				});
 //--------------------------------------Add Account------------------------------
         });
 //===================================BINDING FUNCTION===========================

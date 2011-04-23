@@ -8,36 +8,24 @@
                     <th class="grid_3"> Value </th>
                 </tr>
             </thead>
-            <tbody id="new-row" class="">
-                [% data = " " %]
-                
-                [% FOREACH item IN list.pairs %]
+            <tbody id="new-row">
 
-                    <tr>
+                [% FOREACH item IN list %]
 
-                        <td class=" grid_3" >[% item.key %]</td>
+                [% item.key_name_temp = item.key_name %]
 
-                        [% FOREACH ii IN item.value %]
+                    [% IF item.key_name_temp == item.key_name %]
 
-                            [% IF prev == item.key %]
-                            
-                                [% data = data + " , " + ii.values %]
+                            [% PROCESS "view-enumeration-list.html" %]
 
-                            [% ELSE %]
+                    [% END %]
 
-                                [% data = ii.values %]
+                    [% item.key_name_temp = item.key_name %]
 
-                            [% END %]
-
-                            [% prev = item.key %]
-
-                        [% END %]
-
-                        <td class=""> [% data %]</td>
-
-                    </tr>
-                    
                 [% END %]
+
+
+
             </tbody>
             <tfoot>
                 <tr>

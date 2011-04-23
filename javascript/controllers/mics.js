@@ -101,40 +101,49 @@ MiscController = function(app) {with (app) {
 //----------------------------------Enumeration View----------------------------
 
 //-------------------------------Add Enumeration Key & Value--------------------
-    app.get('#/add-enum', function(context) {
-        context .load("null.html")
-                .then(function(html) {
-                    context .jemplate('misc-menu.html', {}, "#section-menu",this);
-                })
-                .then(function(){
-                    this.wait();
-                    context.jemplate('add-enumeration.html',{},'#sidebar-content',this);
-                })
-                .then(function(){
-                    this.wait();
-                    $("#section-menu").find("a[name=view_account]").click(function(){
-                            alert("it works view account")
-                            context.redirect("#/view-account");
-                        })
-                        $("#section-menu").find("a[name=edit_account]").click(function(){
-                            alert("it works edit account")
-                            context .jemplate('edit-account.html',{}, "#sidebar-content");
-                        })
-                        $("#section-menu").find("a[name=view_enumeration]").click(function(){
-                            alert("it works view enumeration")
-                            context.redirect("#/view-enumeration");
-                        })
-                    $("#sidebar-content").find("#value_add").click(function(){
-                        context .load("null.html")
-                                .then(function(json) {
-                                    context.jemplate('add-enum-value.html',{},null,this);
-                                })
-                                .then(function(content){
-                                    $.facebox(content);
-                                })
-                        })
-                });
-    });
+  app.get('#/add-enum', function(context) { 
+		var data1,data;
+			context.load("null.html")
+			       .then(function(html) {
+		                 context .jemplate('misc-menu.html', {}, "#section-menu",this);
+
+		           }).then(function(){
+						 this.wait();
+						 context.jemplate('add-enumeration.html',{},'#sidebar-content',this);
+ 
+				   }).then(function(){
+		                 this.wait();
+		                 $("#sidebar-content").find("#value_add").click(function(){
+		                         context .load("null.html")
+		                                 .then(function(json) {
+		                                        context .jemplate('add-enum-value.html',{}, null, this)
+		                                 }).then(function(content){
+		                                          $.facebox(content);
+		                                 }).then(function(){
+                                              $("#facebox").find("input[name=add_detail]")
+												           .click(function() {
+		                                      data1 = $("#facebox").find("input[name=name_added]")
+										                           .val();
+		                                      data = $("#facebox").find("input[name=value_added]")
+												                  .val();
+		                                      alert("You Insert Name as "+data1+" With Value "+data);
+		                                      $("#facebox").find("input[name=add_detail]")
+												           .trigger('close.facebox');
+
+		                                      var extra = $("#sidebar-content")
+												                .find("input[name=key_value]");
+		                                      $(extra).val( $(extra).val() + "," + data );
+
+		                                      var extra1 = $("#sidebar-content")
+												                .find("input[name=name_val]");
+		                                      $(extra1).val( $(extra1).val() + "," + data1 );
+
+		                               })	
+
+		                })  
+		          });
+		});
+}) 
 //-------------------------------Add Enumeration Key & Value--------------------
 
 //===================================AFTER LOADING==============================

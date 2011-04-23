@@ -1,8 +1,21 @@
 <tr>
-
         <td class=" grid_3" >[%item.key_name%]</td>
+        <td class="grid_3" >[% item.key_name_temp %]</td>
 
-        <td class="grid_3" >[% item.values %]</td>
+        [% IF item.key_name_temp == item.key_name %]
+
+            [% data = data + item.values %]
+
+        [% ELSE %]
+
+            [% data = item.values %]
+
+        [% END %]
+
+        [% item.key_name_temp = item.key_name %]
+
+        <td class="grid_3" >[% item.key_name_temp %]</td>
+        <td class="grid_3" >[% data %]</td>
         
 </tr>
 

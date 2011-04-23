@@ -24,6 +24,8 @@ MiscController = function(app) {with (app) {
             context .load("api/account.json")
                     .then(function(json) {
                         this.wait();
+                        alert(json)
+                        console.log(json)
                         var total_amount = 0;
                     //....................Calculating Total Amount..............
                         for( var i=0;i<json.length;i++)
@@ -59,8 +61,25 @@ MiscController = function(app) {with (app) {
                     .then(function(json) {
                         this.wait();
                         context .jemplate('misc-menu.html', {}, "#section-menu");
-                        console.log(json)
-                        context .jemplate('view-enumeration.html',{list:json}, "#main-content", this);
+                      //  console.log(json)
+
+                      var nhash = {};
+
+                      $.each(json, function(n,hash){
+
+                        if (typeof (nhash[ hash.key_name ]) == 'undefined') {
+                            nhash[ hash.key_name ] = new Array;
+                        }
+                        nhash[ hash.key_name ].push(hash);
+                     });
+
+                     var k = []
+                     n= nhash;
+                        console.log(n);
+
+                        //console.log(nhash);
+                        //console.log(nhash['bought_sold'][0]['key_name'])
+                        context .jemplate('view-enumeration.html',{list:nhash}, "#main-content", this);
                     })
                     .then(function(){
                         this.wait();
@@ -77,31 +96,46 @@ MiscController = function(app) {with (app) {
                             alert("it works view enumeration")
                             context.redirect("#/view-enumeration");
                         })
-                        $("#section-menu").find("a[name=edit_enumeration]").click(function(){
-                            alert("it works edit enumeration");
-                            context .jemplate('edit-enumeration.html',{}, "#sidebar-content");
-                        })
                     })
         });
-
-//------------------------------ ADD ENUMARATION KEY & VALUE -------------------
-   app.get('#/add-enum', function(context) { 
-				   context.load("null.html")
-						  .then(function(html) {
-					           context .jemplate('misc-menu.html', {}, "#section-menu",this);
-							   
-						  }).then(function(){
-							     this.wait();
-							     context.jemplate('add-enumeration.html',{},'#sidebar-content',this);
-
-						  }).then(function(){
-							     this.wait();
-						         $("#sidebar-content").find("#value_add").click(function(){
-									context.jemplate('add-enum-value.html',{},null,this).facebox( this );
-								 });
-                          });
-		});
 //----------------------------------Enumeration View----------------------------
+
+//-------------------------------Add Enumeration Key & Value--------------------
+    app.get('#/add-enum', function(context) {
+        context .load("null.html")
+                .then(function(html) {
+                    context .jemplate('misc-menu.html', {}, "#section-menu",this);
+                })
+                .then(function(){
+                    this.wait();
+                    context.jemplate('add-enumeration.html',{},'#sidebar-content',this);
+                })
+                .then(function(){
+                    this.wait();
+                    $("#section-menu").find("a[name=view_account]").click(function(){
+                            alert("it works view account")
+                            context.redirect("#/view-account");
+                        })
+                        $("#section-menu").find("a[name=edit_account]").click(function(){
+                            alert("it works edit account")
+                            context .jemplate('edit-account.html',{}, "#sidebar-content");
+                        })
+                        $("#section-menu").find("a[name=view_enumeration]").click(function(){
+                            alert("it works view enumeration")
+                            context.redirect("#/view-enumeration");
+                        })
+                    $("#sidebar-content").find("#value_add").click(function(){
+                        context .load("null.html")
+                                .then(function(json) {
+                                    context.jemplate('add-enum-value.html',{},null,this);
+                                })
+                                .then(function(content){
+                                    $.facebox(content);
+                                })
+                        })
+                });
+    });
+//-------------------------------Add Enumeration Key & Value--------------------
 
 //===================================AFTER LOADING==============================
 
