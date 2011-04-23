@@ -1,10 +1,10 @@
 <div id="sidebar-content" class="">
     <h2>Add Account No.</h2>
-    <form>
-     <fieldset class="yellow box">
+    <form class="yellow box">
+     <fieldset>
 			 <ul class="form vvv thin">
 				   <li>
-					   <select name="add_account" >
+					   <select name="add_account" style="width: 167px;">
 						   [% FOREACH acc IN  data %] 
 							   <option value="[% acc.account_no %]" >
 												[% acc.account_no %]

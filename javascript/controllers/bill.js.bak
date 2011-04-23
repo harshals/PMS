@@ -77,7 +77,7 @@ BillController = function(app) {with (app) {
 
 //--------------------------------------Add Account------------------------------
             $("#main-content").find("a#account").click(function() {
-				 context.load("api/account.json")
+				 context.load("api/acc.json")
 				 		.then(function(json) {
 							this.wait();
 							context.jemplate('account.html',{data:json},"#sidebar-content", this);
@@ -215,7 +215,14 @@ BillController = function(app) {with (app) {
                         context.trigger('process');
                     });
         });
-//---------------------------------Search Report Form---------------------------
+//---------------------------------IMport/Export Form---------------------------
+ 
+  app.get('#/import_export', function(context) {
+     context .load("null.html")
+             .then(function(html) {
+                     context.jemplate('import_export.html',{},'#main-content');
+             })
+  })
 
 //===================================AFTER LOADING==============================
 }}

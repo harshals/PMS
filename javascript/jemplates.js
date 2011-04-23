@@ -94,7 +94,7 @@ Jemplate.templateMap['account.html'] = function(context) {
     var output = '';
 
     try {
-output += '<div id="sidebar-content" class="">\n    <h2>Add Account No.</h2>\n    <form class="yellow box">\n     <fieldset>\n			 <ul class="form vvv thin">\n				   <li>\n					   <select name="add_account" >\n						   ';
+output += '<div id="sidebar-content" class="">\n    <h2>Add Account No.</h2>\n    <form class="yellow box">\n     <fieldset>\n			 <ul class="form vvv thin">\n				   <li>\n					   <select name="add_account">\n						   ';
 //line 12 "account.html"
 
 // FOREACH 
@@ -144,7 +144,7 @@ Jemplate.templateMap['account.html.bak'] = function(context) {
     var output = '';
 
     try {
-output += '<div id="sidebar-content" class="">\n    <h2>Add Account No.</h2>\n    <form>\n     <fieldset class="yellow box">\n			 <ul class="form vvv thin">\n				   <li>\n					   <select name="add_account" >\n						   ';
+output += '<div id="sidebar-content" class="">\n    <h2>Add Account No.</h2>\n    <form class="yellow box">\n     <fieldset>\n			 <ul class="form vvv thin">\n				   <li>\n					   <select name="add_account" style="width: 167px;">\n						   ';
 //line 12 "account.html.bak"
 
 // FOREACH 
@@ -818,6 +818,22 @@ output += '\n							   </option>\n						   ';;
 })();
 
 output += '\n						 </select>\n				   </li>\n			\n			  </ul>\n       </fieldset> \n       <li class="form hii">\n	      <input type="button" id="add" value="ADD" class="button" />\n	 	<input type="reset" name="reset" value="Reset" class="button" />\n       </li>\n\n      </form>\n</div>\n';
+    }
+    catch(e) {
+        var error = context.set_error(e, output);
+        throw(error);
+    }
+
+    return output;
+}
+
+Jemplate.templateMap['import_export.html'] = function(context) {
+    if (! context) throw('Jemplate function called without context\n');
+    var stash = context.stash;
+    var output = '';
+
+    try {
+output += '<div id="main-content" class="">\n   <form class="yellow box grid_17">\n     <fieldset>\n			 <ul class="form big tar fat">\n				   <li>\n				      <label>Data File</label>\n                      <input type="file" name="data_file" />\n				   </li>\n				   <li>\n				      <label>File Type</label>\n                      <select>\n					      <option>.csv</option>\n						  <option>.zip</option>\n\n					  </select>\n				   </li>\n				   <li>\n				      <label>Key Map File</label>\n                      <input type="file" name="data_file" />\n				   </li>\n				   \n		      </ul>\n       </fieldset> \n            <li class="form hii">\n		      <input type="button" id="add" value="ADD" class="button" />\n			<input type="reset" name="reset" value="Reset" class="button" />\n		</li>\n   </form>\n\n</div>\n';
     }
     catch(e) {
         var error = context.set_error(e, output);

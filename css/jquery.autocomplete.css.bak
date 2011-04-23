@@ -4,7 +4,6 @@
 	background-color: white;
 	overflow: hidden;
 	z-index: 99999;
-	
 }
 
 .ac_results ul {
@@ -25,7 +24,6 @@
 	when scroll mode will be used
 	*/
 	/*width: 100%;*/
-	
 	font: menu;
 	font-size: 12px;
 	/* 
@@ -38,7 +36,6 @@
 
 .ac_loading {
 	background: white url('indicator.gif') right center no-repeat;
-	
 }
 
 /*.ac_odd {
@@ -48,5 +45,4 @@
 .ac_over {
 	background-color: #0A246A;
 	color: white;
-
 }
