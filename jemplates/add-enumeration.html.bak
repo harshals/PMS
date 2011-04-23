@@ -1,22 +1,18 @@
 <div class="">
     <h2>Add Enumeration</h2>
-
+    <form>
      <fieldset class="yellow box">
 			 <ul class="form vvv thin">
 				   <li>
-					   <label>Enter Name</label>
+					   <label>Enter Key Name</label>
 					   <input type="text" name="key_name">
 				   </li>
-				   <li>
-					   <label>Enter value</label>
-					   <input type="text" name="key_value">
-				   </li>
-				   <li>
-							  <input type="button" id="add" value="ADD" class="button" />
-							  <input type=reset name="reset" value="Reset" class="button" />
-				   </li>
-				   <span class="bottomNote"> <a id="value_add">Add more values</a></span>
+				  		   
 			  </ul>
        </fieldset> 
-
+             <li class="form hii">
+				 <input type="button" id="add" value="ADD" class="button" />
+				 <input type="reset" name="reset" value="Reset" class="button" />
+			 </li>
+	 </form>
 </div>

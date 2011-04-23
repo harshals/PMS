@@ -1,18 +1,26 @@
 <div id="sidebar-content" class="">
     <h2>Add value</h2>
-
+    <form>
      <fieldset class="yellow box">
-			 <ul class="form vvv thin grid_6">
-				   <li>
-					  <label>Enter Your Value<label>
-					  <input type="text" name="value_add" />
+			 <ul class="form vvv thin">
+			       <li>
+					 <label>Key Nmae :</label>
+					 <span class="leftNote"><b>[%key_name%]</b></span>
 				   </li>
-				   
 				   <li>
-							  <input type="button" name="add_detail" value="ADD" class="button" />
-							  <input type=reset name="reset" value="Reset" class="button" />
+					  <label>Enter Name<label>
+					  <input type="text" name="name_added" />
 				   </li>
-			  </ul>
+				   <li>
+					  <label>Enter Value<label>
+					  <input type="text" name="value_added" />
+				   </li>
+			    </ul>	
        </fieldset> 
+	     <li class="form hii">
+			   <input type="button" name="add_detail" value="ADD" class="button" />
+			   <input type="reset" name="reset" value="Reset" class="button" />
+		 </li>
+	</form>
 
 </div>

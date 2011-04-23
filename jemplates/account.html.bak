@@ -1,7 +1,7 @@
 <div id="sidebar-content" class="">
     <h2>Add Account No.</h2>
-    <form class="yellow box">
-     <fieldset>
+    <form>
+     <fieldset class="yellow box">
 			 <ul class="form vvv thin">
 				   <li>
 					   <select name="add_account" >

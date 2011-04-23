@@ -1,11 +1,11 @@
 <p>Action</p>
 <ul>
 
-    <li><a id="update" name="view_account">View Account</a></li>
+    <li><a id="update" name="view_account" href="#/view-account">View Account</a></li>
 
-    <li><a id="create" name="edit_account">Add New Account</a></li>
+    <li><a id="create" name="edit_account" >Add New Account</a></li>
 
-    <li><a id="update" name="view_enumeration">View Enumeration</a></li>
+    <li><a id="update" name="view_enumeration" href="#/view-enumeration">View Enumeration</a></li>
 
     <li><a id="create" name="edit_enumeration">Add New Enumeration</a></li>
 

@@ -15,7 +15,7 @@
 
                     <tr>
 
-                        <td class=" grid_3" ><a name="[% item.key %]">[% item.key %]</a></td>
+                        <td class=" grid_3" ><a name="key_name">[% item.key %]</a></td>
 
                         [% FOREACH ii IN item.value %]
 

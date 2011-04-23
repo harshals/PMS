@@ -1,25 +1,24 @@
 <div id="sidebar-content" class="">
-    <h2>Add Broker</h2>
-    <form class="yellow box">
-     <fieldset>
+    <h2>Add Family/Group</h2>
+     <form>
+     <fieldset class="yellow box">
 			 <ul class="form vvv thin">
 				   <li>
-					   <select name="add_broker" >
-						   [% FOREACH broker IN  data %] 
-							   <option value="[% broker.broker_name %]" >
-												[% broker.broker_name %]
+					   <select name="family_group" >
+						   [% FOREACH member IN  data %] 
+							   <option value="[% member.member_name %]" >
+												[% member.member_name %]
 							   </option>
 						   [% END %]
 						 </select>
 				   </li>
-				   
-			 </ul>
+			
+			  </ul>
        </fieldset> 
        <li class="form hii">
 	      <input type="button" id="add" value="ADD" class="button" />
 	 	<input type="reset" name="reset" value="Reset" class="button" />
        </li>
-</form>
 
+      </form>
 </div>
-

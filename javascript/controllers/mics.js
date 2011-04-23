@@ -15,7 +15,6 @@ MiscController = function(app) {with (app) {
 
 //===================================AFTER LOADING==============================
         app.get('#/misc-list', function(context) {
-            alert("i m here")
             context.redirect("#/view-account");
         });
 
@@ -24,15 +23,13 @@ MiscController = function(app) {with (app) {
             context .load("api/account.json")
                     .then(function(json) {
                         this.wait();
-                        alert(json)
-                        console.log(json)
                         var total_amount = 0;
                     //....................Calculating Total Amount..............
                         for( var i=0;i<json.length;i++)
                         {
                             total_amount = total_amount + parseInt(json[i].total_amount)
                         }
-                        context .jemplate('misc-menu.html', {}, "#section-menu");
+                        context .jemplate('misc-menu.html', {data : "Accounts"}, "#section-menu");
                         context .jemplate('view-account.html',{list:json,total_amount:total_amount}, "#main-content", this);
                     })
                     .then(function(){
@@ -56,96 +53,44 @@ MiscController = function(app) {with (app) {
 //------------------------------------Account View------------------------------
 
 //----------------------------------Enumeration View----------------------------
-    app.get('#/view-enumeration', function(context) {
+        app.get('#/view-enumeration', function(context) {
             context .load("api/enumeration.json")
                     .then(function(json) {
                         this.wait();
-                        context .jemplate('misc-menu.html', {}, "#section-menu");
-                      //  console.log(json)
-
-                      var nhash = {};
-
-                      $.each(json, function(n,hash){
-
-                        if (typeof (nhash[ hash.key_name ]) == 'undefined') {
-                            nhash[ hash.key_name ] = new Array;
-                        }
-                        nhash[ hash.key_name ].push(hash);
-                     });
-
-                     var k = []
-                     n= nhash;
-                        console.log(n);
-
-                        //console.log(nhash);
-                        //console.log(nhash['bought_sold'][0]['key_name'])
+                        context .jemplate('misc-menu.html', {data : "Enumeartions"}, "#section-menu");
+                        var nhash = {};
+                        $.each(json, function(n,hash){
+                            if (typeof (nhash[ hash.key_name ]) == 'undefined') {
+                                nhash[ hash.key_name ] = new Array;
+                            }
+                            nhash[ hash.key_name ].push(hash);
+                        });
                         context .jemplate('view-enumeration.html',{list:nhash}, "#main-content", this);
                     })
                     .then(function(){
                         this.wait();
-                        $("#MyTable").tablesorter();
+                        $("#MyTable").tablesorter()
+							$("#MyTable").find("a").click(function(){
+								var data = $(this).attr("name");
+								alert("you click : "+data);
+								context .jemplate('add-enum-value.html',{key_name:data}, "#sidebar-content");
+							});
+						
                         $("#section-menu").find("a[name=view_account]").click(function(){
                             alert("it works view account")
                             context.redirect("#/view-account");
-                        })
+                        });
                         $("#section-menu").find("a[name=edit_account]").click(function(){
-                            alert("it works edit account")
-                            context .jemplate('edit-account.html',{}, "#sidebar-content");
-                        })
+                            alert("it works edit account");
+                            context .jemplate('add-enumeration.html',{}, "#sidebar-content");
+                        });
                         $("#section-menu").find("a[name=view_enumeration]").click(function(){
                             alert("it works view enumeration")
                             context.redirect("#/view-enumeration");
-                        })
+                        });
                     })
         });
 //----------------------------------Enumeration View----------------------------
-
-//-------------------------------Add Enumeration Key & Value--------------------
-  app.get('#/add-enum', function(context) { 
-		var data1,data;
-			context.load("null.html")
-			       .then(function(html) {
-		                 context .jemplate('misc-menu.html', {}, "#section-menu",this);
-
-		           }).then(function(){
-						 this.wait();
-						 context.jemplate('add-enumeration.html',{},'#sidebar-content',this);
- 
-				   }).then(function(){
-		                 this.wait();
-		                 $("#sidebar-content").find("#value_add").click(function(){
-		                         context .load("null.html")
-		                                 .then(function(json) {
-		                                        context .jemplate('add-enum-value.html',{}, null, this)
-		                                 }).then(function(content){
-		                                          $.facebox(content);
-		                                 }).then(function(){
-                                              $("#facebox").find("input[name=add_detail]")
-												           .click(function() {
-		                                      data1 = $("#facebox").find("input[name=name_added]")
-										                           .val();
-		                                      data = $("#facebox").find("input[name=value_added]")
-												                  .val();
-		                                      alert("You Insert Name as "+data1+" With Value "+data);
-		                                      $("#facebox").find("input[name=add_detail]")
-												           .trigger('close.facebox');
-
-		                                      var extra = $("#sidebar-content")
-												                .find("input[name=key_value]");
-		                                      $(extra).val( $(extra).val() + "," + data );
-
-		                                      var extra1 = $("#sidebar-content")
-												                .find("input[name=name_val]");
-		                                      $(extra1).val( $(extra1).val() + "," + data1 );
-
-		                               })	
-
-		                })  
-		          });
-		});
-}) 
-//-------------------------------Add Enumeration Key & Value--------------------
-
 //===================================AFTER LOADING==============================
 
 }}
