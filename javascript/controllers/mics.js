@@ -84,7 +84,7 @@ MiscController = function(app) {with (app) {
                         });
                         $("#MyTable").find("a").click(function(){
                             //alert("hello")
-                            var id = $(this).attr("id").replace("key_name_","");
+                            var enumeration_key = $(this).attr("id").replace("key_name_","");
                             context .load("api/enumeration.json")
                                 .then(function(json) {
                                     this.wait();
@@ -95,13 +95,15 @@ MiscController = function(app) {with (app) {
                                         }
                                         nhash[ hash.key_name ].push(hash);
                                     });
-                                    context .jemplate('view-each-enumeration.html',{list:nhash,enumeration_key : id}, "#main-content", this);
+                                    context .jemplate('view-each-enumeration.html',{list:nhash,enumeration_key : enumeration_key}, "#main-content", this);
                                 })
                                 .then(function(){
                                     $("#MyTable").find("span.delete").click(function(){
-                                        var data = $(this).attr("id").replace("row_","")
-                                        alert("you del click : "+ data);
-                                        $("#row_"+id+"]").parents("tr").hide();
+                                        var option_value = $(this).attr("id").replace("row_","")
+                                        alert("you del click : "+ option_value);
+                                        $("#new-row").find("#row_"+ option_value )
+                                                                    .parents("tr:first").hide();
+
                                     });
                                     $("#MyTable").find("span.edit").click(function(){
                                         var data = $(this).attr("id").replace("row_","")

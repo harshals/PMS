@@ -4,7 +4,6 @@ BillController = function(app) {with (app) {
         app.use("JSON");
         app.use(utils);
         var g_id;
-        var l_id;
 //===================================BEFORE LOADING=============================
         app.before(/^#\/bill-/, function(context) {
                 context.log("inside contact");
@@ -129,8 +128,8 @@ BillController = function(app) {with (app) {
                         this.wait();
                     //.........To Edit The Bill by clicking on Bill No..........
                         $("#MyTable").find("a").click(function(){
-                            var id = $(this).attr("id").replace("row_",'');
-                            context.redirect("#/bill-edit-add/"+id)
+                            var bill_no = $(this).attr("id").replace("row_",'');
+                            context.redirect("#/bill-edit-add/"+bill_no)
                         })
 
                         context .jemplate('Pager.html', {}, '#sidebar-content');//pager
@@ -148,7 +147,7 @@ BillController = function(app) {with (app) {
 //---------------------------------Edit Add Transaction-------------------------
         app.get('#/bill-edit-add/:id', function(context) {
             context .jemplate('bill-edit-add-menu.html', {}, "#section-menu");
-            var id = context.params['id']
+            var bill_no = context.params['id']
             var newhash = {}
 
             context .load("api/bill.json")
@@ -156,7 +155,7 @@ BillController = function(app) {with (app) {
                         this.wait();
                         var total = 0;
                         var trans = {}
-                        trans = json[id].transaction
+                        trans = json[bill_no].transaction
                         console.log(trans)
                         //................Calculating Total Amount..............
                         for( var i=0;i<trans.length;i++)
@@ -175,9 +174,7 @@ BillController = function(app) {with (app) {
                                         nhash[ hash.key_name ].push(hash);
                                     });
                                     newhash = nhash ;
-                                    context .jemplate('bill-edit-add.html',{bill:json[id],total:total,data:newhash}, "#main-content", this);
-
-                                    alert(l_id)
+                                    context .jemplate('bill-edit-add.html',{bill:json[bill_no],total:total,data:newhash}, "#main-content", this);
                                 })
                                 .then(function(){
                                     this.wait();
@@ -194,7 +191,7 @@ BillController = function(app) {with (app) {
                                                     $("#facebox").find("#del").click(function(){
                                                         $("#facebox").find("#del").trigger('close.facebox');
 
-                                                        $("#MyTable").find("a#row_"+ transcation_id )
+                                                        $("#MyTable").find("a#row_"+ transaction_id )
                                                                     .parents("tr:first").hide();
 
                                                         context.redirect("#/bill-edit-add/"+id)
@@ -203,13 +200,12 @@ BillController = function(app) {with (app) {
                                     })
 
                                     //..............To Delete Bill..............
-                                    $("#delete").click(function(){
-                                        var idd = $(this).attr("id");
-                                        alert(id)
-                                        g_id = id;
+                                    $("#section-menu").find("#delete").click(function(){
+                                        alert("hello")
+                                        g_id = bill_no;
                                         alert(g_id)
-                                        alert("This bill is " +idd);
-                                        context.redirect("#/bill-list-view")
+                                        alert("This bill is delete ");
+                                        context.redirect("#/bill-search")
                                     })
                                     $("#main-content" ) .find("input.datepicker")//datepicker
                                                         .datepicker( {altFormat: 'yy-mm-dd' ,dateFormat : 'dd-mm-yy'});
