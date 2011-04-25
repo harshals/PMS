@@ -197,6 +197,7 @@ BillController = function(app) {with (app) {
                                                     })
                                                     $("#facebox").find("#save").click(function(){
                                                         $("#facebox").find("#save").trigger('close.facebox');
+                                                        context.render('jemplates/single-transaction.html').appendTo("#new-row");
                                                     })
                                                 })
                                     })

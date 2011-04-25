@@ -5,7 +5,7 @@
             <thead>
                 <tr>
                     <th class="grid_3"> Key </th>
-                    <th class="grid_3"> Value </th>
+                    <th class="grid_9"> Value </th>
                 </tr>
             </thead>
             <tbody id="new-row" class="">
@@ -15,7 +15,7 @@
 
                     <tr>
 
-                        <td class=" grid_3" ><a name="[% item.key %]" id="key_name_[% item.key %]">[% item.key %]</a></td>
+                        <td class="grid_3" ><a name="[% item.key %]" id="key_name_[% item.key %]">[% item.key %]</a></td>
 
                         [% FOREACH ii IN item.value %]
 
@@ -33,7 +33,7 @@
 
                         [% END %]
 
-                        <td class=""> [% data %]</td>
+                        <td class="grid_9"> [% data %]</td>
 
                     </tr>
                     
@@ -41,8 +41,6 @@
             </tbody>
             <tfoot>
                 <tr>
-                    <td class="" style="border-right : none" >
-                    </td>
                 </tr>
             </tfoot>
         </table>

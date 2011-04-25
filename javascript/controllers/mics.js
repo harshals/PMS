@@ -35,6 +35,40 @@ MiscController = function(app) {with (app) {
                     .then(function(){
                         this.wait();
                         $("#MyTable").tablesorter();
+						$("#MyTable").find("a").click(function(){
+						  var account_id = $(this).attr('id');
+						  alert("Your choosen value is "+account_id);
+						  context .load("api/account.json")
+							      .then(function(json) {
+							        this.wait();
+                                   /* var nhash = {};
+                                    $.each(json, function(n,hash){
+                                        if (typeof (nhash[ hash.family ]) == 'undefined') {
+                                            nhash[ hash.family ] = new Array;
+                                        }
+                                        nhash[ hash.family ].push(hash);
+                                    });
+								    newhash = nhash ;
+									console.log("data is"+newhash);*/
+									context .jemplate('misc-view-account.html', {list:json[account_id-1],data:json}, null, this)
+								})
+								.then(function(content){
+									$.facebox(content);
+									$("#facebox" ) .find("input.datepicker")
+                                            .datepicker( {altFormat: 'yy-mm-dd' ,dateFormat : 'dd-mm-yy'});
+									$("#facebox").find("input[name=delete]").click(function(){
+										$("#facebox").find("input[name=delete]").trigger('close.facebox');
+
+										$("#MyTable").find("a#"+ account_id )
+													.parents("tr:first").hide();
+								    })
+
+									$("#facebox").find("input[name=save]").click(function(){
+										alert("Your data is save");
+										$("#facebox").find("input[name=delete]").trigger('close.facebox');
+								    })
+								})
+						})
                         $("#section-menu").find("a[name=view_account]").click(function(){
                             //alert("View Account")
                             context.redirect("#/view-account");
@@ -75,9 +109,9 @@ MiscController = function(app) {with (app) {
                             context.redirect("#/view-account");
                         });
                         $("#section-menu").find("a[name=edit_account]").click(function(){
-                            //alert("it works edit account");
-                            context .jemplate('add-enumeration.html',{}, "#sidebar-content");
-                        });
+                            context .jemplate('add-enumeration.html',{}, "#sidebar-content",this);
+                        })
+                        
                         $("#section-menu").find("a[name=view_enumeration]").click(function(){
                             //alert("it works view enumeration")
                             context.redirect("#/view-enumeration");
@@ -98,20 +132,56 @@ MiscController = function(app) {with (app) {
                                     context .jemplate('view-each-enumeration.html',{list:nhash,enumeration_key : enumeration_key}, "#main-content", this);
                                 })
                                 .then(function(){
-                                    $("#MyTable").find("span.delete").click(function(){
+                                   
+                                    $("#MyTable").find("span.edit").click(function(){
+                                        var data = $(this).attr("id").replace("row_","")
+                                        alert("you click : "+ data);
+                                        context .jemplate('add-enum-value.html',{key_name:data}, "#sidebar-content")
+                                        $("#sidebar-content").find("#save").click(function(){
+                                            alert("new enum value aded")
+                                            context .load("api/each-enumeartion.json")
+                                                    .then(function(json) {
+                                                        alert(json)
+                                                        //context .jemplate('new_enum.html',{item:json}, "#new-row", this);
+                                                    })
+                                        })
+                                    });
+                                    $("#MyTable").find("a").click(function(){
+                                        alert("hel;l")
+                                        context .jemplate('add-enum-value.html',{}, "#sidebar-content")
+                                        $("#sidebar-content").find("#save").click(function(){
+                                            alert("new enum value aded")
+                                            context.render('jemplates/new_enum_value.html').appendTo("#new-enum-value");
+                                        })
+                                    })
+                                     $("#MyTable").find("span.delete").click(function(){
                                         var option_value = $(this).attr("id").replace("row_","")
                                         alert("you del click : "+ option_value);
                                         $("#new-row").find("#row_"+ option_value )
                                                                     .parents("tr:first").hide();
 
                                     });
-                                    $("#MyTable").find("span.edit").click(function(){
-                                        var data = $(this).attr("id").replace("row_","")
-                                        alert("you click : "+ data);
-                                        context .jemplate('add-enum-value.html',{key_name:data}, "#sidebar-content");
-                                    });
                                 })
                         })
+                        
+                    })
+                    .then(function(){
+                        $("#section-menu").find("a[name=edit_account]").click(function(){
+                            //alert("it works edit account");
+                            context .jemplate('add-enumeration.html',{}, "#sidebar-content")
+                            $("#sidebar-content").find("#save").click(function(){
+                                alert("new row")
+                                context.render('jemplates/new_enum.html').appendTo("#new-row");
+                            })
+                                    /*.then(function(){
+                                        $("#sidebar-content").find("#save").click(function(){
+                                            alert("hello")
+                                        })
+                                    })*/
+                        })
+                    })
+                    .then(function(){
+                        
                     })
         });
 //----------------------------------Enumeration View----------------------------

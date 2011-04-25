@@ -197,7 +197,7 @@ Jemplate.templateMap['add-enum-value.html'] = function(context) {
 output += '<div id="sidebar-content" class="">\n    <h2>Add value</h2>\n    <form class="yellow box">\n     <fieldset>\n			 <ul class="form vvv thin">\n                                <li>\n                                        <label>Key Name :</label>\n                                        <span class="leftNote"><b>';
 //line 8 "add-enum-value.html"
 output += stash.get('key_name');
-output += '</b></span>\n                                </li>\n                                <li>\n                                        <label>Enter Sequence No.<label>\n                                        <input type="text" name="sequence_no" />\n                                </li>\n                                <li>\n                                        <label>Enter Name<label>\n                                        <input type="text" name="option_name" />\n                                </li>\n                                <li>\n                                        <label>Enter Value<label>\n                                        <input type="text" name="option_value" />\n                                </li>\n                                <li>\n                                    <label>Click to Select Default<label>\n                                    <input type=checkbox name="default" />\n                                </li>\n                               \n			    </ul>	\n       </fieldset> \n	     <li class="form hii">\n			   <input type="button" name="add_detail" value="ADD" class="button" />\n			   <input type="reset" name="reset" value="Reset" class="button" />\n		 </li>\n	</form>\n\n</div>';
+output += '</b></span>\n                                </li>\n                                <li>\n                                        <label>Enter Sequence No.<label>\n                                        <input type="text" name="sequence_no" />\n                                </li>\n                                <li>\n                                        <label>Enter Name<label>\n                                        <input type="text" name="option_name" />\n                                </li>\n                                <li>\n                                        <label>Enter Value<label>\n                                        <input type="text" name="option_value" />\n                                </li>\n                                <li>\n                                    <label>Click to Select Default<label>\n                                    <input type=checkbox name="default" />\n                                </li>\n                               \n			    </ul>	\n       </fieldset> \n	     <li class="form hii">\n			   <input type="button" id="save" name="add_detail" value="ADD" class="button" />\n			   <input type="reset" name="reset" value="Reset" class="button" />\n		 </li>\n	</form>\n\n</div>';
     }
     catch(e) {
         var error = context.set_error(e, output);
@@ -213,7 +213,7 @@ Jemplate.templateMap['add-enumeration.html'] = function(context) {
     var output = '';
 
     try {
-output += '<div class="">\n    <h2>Add Enumeration</h2>\n    <form class="yellow box">\n     <fieldset>\n			 <ul class="form vvv thin">\n				   <li>\n					   <label>Enter Key Name</label>\n					   <input type="text" name="key_name">\n				   </li>\n				  		   \n			  </ul>\n       </fieldset> \n             <li class="form hii">\n				 <input type="button" id="add" value="ADD" class="button" />\n				 <input type="reset" name="reset" value="Reset" class="button" />\n			 </li>\n	 </form>\n</div>';
+output += '<div class="">\n    <h2>Add Enumeration</h2>\n    <form class="yellow box">\n     <fieldset>\n			 <ul class="form vvv thin">\n				   <li>\n					   <label>Enter Key Name</label>\n					   <input type="text" name="key_name">\n				   </li>\n				  		   \n			  </ul>\n       </fieldset> \n             <li class="form hii">\n				 <input type="button" id="save" value="ADD" class="button" />\n				 <input type="reset" name="reset" value="Reset" class="button" />\n			 </li>\n	 </form>\n</div>';
     }
     catch(e) {
         var error = context.set_error(e, output);
@@ -943,6 +943,82 @@ output += '\n	  <div class="grid_17 main yellow box" id="bill_report" onLoad="di
     return output;
 }
 
+Jemplate.templateMap['new_enum.html'] = function(context) {
+    if (! context) throw('Jemplate function called without context\n');
+    var stash = context.stash;
+    var output = '';
+
+    try {
+output += '<tr>\n    <td class="grid_3"><a>SSS</a></td>]\n    <td class="grid_9"></td>\n</tr>';
+    }
+    catch(e) {
+        var error = context.set_error(e, output);
+        throw(error);
+    }
+
+    return output;
+}
+
+Jemplate.templateMap['new_enum_value.html'] = function(context) {
+    if (! context) throw('Jemplate function called without context\n');
+    var stash = context.stash;
+    var output = '';
+
+    try {
+output += '<tr>\n    <td class=" grid_3" ><a id="">3</a></td>\n\n    <td class=" grid_3">SSS</td>\n\n    <td class=" grid_3">SSS</td>\n\n    <td class=" grid_3"><input type="radio" name="default" /></td>\n\n    <td class="action left">\n        <span class="edit" ></span>\n        <span class="delete"></span>\n    </td>\n\n</tr>';
+    }
+    catch(e) {
+        var error = context.set_error(e, output);
+        throw(error);
+    }
+
+    return output;
+}
+
+Jemplate.templateMap['single-transaction.html'] = function(context) {
+    if (! context) throw('Jemplate function called without context\n');
+    var stash = context.stash;
+    var output = '';
+
+    try {
+output += '<tr>\n    <td class="grid_3">\n        12345\n    </td>\n    <td class="grid_3">\n        5/5/2055\n    </td>\n    <td class="grid_3">\n        INFY\n    </td>\n    <td class="grid_3">\n        Sold\n    </td>\n    <td class="grid_3">\n        99999\n    </td>\n</tr>';
+    }
+    catch(e) {
+        var error = context.set_error(e, output);
+        throw(error);
+    }
+
+    return output;
+}
+
+Jemplate.templateMap['single_row_enumeration.html'] = function(context) {
+    if (! context) throw('Jemplate function called without context\n');
+    var stash = context.stash;
+    var output = '';
+
+    try {
+output += '<tr>\n    <td>\n        <label>';
+//line 3 "single_row_enumeration.html"
+output += stash.get('key_name');
+output += '</label>\n    </td>\n    <td>\n        <label>';
+//line 6 "single_row_enumeration.html"
+output += stash.get('option_value');
+output += '</label>\n    </td>\n    <td>\n        <label>';
+//line 9 "single_row_enumeration.html"
+output += stash.get('option_name');
+output += '</label>\n    </td>\n    <td>\n        <label>';
+//line 12 "single_row_enumeration.html"
+output += stash.get('sequence_no');
+output += '</label>\n    </td>\n</tr>';
+    }
+    catch(e) {
+        var error = context.set_error(e, output);
+        throw(error);
+    }
+
+    return output;
+}
+
 Jemplate.templateMap['transaction-detail.html'] = function(context) {
     if (! context) throw('Jemplate function called without context\n');
     var stash = context.stash;
@@ -1129,7 +1205,7 @@ Jemplate.templateMap['view-each-enumeration.html'] = function(context) {
     var output = '';
 
     try {
-output += '<ul>\n\n    <li>\n        <table class="basetable tablesorter" id="MyTable"  >\n            <thead>\n                <tr>\n                    <td style="border-right : none">\n                    <label class="pull_5"> Items In Enumeartion </label>\n                    <label class="push_5" id="new"><a>Add New Item</a></label>\n                    </td>\n                </tr>\n                <tr>\n                    <th class="grid_3"> Sequence No </th>\n                    <th class="grid_3"> Name </th>\n                    <th class="grid_3"> Value </th>\n                    <th class="grid_3"> Default </th>\n                    <th class="grid_3">  </th>\n                </tr>\n            </thead>\n            <tbody id="new-row">\n                ';
+output += '<ul>\n\n    <li>\n        <table class="basetable tablesorter" id="MyTable"  >\n            <thead>\n                <tr>\n                    <td style="border-right : none">\n                    <label class="pull_5"> Items In Enumeartion </label>\n                    <label class="push_5" id="new"><a>Add New Item</a></label>\n                    </td>\n                </tr>\n                <tr>\n                    <th class="grid_3"> Sequence No </th>\n                    <th class="grid_3"> Name </th>\n                    <th class="grid_3"> Value </th>\n                    <th class="grid_3"> Default </th>\n                    <th class="grid_3">  </th>\n                </tr>\n            </thead>\n            <tbody id="new-enum-value">\n                ';
 //line 45 "view-each-enumeration.html"
 
 // FOREACH 
@@ -1254,7 +1330,7 @@ Jemplate.templateMap['view-enumeration.html'] = function(context) {
     var output = '';
 
     try {
-output += '<ul>\n\n    <li>\n        <table class="basetable tablesorter" id="MyTable"  >\n            <thead>\n                <tr>\n                    <th class="grid_3"> Key </th>\n                    <th class="grid_3"> Value </th>\n                </tr>\n            </thead>\n            <tbody id="new-row" class="">\n                ';
+output += '<ul>\n\n    <li>\n        <table class="basetable tablesorter" id="MyTable"  >\n            <thead>\n                <tr>\n                    <th class="grid_3"> Key </th>\n                    <th class="grid_9"> Value </th>\n                </tr>\n            </thead>\n            <tbody id="new-row" class="">\n                ';
 //line 12 "view-enumeration.html"
 stash.set('data', ' ');
 output += '\n                \n                ';
@@ -1273,7 +1349,7 @@ output += '\n                \n                ';
     try {
         while (! done) {
             stash.data['item'] = value;
-output += '\n\n                    <tr>\n\n                        <td class=" grid_3" ><a name="';
+output += '\n\n                    <tr>\n\n                        <td class="grid_3" ><a name="';
 //line 18 "view-enumeration.html"
 output += stash.get(['item', 0, 'key', 0]);
 output += '" id="key_name_';
@@ -1328,7 +1404,7 @@ output += '\n\n                        ';;
     stash.set('loop', oldloop);
 })();
 
-output += '\n\n                        <td class=""> ';
+output += '\n\n                        <td class="grid_9"> ';
 //line 36 "view-enumeration.html"
 output += stash.get('data');
 output += '</td>\n\n                    </tr>\n                    \n                ';;
@@ -1343,7 +1419,7 @@ output += '</td>\n\n                    </tr>\n                    \n           
     stash.set('loop', oldloop);
 })();
 
-output += '\n            </tbody>\n            <tfoot>\n                <tr>\n                    <td class="" style="border-right : none" >\n                    </td>\n                </tr>\n            </tfoot>\n        </table>\n    </li>\n</ul>';
+output += '\n            </tbody>\n            <tfoot>\n                <tr>\n                </tr>\n            </tfoot>\n        </table>\n    </li>\n</ul>';
     }
     catch(e) {
         var error = context.set_error(e, output);
