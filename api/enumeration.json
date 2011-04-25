@@ -1,77 +1,77 @@
 [
     {
         "key_name" : "family",
-        "values" : "shah",
+        "option_value" : "shah",
         "sequence_no" : "1"
     },
     {
         "key_name" : "family",
-        "values" : "patil",
+        "option_value" : "patil",
         "sequence_no" : "2"
     },
     {
         "key_name" : "broker",
-        "values" : "RSS",
+        "option_value" : "RSS",
         "sequence_no" : "1"
     },
     {
         "key_name" : "broker",
-        "values" : "HDFC",
+        "option_value" : "HDFC",
         "sequence_no" : "2"
     },
     {
         "key_name" : "exchange",
-        "values" : "BSE",
+        "option_value" : "BSE",
         "sequence_no" : "2"
     },
     {
         "key_name" : "exchange",
-        "values" : "NSE",
+        "option_value" : "NSE",
         "sequence_no" : "2"
     },
     {
         "key_name" : "exchange",
-        "values" : "CMX",
+        "option_value" : "CMX",
         "sequence_no" : "3"
     },
     {
         "key_name" : "settlement_type",
-        "values" : "NORMAL",
+        "option_value" : "NORMAL",
         "sequence_no" : "1"
     },
     {
         "key_name" : "settlement_type",
-        "values" : "ROLLING",
+        "option_value" : "ROLLING",
         "sequence_no" : "2"
     },
     {
         "key_name" : "security_type",
-        "values" : "EQUITY",
+        "option_value" : "EQUITY",
         "sequence_no" : "1"
     },
     {
         "key_name" : "security_type",
-        "values" : "DERIVATIVE",
+        "option_value" : "DERIVATIVE",
         "sequence_no" : "2"
     },
     {
         "key_name" : "transcation_type",
-        "values" : "SPECULATIVE",
+        "option_value" : "SPECULATIVE",
         "sequence_no" : "1"
     },
     {
         "key_name" : "transcation_type",
-        "values" : "DELIVERY",
+        "option_value" : "DELIVERY",
         "sequence_no" : "2"
     },
     {
         "key_name" : "bought_sold",
-        "values" : "BOUGHT",
+        "option_value" : "BOUGHT",
         "sequence_no" : "2"
     },
     {
         "key_name" : "bought_sold",
-        "values" : "SOLD",
+        "option_value" : "SOLD",
         "sequence_no" : "2"
     }
 ]

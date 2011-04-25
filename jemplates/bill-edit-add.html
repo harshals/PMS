@@ -4,38 +4,42 @@
             <ul class="vhh" >
                 <li>
                     <label class="grid_3"style="border-bottom : none"class="">Bill No</label>
-                    <input class="grid_3" type="text" name="bill_no" value="[% list.bill_no %]"/>
+                    <input class="grid_3" type="text" name="bill_no_[% bill.bill_no %]" id="bill_no_[% bill.bill_no%]" value="[% bill.bill_no %]"/>
                 </li>
                 <li>
                     <label class="grid_3">Bill Date</label>
-                    <input class="grid_3 datepicker" type="text" name="bill_date" value="[% list.bill_date %]" />
+                    <input class="grid_3 datepicker" type="text" name="bill_date" value="[% bill.bill_date %]" />
                 </li>
                 <li>
                     <label class="grid_3">Broker</label>
-                    <select class="grid_3" name="broker" value="[% list.broker %]">
-                        <option value="rss">RSS
-                        <option value="hdfc">HDFC
+                    <select class="grid_3" name="broker" >
+                        [% PROCESS enumeration_select.html
+                                enumeration_key = 'broker'
+                                match = bill.broker  %]
                     </select>
                 </li>
             </ul>
             <ul class="vhh">
                 <li>
                     <label class="grid_3">Settlement No</label>
-                    <input class="grid_3" type="text" name="settlement_no" value="[% list.settlement_no %]"/>
+                    <input class="grid_3" type="text" name="settlement_no" value="[% bill.settlement_no %]"/>
                 </li>
                 <li>
                     <label class="grid_3">Settlement Type</label>
-                    <select class="grid_3" name="settlement_type" value="[% list.settlement_no %]">
-                        <option value="normal">NORMAL
-                        <option value="rolling">ROLLING
+                    <select class="grid_3" name="settlement_type">
+
+                        [% PROCESS enumeration_select.html
+                                enumeration_key = 'settlement_type'
+                                match = bill.settlement_type  %]
+                        
                     </select>
                 </li>
                 <li>
                     <label class="grid_3">Exchange</label>
-                    <select class="grid_3" name="exchange" vlaue="[% list.exchange %]">
-                        <option value="bse">BSE
-                        <option value="nse">NSE
-                        <option value="cmx">CMX
+                    <select class="grid_3" name="exchange" >
+                        [% PROCESS enumeration_select.html
+                                enumeration_key = 'exchange'
+                                match = bill.exchange  %]
                     </select>
                 </li>
             </ul>
@@ -44,10 +48,10 @@
                     <label class="">Period</label>
                 </li>
                 <li>
-                    <input class="" type="text" name="from_period" value="[% list.from_period %]"/>
+                    <input class="datepicker" type="text" name="from_period" value="[% bill.from_period %]"/>
                 </li>
                 <li>
-                    <input type="text" name="to_period" value="[% list.to_period %]"/>
+                    <input class="datepicker" type="text" name="to_period" value="[% bill.to_period %]"/>
                 </li>
             </ul>
     </fieldset>
@@ -72,7 +76,7 @@
                 </tr>
             </thead>
             <tbody id="new-row">
-                [% FOREACH item IN list.transaction %]
+                [% FOREACH item IN bill.transaction %]
 
 			[% PROCESS "transaction-list-item.html" %]
 

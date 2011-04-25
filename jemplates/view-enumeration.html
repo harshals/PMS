@@ -15,17 +15,17 @@
 
                     <tr>
 
-                        <td class=" grid_3" ><a name="[% item.key %]">[% item.key %]</a></td>
+                        <td class=" grid_3" ><a name="[% item.key %]" id="key_name_[% item.key %]">[% item.key %]</a></td>
 
                         [% FOREACH ii IN item.value %]
 
                             [% IF prev == item.key %]
                             
-                                [% data = data + " , " + ii.values %]
+                                [% data = data + " , " + ii.option_value %]
 
                             [% ELSE %]
 
-                                [% data = ii.values %]
+                                [% data = ii.option_value %]
 
                             [% END %]
 

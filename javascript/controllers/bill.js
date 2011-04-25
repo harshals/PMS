@@ -3,6 +3,8 @@ BillController = function(app) {with (app) {
         app.use("Template" , 'html');
         app.use("JSON");
         app.use(utils);
+        var g_id;
+        var l_id;
 //===================================BEFORE LOADING=============================
         app.before(/^#\/bill-/, function(context) {
                 context.log("inside contact");
@@ -104,9 +106,7 @@ BillController = function(app) {with (app) {
 
 //-----------------------------------Bill List View-----------------------------
         app.get('#/bill-list-view', function(context) {
-            alert("I m in List View");
-            console.log("I m in List View");
-            context .load("api/bill.json")
+            context .load("api/bill-view.json")
                     .then(function(json) {
                         this.wait();
                         var total_amount = 0;
@@ -123,18 +123,19 @@ BillController = function(app) {with (app) {
                         }
                         context .jemplate('bill-list-view-menu.html', {}, "#section-menu");
                         context .jemplate('bill-list-view.html',{list:json,total_amount:total_amount,total_brokerage:total_brokerage}, "#main-content", this);
+                        $("#MyTable").find("a[id=row_"+g_id+"]").parents("tr").remove();
                     })
                     .then(function(){
                         this.wait();
                     //.........To Edit The Bill by clicking on Bill No..........
                         $("#MyTable").find("a").click(function(){
                             var id = $(this).attr("id").replace("row_",'');
-                            alert(id + "need to redirect");
                             context.redirect("#/bill-edit-add/"+id)
                         })
+
                         context .jemplate('Pager.html', {}, '#sidebar-content');//pager
                     //.................To Add n Search Bill.....................
-                       
+
                     })
                     //..................TableSorter N Pagination................
                     .then(function(){
@@ -146,43 +147,75 @@ BillController = function(app) {with (app) {
 
 //---------------------------------Edit Add Transaction-------------------------
         app.get('#/bill-edit-add/:id', function(context) {
+            context .jemplate('bill-edit-add-menu.html', {}, "#section-menu");
             var id = context.params['id']
-            alert("ID is" + id)
-            context .load("api/transaction.json")
+            var newhash = {}
+
+            context .load("api/bill.json")
                     .then(function(json) {
                         this.wait();
                         var total = 0;
                         var trans = {}
                         trans = json[id].transaction
                         console.log(trans)
-                    //..................Calculating Total Amount................
+                        //................Calculating Total Amount..............
                         for( var i=0;i<trans.length;i++)
                         {
                             total = total + parseInt(trans[i].amount)
                         }
-                        context .jemplate('bill-edit-add-menu.html', {}, "#section-menu");
-                        context .jemplate('bill-edit-add.html',{list:json[id],total:total}, "#main-content", this);
-                    })
-                    .then(function(){
-                        this.wait();
-                        $("#main-content" ) .find("input.datepicker")//datepicker
-                                            .datepicker( {altFormat: 'yy-mm-dd' ,dateFormat : 'dd-mm-yy'});
-                    //...To Edit N Add Transaction by clicking on Transaction No...
-                        $("#MyTable").find("a").click(function(){
-                            var id = $(this).attr("id").replace("row_",'');
-                            alert(id);
-                            context .load("api/transaction-detail.json")
-                                    .then(function(json) {
-                                        context .jemplate('transaction-detail.html', {list:json[id-1]}, null, this)
+                        //------------------------------------------------------
+                        context .load("api/enumeration.json")
+                                .then(function(jsondata) {
+                                    this.wait();
+                                    var nhash = {};
+                                    $.each(jsondata, function(n,hash){
+                                        if (typeof (nhash[ hash.key_name ]) == 'undefined') {
+                                            nhash[ hash.key_name ] = new Array;
+                                        }
+                                        nhash[ hash.key_name ].push(hash);
+                                    });
+                                    newhash = nhash ;
+                                    context .jemplate('bill-edit-add.html',{bill:json[id],total:total,data:newhash}, "#main-content", this);
+
+                                    alert(l_id)
+                                })
+                                .then(function(){
+                                    this.wait();
+                                    //...To Edit N Add Transaction by clicking on Transaction No...
+                                    $("#MyTable").find("a").click(function(){
+                                        var transaction_id = $(this).attr("id").replace("row_",'');
+                                        alert(transaction_id);
+                                        context .load("api/transaction-detail.json")
+                                                .then(function(json) {
+                                                    context .jemplate('transaction-detail.html', {list:json[transaction_id-1]}, null, this)
+                                                })
+                                                .then(function(content){
+                                                    $.facebox(content);
+                                                    $("#facebox").find("#del").click(function(){
+                                                        $("#facebox").find("#del").trigger('close.facebox');
+
+                                                        $("#MyTable").find("a#row_"+ transcation_id )
+                                                                    .parents("tr:first").hide();
+
+                                                        context.redirect("#/bill-edit-add/"+id)
+                                                    })
+                                                })
                                     })
-                                    .then(function(content){
-                                        $.facebox(content);
+
+                                    //..............To Delete Bill..............
+                                    $("#delete").click(function(){
+                                        var idd = $(this).attr("id");
+                                        alert(id)
+                                        g_id = id;
+                                        alert(g_id)
+                                        alert("This bill is " +idd);
+                                        context.redirect("#/bill-list-view")
                                     })
-                        })
-                    
-                    })
-                    .then(function(){
-                        $("#MyTable").tablesorter();
+                                    $("#main-content" ) .find("input.datepicker")//datepicker
+                                                        .datepicker( {altFormat: 'yy-mm-dd' ,dateFormat : 'dd-mm-yy'});
+                                    $("#MyTable").tablesorter();
+                                })
+                        //------------------------------------------------------
                     })
         });
 //---------------------------------Edit Add Transaction-------------------------
@@ -195,7 +228,7 @@ BillController = function(app) {with (app) {
                     })
                     .then(function(){
                         this.wait();
-                        context .jemplate('bill-edit-add-menu.html', {}, "#section-menu",this);
+                        context .jemplate('bill-edit-add-me.nu.html', {}, "#section-menu",this);
                         $("#main-content" ).find("input.datepicker").datepicker( {altFormat: 'yy-mm-dd' ,dateFormat : 'dd-mm-yy'});
                         context.trigger('process');
 
@@ -215,6 +248,8 @@ BillController = function(app) {with (app) {
                         context.trigger('process');
                     });
         });
+//---------------------------------Search Report Form---------------------------
+
 //---------------------------------IMport/Export Form---------------------------
  
  app.get('#/import_export-view', function(context) {
