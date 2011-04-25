@@ -4,13 +4,13 @@ MiscController = function(app) {with (app) {
         app.use("JSON");
         app.use(utils);
 //===================================BEFORE LOADING=============================
-        app.before(/^#\/view-/, function(context) {
+      /*  app.before(/^#\/view-/, function(context) {
                 context.log("inside contact");
                 $("#main-content").html('');
                 $("#sidebar-content").html('');
                 $("#content-extra").html('');
                 //$("#section-menu").html('');
-        });
+        });*/
 //===================================BEFORE LOADING=============================
 
 //===================================AFTER LOADING==============================
@@ -70,14 +70,11 @@ MiscController = function(app) {with (app) {
                     .then(function(){
                         this.wait();
                         $("#MyTable").tablesorter()
-						  .then(function(){
-						      this.wait();
-							  $("#MyTable").find("a").click(function(){
-									var data = $(this).attr("name");
-									alert("you click : "+data);
-									context .jemplate('add-enum-value.html',{key_name:data}, "#sidebar-content");
-							  });
-						  });
+							$("#MyTable").find("a").click(function(){
+								var data = $(this).attr("name");
+								alert("you click : "+data);
+								context .jemplate('add-enum-value.html',{key_name:data}, "#sidebar-content");
+							});
 						
                         $("#section-menu").find("a[name=view_account]").click(function(){
                             alert("it works view account")

@@ -217,12 +217,27 @@ BillController = function(app) {with (app) {
         });
 //---------------------------------IMport/Export Form---------------------------
  
-/*  app.get('#/import_export', function(context) {
-     context .load("null.html")
-             .then(function(html) {
-                     context.jemplate('import_export.html',{},'#main-content');
-             })
-  })*/
+ app.get('#/import_export-view', function(context) {
+	        var data;
+			context .load("null.html")
+                    .then(function(){
+                        this.wait();
+						context .jemplate('import-export-side.html', {}, "#section-menu");
+                       
+                    })
+					.then(function(){
+						  data = "Data";
+						  context .jemplate('import_export.html', {da:data}, "#main-content",this);
+					      $("#section-menu").find("a").click(function(){
+						    data = $(this).attr('value');
+							alert("you click"+data);
+							context .jemplate('import_export.html', {da:data}, "#main-content");
+						  })
+					
+                        
+					});
+});
+   
 
 //===================================AFTER LOADING==============================
 }}

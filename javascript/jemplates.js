@@ -138,56 +138,6 @@ output += '\n						 </select>\n				   </li>\n				   \n		      </ul>\n       </fi
     return output;
 }
 
-Jemplate.templateMap['account.html.bak'] = function(context) {
-    if (! context) throw('Jemplate function called without context\n');
-    var stash = context.stash;
-    var output = '';
-
-    try {
-output += '<div id="sidebar-content" class="">\n    <h2>Add Account No.</h2>\n    <form class="yellow box">\n     <fieldset>\n			 <ul class="form vvv thin">\n				   <li>\n					   <select name="add_account" style="width: 167px;">\n						   ';
-//line 12 "account.html.bak"
-
-// FOREACH 
-(function() {
-    var list = stash.get('data');
-    list = new Jemplate.Iterator(list);
-    var retval = list.get_first();
-    var value = retval[0];
-    var done = retval[1];
-    var oldloop;
-    try { oldloop = stash.get('loop') } finally {}
-    stash.set('loop', list);
-    try {
-        while (! done) {
-            stash.data['acc'] = value;
-output += ' \n							   <option value="';
-//line 9 "account.html.bak"
-output += stash.get(['acc', 0, 'account_no', 0]);
-output += '" >\n												';
-//line 10 "account.html.bak"
-output += stash.get(['acc', 0, 'account_no', 0]);
-output += '\n							   </option>\n						   ';;
-            retval = list.get_next();
-            value = retval[0];
-            done = retval[1];
-        }
-    }
-    catch(e) {
-        throw(context.set_error(e, output));
-    }
-    stash.set('loop', oldloop);
-})();
-
-output += '\n						 </select>\n				   </li>\n				   \n		      </ul>\n       </fieldset> \n            <li class="form hii">\n		      <input type="button" id="add" value="ADD" class="button" />\n			<input type="reset" name="reset" value="Reset" class="button" />\n		</li>\n   </form>\n\n</div>\n\n';
-    }
-    catch(e) {
-        var error = context.set_error(e, output);
-        throw(error);
-    }
-
-    return output;
-}
-
 Jemplate.templateMap['add-enum-value.html'] = function(context) {
     if (! context) throw('Jemplate function called without context\n');
     var stash = context.stash;
@@ -207,25 +157,6 @@ output += '</b></span>\n				   </li>\n				   <li>\n					  <label>Enter Name<labe
     return output;
 }
 
-Jemplate.templateMap['add-enum-value.html.bak'] = function(context) {
-    if (! context) throw('Jemplate function called without context\n');
-    var stash = context.stash;
-    var output = '';
-
-    try {
-output += '<div id="sidebar-content" class="">\n    <h2>Add value</h2>\n    <form>\n     <fieldset class="yellow box">\n			 <ul class="form vvv thin">\n			       <li>\n					 <label>Key Nmae :</label>\n					 <span class="leftNote"><b>';
-//line 8 "add-enum-value.html.bak"
-output += stash.get('key_name');
-output += '</b></span>\n				   </li>\n				   <li>\n					  <label>Enter Name<label>\n					  <input type="text" name="name_added" />\n				   </li>\n				   <li>\n					  <label>Enter Value<label>\n					  <input type="text" name="value_added" />\n				   </li>\n			    </ul>	\n       </fieldset> \n	     <li class="form hii">\n			   <input type="button" name="add_detail" value="ADD" class="button" />\n			   <input type="reset" name="reset" value="Reset" class="button" />\n		 </li>\n	</form>\n\n</div>';
-    }
-    catch(e) {
-        var error = context.set_error(e, output);
-        throw(error);
-    }
-
-    return output;
-}
-
 Jemplate.templateMap['add-enumeration.html'] = function(context) {
     if (! context) throw('Jemplate function called without context\n');
     var stash = context.stash;
@@ -233,22 +164,6 @@ Jemplate.templateMap['add-enumeration.html'] = function(context) {
 
     try {
 output += '<div class="">\n    <h2>Add Enumeration</h2>\n    <form class="yellow box">\n     <fieldset>\n			 <ul class="form vvv thin">\n				   <li>\n					   <label>Enter Key Name</label>\n					   <input type="text" name="key_name">\n				   </li>\n				  		   \n			  </ul>\n       </fieldset> \n             <li class="form hii">\n				 <input type="button" id="add" value="ADD" class="button" />\n				 <input type="reset" name="reset" value="Reset" class="button" />\n			 </li>\n	 </form>\n</div>';
-    }
-    catch(e) {
-        var error = context.set_error(e, output);
-        throw(error);
-    }
-
-    return output;
-}
-
-Jemplate.templateMap['add-enumeration.html.bak'] = function(context) {
-    if (! context) throw('Jemplate function called without context\n');
-    var stash = context.stash;
-    var output = '';
-
-    try {
-output += '<div class="">\n    <h2>Add Enumeration</h2>\n    <form>\n     <fieldset class="yellow box">\n			 <ul class="form vvv thin">\n				   <li>\n					   <label>Enter Key Name</label>\n					   <input type="text" name="key_name">\n				   </li>\n				  		   \n			  </ul>\n       </fieldset> \n             <li class="form hii">\n				 <input type="button" id="add" value="ADD" class="button" />\n				 <input type="reset" name="reset" value="Reset" class="button" />\n			 </li>\n	 </form>\n</div>';
     }
     catch(e) {
         var error = context.set_error(e, output);
@@ -285,56 +200,6 @@ output += ' \n							   <option value="';
 output += stash.get(['company', 0, 'company_name', 0]);
 output += '" >\n												';
 //line 10 "add_security.html"
-output += stash.get(['company', 0, 'company_name', 0]);
-output += '\n							   </option>\n						   ';;
-            retval = list.get_next();
-            value = retval[0];
-            done = retval[1];
-        }
-    }
-    catch(e) {
-        throw(context.set_error(e, output));
-    }
-    stash.set('loop', oldloop);
-})();
-
-output += '\n						 </select>\n				   </li>\n	             </ul>\n       </fieldset> \n       <li class="form hii">\n	      <input type="button" id="add" value="ADD" class="button" />\n	 	<input type="reset" name="reset" value="Reset" class="button" />\n       </li>\n     </form>\n</div>';
-    }
-    catch(e) {
-        var error = context.set_error(e, output);
-        throw(error);
-    }
-
-    return output;
-}
-
-Jemplate.templateMap['add_security.html.bak'] = function(context) {
-    if (! context) throw('Jemplate function called without context\n');
-    var stash = context.stash;
-    var output = '';
-
-    try {
-output += '<div id="sidebar-content" class="">\n    <h2>Add Security</h2>\n     <form>\n     <fieldset class="yellow box">\n			 <ul class="form vvv thin">\n				   <li>\n					   <select name="add_security" class="grid_3">\n						   ';
-//line 12 "add_security.html.bak"
-
-// FOREACH 
-(function() {
-    var list = stash.get('data');
-    list = new Jemplate.Iterator(list);
-    var retval = list.get_first();
-    var value = retval[0];
-    var done = retval[1];
-    var oldloop;
-    try { oldloop = stash.get('loop') } finally {}
-    stash.set('loop', list);
-    try {
-        while (! done) {
-            stash.data['company'] = value;
-output += ' \n							   <option value="';
-//line 9 "add_security.html.bak"
-output += stash.get(['company', 0, 'company_name', 0]);
-output += '" >\n												';
-//line 10 "add_security.html.bak"
 output += stash.get(['company', 0, 'company_name', 0]);
 output += '\n							   </option>\n						   ';;
             retval = list.get_next();
@@ -633,56 +498,6 @@ output += '\n						 </select>\n				   </li>\n				   \n			 </ul>\n       </fields
     return output;
 }
 
-Jemplate.templateMap['broker.html.bak'] = function(context) {
-    if (! context) throw('Jemplate function called without context\n');
-    var stash = context.stash;
-    var output = '';
-
-    try {
-output += '<div id="sidebar-content" class="">\n    <h2>Add Broker</h2>\n    <form>\n     <fieldset class="yellow box">\n			 <ul class="form vvv thin">\n				   <li>\n					   <select name="add_broker" >\n						   ';
-//line 12 "broker.html.bak"
-
-// FOREACH 
-(function() {
-    var list = stash.get('data');
-    list = new Jemplate.Iterator(list);
-    var retval = list.get_first();
-    var value = retval[0];
-    var done = retval[1];
-    var oldloop;
-    try { oldloop = stash.get('loop') } finally {}
-    stash.set('loop', list);
-    try {
-        while (! done) {
-            stash.data['broker'] = value;
-output += ' \n							   <option value="';
-//line 9 "broker.html.bak"
-output += stash.get(['broker', 0, 'broker_name', 0]);
-output += '" >\n												';
-//line 10 "broker.html.bak"
-output += stash.get(['broker', 0, 'broker_name', 0]);
-output += '\n							   </option>\n						   ';;
-            retval = list.get_next();
-            value = retval[0];
-            done = retval[1];
-        }
-    }
-    catch(e) {
-        throw(context.set_error(e, output));
-    }
-    stash.set('loop', oldloop);
-})();
-
-output += '\n						 </select>\n				   </li>\n				   \n			 </ul>\n       </fieldset> \n       <li class="form hii">\n	      <input type="button" id="add" value="ADD" class="button" />\n	 	<input type="reset" name="reset" value="Reset" class="button" />\n       </li>\n</form>\n\n</div>\n\n';
-    }
-    catch(e) {
-        var error = context.set_error(e, output);
-        throw(error);
-    }
-
-    return output;
-}
-
 Jemplate.templateMap['delete_save.html'] = function(context) {
     if (! context) throw('Jemplate function called without context\n');
     var stash = context.stash;
@@ -777,47 +592,29 @@ output += '\n						 </select>\n				   </li>\n			\n			  </ul>\n       </fieldset>
     return output;
 }
 
-Jemplate.templateMap['group.html.bak'] = function(context) {
+Jemplate.templateMap['import-export-side.html'] = function(context) {
     if (! context) throw('Jemplate function called without context\n');
     var stash = context.stash;
     var output = '';
 
     try {
-output += '<div id="sidebar-content" class="">\n    <h2>Add Family/Group</h2>\n     <form>\n     <fieldset class="yellow box">\n			 <ul class="form vvv thin">\n				   <li>\n					   <select name="family_group" >\n						   ';
-//line 12 "group.html.bak"
-
-// FOREACH 
-(function() {
-    var list = stash.get('data');
-    list = new Jemplate.Iterator(list);
-    var retval = list.get_first();
-    var value = retval[0];
-    var done = retval[1];
-    var oldloop;
-    try { oldloop = stash.get('loop') } finally {}
-    stash.set('loop', list);
-    try {
-        while (! done) {
-            stash.data['member'] = value;
-output += ' \n							   <option value="';
-//line 9 "group.html.bak"
-output += stash.get(['member', 0, 'member_name', 0]);
-output += '" >\n												';
-//line 10 "group.html.bak"
-output += stash.get(['member', 0, 'member_name', 0]);
-output += '\n							   </option>\n						   ';;
-            retval = list.get_next();
-            value = retval[0];
-            done = retval[1];
-        }
+output += '<p>Choose Action</p>\n<ul>\n	  <li><a id="data" value="Data"><u>Data</u></a></li>\n	  <li><a id="trans" value="Transcation"><u>Transaction</u></a></li>\n	  <li><a id="bills" value="Bills"><u>Bills</u></a></li>\n	  <li><a id="acc" value="Account"><u>Account</u></a></li>\n</ul>\n';
     }
     catch(e) {
-        throw(context.set_error(e, output));
+        var error = context.set_error(e, output);
+        throw(error);
     }
-    stash.set('loop', oldloop);
-})();
 
-output += '\n						 </select>\n				   </li>\n			\n			  </ul>\n       </fieldset> \n       <li class="form hii">\n	      <input type="button" id="add" value="ADD" class="button" />\n	 	<input type="reset" name="reset" value="Reset" class="button" />\n       </li>\n\n      </form>\n</div>\n';
+    return output;
+}
+
+Jemplate.templateMap['import-export-side.html.bak'] = function(context) {
+    if (! context) throw('Jemplate function called without context\n');
+    var stash = context.stash;
+    var output = '';
+
+    try {
+output += '<p>Choose Action</p>\n<ul>\n	  <li><a id="data" value="data" selected><u>Data</u></a></li>\n	  <li><a id="trans" value="transcation"><u>Transaction</u></a></li>\n	  <li><a id="bills" value="bills"><u>Bills</u></a></li>\n	  <li><a id="acc" value="account"><u>Account</u></a></li>\n</ul>\n';
     }
     catch(e) {
         var error = context.set_error(e, output);
@@ -833,7 +630,29 @@ Jemplate.templateMap['import_export.html'] = function(context) {
     var output = '';
 
     try {
-output += '<div id="main-content" class="">\n   <form class="yellow box grid_17">\n     <fieldset>\n			 <ul class="form big tar fat">\n				   <li>\n				      <label>Data File</label>\n                      <input type="file" name="data_file" />\n				   </li>\n				   <li>\n				      <label>File Type</label>\n                      <select>\n					      <option>.csv</option>\n						  <option>.zip</option>\n\n					  </select>\n				   </li>\n				   <li>\n				      <label>Key Map File</label>\n                      <input type="file" name="data_file" />\n				   </li>\n				   \n		      </ul>\n       </fieldset> \n            <li class="form hii">\n		      <input type="button" id="add" value="ADD" class="button" />\n			<input type="reset" name="reset" value="Reset" class="button" />\n		</li>\n   </form>\n\n</div>\n';
+output += '<div id="main-content" class="">\n   <form class="yellow box grid_17">\n     <h2>Import-Export Type :- ';
+//line 3 "import_export.html"
+output += stash.get('da');
+output += '</h2>\n     <fieldset>\n			 <ul class="form big tar fat">\n				   <li>\n				      <label>Data File</label>\n                      <input type="file" size=55 name="data_file" />\n				   </li>\n				   <li>\n				      <label>File Type</label>\n                      <select>\n					      <option value="csv" selected >.csv</option>\n						  <option value="zip">.zip</option>\n						   <option value="xml">.xml</option>\n						  <option value="txt">.txt</option>\n						  <option value="doc">.doc</option>\n                          <option value="rar">.rar</option>\n					  </select>\n				   </li>\n				   <li>\n				      <label>Key Map File</label>\n                      <input type="file" size=55 name="map_file" />\n				   </li>\n				   \n		      </ul>\n       </fieldset> \n            <li class="form hii">\n			      <label style="margin-right:120px;"></label>\n				  <input type="button" id="add" value="ADD" class="button" style="margin-right:200px;"/>\n				  <input type="reset" name="reset" value="Reset" class="button" />\n		    </li>\n   </form>\n\n</div>\n';
+    }
+    catch(e) {
+        var error = context.set_error(e, output);
+        throw(error);
+    }
+
+    return output;
+}
+
+Jemplate.templateMap['import_export.html.bak'] = function(context) {
+    if (! context) throw('Jemplate function called without context\n');
+    var stash = context.stash;
+    var output = '';
+
+    try {
+output += '<div id="main-content" class="">\n   <form class="yellow box grid_17">\n     <h2>Import-Export Type :-';
+//line 3 "import_export.html.bak"
+output += stash.get('da');
+output += '</h2>\n     <fieldset>\n			 <ul class="form big tar fat">\n				   <li>\n				      <label>Data File</label>\n                      <input type="file" size=55 name="data_file" />\n				   </li>\n				   <li>\n				      <label>File Type</label>\n                      <select>\n					      <option value="csv" selected >.csv</option>\n						  <option value="zip">.zip</option>\n						   <option value="xml">.xml</option>\n						  <option value="txt">.txt</option>\n						  <option value="doc">.doc</option>\n                          <option value="rar">.rar</option>\n					  </select>\n				   </li>\n				   <li>\n				      <label>Key Map File</label>\n                      <input type="file" size=55 name="map_file" />\n				   </li>\n				   \n		      </ul>\n       </fieldset> \n            <li class="form hii">\n			      <label style="margin-right:120px;"></label>\n				  <input type="button" id="add" value="ADD" class="button" style="margin-right:200px;"/>\n				  <input type="reset" name="reset" value="Reset" class="button" />\n		    </li>\n   </form>\n\n</div>\n';
     }
     catch(e) {
         var error = context.set_error(e, output);
@@ -853,22 +672,6 @@ output += '<p>Action</p>\n<ul>\n\n    <li><a id="update" name="view_account">Vie
 //line 6 "misc-menu.html"
 output += stash.get('data');
 output += '</a></li>\n\n    <li><a id="update" name="view_enumeration">View Enumeration</a></li>\n\n</ul>';
-    }
-    catch(e) {
-        var error = context.set_error(e, output);
-        throw(error);
-    }
-
-    return output;
-}
-
-Jemplate.templateMap['misc-menu.html.bak'] = function(context) {
-    if (! context) throw('Jemplate function called without context\n');
-    var stash = context.stash;
-    var output = '';
-
-    try {
-output += '<p>Action</p>\n<ul>\n\n    <li><a id="update" name="view_account" href="#/view-account">View Account</a></li>\n\n    <li><a id="create" name="edit_account" >Add New Account</a></li>\n\n    <li><a id="update" name="view_enumeration" href="#/view-enumeration">View Enumeration</a></li>\n\n    <li><a id="create" name="edit_enumeration">Add New Enumeration</a></li>\n\n</ul>';
     }
     catch(e) {
         var error = context.set_error(e, output);
@@ -1272,105 +1075,6 @@ output += '\n\n                        ';;
 
 output += '\n\n                        <td class=""> ';
 //line 36 "view-enumeration.html"
-output += stash.get('data');
-output += '</td>\n\n                    </tr>\n                    \n                ';;
-            retval = list.get_next();
-            value = retval[0];
-            done = retval[1];
-        }
-    }
-    catch(e) {
-        throw(context.set_error(e, output));
-    }
-    stash.set('loop', oldloop);
-})();
-
-output += '\n            </tbody>\n            <tfoot>\n                <tr>\n                    <td class="" style="border-right : none" >\n                    </td>\n                </tr>\n            </tfoot>\n        </table>\n    </li>\n</ul>';
-    }
-    catch(e) {
-        var error = context.set_error(e, output);
-        throw(error);
-    }
-
-    return output;
-}
-
-Jemplate.templateMap['view-enumeration.html.bak'] = function(context) {
-    if (! context) throw('Jemplate function called without context\n');
-    var stash = context.stash;
-    var output = '';
-
-    try {
-output += '<ul>\n\n    <li>\n        <table class="basetable tablesorter" id="MyTable"  >\n            <thead>\n                <tr>\n                    <th class="grid_3"> Key </th>\n                    <th class="grid_3"> Value </th>\n                </tr>\n            </thead>\n            <tbody id="new-row" class="">\n                ';
-//line 12 "view-enumeration.html.bak"
-stash.set('data', ' ');
-output += '\n                \n                ';
-//line 40 "view-enumeration.html.bak"
-
-// FOREACH 
-(function() {
-    var list = stash.get(['list', 0, 'pairs', 0]);
-    list = new Jemplate.Iterator(list);
-    var retval = list.get_first();
-    var value = retval[0];
-    var done = retval[1];
-    var oldloop;
-    try { oldloop = stash.get('loop') } finally {}
-    stash.set('loop', list);
-    try {
-        while (! done) {
-            stash.data['item'] = value;
-output += '\n\n                    <tr>\n\n                        <td class=" grid_3" ><a name="key_name">';
-//line 18 "view-enumeration.html.bak"
-output += stash.get(['item', 0, 'key', 0]);
-output += '</a></td>\n\n                        ';
-//line 34 "view-enumeration.html.bak"
-
-// FOREACH 
-(function() {
-    var list = stash.get(['item', 0, 'value', 0]);
-    list = new Jemplate.Iterator(list);
-    var retval = list.get_first();
-    var value = retval[0];
-    var done = retval[1];
-    var oldloop;
-    try { oldloop = stash.get('loop') } finally {}
-    stash.set('loop', list);
-    try {
-        while (! done) {
-            stash.data['ii'] = value;
-output += '\n\n                            ';
-//line 30 "view-enumeration.html.bak"
-if (stash.get('prev') == stash.get(['item', 0, 'key', 0])) {
-output += '\n                            \n                                ';
-//line 24 "view-enumeration.html.bak"
-stash.set('data', stash.get('data') + ' , ' + stash.get(['ii', 0, 'values', 0]));
-output += '\n\n                            ';
-}
-else {
-output += '\n\n                                ';
-//line 28 "view-enumeration.html.bak"
-stash.set('data', stash.get(['ii', 0, 'values', 0]));
-output += '\n\n                            ';
-}
-
-output += '\n\n                            ';
-//line 32 "view-enumeration.html.bak"
-stash.set('prev', stash.get(['item', 0, 'key', 0]));
-output += '\n\n                        ';;
-            retval = list.get_next();
-            value = retval[0];
-            done = retval[1];
-        }
-    }
-    catch(e) {
-        throw(context.set_error(e, output));
-    }
-    stash.set('loop', oldloop);
-})();
-
-output += '\n\n                        <td class=""> ';
-//line 36 "view-enumeration.html.bak"
 output += stash.get('data');
 output += '</td>\n\n                    </tr>\n                    \n                ';;
             retval = list.get_next();

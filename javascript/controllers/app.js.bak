@@ -13,23 +13,20 @@ MainController = function(app) { with (app) {
         });
 
 	app.get('#/bill', function(context) {
-            context.render('').replace("#section-menu");
-            context.redirect("#/bill-list");
+           context.redirect("#/bill-list");
 	});
 
         app.get('#/misc', function(context) {
-            context.render('').replace("#section-menu");
-            context.redirect("#/misc-list");
+           context.redirect("#/misc-list");
 	});
 
         app.get('#/mis_reports', function(context) {
-            context.render('').replace("#section-menu");
             context.redirect("#/");
 	});
 
         app.get('#/import_export', function(context) {
-            context.render('').replace("#section-menu");
-           
+			context.redirect("#/import_export-view");
+			    context.log("ada");
 	});
 
         app.get('#/profile', function(context) {
