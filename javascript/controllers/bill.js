@@ -181,7 +181,6 @@ BillController = function(app) {with (app) {
                                     //...To Edit N Add Transaction by clicking on Transaction No...
                                     $("#MyTable").find("a").click(function(){
                                         var transaction_id = $(this).attr("id").replace("row_",'');
-                                        alert(transaction_id);
                                         context .load("api/transaction-detail.json")
                                                 .then(function(json) {
                                                     context .jemplate('transaction-detail.html', {list:json[transaction_id-1]}, null, this)
@@ -196,14 +195,15 @@ BillController = function(app) {with (app) {
 
                                                         context.redirect("#/bill-edit-add/"+id)
                                                     })
+                                                    $("#facebox").find("#save").click(function(){
+                                                        $("#facebox").find("#save").trigger('close.facebox');
+                                                    })
                                                 })
                                     })
 
                                     //..............To Delete Bill..............
                                     $("#section-menu").find("#delete").click(function(){
-                                        alert("hello")
                                         g_id = bill_no;
-                                        alert(g_id)
                                         alert("This bill is delete ");
                                         context.redirect("#/bill-search")
                                     })
@@ -261,7 +261,6 @@ BillController = function(app) {with (app) {
 						  context .jemplate('import_export.html', {da:data}, "#main-content",this);
 					      $("#section-menu").find("a").click(function(){
 						    data = $(this).attr('value');
-							alert("you click"+data);
 							context .jemplate('import_export.html', {da:data}, "#main-content");
 						  })
 					

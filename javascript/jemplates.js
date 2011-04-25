@@ -194,10 +194,10 @@ Jemplate.templateMap['add-enum-value.html'] = function(context) {
     var output = '';
 
     try {
-output += '<div id="sidebar-content" class="">\n    <h2>Add value</h2>\n    <form class="yellow box">\n     <fieldset>\n			 <ul class="form vvv thin">\n			       <li>\n					 <label>Key Nmae :</label>\n					 <span class="leftNote"><b>';
+output += '<div id="sidebar-content" class="">\n    <h2>Add value</h2>\n    <form class="yellow box">\n     <fieldset>\n			 <ul class="form vvv thin">\n                                <li>\n                                        <label>Key Name :</label>\n                                        <span class="leftNote"><b>';
 //line 8 "add-enum-value.html"
 output += stash.get('key_name');
-output += '</b></span>\n				   </li>\n				   <li>\n					  <label>Enter Name<label>\n					  <input type="text" name="name_added" />\n				   </li>\n				   <li>\n					  <label>Enter Value<label>\n					  <input type="text" name="value_added" />\n				   </li>\n			    </ul>	\n       </fieldset> \n	     <li class="form hii">\n			   <input type="button" name="add_detail" value="ADD" class="button" />\n			   <input type="reset" name="reset" value="Reset" class="button" />\n		 </li>\n	</form>\n\n</div>';
+output += '</b></span>\n                                </li>\n                                <li>\n                                        <label>Enter Sequence No.<label>\n                                        <input type="text" name="sequence_no" />\n                                </li>\n                                <li>\n                                        <label>Enter Name<label>\n                                        <input type="text" name="option_name" />\n                                </li>\n                                <li>\n                                        <label>Enter Value<label>\n                                        <input type="text" name="option_value" />\n                                </li>\n                                <li>\n                                    <label>Click to Select Default<label>\n                                    <input type=checkbox name="default" />\n                                </li>\n                               \n			    </ul>	\n       </fieldset> \n	     <li class="form hii">\n			   <input type="button" name="add_detail" value="ADD" class="button" />\n			   <input type="reset" name="reset" value="Reset" class="button" />\n		 </li>\n	</form>\n\n</div>';
     }
     catch(e) {
         var error = context.set_error(e, output);
@@ -456,10 +456,10 @@ output += '\n\n		';;
     stash.set('loop', oldloop);
 })();
 
-output += '\n               \n            </tbody>\n            <tfoot>\n                <tr>\n                    <td class="" style="border-right : none" >\n                        <div id="page" class="grid_6"></div>\n                        <label class="pull_2">Total</label>\n                        <label class="push_1">';
+output += '\n               \n            </tbody>\n            <tfoot>\n                <tr>\n                    <td class="" style="border-right : none" >\n                        <div id="page" class="grid_6"></div>\n                        <label class="pull_6">Total</label>\n                        <label class="push_3">';
 //line 28 "bill-list-view.html"
 output += stash.get('total_brokerage');
-output += '</label>\n                        <label class="push_3">';
+output += '</label>\n                        <label class="push_6">';
 //line 29 "bill-list-view.html"
 output += stash.get('total_amount');
 output += '</label>\n                    </td>\n                </tr>\n            </tfoot>\n        </table>\n    </li>\n</ul>';
@@ -982,7 +982,7 @@ output += stash.get(['list', 0, 'net_rate', 0]);
 output += '">\n    </li>\n    <li>\n        <label><h4>Net Value</h4></label>\n        <input class="grid_3" type="text" name="net_value" value="';
 //line 45 "transaction-detail.html"
 output += stash.get(['list', 0, 'net_value', 0]);
-output += '">\n    </li>\n    <li class="form hii push_4">\n        <input type="button" value="Delete" class="button grid_3" id="del"/>\n        <input type="button" value="Edit/Save" class="button grid_3"/>\n    </li>\n</ul>\n    ';
+output += '">\n    </li>\n    <li class="form hii push_4">\n        <input type="button" value="Delete" class="button grid_3" id="del"/>\n        <input type="button" value="Edit/Save" class="button grid_3"  id="save"/>\n    </li>\n</ul>\n    ';
     }
     catch(e) {
         var error = context.set_error(e, output);
