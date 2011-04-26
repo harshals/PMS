@@ -1,37 +1,18 @@
-[
-    {
-        "account_name": "nsaubjn",
-        "address": "nhasduo",
-        "total_outstanding": "415612",
-        "total_brokerage": "5452",
-        "total_amount": "465456"
-    },
-    {
-        "account_name": "dhlsnhd",
-        "address": "sadmldca",
-        "total_outstanding": "27456",
-        "total_brokerage": "8945",
-        "total_amount": "5975416"
-    },
-    {
-        "account_name": "jfiashnk",
-        "address": "kafosj",
-        "total_outstanding": "41845",
-        "total_brokerage": "589452",
-        "total_amount": "48451"
-    },
-    {
-        "account_name": "hasiofd",
-        "address": "dsind",
-        "total_outstanding": "987412",
-        "total_brokerage": "598123",
-        "total_amount": "85415"
-    },
-    {
-        "account_name": "difhcnk",
-        "address": "cxzjiz",
-        "total_outstanding": "595652",
-        "total_brokerage": "596263",
-        "total_amount": "58952322"
-    }
-]
+ 
+    [
+        {
+            "account_no": "AD124565"
+        },
+        {
+            "account_no": "Af524565"
+        },
+	{
+            "account_no": "DW89565"
+        },
+	{
+            "account_no": "YD994565"
+        },
+	{
+           "account_no": "QW784565"
+        } 
+    ]

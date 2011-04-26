@@ -1,0 +1,32 @@
+<form>
+    <label class="push_3"><h2>Misc Account Form</h2></label>
+    <fieldset class="form blue box grid_10">
+        <ul>
+            <li>
+                <label>Account Name</label>
+                <input type="text" class="grid_5" value='[%list.account_name%]' name="account_name"/>
+            </li>
+            <li>
+                <label>Address</label>
+                <input type="text" class="grid_5" value='[%list.address%]' name="address"/>
+            </li>
+            <li>
+                <label>Birth Date</label>
+		<input type="text" class="datepicker grid_5" value='[%list.birthdate%]' name="birthdate"/>
+		<span class="bottomNote push_4">Date in formate :: dd-mm-yr</span>
+            </li>
+            <li>
+                <label>Family</label>
+                <select class="grid_5" name="family">
+                    [% PROCESS family_select.html
+                       match = list.family  %]
+                </select>
+            </li>
+        </ul>
+    </fieldset>
+    <li class="form hii">
+        <label style="margin-right:80px;"></label>
+        <input type="button" name="delete" value="Delete"  id="Del" class="button" style="margin-right:80px;"/>
+        <input type="button" name="save" value="Edit/Save" id="Save" class="button" />
+    </li>
+</form>

@@ -1,0 +1,31 @@
+<div id="sidebar-content">
+	<form class="yellow box">
+		  <fieldset>
+				<ul class="form vvv thin">
+					<li>
+						<label class="" >Name</label>
+						<input type="text" value="[% item.account_name %]" name="account_name" >
+					</li>
+					<li>
+						<label class="" >Address</label>
+						<input type="text" value="[% item.address %]" name="address" >
+					</li>
+					<li>
+						<label class="" >Birth Date</label>
+						<input type="text" value="[% item.birth_date %]" name="birth_date" class="datepicker" />
+					</li>
+					<li>
+						<label class="" >Family</label>
+						<select class="grid_4" name="family" value="[%item.family%]" >
+							<option value="shah">shah
+							<option value="desai">desai
+						</select>
+					</li>
+				</ul>
+			</fieldset>
+				<li class="form hii">
+					<input type="button" name="added" value="Save" id="added" class="button" />
+					<input type="reset" name="reset" value="Reset" class="button" />
+				</li>
+	<form>
+</div>
