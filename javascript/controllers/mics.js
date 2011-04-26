@@ -46,15 +46,18 @@ MiscController = function(app) {with (app) {
                         })
                         $("#section-menu").find("a[name=add_new]").click(function(){
                             context .jemplate('add_new_account.html',{}, "#sidebar-content");
+							$("#sidebar-content").find("input.datepicker")
+							                     .datepicker( {altFormat: 'yy-mm-dd' ,dateFormat : 'dd-mm-yy'});
+						     $("#sidebar-content").find("input[name=added]").click(function(){
+							        alert("New row introduce..");
+									context.render('jemplates/add_one_account.html')
+										   .appendTo("#new-row");
+						     });
                         });
                     })
                     .then(function(){
                         this.wait();
-                        $("#sidebar-content").find("input.datepicker")
-                                             .datepicker( {altFormat: 'yy-mm-dd' ,dateFormat : 'dd-mm-yy'});
-                        $("#sidebar-content").find("input[value=save]").click(function(){
-                            alert("save click");
-                        })
+                        
                         $("#MyTable").find("a").click(function(){
                             var account_id = $(this).attr('id');
                             alert("Your choosen value is "+account_id);
@@ -67,17 +70,22 @@ MiscController = function(app) {with (app) {
                                         $.facebox(content);
                                         $("#facebox").find("input.datepicker")
                                                      .datepicker( {altFormat: 'yy-mm-dd' ,dateFormat : 'dd-mm-yy'});
-                                        $("#facebox").find("#Del").click(function(){
-                                            $("#facebox").find("input[name=delete]").trigger('close.facebox');
-                                            $("#MyTable").find("a#"+ account_id ).parents("tr:first").hide();
-                                        })
-                                        $("#facebox").find("#Save").click(function(){
+                                       
+										$("#facebox").find("#Del").click(function(){
+                                            $("#facebox").find("input[name=delete]")
+												         .trigger('close.facebox');
+                                            $("#MyTable").find("a#"+ account_id )
+												         .parents("tr:first").hide();
+                                        });
+                                        
+										$("#facebox").find("#Save").click(function(){
                                             alert("Your data is save");
-                                            $("#facebox").find("input[name=delete]").trigger('close.facebox');
-                                        })
+                                            $("#facebox").find("input[name=delete]")
+												         .trigger('close.facebox');
+                                        });
                                     });
-                        })//this is for table anchor click evevnt
-                    })// this is for then function above table
+                        });//this is for table anchor click evevnt
+                    });// this is for then function above table
         });//app.get close
 //------------------------------------Account View------------------------------
 
@@ -104,6 +112,11 @@ MiscController = function(app) {with (app) {
                         });
                         $("#section-menu").find("a[name=add_new]").click(function(){
                             context .jemplate('add_new_enumeration.html',{}, "#sidebar-content");
+							        $("#sidebar-content").find("#save").click(function(){
+										    alert("new row is added");
+										    context.render('jemplates/single_enumeration.html')
+											       .appendTo("#new-row");
+									});
                         })
                         
                         $("#section-menu").find("a[name=view_enumeration]").click(function(){
@@ -121,7 +134,7 @@ MiscController = function(app) {with (app) {
                                         }
                                         nhash[ hash.key_name ].push(hash);
                                     });
-                                    context .jemplate('view_each_enumeration.html',{list:nhash,enumeration_key : enumeration_key}, "#main-content", this);
+                                    context .jemplate('view_each_enumeration.html',{list:nhash,enumeration_key : enumeration_key},"#main-content", this);
                                 })
                                 .then(function(){
                                     $("#MyTable").find("span.edit").click(function(){
@@ -136,31 +149,21 @@ MiscController = function(app) {with (app) {
                                         context .jemplate('add_enum_value.html',{}, "#sidebar-content")
                                         $("#sidebar-content").find("#save").click(function(){
                                             alert("new enum value aded")
-                                            context.render('jemplates/single_enum_value.html').appendTo("#new_row");
+                                            context.render('jemplates/single_enum_value.html')
+												   .appendTo("#new_row");
                                         })
                                     })
                                      $("#MyTable").find("span.delete").click(function(){
                                         var option_value = $(this).attr("id").replace("row_","")
                                         alert("you del click : "+ option_value);
 									$("#MyTable").find("#row_"+ option_value )
-                                                                    .parents("tr:first").hide();
+                                                 .parents("tr:first").hide();
 
                                     });
                                 });
                         });
                         
-                    })
-                    .then(function(){
-                        $("#section-menu").find("a[name=edit_account]").click(function(){
-                            context .jemplate('add_enumeration.html',{}, "#sidebar-content")
-                                    .then(function(){
-                                        $("#sidebar-content").find("#save").click(function(){
-                                            alert("new row")
-                                            context.render('jemplates/single_enumeration.html').appendTo("#new-row");
-                                        })
-                                    })
-                        })
-                    })
+                    });
         });
 //----------------------------------Enumeration View----------------------------
 //===================================AFTER LOADING==============================

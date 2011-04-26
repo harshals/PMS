@@ -6,7 +6,7 @@
                 <tr>
                     <td style="border-right : none">
                     <label class="pull_5"> Items In Enumeartion </label>
-                    <label class="push_5"><a  id="new">Add New Item</a></label>
+                    <label class="push_5" id="new"><a>Add New Item</a></label>
                     </td>
                 </tr>
                 <tr>

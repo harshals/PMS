@@ -17,10 +17,11 @@
             </li>
             <li>
                 <label>Family</label>
-                <select class="grid_5" name="family">
+				<input type="text" class="grid_5" value='[%list.family%]' name="family"/>
+              <!--  <select class="grid_5" name="family">
                     [% PROCESS family_select.html
                        match = list.family  %]
-                </select>
+                </select> -->
             </li>
         </ul>
     </fieldset>

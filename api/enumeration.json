@@ -27,7 +27,7 @@
         "key_name" : "exchange",
         "option_value" : "BSE",
         "option_name" : "BSE",
-        "sequence_no" : "2"
+        "sequence_no" : "1"
     },
     {
         "key_name" : "exchange",
@@ -81,7 +81,7 @@
         "key_name" : "bought_sold",
         "option_value" : "BOUGHT",
         "option_name" : "BOUGHT",
-        "sequence_no" : "2"
+        "sequence_no" : "1"
     },
     {
         "key_name" : "bought_sold",
