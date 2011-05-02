@@ -147,10 +147,9 @@ MiscController = function(app) {with (app) {
                                     });
                                     $("#MyTable").find("a").click(function(){
                                         context .jemplate('add_enum_value.html',{}, "#sidebar-content")
-                                        $("#sidebar-content").find("#save").click(function(){
+                                        $("#sidebar-content").find("#Save").click(function(){
                                             alert("new enum value aded")
-                                            context.render('jemplates/single_enum_value.html')
-												   .appendTo("#new_row");
+                                            context.render('jemplates/single_enum_value.html').appendTo("#new_row");
                                         })
                                     })
                                      $("#MyTable").find("span.delete").click(function(){
