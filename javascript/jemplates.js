@@ -730,6 +730,22 @@ output += '</h2>\n        <fieldset>\n            <ul class="form big tar fat">\
     return output;
 }
 
+Jemplate.templateMap['import_export_menu.html'] = function(context) {
+    if (! context) throw('Jemplate function called without context\n');
+    var stash = context.stash;
+    var output = '';
+
+    try {
+output += '<p>Choose Action</p>\n<ul>\n	  <li><a id="data" value="Data"><u>Data</u></a></li>\n	  <li><a id="trans" value="Transcation"><u>Transaction</u></a></li>\n	  <li><a id="bills" value="Bills"><u>Bills</u></a></li>\n	  <li><a id="acc" value="Account"><u>Account</u></a></li>\n</ul>\n';
+    }
+    catch(e) {
+        var error = context.set_error(e, output);
+        throw(error);
+    }
+
+    return output;
+}
+
 Jemplate.templateMap['misc_menu.html'] = function(context) {
     if (! context) throw('Jemplate function called without context\n');
     var stash = context.stash;
@@ -970,7 +986,7 @@ Jemplate.templateMap['view_each_enumeration.html'] = function(context) {
     var output = '';
 
     try {
-output += '<ul>\n\n    <li>\n        <table class="basetable tablesorter" id="MyTable"  >\n            <thead>\n                <tr>\n                    <td style="border-right : none">\n                    <label class="pull_5"> Items In Enumeartion </label>\n                    <label class="push_5"><a  id="new">Add New Item</a></label>\n                    </td>\n                </tr>\n                <tr>\n                    <th class="grid_3"> Sequence No </th>\n                    <th class="grid_3"> Name </th>\n                    <th class="grid_3"> Value </th>\n                    <th class="grid_3"> Default </th>\n                    <th class="grid_3">  </th>\n                </tr>\n            </thead>\n            <tbody id="new-enum-value">\n                ';
+output += '<ul>\n\n    <li>\n        <table class="basetable tablesorter" id="MyTable"  >\n            <thead>\n                <tr>\n                    <td style="border-right : none">\n                    <label class="pull_5"> Items In Enumeartion </label>\n                    <label class="push_5" id="new"><a>Add New Item</a></label>\n                    </td>\n                </tr>\n                <tr>\n                    <th class="grid_3"> Sequence No </th>\n                    <th class="grid_3"> Name </th>\n                    <th class="grid_3"> Value </th>\n                    <th class="grid_3"> Default </th>\n                    <th class="grid_3">  </th>\n                </tr>\n            </thead>\n            <tbody id="new-enum-value">\n                ';
 //line 46 "view_each_enumeration.html"
 
 // FOREACH 
@@ -1035,112 +1051,6 @@ output += '/></td>\n\n                                <td class="action left">\n
 output += stash.get(['ii', 0, 'option_value', 0]);
 output += '"></span>\n                                    <span class="delete" id="row_';
 //line 39 "view_each_enumeration.html"
-output += stash.get(['ii', 0, 'option_value', 0]);
-output += '"></span>\n                                </td>\n\n                            </tr>\n\n                    ';;
-            retval = list.get_next();
-            value = retval[0];
-            done = retval[1];
-        }
-    }
-    catch(e) {
-        throw(context.set_error(e, output));
-    }
-    stash.set('loop', oldloop);
-})();
-
-output += '\n\n                ';;
-            retval = list.get_next();
-            value = retval[0];
-            done = retval[1];
-        }
-    }
-    catch(e) {
-        throw(context.set_error(e, output));
-    }
-    stash.set('loop', oldloop);
-})();
-
-output += '\n\n            </tbody>\n            <tfoot>\n                <tr>\n\n                </tr>\n            </tfoot>\n        </table>\n    </li>\n</ul>';
-    }
-    catch(e) {
-        var error = context.set_error(e, output);
-        throw(error);
-    }
-
-    return output;
-}
-
-Jemplate.templateMap['view_each_enumeration.html.bak'] = function(context) {
-    if (! context) throw('Jemplate function called without context\n');
-    var stash = context.stash;
-    var output = '';
-
-    try {
-output += '<ul>\n\n    <li>\n        <table class="basetable tablesorter" id="MyTable"  >\n            <thead>\n                <tr>\n                    <td style="border-right : none">\n                    <label class="pull_5"> Items In Enumeartion </label>\n                    <label class="push_5" id="new"><a>Add New Item</a></label>\n                    </td>\n                </tr>\n                <tr>\n                    <th class="grid_3"> Sequence No </th>\n                    <th class="grid_3"> Name </th>\n                    <th class="grid_3"> Value </th>\n                    <th class="grid_3"> Default </th>\n                    <th class="grid_3">  </th>\n                </tr>\n            </thead>\n            <tbody id="new-enum-value">\n                ';
-//line 46 "view_each_enumeration.html.bak"
-
-// FOREACH 
-(function() {
-    var list = stash.get(['list', 0, 'pairs', 0]);
-    list = new Jemplate.Iterator(list);
-    var retval = list.get_first();
-    var value = retval[0];
-    var done = retval[1];
-    var oldloop;
-    try { oldloop = stash.get('loop') } finally {}
-    stash.set('loop', list);
-    try {
-        while (! done) {
-            stash.data['item'] = value;
-output += '\n\n                    ';
-//line 23 "view_each_enumeration.html.bak"
-if (!(stash.get(['item', 0, 'key', 0]) == stash.get('enumeration_key'))) {
-  retval = list.get_next();
-  value = retval[0];
-  done = retval[1];
-  continue;
-
-}
-
-output += '\n\n                        ';
-//line 44 "view_each_enumeration.html.bak"
-
-// FOREACH 
-(function() {
-    var list = stash.get(['item', 0, 'value', 0]);
-    list = new Jemplate.Iterator(list);
-    var retval = list.get_first();
-    var value = retval[0];
-    var done = retval[1];
-    var oldloop;
-    try { oldloop = stash.get('loop') } finally {}
-    stash.set('loop', list);
-    try {
-        while (! done) {
-            stash.data['ii'] = value;
-output += '\n\n                            <tr id="row_';
-//line 27 "view_each_enumeration.html.bak"
-output += stash.get(['ii', 0, 'option_value', 0]);
-output += '">\n                                <td class=" grid_3" >';
-//line 28 "view_each_enumeration.html.bak"
-output += stash.get(['ii', 0, 'sequence_no', 0]);
-output += '</td>\n\n                                <td class=" grid_3">';
-//line 30 "view_each_enumeration.html.bak"
-output += stash.get(['ii', 0, 'option_name', 0]);
-output += '</td>\n\n                                <td class=" grid_3">';
-//line 32 "view_each_enumeration.html.bak"
-output += stash.get(['ii', 0, 'option_value', 0]);
-output += '</td>\n\n                                <td class=" grid_3"><input type="radio" name="default"   \n								';
-//line 35 "view_each_enumeration.html.bak"
-if (stash.get(['item', 0, 'default', 0])) {
-output += ' checked ';
-}
-
-output += '/></td>\n\n                                <td class="action left">\n                                    <span class="edit" id="row_';
-//line 38 "view_each_enumeration.html.bak"
-output += stash.get(['ii', 0, 'option_value', 0]);
-output += '"></span>\n                                    <span class="delete" id="row_';
-//line 39 "view_each_enumeration.html.bak"
 output += stash.get(['ii', 0, 'option_value', 0]);
 output += '"></span>\n                                </td>\n\n                            </tr>\n\n                    ';;
             retval = list.get_next();
