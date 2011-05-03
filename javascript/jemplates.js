@@ -356,7 +356,7 @@ output += stash.get(['bill', 0, 'from_period', 0]);
 output += '"/>\n                </li>\n                <li>\n                    <input class="datepicker" type="text" name="to_period" value="';
 //line 54 "bill_edit_add.html"
 output += stash.get(['bill', 0, 'to_period', 0]);
-output += '"/>\n                </li>\n            </ul>\n    </fieldset>\n</form>\n<ul>\n    \n    <li>\n        <table class="basetable tablesorter" id="MyTable"  >\n            <thead>\n                <tr>\n                    <td style="border-right : none">\n                    <label class="pull_5"> List Of Trasactions </label>\n                    <label class="push_5" id="new"><a>Add New Transaction</a></label>\n                    </td>\n                </tr>\n                <tr>\n                    <th class="grid_3"> Transaction No </th>\n                    <th class="grid_3"> Transaction Date </th>\n                    <th class="grid_3"> Security </th>\n                    <th class="grid_3"> Type </th>\n                    <th class="grid_3"> Amount </th>\n                </tr>\n            </thead>\n            <tbody id="new-row">\n                ';
+output += '"/>\n                </li>\n            </ul>\n    </fieldset>\n</form>\n<ul>\n    \n    <li>\n        <table class="basetable tablesorter" id="MyTable_bill_edit"  >\n            <thead>\n                <tr>\n                    <td style="border-right : none">\n                    <label class="pull_5"> List Of Trasactions </label>\n                    <label class="push_5" id="new"><a>Add New Transaction</a></label>\n                    </td>\n                </tr>\n                <tr>\n                    <th class="grid_3"> Transaction No </th>\n                    <th class="grid_3"> Transaction Date </th>\n                    <th class="grid_3"> Security </th>\n                    <th class="grid_3"> Type </th>\n                    <th class="grid_3"> Amount </th>\n                </tr>\n            </thead>\n            <tbody id="new-row">\n                ';
 //line 83 "bill_edit_add.html"
 
 // FOREACH 
@@ -456,7 +456,7 @@ Jemplate.templateMap['bill_list_view.html'] = function(context) {
     var output = '';
 
     try {
-output += '<ul>\n    <li>\n        <table class="basetable tablesorter" id="MyTable"  >\n            <thead>\n                <tr>\n                    <th class="grid_3"> Account </th>\n                    <th class="grid_3"> Bill No. </th>\n                    <th class="grid_3"> Bill Date </th>\n                    <th class="grid_3"> Brokerage </th>\n                    <th class="grid_3"> Amount </th>\n                </tr>\n            </thead>\n            <tbody id="new-row">\n\n                ';
+output += '<ul>\n    <li>\n        <table class="basetable tablesorter" id="MyTable_bill_list"  >\n            <thead>\n                <tr>\n                    <th class="grid_3"> Account </th>\n                    <th class="grid_3"> Bill No. </th>\n                    <th class="grid_3"> Bill Date </th>\n                    <th class="grid_3"> Brokerage </th>\n                    <th class="grid_3"> Amount </th>\n                </tr>\n            </thead>\n            <tbody id="new-row">\n\n                ';
 //line 19 "bill_list_view.html"
 
 // FOREACH 
@@ -902,7 +902,7 @@ Jemplate.templateMap['view_account.html'] = function(context) {
     var output = '';
 
     try {
-output += '<ul>\n\n    <li>\n        <table class="basetable tablesorter" id="MyTable"  >\n            <thead>\n                <tr>\n                    <th class="grid_3"> Account Name </th>\n                    <th class="grid_3"> Address </th>\n                    <th class="grid_3"> Total Outstanding </th>\n                    <th class="grid_3"> Total Brokerage </th>\n                    <th class="grid_3"> Total Amount </th>\n                </tr>\n            </thead>\n            <tbody id="new-row">\n\n                ';
+output += '    <ul>\n\n    <li>\n        <table class="basetable tablesorter" id="MyTable_account"  >\n            <thead>\n                <tr>\n                    <th class="grid_3"> Account Name </th>\n                    <th class="grid_3"> Address </th>\n                    <th class="grid_3"> Total Outstanding </th>\n                    <th class="grid_3"> Total Brokerage </th>\n                    <th class="grid_3"> Total Amount </th>\n                </tr>\n            </thead>\n            <tbody id="new-row">\n\n                ';
 //line 20 "view_account.html"
 
 // FOREACH 
@@ -986,7 +986,7 @@ Jemplate.templateMap['view_each_enumeration.html'] = function(context) {
     var output = '';
 
     try {
-output += '<ul>\n\n    <li>\n        <table class="basetable tablesorter" id="MyTable"  >\n            <thead>\n                <tr>\n                    <td style="border-right : none">\n                    <label class="pull_5"> Items In Enumeartion </label>\n                    <label class="push_5" id="new"><a>Add New Item</a></label>\n                    </td>\n                </tr>\n                <tr>\n                    <th class="grid_3"> Sequence No </th>\n                    <th class="grid_3"> Name </th>\n                    <th class="grid_3"> Value </th>\n                    <th class="grid_3"> Default </th>\n                    <th class="grid_3">  </th>\n                </tr>\n            </thead>\n            <tbody id="new_row">\n                ';
+output += '<ul>\n\n    <li>\n        <table class="basetable tablesorter" id="MyTable_each_enum"  >\n            <thead>\n                <tr>\n                    <td style="border-right : none">\n                    <label class="pull_5"> Items In Enumeartion </label>\n                    <label class="push_5" id="new"><a>Add New Item</a></label>\n                    </td>\n                </tr>\n                <tr>\n                    <th class="grid_3"> Sequence No </th>\n                    <th class="grid_3"> Name </th>\n                    <th class="grid_3"> Value </th>\n                    <th class="grid_3"> Default </th>\n                    <th class="grid_3">  </th>\n                </tr>\n            </thead>\n            <tbody id="new_row">\n                ';
 //line 46 "view_each_enumeration.html"
 
 // FOREACH 
@@ -1092,7 +1092,7 @@ Jemplate.templateMap['view_enumeration.html'] = function(context) {
     var output = '';
 
     try {
-output += '<ul>\n    <li>\n        <table class="basetable tablesorter" id="MyTable"  >\n            <thead>\n                <tr>\n                    <th class="grid_3"> Key </th>\n                    <th class="grid_9"> Value </th>\n                </tr>\n            </thead>\n            <tbody id="new-row" class="">\n                ';
+output += '<ul>\n    <li>\n        <table class="basetable tablesorter" id="MyTable_enum"  >\n            <thead>\n                <tr>\n                    <th class="grid_3"> Key </th>\n                    <th class="grid_9"> Value </th>\n                </tr>\n            </thead>\n            <tbody id="new-row" class="">\n                ';
 //line 11 "view_enumeration.html"
 stash.set('data', ' ');
 output += '\n                \n                ';

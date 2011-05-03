@@ -124,12 +124,12 @@ BillController = function(app) {with (app) {
                         }
                         context .jemplate('bill_list_view_menu.html', {}, "#section-menu");
                         context .jemplate('bill_list_view.html',{list:json,total_amount:total_amount,total_brokerage:total_brokerage}, "#main-content", this);
-                        $("#MyTable").find("a[id=row_"+g_id+"]").parents("tr").hide();
+                        $("#MyTable_bill_list").find("a[id=row_"+g_id+"]").parents("tr").hide();
                     })
                     .then(function(){
                         this.wait();
                     //.........To Edit The Bill by clicking on Bill No..........
-                        $("#MyTable").find("a").click(function(){
+                        $("#MyTable_bill_list").find("a").click(function(){
                             var bill_no = $(this).attr("id").replace("row_",'');
                             context.redirect("#/bill-edit-add/"+bill_no)
                         })
@@ -138,7 +138,7 @@ BillController = function(app) {with (app) {
                     })
                     //..................TableSorter N Pagination................
                     .then(function(){
-                        $("#MyTable").tablesorter()
+                        $("#MyTable_bill_list").tablesorter()
                                      .tablesorterPager({container : $("#sidebar-content") , positionFixed: false});
                     });
         });
@@ -177,7 +177,7 @@ BillController = function(app) {with (app) {
                                 .then(function(){
                                     this.wait();
                                     //...To Edit N Add Transaction by clicking on Transaction No...
-                                    $("#MyTable").find("a").click(function(){
+                                    $("#MyTable_bill_edit").find("a").click(function(){
                                         var transaction_id = $(this).attr("id").replace("row_",'');
                                         context .load("api/transaction-detail.json")
                                                 .then(function(json) {
@@ -188,7 +188,7 @@ BillController = function(app) {with (app) {
                                                     //....Delete Transaction....
                                                     $("#facebox").find("#del").click(function(){
                                                         $("#facebox").find("#del").trigger('close.facebox');
-                                                        $("#MyTable").find("a#row_"+ transaction_id ).parents("tr:first").hide();
+                                                        $("#MyTable_bill_edit").find("a#row_"+ transaction_id ).parents("tr:first").hide();
                                                     })
                                                     //.....Save Transaction.....
                                                     $("#facebox").find("#save").click(function(){
@@ -205,7 +205,7 @@ BillController = function(app) {with (app) {
                                     })
                                     $("#main-content" ) .find("input.datepicker")//datepicker
                                                         .datepicker( {altFormat: 'yy-mm-dd' ,dateFormat : 'dd-mm-yy'});
-                                    $("#MyTable").tablesorter();
+                                    $("#MyTable_bill_edit").tablesorter();
                                 })
                         //------------------------------------------------------
                     })

@@ -37,7 +37,7 @@ MiscController = function(app) {with (app) {
                     })
                     .then(function(){
                         this.wait();
-                        $("#MyTable").tablesorter();
+                        $("#MyTable_account").tablesorter();
                         $("#section-menu").find("a[name=view_account]").click(function(){
                             context.redirect("#/view-account");
                         })
@@ -58,7 +58,7 @@ MiscController = function(app) {with (app) {
                     .then(function(){
                         this.wait();
                         
-                        $("#MyTable").find("a").click(function(){
+                        $("#MyTable_account").find("a").click(function(){
                             var account_id = $(this).attr('id');
                             alert("Your choosen value is "+account_id);
                             context .load("api/account_list.json")
@@ -74,7 +74,7 @@ MiscController = function(app) {with (app) {
 										$("#facebox").find("#Del").click(function(){
                                             $("#facebox").find("input[name=delete]")
 												         .trigger('close.facebox');
-                                            $("#MyTable").find("a#"+ account_id )
+                                            $("#MyTable_account").find("a#"+ account_id )
 												         .parents("tr:first").hide();
                                         });
                                         
@@ -106,7 +106,7 @@ MiscController = function(app) {with (app) {
                     })
                     .then(function(){
                         this.wait();
-                        $("#MyTable").tablesorter();
+                        $("#MyTable_enum").tablesorter();
                         $("#section-menu").find("a[name=view_account]").click(function(){
                             context.redirect("#/view-account");
                         });
@@ -122,7 +122,7 @@ MiscController = function(app) {with (app) {
                         $("#section-menu").find("a[name=view_enumeration]").click(function(){
                             context.redirect("#/view-enumeration");
                         });
-                        $("#MyTable").find("a").click(function(){
+                        $("#MyTable_enum").find("a").click(function(){
                             var enumeration_key = $(this).attr("id").replace("key_name_","");
                             context .load("api/enumeration.json")
                                 .then(function(json) {
@@ -137,7 +137,7 @@ MiscController = function(app) {with (app) {
                                     context .jemplate('view_each_enumeration.html',{list:nhash,enumeration_key : enumeration_key},"#main-content", this);
                                 })
                                 .then(function(){
-                                    $("#MyTable").find("span.edit").click(function(){
+                                    $("#MyTable_each_enum").find("span.edit").click(function(){
                                         var data = $(this).attr("id").replace("row_","")
                                         alert("you click : "+ data);
                                         context .jemplate('add_enum_value.html',{key_name:data}, "#sidebar-content")
@@ -145,17 +145,17 @@ MiscController = function(app) {with (app) {
                                             alert("ADD")
                                         })
                                     });
-                                    $("#MyTable").find("a").click(function(){
+                                    $("#MyTable_each_enum").find("a").click(function(){
                                         context .jemplate('add_enum_value.html',{}, "#sidebar-content")
                                         $("#sidebar-content").find("#Save").click(function(){
                                             alert("new enum value aded")
                                             context.render('jemplates/single_enum_value.html').appendTo("#new_row");
                                         })
                                     })
-                                     $("#MyTable").find("span.delete").click(function(){
+                                     $("#MyTable_each_enum").find("span.delete").click(function(){
                                         var option_value = $(this).attr("id").replace("row_","")
                                         alert("you del click : "+ option_value);
-									$("#MyTable").find("#row_"+ option_value )
+                                        $("#MyTable_each_enum").find("#row_"+ option_value )
                                                  .parents("tr:first").hide();
 
                                     });
