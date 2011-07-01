@@ -1,0 +1,23 @@
+.loader {
+	/* should have */
+	background: #fff url('../images/loader.gif') 50% 50% no-repeat;
+	border: 1px solid #000;
+
+	/* useless, just for the looks */
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	
+	-moz-box-shadow: 1px 1px 1px #333;
+	-webkit-box-shadow: 0 3px 3px 0 #333;
+	box-shadow: 0 3px 3px 0 #333;
+}
+
+.loader-text {
+	/* should have */
+	background: #2c2b33;
+	border: 1px solid #596664;
+	color: #ff8a00;
+	font-weight: bold;
+}
+

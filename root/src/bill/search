@@ -1,0 +1,64 @@
+<div class="box"> <!-- begin form box -->
+<h2>
+		<a href="#" id="toggle-forms">Search Purchase</a>
+		[% UNLESS type %] [% type = "0" %] [% END %]
+	</h2>
+	<form action="[% c.uri_for("/purchase/$type/search") %]" class="search" id="forms" method="POST">
+		<fieldset >
+			<p class="">
+				<label>Warehouse: </label>
+				<select name="warehouse_id" class="required">
+				[% UNLESS c.user.id == 4 %]
+					<option value="">Select Warehouse</option>
+				[% END %]
+            	[% PROCESS company/select_warehouse %]
+				</select>
+			</p>
+
+
+			<p>
+				<label>List of Invoice Nos: </label>
+				<input type="text" name="invoice_no" value="" />
+				<span class="help"> for eg. 55,60,75 to search for invoices</span>
+			</p>
+			<p>
+				<label>From Date: </label>
+				<input type="text" name="from_date" />
+			</p>
+			<p>
+				<label>To Date: </label>
+				<input type="text" name="to_date" />
+			</p>
+			[% UNLESS type.match('company') %]
+			<p>
+				<label>Supplier: </label>
+
+                <select name="supplier_id" class="incremental">
+                    <option value=""> Choose Supplier</option>
+                    [% PROCESS company/select %]
+                </select>
+			</p>
+			[% END %]
+			<p>
+				<label>Product: </label>
+				<select name="product_id" >
+                	<option value=""> Choose Product </option>
+
+					[% PROCESS product/select %]
+
+                </select>
+			</p>
+			<p>
+				<label>Product Group: </label>
+				<select name="product_group" >
+                	<option value=""> Choose Product Group</option>
+
+					[% PROCESS product/select_group %]
+                   
+                </select>
+			</p>
+			
+			<button class="button" type="submit" value="purchase_search"> Search Purchase Invocies</button>
+		</fieldset>
+	</form>
+</div>

@@ -1,0 +1,23 @@
+
+<div class="box"> <!-- begin search form -->
+<h2>
+		<a href="#" id="toggle-forms">Search Company</a>
+	</h2>
+	<form action="[% c.uri_for("/report/search/company") %]" class="search" id="forms" method="GET">
+		<fieldset >
+			<p>
+				<label>Company : </label>
+				   <select name="company_id" class="required">
+					<option value="">Select Company</option>
+					[% PROCESS company/select 
+						match = company.id 
+					%]
+					</select>
+				</p>
+			<button class="button" type="submit" value="Search"> Find it</button>
+		</fieldset>
+	</form>
+</div><!-- end search form -->
+	
+
+

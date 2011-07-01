@@ -1,0 +1,78 @@
+
+<table summary="This table includes examples of as many table elements as possible" class="warehouse">
+<caption><b>Stock Register from [% c.req.params.from_date %] to [% c.req.params.to_date %]</b></caption>
+<colgroup>
+	<col class="colA" />
+	<col class="colB" />
+	<col class="colC" />
+	<col class="colD" />
+	<col class="colE" />
+	<col class="colF" />
+	<col class="colG" />
+</colgroup>
+<thead>
+	   
+	<tr>
+            <th>Purchase From</th>
+            <th>Sales To</th>
+            <th>Invoice Date</th>
+	    <th>Invoice No.</th>
+	    <th>Quantity</th>
+	    <th>Basic Rate</th>
+        </tr>
+    </thead>
+    <tbody>
+
+    [% prev_product = ''
+       prev_uom = '' %]
+
+    [% FOREACH row IN stockregister_rs %]
+
+    	[% balance = row.quantity %]
+		[% p_basic_rate = row.rate - row.unit_cenvat - row.unit_sec_edu_cess - row.unit_hs_edu_cess - row.unit_cvd %]
+        [% IF prev_product != row.product.name || prev_uom != row.uom %]
+
+        [% prev_product = row.product.name
+ 		       prev_uom = row.uom %]
+			<tr>
+
+				<th colspan=6>Product Name :&nbsp;[% row.product.name %] in [% row.uom %]</th>
+
+			</tr>			
+        [% END %]
+
+	<tr class='warehouse_[% row.warehouse_id %]'>
+		<td>[% row.manufacturer.name %]</td>
+		<td>[% row.balance %] [% row.uom %]</td>
+		<td>[% row.invoice_date %]</td>
+		<td>[% row.invoice_no %]</td>
+		<td>[% row.quantity %] </td>
+		<td>[% p_basic_rate %] </td>
+	</tr>
+	[% FOREACH salex IN row.sales %]
+		
+		[% balance = balance - salex.quantity %]
+		[% sale = c.mode("DemoDB::Sale").fetch(salex.id).serialize(4) %]
+
+		[% unit_cvd = salex.cvd / salex.quantity %]
+    	[% basic_rate = salex.rate - row.unit_cenvat - row.unit_sec_edu_cess - row.unit_hs_edu_cess - unit_cvd %]
+		
+		<tr>
+			<td></td>
+			<td>[% salex.consignee.name %]</td>
+			<td>[% salex.invoice_date %]</td>
+			<td>[% salex.invoice_no %]</td>
+			<td>[% salex.quantity %]  </td>
+			<td>[% basic_rate %] </td>
+		</tr>
+
+	[% END %]
+	[% USE Math %]
+	[% IF  Math.abs( balance - row.balance ) > 0.001 %]
+		<tr ><td colspan=6>Error in balance stock calculation [% balance - new_balance %]</td></tr>
+	[% END %]
+
+    [% END %]
+		
+    </tbody>
+</table>

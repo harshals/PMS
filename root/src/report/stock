@@ -1,0 +1,56 @@
+[% INCLUDE pager_head %]
+<table summary="" class="warehouse">
+<caption><b>Stock Summary from [% c.req.params.from_date %] to [% c.req.params.to_date %]</b></caption>
+<colgroup>
+	<col class="colA" />
+	<col class="colB" />
+	<col class="colC" />
+	<col class="colD" />
+	<col class="colE" />
+	<col class="colF" />
+</colgroup>
+<thead>
+	
+        <tr>
+            <th>Product Name</th>
+            <th>Units</th>
+            <th>Opening</th>
+            <th>Purchase </th>
+            <th>Sale </th>
+            <th>Closing </th>
+        </tr>
+    </thead>
+    <tbody>
+        [% FOREACH row IN  stock_rs.sort('warehouse_id', 'product') %]
+		[% NEXT UNLESS row.opening || row.purchase || row.sale %]
+
+		[% 	total_opening = total_opening + row.opening 
+			total_sale = total_sale + sale 
+			total_purchase = total_purchase + row.purchase 
+			total_balance = total_balance + row.balance %]
+
+        <tr class="warehouse_[% row.warehouse_id %]" >
+            <td><a href="[% c.uri_for("/report/search/stockregister") %]?warehouse_id=[% row.warehouse_id %]&product_id=[% row.product_id %]&from_date=[% c.req.params.from_date %]&to_date=[% c.req.params.to_date %]" >[% row.product %] </a> </td>
+            <td>[% row.uom %]  </td>
+            <td>[% row.opening %]</td>
+            <td>[% row.purchase %]</td>
+            <td>[% row.sale %] </td>
+            <td>[% row.balance %] ( [% row.actual_balance %] ) </td>
+		</tr>
+			[% 	purchase = 0
+				balance = 0
+				sale = 0 
+				opening = 0 %]
+        [% END %]
+    </tbody>
+	<tfoot>
+		<tr>
+			<td></td>
+			<td></td>
+			<td>[% total_opening %]</td>
+			<td>[% total_purchase %]</td>
+			<td>[% total_sale %]</td>
+			<td>[% total_balance %]</td>
+		</tr>
+	</tfoot>
+</table>

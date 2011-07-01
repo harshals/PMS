@@ -1,0 +1,14 @@
+[% WRAPPER mobile/wrapper.tt
+ title = "Welcome to E-invoices" %]
+
+    [% IF c.req.param("company_id") %]
+
+        [% PROCESS  "mobile/$type/form.tt" %]
+
+    [% ELSE %]
+
+        [% PROCESS  "mobile/$type/list.tt" %]
+
+    [% END %]
+
+[% END %]

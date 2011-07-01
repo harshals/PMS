@@ -1,0 +1,11 @@
+
+<label>Company Name</label><br><br>
+<ul data-role="listview" data-filter="true" data-inset="true">
+          [% FOREACH row IN  c.model("DemoDB::Company").everyone.serialize %]
+	     <li><a href="[% c.uri_for("/db/search/company") %]?company_id=[% row.id %]">[% row.name %]</a></li>
+	  [% END %]
+</ul>
+
+
+ 
+  

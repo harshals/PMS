@@ -1,0 +1,40 @@
+<html>
+<link rel="stylesheet" type="text/css" href="[% c.uri_for("/static/css/annotation.css") %]" media="all">
+
+<script type="text/javascript" src="[% c.uri_for("/static/js/jquery-1.3.2.js")%]></script>
+<script type="text/javascript" src="[% c.uri_for("/static/js/jquery-ui-1.7.1.js") %]"></script>
+<script type="text/javascript" src="[% c.uri_for("/static/js/jquery.annotate.js") %]"></script>
+<script>
+$(window).load(function() {
+				
+			
+	$("#img1")
+	.annotateImage({
+		editable: false,
+		useAjax: false,
+		notes: [
+				{top: 95, left : 580, width: 50, height : 20, text: "Click on Print", editable : false }	
+			]
+	});
+
+});
+</script>
+
+<body>
+<br>
+
+<font face="verdana" size ="15">
+
+<b>- Login in to http://www.einvoices.biz/try and select Listing->Sales Invoices<b>
+
+</font>
+<br>
+<br>
+<img src="[% c.uri_for("/static/images/Sales_Invoice_List_print.jpg")%]" id="img1" />
+<br><br>
+<b>- Click on print <b>
+<br>
+<br>
+<img src="[% c.uri_for("/static/images/Invoice.jpg")%]" />
+</body>
+</html>

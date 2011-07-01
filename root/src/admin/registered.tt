@@ -1,0 +1,22 @@
+
+[% WRAPPER wrapper_email %]
+
+<pre>
+Welcome to Einvoices,
+
+You can access your demo account at <a href="http://einvoices.biz/try"> http://einvoices.biz/try</a>.
+
+username/email : guest@xyz.com
+
+password       : guest
+
+For any help or support kindly email us at support@einvoices.biz.
+
+IF you like to buy the license, you can reach us at sales@einvoices.biz.
+
+Regards
+
+Team @ MK Software
+
+</pre>
+[% END %]

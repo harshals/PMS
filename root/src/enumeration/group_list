@@ -1,0 +1,35 @@
+
+
+<table >
+<colgroup>
+	<col class="colA" />
+	<col class="colB" />
+	<col class="colF" />
+    <col class="colG" />	
+</colgroup>
+
+    <thead>
+        <tr>
+            <th colspan="8" class="table-head">Enumerations</th>
+        </tr>
+        <tr>
+            <th>Class</th>
+            <th>Attribute</th>
+            <th>Count</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        [% FOREACH row IN enumeration_rs.serialize %]
+        <tr >
+            <td>[% row.class %]</td>
+            <td>[% row.attr %]</td>
+            <td>[% row.total %]</td>
+            <td>
+            <a href="[% c.uri_for("/db/enumeration/from_cgi_params/search") %]?class=[% row.class %]&attr=[% row.attr %]">Go Deep</a>
+            </td>
+        </tr>
+        [% END %]
+    </tbody>
+</table>
+

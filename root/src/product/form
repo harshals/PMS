@@ -1,0 +1,42 @@
+
+
+<div class="box">
+<form action="[% c.uri_for("/db/product/put") %]" class="new_product"  method="POST">
+
+<fieldset>
+
+<legend>Product Information</legend>
+<input type=hidden name="id" value="[% product.id %]" />
+<p>
+	<label>Name: </label>
+	<input type="text" name="name" value="[% product.name %]" class="required"/>
+</p>
+<p>
+	<label>Chapter Heading: </label>
+	<input type="text" name="chapter_heading" value="[% product.chapter_heading %]" class="required"/>
+	<span class=help>eg. 3904.20.10</span>
+</p>
+<p>
+	<label>Description: </label>
+	<input type="text" name="description" value="[% product.description %]"/>
+</p>
+<p>
+	<label>Manufacturer: </label>
+	<select name="manufacturer_id" class="">
+		<option value="">Select Manufacturer</option>
+       [% PROCESS company/select 
+           match = product.manufacturer_id
+       %]
+	</select>
+
+</p>
+
+<p>
+	<label>Product Group: </label>
+	<input type="text" name="product_group" value="[% product.product_group %]" class="required check_product_group_name"/>
+</p>
+<button class="button" type="submit" >Add</button>
+<button class="button" type="reset" >Cancel </button>
+</fieldset>
+</form>
+</div>

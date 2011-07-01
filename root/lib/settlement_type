@@ -1,0 +1,4 @@
+<option value="">Select Settlement Type</option>
+[% FOREACH mode = ["NORMAL","ROLLING"] %]
+<option value="[% mode %]" [% IF mode == match %] selected [% END %]> [% mode %] </option>
+[% END %]

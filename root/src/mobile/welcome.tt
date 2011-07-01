@@ -1,0 +1,28 @@
+[% WRAPPER mobile/wrapper.tt
+ title = "Welcome to E-invoices" %]
+
+[% IF c.user_exists %]
+ 
+    [% INCLUDE mobile/menu.tt  %]
+    
+[% ELSE %]
+   <form action="[% c.uri_for("/check") %]" method="POST">
+            <div data-role="fieldcontain">
+                <label for="username">User Name</label>
+                <input type="text" id="username" name="email" />
+            </div>
+            <div>
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" />
+            </div>
+            <p>
+			[% IF message %] [% message %] [% END %]
+	    </p>
+            <div>
+                <input type=submit value="Login" />
+            </div>
+            
+     </form>
+[% END %]
+    
+[% END %]

@@ -1,0 +1,52 @@
+<div class="box"> <!-- begin search form -->
+<h2>
+		<a href="#" id="toggle-section-menu" >Search Party Wise Ledger</a>
+	</h2>
+	<form action="[% c.uri_for("/report/search/ledger") %]" class="new_search" id="forms" method="POST">
+		<fieldset >
+		<p>
+			<label>Company : </label>
+                <select name=company_id class=required>
+                [% PROCESS company/select %]
+                </select>
+		</p>
+		<p>
+			<label>Instrument Type: </label>
+            <select name=instrument class=required>
+                <option value=""> All </option>
+                [% FOREACH instrument_type = ["Cheque", "Cash", "RTGS/NEFT", "Transfer" ] %]
+                    <option  value="[% instrument_type %]"> [% instrument_type %] </option>
+                [% END %]
+            </select>
+		</p>
+
+			<p>
+				<label>From Date: </label>
+				<input type="text" name="from_date" />
+			</p>
+			<p>
+				<label>To Date: </label>
+				<input type="text" name="to_date" />
+			</p>
+		<p>
+			<label>Payment Type: </label>
+            <select name=payment_type class=required>
+                <option value=""> All </option>
+                [% FOREACH payment_type = ["Collection", "Expense", "Transport", "Payment", "Others" ] %]
+                    <option value="[% payment_type %]" > [% payment_type %] </option>
+                [% END %]
+            </select>
+		</p>
+        <p>
+			<label>Show only realized instruments ?: </label>
+			
+			<input type=radio name=is_realized value="1" checked=true>Yes
+			
+            <input type=radio name=is_realized value="0">No
+			
+		</p>
+
+			<button class="button" type="submit" value="RG23D">Generate</button>
+		</fieldset>
+	</form>
+</div><!-- end search form -->

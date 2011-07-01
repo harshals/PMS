@@ -1,0 +1,8 @@
+<p>
+				<label>From Date: </label>
+				<input type="text" name="from_date" value="[% c.req.params.from_date || c.stash.date_begin %]" />
+			</p>
+			<p>
+				<label>To Date: </label>
+				<input type="text" name="to_date" value="[% c.req.params.to_date || c.stash.date_end %]" />
+			</p>

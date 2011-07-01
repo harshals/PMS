@@ -1,0 +1,42 @@
+
+<ul data-role="listview" data-inset="false" data-theme="c" data-dividertheme="b">
+    <li><a href="">Sales Invoice</a>
+        <ul data-role="listview" data-inset="false" data-theme="c" data-dividertheme="b" id="sale">
+            <li><a href="/sale/0/search">Recently Added</a></li>
+            [% FOREACH company IN  c.model("DemoDB::Company").warehouse.serialize %]
+	      <li>
+	          <a href="/sale/0/search?warehouse_id=[% company.id %]" id="[% company.id %]">
+		      [% company.name %]
+		  </a>
+	      </li>
+	    [% END %]
+            <li><a href="/sale/0/search?sub_template=search">Search</a></li>
+        </ul>
+    </li>
+    <li>Purchase Invoice</a>
+        <ul id="purchase">
+            <li><a href="/purchase/0/search" id="0">Recently Added</a></li>
+            [% FOREACH company IN  c.model("DemoDB::Company").warehouse.serialize %]
+	      <li>
+	          <a href="/purchase/0/search?warehouse_id=[% company.id %]" id="[% company.id %]">
+		      [% company.name %]
+		  </a>
+	      </li>
+	    [% END %]
+	    <li><a href="/purchase/0/search?sub_template=search">Search</a></li>
+        </ul>
+    </li>
+    <li><a href="/db/search/company">Company List</a></li>
+    <li><a href="">Stock Summery</a>
+        <ul>
+            <li><a href="/report/search/current_stock?warehouse_id=">All depot</a></li>
+	    [% FOREACH company IN  c.model("DemoDB::Company").warehouse.serialize %]
+	      <li>
+	          <a href="/report/search/current_stock?warehouse_id=[% company.id %]" id="[% company.id %]">
+		      [% company.name %]
+		  </a>
+	      </li>
+	    [% END %]
+        </ul>
+    </li>
+</ul>

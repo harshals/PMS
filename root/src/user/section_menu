@@ -1,0 +1,17 @@
+<div class="box menu">
+			
+        <div class="block" id="section-menu"> 
+			
+			<ul class="section menu">
+				
+				<li>
+					<ul class="submenu">
+						<li><a href="[% c.uri_for("/db/user/new") %]" class="">User</a></li>
+					</ul>
+				</li>
+				
+			</ul>
+
+		</div>	
+	</div>
+

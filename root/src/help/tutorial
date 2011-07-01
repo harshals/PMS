@@ -1,0 +1,142 @@
+<link rel="stylesheet" type="text/css" href="[% c.uri_for("/static/css/annotation.css") %]" media="all">
+<script type="text/javascript" src="[% c.uri_for("/static/js/jquery.annotate.js") %]"></script>
+<script>
+$(document).ready(function() {
+				
+			
+				
+			
+	$("#img1")
+	.annotateImage({
+		editable: false,
+		useAjax: false,
+		notes: [
+				{top: 45, left : 15, width: 110, height : 20, text: "Click on Add New Purchase", editable : false }	
+			]
+	});
+	$("#img2")
+	.annotateImage({
+		editable: false,
+		useAjax: false,
+		notes: [ 	{top: 40, left : 20, width: 250, height : 140, text: "Please Select the supplier's 'Type'and 'Product'", editable : false },
+				{top: 200, left : 20, width: 250, height : 370, text: "Please specify the 'Supplier name', 'Quantity', 'Duty', and 'Assessible value' as specified by the supplier and adjust the taxes as per requirement." , editable : false},
+				{top: 40, left : 280, width: 300, height : 270, text: "Please specify the 'Invoice number', 'Date', and 'Time' associated with supplied goods." , editable : false},
+				{top: 370, left : 280, width: 300, height : 180, text: "Please specify for the goods 'Sales Duty' associated with supplied goods." , editable : false},
+				{top: 610, left : 280, width: 300, height : 120, text: "Please specify the 'LR No', 'Batch No' and 'Name of the transporter' as specified by the manufacturer." , editable : false},
+				{top: 610, left : 20, width: 250, height : 390, text: "Please specify the 'Manufacturer name', 'Quantity', 'Duty', and 'Assessible value' as specified by the manufacturer and adjust the taxes as per requirement." , editable : false}
+			]
+	});
+	$("#img3")
+	.annotateImage({
+		editable: false,
+		useAjax: false,
+		notes: [
+				{top: 69, left : 15, width: 110, height : 20, text: "Click on Make New Sale", editable : false }	
+			]
+	});
+	$("#img4")
+	.annotateImage({
+		editable: false,
+		useAjax: false,
+		notes: [ 	{top: 40, left : 35, width: 250, height : 330, text: "Please Select the buyer's 'Name', Consignee's Name,  'Product'", editable : false },
+				{top: 400, left : 35, width: 250, height : 170, text: "Please specify the 'LR No', 'Batch No' and 'Name of the transporter' " , editable : false},
+				{top: 40, left : 320, width: 300, height : 270, text: "Please specify the 'Invoice number', 'Date', and 'Time' associated with supplied goods." , editable : false},
+				{top: 370, left : 320, width: 300, height : 510, text: "Please specify for the goods 'Sales Duty' associated with supplied goods and 'Rate of Duty' as specified by Manufacturer." , editable : false},
+				
+				
+			]
+	});
+	$("#img5")
+	.annotateImage({
+		editable: false,
+		useAjax: false,
+		notes: [
+				{top: 69, left : 75, width: 110, height : 20, text: "Click on Sales Invoice", editable : false }	
+			]
+	});
+	$("#img6")
+	.annotateImage({
+		editable: false,
+		useAjax: false,
+		notes: [
+				{top: 95, left : 580, width: 50, height : 20, text: "Click on Print", editable : false }	
+			]
+	});
+	$("#img7")
+	.annotateImage({
+		editable: false,
+		useAjax: false,
+		notes: [
+				{top: 120, left : 2, width: 200, height : 190, text: "Section for searching the required invoices to be used in generating rg", editable : false } 
+			]
+	});	
+	$("#img8")
+	.annotateImage({
+		editable: false,
+		useAjax: false,
+		notes: [
+				{top: 120, left : 2, width: 200, height : 190, text: "Section for searching the required invoices to be used in generating Form2", editable : false } 
+			]
+	});
+});
+</script>
+<br>
+
+<font face="verdana" size ="15">
+
+<b>- Login in to http://www.einvoices.biz/try </b>
+<br>
+<b>- To make Purchase </b>Select Master -> Add New Purchase
+<br>
+<br>
+<img src="[% c.uri_for("/static/images/tutorial_1.jpg")%]" id="img1" />
+<br><br>
+- Fill up the purchase form 
+<br>
+<br>
+<img src="[% c.uri_for("/static/images/Add_purchase_final.jpg") %]" id="img2"><br>
+<br>
+<br>
+<b>- To make Sale </b>Select Master -> Make New Sale
+<br>
+<br>
+<img src="[% c.uri_for("/static/images/tutorial_2.jpg")%]" id="img3" />
+<br><br>
+- First Select product and then select one of the available stock
+<br><br>
+<img src="[% c.uri_for("/static/images/make_a_sale_1.jpg") %]"><br>
+<br><br>
+- Fill up the sale form 
+<br>
+<br>
+<img src="[% c.uri_for("/static/images/make_a_sale_90.jpg") %]" id="img4"><br>
+<br>
+<br>
+<b>- To take print out of sales invoice</b> Select Listing -> Sales Invoice
+<br><br>
+<img src="[% c.uri_for("/static/images/tutorial_3.jpg")%]" id="img5" />
+<br><br>
+<b>- Click on print
+<br><br>
+<img src="[% c.uri_for("/static/images/Sales_Invoice_List_print.jpg")%]" id="img6" />
+<br><br>
+<img src="[% c.uri_for("/static/images/Invoice.jpg")%]" />
+<br><br>
+<b>- To Generate RG </b> Select TAX Reports -> RG 23D
+<br><br>
+- Select From date, To date and prdoct and Click on Generate RG
+<br><br>
+<img src="[% c.uri_for("/static/images/Generate_rg23d.jpg")%]" id="img7" />
+<br><br>
+<img src="[% c.uri_for("/static/images/R_G [640x480].jpg")%]" />
+<br><br>
+<b>- To Generate Form2 </b> Select TAX Reports -> Form2
+<br><br>
+- Select From date, To date and prdoct and Click on Generate Form2
+<br><br>
+<img src="[% c.uri_for("/static/images/Generate_form2.jpg")%]" id="img8" />
+<br><br>
+<img src="[% c.uri_for("/static/images/Form2 [640x480].jpg")%]" />
+
+</font>
+

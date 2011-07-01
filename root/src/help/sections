@@ -1,0 +1,34 @@
+<div class="box menu">
+				
+		<h2><a class=visible href="#" id="toggle-section-menu">How to ?</a></h2>
+        <div class="block" id="section-menu"> 
+			
+			<ul class="section menu">
+				
+				<li>
+					<ul class="submenu">
+					<a href="[% c.uri_for("/help/tutorial") %]">5 Min Tutorial</a>
+					<a href="[% c.uri_for("/help/purchase") %]">Make an Inward Stock Entry</a>
+					<a href="[% c.uri_for("/help/sale") %]">Make Sale </a>
+					<a href="[% c.uri_for("/help/print_invoice") %]">Print an Excise Invoice</a>
+ 
+						<li><a href="[% c.uri_for("/help/new_sale_invoice") %]" class="single_action">Make new invoice </a></li>
+						<li><a href="[% c.uri_for("/help/search_sale_invoice") %]" class="single_action">Search for an invoice </a></li>
+					<a href="[% c.uri_for("/help/rg23d") %]">Print RG23D Register</a>
+					<a href="[% c.uri_for("/help/form2") %]">Print Form2 </a>
+						<li><a href="[% c.uri_for("/help/new_customer") %]" class="single_action">Add new customers </a></li>
+						<li><a href="[% c.uri_for("/help/print_rg23d") %]" class="single_action">Print RG 23D</a></li>
+						<li><a href="[% c.uri_for("/help/download_aces") %]" class="single_action">Download ACES XML file</a></li>
+						<li><a href="[% c.uri_for("/help/new_depot") %]" class="single_action">Add new depot</a></li>
+						<li><a href="[% c.uri_for("/help/new_users") %]" class="single_action">Add more users</a></li>
+						<li><a href="[% c.uri_for("/help/email_buyer") %]" class="single_action">Email to buyer</a></li>
+						<li><a href="[% c.uri_for("/help") %]" class="single_action">more</a></li>
+					</ul>
+				</li>
+				
+			</ul>
+
+		</div>	
+</div>
+
+

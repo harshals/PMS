@@ -1,0 +1,27 @@
+
+<div class="ui-grid-a">
+    <fieldset class="ui-grid-a">
+         <div class="ui-block-a">Company Name</div>
+         <div class="ui-block-b">[% company.name %]</div>
+    </fieldset>
+    [% company_address = company.w_address_1 _ company.w_address_2 _ company.w_address_3 _  company.w_city _ company.w_state _ company.w_zip _ company.w_country %]
+    <fieldset class="ui-grid-a">
+         <div class="ui-block-a">Company Address</div>
+         <div class="ui-block-b">[% company_address %]</div>
+    </fieldset>
+    <fieldset class="ui-grid-a">
+         <div class="ui-block-a">Contact Number</div>
+         <div class="ui-block-b">
+	 <a  href="tel:[% company_info.contact_number %]">[% company.contact_number %]</a>
+	 </div>
+    </fieldset>
+    <fieldset class="ui-grid-a">
+         <div class="ui-block-a">ECC No.</div>
+         <div class="ui-block-b">[% company.ecc %]</div>
+    </fieldset>
+    <fieldset class="ui-grid-a">
+         <div class="ui-block-a">VAT No.</div>
+         <div class="ui-block-b">[% company.vat_tin_no %]</div>
+    </fieldset>
+ </div>
+<a href="/sale/0/search?consignee_id=[%company.id%]">Sale Details</a>

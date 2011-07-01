@@ -1,0 +1,60 @@
+<script>
+	
+	$(document).ready(function() {
+		
+		$("#forgot_password").click(function(ev) {
+	
+			var email = $(".mainbar input[name=email]").val();
+			
+			if (!email) {
+				
+				$().message("Please enter email address");
+
+				return;
+			}
+			
+			$.post("[% c.uri_for("/email") %]", { 
+			
+					to : 'support@einvoices.biz',
+					subject : 'Forgot password for user ' + email,
+					body : 'Do Nothing',
+					_v : 'json'
+				}, function(json) {
+				
+					$().message("Thank you. We shall get back to you shortly");
+			});
+		});
+	});
+
+</script>
+
+<form action="[% c.uri_for("/check") %]" method="POST">
+	<fieldset class="login">
+		<legend>Login</legend>
+		[% UNLESS c.user_exists %]
+		<p >
+			<label>Email: </label>
+			<input type="text" name="email" value="" class=required/>
+		</p>
+		<p >
+			<label>Password: </label>
+			<input type="password" name="password" value="" class=required/>
+		</p>
+		<p>
+			[% IF message %] [% message %] [% END %]
+		</p>
+
+		<input type=submit value="Login" />
+		<input type=reset value="Reset" />
+		<p>
+			<span class=help id="forgot_password">Forgot Password ?</span>
+			<a style="display:inline;" class=help href="[% c.uri_for("/register") %]">Click here to register</a>
+			<span class=error>[% c.stash.recpatcha_error %]</span>
+		</p>
+		[% ELSE %]
+
+			<a href="[% c.uri_for("/logout") %]"> Logout</a>
+		[% END %]
+	</fieldset>
+</form>
+

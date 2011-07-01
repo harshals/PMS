@@ -1,0 +1,23 @@
+"_id","active","attr","category","class","description","id","is_default","log","sequence","status","value"
+"CDE411F6-71BA-11E0-BEC0-E111B6484126",1,"begin_date",,"Master","Beginning for Financial Year",1,1,":Saved New object by  1 at 2011-04-28T17:13:15",1,",active,",2011-04-01
+"ED75028C-71BA-11E0-A9F5-E111B6484126",1,"end_date",,"Master","End of FY",2,1,":Saved New object by  1 at 2011-04-28T17:14:08",1,",active,",2012-03-31
+"A2E6C908-72EB-11E0-A557-3102B6484126",1,"invoice_type",,"Master","Excise Invoice",3,1,":Saved New object by  1 at 2011-04-30T05:35:19",1,",active,",1
+"A3040FCC-72EB-11E0-B3DE-3102B6484126",1,"invoice_type",,"Master","Commercial Invoice",4,0,":Saved New object by  1 at 2011-04-30T05:35:19",2,",active,",2
+"A30616BE-72EB-11E0-A5E6-3102B6484126",1,"sales_tax_type",,"Master","VAT",5,1,":Saved New object by  1 at 2011-04-30T05:35:19",1,",active,","VAT"
+"A30AA5D0-72EB-11E0-9323-3102B6484126",1,"sales_tax_type",,"Master","CST",6,0,":Saved New object by  1 at 2011-04-30T05:35:19",2,",active,","CST"
+"A30FCE66-72EB-11E0-B909-3102B6484126",1,"sales_tax_type",,"Master","No Tax under Form F",7,0,":Saved New object by  1 at 2011-04-30T05:35:19",3,",active,","F"
+"A3128F52-72EB-11E0-9143-3102B6484126",1,"sales_tax_type",,"Master","High Seas",8,0,":Saved New object by  1 at 2011-04-30T05:35:19",4,",active,","HSS"
+"A3166AF0-72EB-11E0-8A28-3102B6484126",1,"transport_mode",,"Master","By Road",9,1,":Saved New object by  1 at 2011-04-30T05:35:20",1,",active,","Road"
+"A31A02E6-72EB-11E0-BFA1-3102B6484126",1,"transport_mode",,"Master","By Sea",10,0,":Saved New object by  1 at 2011-04-30T05:35:20",2,",active,","Sea"
+"A31DE438-72EB-11E0-AB33-3102B6484126",1,"transport_mode",,"Master","By Air",11,0,":Saved New object by  1 at 2011-04-30T05:35:20",3,",active,","Air"
+"A321294A-72EB-11E0-8674-3102B6484126",1,"transport_mode",,"Master","By Rail",12,0,":Saved New object by  1 at 2011-04-30T05:35:20",4,",active,","Rail"
+"A3245796-72EB-11E0-9AA1-3102B6484126",1,"company_type",,"Company","Depot / Warehouse",13,0,":Saved New object by  1 at 2011-04-30T05:35:20",6,",active,",1
+"A3269D08-72EB-11E0-ADE8-3102B6484126",1,"company_type",,"Company","Buyer or Supplier",14,1,":Saved New object by  1 at 2011-04-30T05:35:20",1,",active,",2
+"A32B2D6E-72EB-11E0-929D-3102B6484126",1,"company_type",,"Company","Only Buyer",15,0,":Saved New object by  1 at 2011-04-30T05:35:20",4,",active,",4
+"A32E58E0-72EB-11E0-B904-3102B6484126",1,"company_type",,"Company","Only Seller",16,0,":Saved New object by  1 at 2011-04-30T05:35:20",5,",active,",3
+"A335D570-72EB-11E0-A74B-3102B6484126",1,"company_type",,"Company","Transporter",17,0,":Saved New object by  1 at 2011-04-30T05:35:20",2,",active,",5
+"A33B183C-72EB-11E0-B89B-3102B6484126",1,"company_type",,"Company","Other Contacts",18,0,":Saved New object by  1 at 2011-04-30T05:35:20",3,",active,",6
+"A349323C-72EB-11E0-8370-3102B6484126",1,"purchase_type",,"Purchase","Self Import or High Seas",23,1,":Saved New object by  1 at 2011-04-30T05:35:20",1,",active,","Importer"
+"A34E175C-72EB-11E0-BABD-3102B6484126",1,"purchase_type",,"Purchase","Manufacturer or Importer",24,1,":Saved New object by  1 at 2011-04-30T05:35:20",1,",active,","Manufacturer"
+"A350A922-72EB-11E0-B64B-3102B6484126",1,"purchase_type",,"Purchase","1st stage dealer",25,1,":Saved New object by  1 at 2011-04-30T05:35:20",1,",active,","Dealer"
+"A3558CBC-72EB-11E0-836F-3102B6484126",1,"purchase_type",,"Purchase","2nd stage dealer",26,1,":Saved New object by  1 at 2011-04-30T05:35:20",1,",active,","Dealer2"

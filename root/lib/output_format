@@ -1,0 +1,11 @@
+<p class="[% class %]">
+	<label>Output in </label>
+
+	<select name=_v >
+		<option value="">Screen</option>
+		<option value="email">Email</option>
+		<option value="pdf">PDF</option>
+		<option value="xls">Excel</option>
+		<option value="doc">Word</option>
+	</select>
+</p>

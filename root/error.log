@@ -1,0 +1,79 @@
+
+The file pdf/company_information.pdf can't be found, aborts
+
+The error occurred when executing:
+ at /usr/local/lib/perl5/site_perl/5.12.1/PDF/Reuse.pm line 1231
+	PDF::Reuse::findGet('pdf/company_information.pdf', '') called at blib/lib/PDF/Reuse.pm (autosplit into blib/lib/auto/PDF/Reuse/getPage.al) line 4591
+	PDF::Reuse::getPage('pdf/company_information.pdf', 1, 'print') called at /usr/local/lib/perl5/site_perl/5.12.1/PDF/Reuse.pm line 613
+	PDF::Reuse::prForm('pdf/company_information.pdf') called at /usr/local/lib/perl5/site_perl/5.12.1/darwin-2level/Template/Plugin/Procedural.pm line 55
+	Template::Plugin::Procedural::__ANON__('Template::Plugin::Template::Plugin::Catalyst::View::PDF::Reus...', 'pdf/company_information.pdf') called at /Users/harshal/Developments/Projects/Einvoices/root/src/company/address.tt line 2
+	eval {...} called at /Users/harshal/Developments/Projects/Einvoices/root/src/company/address.tt line 2
+	eval {...} called at /Users/harshal/Developments/Projects/Einvoices/root/src/company/address.tt line 7
+	Template::Document::__ANON__('Template::Context=HASH(0x2234510)') called at /usr/local/lib/perl5/site_perl/5.12.1/darwin-2level/Template/Document.pm line 151
+	eval {...} called at /usr/local/lib/perl5/site_perl/5.12.1/darwin-2level/Template/Document.pm line 149
+	Template::Document::process('Template::Document=HASH(0x25b5430)', 'Template::Context=HASH(0x2234510)') called at /usr/local/lib/perl5/site_perl/5.12.1/darwin-2level/Template/Context.pm line 347
+	eval {...} called at /usr/local/lib/perl5/site_perl/5.12.1/darwin-2level/Template/Context.pm line 321
+	Template::Context::process('Template::Context=HASH(0x2234510)', 'src/company/address.tt') called at input text line 3
+	eval {...} called at input text line 5
+	Template::Document::__ANON__('Template::Context=HASH(0x2234510)') called at /usr/local/lib/perl5/site_perl/5.12.1/darwin-2level/Template/Document.pm line 151
+	eval {...} called at /usr/local/lib/perl5/site_perl/5.12.1/darwin-2level/Template/Document.pm line 149
+	Template::Document::process('Template::Document=HASH(0x25b8c90)', 'Template::Context=HASH(0x2234510)') called at /usr/local/lib/perl5/site_perl/5.12.1/darwin-2level/Template/Context.pm line 347
+	eval {...} called at /usr/local/lib/perl5/site_perl/5.12.1/darwin-2level/Template/Context.pm line 321
+	Template::Context::process('Template::Context=HASH(0x2234510)', 'Template::Document=HASH(0x25b8c90)') called at /usr/local/lib/perl5/site_perl/5.12.1/darwin-2level/Template/Service.pm line 94
+	eval {...} called at /usr/local/lib/perl5/site_perl/5.12.1/darwin-2level/Template/Service.pm line 91
+	Template::Service::process('Template::Service=HASH(0x2234240)', 'SCALAR(0xe41000)', 'HASH(0x257dda0)') called at /usr/local/lib/perl5/site_perl/5.12.1/darwin-2level/Template.pm line 66
+	Template::process('Template=HASH(0x2234050)', 'SCALAR(0xe41000)', 'HASH(0x257dda0)', 'SCALAR(0xe614e0)') called at /usr/local/lib/perl5/site_perl/5.12.1/Catalyst/View/TT.pm line 254
+	Catalyst::View::TT::render('App::View::PDF=HASH(0x22329c0)', 'App=HASH(0x23e7ad0)', 'SCALAR(0xe41000)') called at /usr/local/lib/perl5/site_perl/5.12.1/Catalyst/View/PDF/Reuse.pm line 173
+	Catalyst::View::PDF::Reuse::render_pdf('App::View::PDF=HASH(0x22329c0)', 'App=HASH(0x23e7ad0)') called at /usr/local/lib/perl5/site_perl/5.12.1/Catalyst/View/PDF/Reuse.pm line 120
+	Catalyst::View::PDF::Reuse::process('App::View::PDF=HASH(0x22329c0)', 'App=HASH(0x23e7ad0)', 'company_address', 10) called at /usr/local/lib/perl5/site_perl/5.12.1/Catalyst/Action.pm line 65
+	Catalyst::Action::execute('Catalyst::Action=HASH(0x247cbd0)', 'App::View::PDF=HASH(0x22329c0)', 'App=HASH(0x23e7ad0)', 'company_address', 10) called at /usr/local/lib/perl5/site_perl/5.12.1/Catalyst.pm line 1665
+	eval {...} called at /usr/local/lib/perl5/site_perl/5.12.1/Catalyst.pm line 1665
+	Catalyst::execute('App=HASH(0x23e7ad0)', 'App::View::PDF', 'Catalyst::Action=HASH(0x247cbd0)') called at /usr/local/lib/perl5/site_perl/5.12.1/Catalyst/Action.pm line 60
+	Catalyst::Action::dispatch('Catalyst::Action=HASH(0x247cbd0)', 'App=HASH(0x23e7ad0)') called at /usr/local/lib/perl5/site_perl/5.12.1/Catalyst/Dispatcher.pm line 257
+	Catalyst::Dispatcher::_do_forward('Catalyst::Dispatcher=HASH(0x990aa0)', 'forward', 'App=HASH(0x23e7ad0)', 'App::View::PDF') called at /usr/local/lib/perl5/site_perl/5.12.1/Catalyst/Dispatcher.pm line 237
+	Catalyst::Dispatcher::forward('Catalyst::Dispatcher=HASH(0x990aa0)', 'App=HASH(0x23e7ad0)', 'App::View::PDF') called at /usr/local/lib/perl5/site_perl/5.12.1/Catalyst.pm line 377
+	Catalyst::forward('App=HASH(0x23e7ad0)', 'App::View::PDF') called at /Users/harshal/Developments/Projects/Einvoices/script/../lib/App/Controller/DB.pm line 97
+	App::Controller::DB::publish('App::Controller::DB=HASH(0x2255c50)', 'App=HASH(0x23e7ad0)', 'company_address', 10) called at /usr/local/lib/perl5/site_perl/5.12.1/Catalyst/Action.pm line 65
+	Catalyst::Action::execute('Catalyst::Action=HASH(0x24d3990)', 'App::Controller::DB=HASH(0x2255c50)', 'App=HASH(0x23e7ad0)', 'company_address', 10) called at /usr/local/lib/perl5/site_perl/5.12.1/Catalyst.pm line 1665
+	eval {...} called at /usr/local/lib/perl5/site_perl/5.12.1/Catalyst.pm line 1665
+	Catalyst::execute('App=HASH(0x23e7ad0)', 'App::Controller::DB', 'Catalyst::Action=HASH(0x24d3990)') called at /usr/local/lib/perl5/site_perl/5.12.1/Catalyst/Action.pm line 60
+	Catalyst::Action::dispatch('Catalyst::Action=HASH(0x24d3990)', 'App=HASH(0x23e7ad0)') called at /usr/local/lib/perl5/site_perl/5.12.1/Catalyst/Controller.pm line 110
+	Catalyst::Controller::_ACTION('App::Controller::DB=HASH(0x2255c50)', 'App=HASH(0x23e7ad0)', 'company_address', 10) called at /usr/local/lib/perl5/site_perl/5.12.1/Catalyst/Action.pm line 65
+	Catalyst::Action::execute('Catalyst::Action=HASH(0x24d3050)', 'App::Controller::DB=HASH(0x2255c50)', 'App=HASH(0x23e7ad0)', 'company_address', 10) called at /usr/local/lib/perl5/site_perl/5.12.1/Catalyst.pm line 1665
+	eval {...} called at /usr/local/lib/perl5/site_perl/5.12.1/Catalyst.pm line 1665
+	Catalyst::execute('App=HASH(0x23e7ad0)', 'App::Controller::DB', 'Catalyst::Action=HASH(0x24d3050)') called at /usr/local/lib/perl5/site_perl/5.12.1/Catalyst/Action.pm line 60
+	Catalyst::Action::dispatch('Catalyst::Action=HASH(0x24d3050)', 'App=HASH(0x23e7ad0)') called at /usr/local/lib/perl5/site_perl/5.12.1/Catalyst/Dispatcher.pm line 257
+	Catalyst::Dispatcher::_do_forward('Catalyst::Dispatcher=HASH(0x990aa0)', 'forward', 'App=HASH(0x23e7ad0)', '_ACTION') called at /usr/local/lib/perl5/site_perl/5.12.1/Catalyst/Dispatcher.pm line 237
+	Catalyst::Dispatcher::forward('Catalyst::Dispatcher=HASH(0x990aa0)', 'App=HASH(0x23e7ad0)', '_ACTION') called at /usr/local/lib/perl5/site_perl/5.12.1/Catalyst.pm line 377
+	Catalyst::forward('App=HASH(0x23e7ad0)', '_ACTION') called at /usr/local/lib/perl5/site_perl/5.12.1/Catalyst/Controller.pm line 84
+	Catalyst::Controller::_DISPATCH('App::Controller::DB=HASH(0x2255c50)', 'App=HASH(0x23e7ad0)', 'company_address', 10) called at /usr/local/lib/perl5/site_perl/5.12.1/Catalyst/Action.pm line 65
+	Catalyst::Action::execute('Catalyst::Action=HASH(0x24d2fc0)', 'App::Controller::DB=HASH(0x2255c50)', 'App=HASH(0x23e7ad0)', 'company_address', 10) called at /usr/local/lib/perl5/site_perl/5.12.1/Catalyst.pm line 1665
+	eval {...} called at /usr/local/lib/perl5/site_perl/5.12.1/Catalyst.pm line 1665
+	Catalyst::execute('App=HASH(0x23e7ad0)', 'App::Controller::DB', 'Catalyst::Action=HASH(0x24d2fc0)') called at /usr/local/lib/perl5/site_perl/5.12.1/Catalyst/Action.pm line 60
+	Catalyst::Action::dispatch('Catalyst::Action=HASH(0x24d2fc0)', 'App=HASH(0x23e7ad0)') called at /usr/local/lib/perl5/site_perl/5.12.1/Catalyst/Dispatcher.pm line 257
+	Catalyst::Dispatcher::_do_forward('Catalyst::Dispatcher=HASH(0x990aa0)', 'forward', 'App=HASH(0x23e7ad0)', '/db/_DISPATCH') called at /usr/local/lib/perl5/site_perl/5.12.1/Catalyst/Dispatcher.pm line 237
+	Catalyst::Dispatcher::forward('Catalyst::Dispatcher=HASH(0x990aa0)', 'App=HASH(0x23e7ad0)', '/db/_DISPATCH') called at /usr/local/lib/perl5/site_perl/5.12.1/Catalyst.pm line 377
+	Catalyst::forward('App=HASH(0x23e7ad0)', '/db/_DISPATCH') called at /usr/local/lib/perl5/site_perl/5.12.1/Catalyst/Dispatcher.pm line 105
+	Catalyst::Dispatcher::dispatch('Catalyst::Dispatcher=HASH(0x990aa0)', 'App=HASH(0x23e7ad0)') called at /usr/local/lib/perl5/site_perl/5.12.1/Catalyst.pm line 1611
+	Catalyst::dispatch('App=HASH(0x23e7ad0)') called at /usr/local/lib/perl5/site_perl/5.12.1/Catalyst/Plugin/Static/Simple.pm line 76
+	Class::MOP::Class:::around('CODE(0xce8040)', 'App=HASH(0x23e7ad0)') called at /usr/local/lib/perl5/site_perl/5.12.1/darwin-2level/Class/MOP/Method/Wrapped.pm line 161
+	Class::MOP::Method::Wrapped::__ANON__('App=HASH(0x23e7ad0)') called at /usr/local/lib/perl5/site_perl/5.12.1/darwin-2level/Class/MOP/Method/Wrapped.pm line 91
+	App::dispatch('App=HASH(0x23e7ad0)') called at /usr/local/lib/perl5/site_perl/5.12.1/Catalyst.pm line 1952
+	eval {...} called at /usr/local/lib/perl5/site_perl/5.12.1/Catalyst.pm line 1943
+	Catalyst::handle_request('App', 'env', 'HASH(0x24a6b80)') called at /usr/local/lib/perl5/site_perl/5.12.1/Catalyst/Engine/HTTP.pm line 395
+	Catalyst::Engine::HTTP::_handler('Catalyst::Engine::HTTP=HASH(0xbd51a0)', 'App', 5000, 'GET', '/db/publish/company_address/10', 'HTTP/1.1') called at /usr/local/lib/perl5/site_perl/5.12.1/Catalyst/Engine/HTTP.pm line 292
+	Catalyst::Engine::HTTP::run('Catalyst::Engine::HTTP=HASH(0xbd51a0)', 'App', 5000, undef, 'HASH(0xbd3740)') called at /usr/local/lib/perl5/site_perl/5.12.1/Catalyst.pm line 2396
+	Catalyst::run('App', 5000, undef, 'HASH(0xbd3740)') called at /usr/local/lib/perl5/site_perl/5.12.1/Catalyst/ScriptRole.pm line 49
+	Catalyst::ScriptRole::_run_application('Catalyst::Script::Server=HASH(0xbd3830)') called at /usr/local/lib/perl5/site_perl/5.12.1/Catalyst/Script/Server.pm line 192
+	Catalyst::Script::Server::run('Catalyst::Script::Server=HASH(0xbd3830)') called at /usr/local/lib/perl5/site_perl/5.12.1/Catalyst/ScriptRunner.pm line 20
+	Catalyst::ScriptRunner::run('Catalyst::ScriptRunner', 'App', 'Server') called at script/app_server.pl line 8
+
+Situation when the error occurred
+
+   Bytes written to the current pdf-file,    pos    = 15
+   Object processed, not necessarily written objNr  = 3
+   Current pdf-file,                         utfil  = /var/folders/bG/bGmYChhMEfS54BnU-NtKcE+++TI/-Tmp-/TsRGblOBED
+   File logging the run,                     runfil = undef
+   Local time                                       = Tue May 24 19:58:31 2011
+
+

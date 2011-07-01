@@ -1,0 +1,51 @@
+[% INCLUDE pager_head %]
+
+[% IF method == 'groups' %]
+	[% INCLUDE enumeration/group_list %]
+[% ELSE %]
+
+<table >
+<colgroup>
+	<col class="colA" />
+	<col class="colB" />
+	<col class="colC" />
+	<col class="colD" />
+	<col class="colE" />
+	<col class="colF" />
+    <col class="colG" />	
+</colgroup>
+
+    <thead>
+        <tr>
+            <th colspan="8" class="table-head">Enumerations</th>
+        </tr>
+        <tr>
+            <th>Class</th>
+            <th>Attribute</th>
+            <th>Sequence No</th>
+            <th>Value</th>
+            <th>Description</th>
+            <th>Default ?</th>
+            <th>Category</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        [% FOREACH row IN enumeration_rs.serialize %]
+        <tr >
+            <td>[% row.class %]</td>
+            <td>[% row.attr %]</td>
+            <td>[% row.sequence %]</td>
+            <td>[% row.value %]</td>
+            <td>[% row.description %]</td>
+            <td>[% row.is_default %]</td>
+            <td>[% row.category %]</td>
+            <td><span class='delete' id="enumeration_[% row.id %]" >Del&nbsp;</span>
+            <a href="[% c.uri_for("/db/enumeration/get/$row.id") %]">Edit</a>
+            </td>
+        </tr>
+        [% END %]
+    </tbody>
+</table>
+
+[% END %]

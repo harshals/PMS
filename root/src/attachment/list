@@ -1,0 +1,29 @@
+[% INCLUDE pager_head %]
+<table >
+    <thead>
+    <th colspan="5" class="table-head">List of Attachments</th>
+        <tr>
+            <th>Name</th>
+            <th>Content Type</th>
+            <th>Class</th>
+            <th>Belonging to</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+<tr>
+</tr>
+        [% FOREACH row IN attachment_rs.serialize %]
+        <tr >
+            <td><a href="[% c.uri_for("/attachment/download/$row.id") %]" target=_new >[% row.name %]</a></td>
+            <td>[% row.content_type %]</td>
+            <td>[% row.owner_class %]</td>
+            <td>[% row.owner_id %]</td>
+            <th ><span class='delete' id="attachment_[% row.id %]">Del&nbsp;</span>
+            <a href="[% c.uri_for("/db/list/attachment/0/$row.id") %]">Edit</a>
+            </th>
+        </tr>
+        [% END %]
+    </tbody>
+</table>
+

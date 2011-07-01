@@ -1,0 +1,6 @@
+
+<option value="">Select Transaction Type</option>
+[% FOREACH mode = ["SPECULATIVE","DELIVERY"] %]
+<option value="[% mode %]" [% IF mode == match %] selected [% END %]> [% mode %] </option>
+[% END %]
+

@@ -1,0 +1,5 @@
+<option value=""> All </option>
+[% FOREACH payment_type = ["Collection", "Expense", "Transport", "Payment", "Others" ] %]
+	<option value="[% payment_type %]" [% IF match == payment_type %] selected [% END %] > [% payment_type %] </option>
+[% END %]
+

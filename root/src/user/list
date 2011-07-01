@@ -1,0 +1,22 @@
+<table >
+    <caption><b>List of Users</b></caption>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Contact No.</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        [% FOREACH row IN user_rs.serialize %]
+        <tr >
+            <td>[% row.name %]</td>
+            <td>[% row.contact_no %]</td>
+            <th><span class='delete' id="user_[% row.id %]" >Del&nbsp;</span>
+            <a href="[% c.uri_for("/user/get/$row.id") %]">Edit</a>
+            </th>
+        </tr>
+        [% END %]
+    </tbody>
+</table>
+

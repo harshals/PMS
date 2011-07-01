@@ -1,0 +1,23 @@
+<div class="box"> <!-- begin search form -->
+<h2>
+		<a href="#" id="toggle-forms">Search Form2</a>
+	</h2>
+	<form action="[% c.uri_for("/report/search/form2") %]" class="search" id="forms" method="POST">
+		<fieldset >
+			[% INCLUDE search_date %]
+
+			<p>
+				<label>Product : </label>
+                <select name="product_id" >
+                        <option value=""> Choose Product </option>
+                [% FOREACH product IN c.model("DemoDB::Product").serialize %]
+                    <option value="[% product.id %]" >
+                        [% product.name %]
+                    </option>
+                [% END %]
+                </select>
+			</p>
+			<button class="button" type="submit" value="Form2"> Generate Form2</button>
+		</fieldset>
+	</form>
+</div><!-- end search form -->

@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+
+		[% PROCESS head 
+			title = "Welcome to Invoices" %]
+
+		<script language="javascript">
+            
+            [% INCLUDE js %]
+
+            $(document).ready(function() {
+                init_sidebar_forms();
+            });
+		 </script>
+
+	</head>
+	<body>
+		<div class="container_16">
+			
+			<div class="clear"></div>
+			<!-- sidebar form container -->
+			<div class="grid_4 sidebar">
+
+				[% INCLUDE logo %]	
+				
+				[% IF c.user_exists%]
+				[% INCLUDE help/section_menu %]
+				[% END %]
+				
+                [% INCLUDE profile_image %]
+			<div class="block"> 
+			</div>	
+
+           	<!-- sidebar form container-->
+
+
+			</div><!-- grid_4 -->
+			<div class="grid_12 mainbar" >
+                [% IF subscribe_ok %]
+                    Our sales team will shortly contact you.Thank you for using Einvoices.biz. 
+                [% ELSIF subscribe %]
+                   [% INCLUDE subscribe.tt %]
+                [% ELSIF register_ok && !c.user_exists %]
+                   Kindly check your email for username and password. Thank you for registering on Einvoices.biz.<BR>
+				   [% INCLUDE login.tt %]
+                [% ELSIF register && !c.user_exists %]
+				   [% INCLUDE register.tt %]
+                [% ELSIF c.user_exists %]
+                    [% INCLUDE menu %]
+                    <div class="box" > <!-- begin form box -->
+                        
+
+                    </div>
+                    <div class="box" > <!-- begin form box -->
+
+                    </div>
+                    <div class="box" > <!-- begin form box -->
+
+                    </div>
+                [% ELSE %]
+                    [% INCLUDE login.tt %]
+                [% END %]
+            </div>
+				
+			<div class="clear"></div>
+			<div class="grid_16" id="site_info">
+
+				[% INCLUDE footer %]
+			</div>
+			<div class="clear"></div>
+		</div>
+			</body>
+</html>

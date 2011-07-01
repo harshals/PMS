@@ -1,0 +1,50 @@
+<table summary="This table includes examples of as many table elements as possible">
+<caption></caption>
+<colgroup>
+	<col class="colA" />
+	<col class="colB" />
+	<col class="colC" />
+	<col class="colD" />
+	<col class="colE" />
+	<col class="colF" />
+	<col class="colG" />
+</colgroup>
+<thead>
+	<tr>
+		<th colspan="7" class="table-head">Product Wise Sales [% c.req.params.from_date %] to [% c.req.params.to_date %]</th>
+	</tr>
+            
+	<tr>
+            <th>Sales To</th>
+            <th>Invoice Date</th>
+	    <th>Invoice No.</th>
+	    <th>Quantity</th>
+        </tr>
+    </thead>
+    <tbody>
+
+    [% prev_product = ''
+       prev_uom = '' %]
+
+        [% FOREACH row IN saleproduct_rs %]
+
+          [% IF prev_product != row.product_name || prev_uom != row.uom %]
+
+            [% prev_product = row.product_name
+            prev_uom = row.uom %]
+            <tr>
+		<th colspan=4>Product Name :&nbsp;[% row.product_name %] in [% row.uom %]</th>
+            </tr>			
+          [% END %]
+
+            <tr>
+		<td>[% row.sname %]</td>
+		<td>[% row.s_invoice_date %]</td>
+		<td>[% row.s_invoice_no %]</td>
+		<td>[% row.quantity %][% row.uom %]</td>
+            </tr>
+
+        [% END %]
+		
+    </tbody>
+</table>

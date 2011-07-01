@@ -1,0 +1,40 @@
+<form action="[% c.uri_for("/db/enumeration/put") %]" class="new_enumeration" method="POST">
+<fieldset >
+	<legend>Unit of Measurement</legend>
+	<input type=hidden name="id" value="[% enumeration.id %]" />
+	<p>
+		<label>Class: </label>
+		<input type="text" name="class" value="[% enumeration.class %]" class="required"/>
+	</p>
+	<p>
+		<label>Attribute: </label>
+		<input type="text" name="attr" value="[% enumeration.attr %]" class="required"/>
+	</p>
+	<p>
+		<label>Sequence No: </label>
+		<input type="text" name="sequence" value="[% enumeration.sequence %]" class="required"/>
+	</p>
+	<p>
+		<label>Value: </label>
+		<input type="text" name="value" value="[% enumeration.value %]" class="required"/>
+	</p>
+	<p>
+		<label>Description</label>
+		<input type="text" name="description" value="[% enumeration.description %]"  class=""/>
+	</p>
+	<p>
+		<label>Is Default: </label>
+		<input type="text" name="is_default" value="[% enumeration.is_defualt %]" class=""/>
+	</p>
+	<p>
+		<label>Category: </label>
+		<input type="text" name="category" value="[% enumeration.category %]" class=""/>
+	</p>
+
+	<button class="button" type="submit"> Add</button>
+	<button class="button" type="reset" >Cancel </button>
+</fieldset>
+</form>
+
+
+

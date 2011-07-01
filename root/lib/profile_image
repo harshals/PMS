@@ -1,0 +1,6 @@
+[% IF c.user.profile_image %]
+	<img src="[% c.uri_for("/static/extra/$c.user.profile_image") %]" id="comp_logo" width="180px" />
+[% ELSE %]
+	<img src="[% c.uri_for("/static/images/default_profile.jpg") %]" id="comp_logo" width="180px" />
+[% END %]
+

@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+
+		[% PROCESS head 
+			title = "Welcome to Invoices"  %]
+
+		<script language="javascript">
+
+		 </script>
+
+	</head>
+	<body>
+		<div class="container_16">
+			
+			<div class="clear"></div>
+			<!-- sidebar form container -->
+			<div class="grid_4 sidebar">
+
+				[% INCLUDE logo %]	
+				<h3>In firefox we belive</h3>
+
+				<div class="block" style="height:258px;background:url(/static/images/firefox_logo.png);background-repeat:no-repeat;"> </div>
+           	<!-- sidebar form container-->
+
+
+			</div><!-- grid_4 -->
+			<div class="grid_12 mainbar" >
+
+				[% PROCESS menu %]
+				<div class="box" id="content"> <!-- begin form box -->
+					<div class="box" id="list-items">
+
+						<p>You may report these errors to support@einvoices.biz</p>
+						<ul class="menu" id="section-menu">
+							[% FOREACH er IN errors %]
+							<li class=email title="Email to support team"><b>Error:</b> [% er %] <BR/>
+								<b>Company: </b>[% c.config.company %] <BR/>
+								<b>Message : </b>[% message %] <BR/>
+								<b>URL :</b> [% c.req.path %] <BR/>
+								<b>Body Params:</b> [% FOREACH p IN c.req.params %] [% p.key _ ":" _ p.val %] [% END %]<BR/>
+								<b>User :</b> [% c.user.get("name") %] <BR/>
+							</li>
+							[% END %]
+						</ul>
+					</div>				
+
+				</div>
+
+			</div>
+				
+			<div class="clear"></div>
+			<div class="grid_16" id="site_info">
+
+				[% INCLUDE footer %]
+			</div>
+			<div class="clear"></div>
+		</div>
+	</body>
+</html>

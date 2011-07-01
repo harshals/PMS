@@ -1,0 +1,812 @@
+<HTML>
+<script>
+
+ ie4up=nav4up=false;
+ var agt = navigator.userAgent.toLowerCase();
+ var major = parseInt(navigator.appVersion);
+ if ((agt.indexOf('msie') != -1) && (major >= 4))
+   ie4up = true;
+ if ((agt.indexOf('mozilla') != -1)  && (agt.indexOf('spoofer') == -1) && (agt.indexOf('compatible') == -1) && ( major>= 4))
+   nav4up = true;
+</script>
+<STYLE>
+ A {text-decoration:none}
+ A IMG {border-style:none; border-width:0;}
+ DIV {position:absolute; z-index:25;}
+.fc1-0 { COLOR:000000;FONT-SIZE:7PT;FONT-FAMILY:Arial Narrow;FONT-WEIGHT:NORMAL;}
+.fc1-1 { COLOR:000000;FONT-SIZE:8PT;FONT-FAMILY:Arial Narrow;FONT-WEIGHT:BOLD;}
+.fc1-2 { COLOR:000000;FONT-SIZE:7PT;FONT-FAMILY:Times New Roman;FONT-WEIGHT:NORMAL;}
+.fc1-3 { COLOR:000000;FONT-SIZE:9PT;FONT-FAMILY:Arial Narrow;FONT-WEIGHT:BOLD;}
+.fc1-4 { COLOR:000000;FONT-SIZE:7PT;FONT-FAMILY:Arial Narrow;FONT-WEIGHT:NORMAL;}
+.fc1-5 { COLOR:000000;FONT-SIZE:6PT;FONT-FAMILY:Arial Narrow;FONT-WEIGHT:NORMAL;}
+.fc1-6 { COLOR:000000;FONT-SIZE:6PT;FONT-FAMILY:Arial Narrow;FONT-WEIGHT:BOLD;}
+.fc1-7 { COLOR:000000;FONT-SIZE:7PT;FONT-FAMILY:Arial Narrow;FONT-WEIGHT:BOLD;}
+.fc1-8 { COLOR:000000;FONT-SIZE:11PT;FONT-FAMILY:Times New Roman;FONT-WEIGHT:NORMAL;}
+.fc1-9 { COLOR:000000;FONT-SIZE:8PT;FONT-FAMILY:Arial Narrow;FONT-WEIGHT:NORMAL;}
+.ad1-0 {border-color:000000;border-style:none;border-bottom-width:0PX;border-left-width:0PX;border-top-width:0PX;border-right-width:0PX;}
+.ad1-1 {border-color:000000;border-style:none;border-bottom-width:0PX;border-left-width:0PX;border-top-width:0PX;border-right-width:0PX;}
+.ad1-2 {border-color:000000;border-style:none;border-bottom-width:0PX;border-left-style:solid;border-left-width:1PX;border-top-width:0PX;border-right-width:0PX;}
+.ad1-3 {border-color:000000;border-style:none;border-bottom-width:0PX;border-left-width:0PX;border-top-style:solid;border-top-width:0PX;border-right-width:0PX;}
+.ad1-4 {border-color:000000;border-style:none;border-bottom-width:0PX;border-left-style:solid;border-left-width:1PX;border-top-width:0PX;border-right-width:0PX;}
+.ad1-5 {border-color:000000;border-style:none;border-bottom-style:solid;border-bottom-width:1PX;border-left-style:solid;border-left-width:1PX;border-top-style:solid;border-top-width:1PX;border-right-style:solid;border-right-width:1PX;}
+</STYLE>
+
+<TITLE>Crystal Report Viewer</TITLE>
+<BODY BGCOLOR="FFFFFF"LEFTMARGIN=0 TOPMARGIN=0 BOTTOMMARGIN=0 RIGHTMARGIN=0>
+
+<div style="left:23PX;top:166PX;border-color:000000;border-style:solid;border-width:0px;border-top-width:1PX;width:399PX;">
+</div>
+<div style="left:23PX;top:186PX;border-color:000000;border-style:solid;border-width:0px;border-top-width:1PX;width:741PX;">
+</div>
+<div style="left:23PX;top:203PX;border-color:000000;border-style:solid;border-width:0px;border-top-width:1PX;width:740PX;">
+</div>
+<div style="left:23PX;top:222PX;border-color:000000;border-style:solid;border-width:0px;border-top-width:1PX;width:740PX;">
+</div>
+<div style="left:23PX;top:242PX;border-color:000000;border-style:solid;border-width:0px;border-top-width:1PX;width:741PX;">
+</div>
+<div style="left:23PX;top:258PX;border-color:000000;border-style:solid;border-width:0px;border-top-width:1PX;width:741PX;">
+</div>
+<div style="left:23PX;top:274PX;border-color:000000;border-style:solid;border-width:0px;border-top-width:1PX;width:742PX;">
+</div>
+<div style="left:23PX;top:103PX;border-color:000000;border-style:solid;border-width:0px;border-top-width:1PX;width:741PX;">
+</div>
+<div style="left:523PX;top:22PX;border-color:000000;border-style:solid;border-width:0px;border-left-width:1PX;height:82PX;">
+<table width="0px" height="76PX"><td>&nbsp;</td></table>
+</div>
+<div style="left:421PX;top:102PX;border-color:000000;border-style:solid;border-width:0px;border-left-width:1PX;height:265PX;">
+<table width="0px" height="277PX"><td>&nbsp;</td></table>
+</div>
+<div style="left:221PX;top:274PX;border-color:000000;border-style:solid;border-width:0px;border-left-width:1PX;height:93PX;">
+<table width="0px" height="87PX"><td>&nbsp;</td></table>
+</div>
+<div style="left:267PX;top:275PX;border-color:000000;border-style:solid;border-width:0px;border-left-width:1PX;height:93PX;">
+<table width="0px" height="87PX"><td>&nbsp;</td></table>
+</div>
+<div style="left:311PX;top:274PX;border-color:000000;border-style:solid;border-width:0px;border-left-width:1PX;height:93PX;">
+<table width="0px" height="87PX"><td>&nbsp;</td></table>
+</div>
+<div style="left:370PX;top:274PX;border-color:000000;border-style:solid;border-width:0px;border-left-width:1PX;height:93PX;">
+<table width="0px" height="87PX"><td>&nbsp;</td></table>
+</div>
+<div style="left:472PX;top:274PX;border-color:000000;border-style:solid;border-width:0px;border-left-width:1PX;height:93PX;">
+<table width="0px" height="104PX"><td>&nbsp;</td></table>
+</div>
+<div style="left:530PX;top:274PX;border-color:000000;border-style:solid;border-width:0px;border-left-width:1PX;height:93PX;">
+<table width="0px" height="105PX"><td>&nbsp;</td></table>
+</div>
+<div style="left:584PX;top:274PX;border-color:000000;border-style:solid;border-width:0px;border-left-width:1PX;height:170PX;">
+<table width="0px" height="164PX"><td>&nbsp;</td></table>
+</div>
+<div style="left:638PX;top:274PX;border-color:000000;border-style:solid;border-width:0px;border-left-width:1PX;height:93PX;">
+<table width="0px" height="103PX"><td>&nbsp;</td></table>
+</div>
+<div style="left:690PX;top:274PX;border-color:000000;border-style:solid;border-width:0px;border-left-width:1PX;height:170PX;">
+<table width="0px" height="164PX"><td>&nbsp;</td></table>
+</div>
+<div style="left:530PX;top:318PX;border-color:000000;border-style:solid;border-width:0px;border-top-width:1PX;width:162PX;">
+</div>
+<div style="left:23PX;top:336PX;border-color:000000;border-style:solid;border-width:0px;border-top-width:1PX;width:740PX;">
+</div>
+<div style="left:182PX;top:274PX;border-color:000000;border-style:solid;border-width:0px;border-left-width:1PX;height:93PX;">
+<table width="0px" height="87PX"><td>&nbsp;</td></table>
+</div>
+<div style="left:285PX;top:103PX;border-color:000000;border-style:solid;border-width:0px;border-left-width:1PX;height:65PX;">
+<table width="0px" height="59PX"><td>&nbsp;</td></table>
+</div>
+<div style="left:23PX;top:366PX;border-color:000000;border-style:solid;border-width:0px;border-top-width:1PX;width:740PX;">
+</div>
+<div style="left:23PX;top:383PX;border-color:000000;border-style:solid;border-width:0px;border-top-width:1PX;width:742PX;">
+</div>
+<div style="left:93PX;top:367PX;border-color:000000;border-style:solid;border-width:0px;border-left-width:1PX;height:93PX;">
+<table width="0px" height="87PX"><td>&nbsp;</td></table>
+</div>
+<div style="left:23PX;top:402PX;border-color:000000;border-style:solid;border-width:0px;border-top-width:1PX;width:501PX;">
+</div>
+<div style="left:585PX;top:412PX;border-color:000000;border-style:solid;border-width:0px;border-top-width:1PX;width:180PX;">
+</div>
+<div style="left:23PX;top:420PX;border-color:000000;border-style:solid;border-width:0px;border-top-width:1PX;width:562PX;">
+</div>
+<div style="left:23PX;top:443PX;border-color:000000;border-style:solid;border-width:0px;border-top-width:1PX;width:741PX;">
+</div>
+<div style="left:523PX;top:383PX;border-color:000000;border-style:solid;border-width:0px;border-left-width:1PX;height:61PX;">
+<table width="0px" height="55PX"><td>&nbsp;</td></table>
+</div>
+<div style="left:585PX;top:398PX;border-color:000000;border-style:solid;border-width:0px;border-top-width:1PX;width:179PX;">
+</div>
+<div style="left:585PX;top:427PX;border-color:000000;border-style:solid;border-width:0px;border-top-width:1PX;width:179PX;">
+</div>
+<div style="left:24PX;top:458PX;border-color:000000;border-style:solid;border-width:0px;border-top-width:1PX;width:738PX;">
+</div>
+<div style="left:334PX;top:457PX;border-color:000000;border-style:solid;border-width:0px;border-left-width:1PX;height:75PX;">
+<table width="0px" height="69PX"><td>&nbsp;</td></table>
+</div>
+<div style="left:23PX;top:531PX;border-color:000000;border-style:solid;border-width:0px;border-top-width:1PX;width:741PX;">
+</div>
+<div style="left:23PX;top:516PX;border-color:000000;border-style:solid;border-width:0px;border-top-width:1PX;width:313PX;">
+</div>
+<div style="left:269PX;top:892PX;border-color:000000;border-style:solid;border-width:0px;border-left-width:1PX;height:64PX;">
+<table width="0px" height="58PX"><td>&nbsp;</td></table>
+</div>
+<div style="left:405PX;top:892PX;border-color:000000;border-style:solid;border-width:0px;border-left-width:1PX;height:64PX;">
+<table width="0px" height="58PX"><td>&nbsp;</td></table>
+</div>
+<div style="left:23PX;top:955PX;border-color:000000;border-style:solid;border-width:0px;border-top-width:1PX;width:740PX;">
+</div>
+<div style="left:23PX;top:892PX;border-color:000000;border-style:solid;border-width:0px;border-top-width:1PX;width:741PX;">
+</div>
+<div style="left:77PX;top:1008PX;border-color:000000;border-style:solid;border-width:0px;border-top-width:1PX;width:149PX;">
+</div>
+<div style="left:77PX;top:1029PX;border-color:000000;border-style:solid;border-width:0px;border-top-width:1PX;width:149PX;">
+</div>
+<div style="left:23PX;top:994PX;border-color:000000;border-style:solid;border-width:0px;border-top-width:1PX;width:740PX;">
+</div>
+<div style="left:449PX;top:995PX;border-color:000000;border-style:solid;border-width:0px;border-left-width:1PX;height:66PX;">
+<table width="0px" height="60PX"><td>&nbsp;</td></table>
+</div>
+
+<DIV class="box" style="z-index:10; border-color:000000;border-style:solid;border-bottom-style:solid;border-bottom-width:1PX;border-left-style:solid;border-left-width:1PX;border-top-style:solid;border-top-width:1PX;border-right-style:solid;border-right-width:1PX;left:23PX;top:21PX;width:740PX;height:1038PX;">
+<table border=0 cellpadding=0 cellspacing=0 width=733px height=1031px><TD>&nbsp;</TD></TABLE>
+</DIV>
+
+<DIV style="left:27PX;top:105PX;width:256PX;height:13PX;"><span class="fc1-0">Name & Address of Registered dealer issuing the Invoices:</span></DIV>
+
+<DIV style="left:423PX;top:106PX;width:138PX;height:14PX;"><span class="fc1-0">Full Postal Address Of Range </span></DIV>
+
+<DIV style="left:24PX;top:186PX;width:97PX;height:12PX;"><span class="fc1-0">C. Ex. Regn. No. </span></DIV>
+
+<DIV style="left:424PX;top:137PX;width:130PX;height:13PX;"><span class="fc1-0">Full Postal Address of Div.</span></DIV>
+
+<DIV style="left:225PX;top:187PX;width:71PX;height:12PX;"><span class="fc1-0">E.C.C. Code No. </span></DIV>
+
+<DIV style="left:125PX;top:187PX;width:7PX;height:12PX;"><span class="fc1-0">:</span></DIV>
+
+<DIV style="left:298PX;top:187PX;width:7PX;height:12PX;"><span class="fc1-0">:</span></DIV>
+
+<DIV style="left:424PX;top:161PX;width:126PX;height:12PX;"><span class="fc1-0">Commissionerate</span></DIV>
+
+<DIV style="left:565PX;top:137PX;width:7PX;height:12PX;"><span class="fc1-0">:</span></DIV>
+
+<DIV style="left:565PX;top:161PX;width:7PX;height:12PX;"><span class="fc1-0">:</span></DIV>
+
+<DIV style="left:92PX;top:206PX;width:7PX;height:15PX;"><span class="fc1-0">:</span></DIV>
+
+<DIV style="left:24PX;top:206PX;width:65PX;height:15PX;"><span class="fc1-0">(VAT TIN No. </span></DIV>
+
+<DIV style="left:25PX;top:226PX;width:166PX;height:13PX;"><span class="fc1-0">Permanent Income Tax No.</span></DIV>
+
+<DIV style="left:199PX;top:226PX;width:7PX;height:14PX;"><span class="fc1-0">:</span></DIV>
+
+<DIV style="left:224PX;top:206PX;width:55PX;height:15PX;"><span class="fc1-0">CST TIN No. </span></DIV>
+
+<DIV style="left:427PX;top:205PX;width:166PX;height:13PX;"><span class="fc1-0">Mode of Transport and Vehicle No.</span></DIV>
+
+<DIV style="left:592PX;top:205PX;width:7PX;height:12PX;"><span class="fc1-0">:</span></DIV>
+
+<DIV style="left:435PX;top:226PX;width:56PX;height:14PX;"><span class="fc1-0"> Invoice No.</span></DIV>
+
+<DIV style="left:435PX;top:244PX;width:56PX;height:14PX;"><span class="fc1-0"> Challan No.</span></DIV>
+
+<DIV style="left:435PX;top:259PX;width:56PX;height:14PX;"><span class="fc1-0"> Order No.</span></DIV>
+
+<DIV style="left:494PX;top:226PX;width:7PX;height:14PX;"><span class="fc1-0">:</span></DIV>
+
+<DIV style="left:494PX;top:244PX;width:7PX;height:14PX;"><span class="fc1-0">:</span></DIV>
+
+<DIV style="left:494PX;top:259PX;width:7PX;height:14PX;"><span class="fc1-0">:</span></DIV>
+
+<DIV style="left:27PX;top:120PX;width:256PX;height:12PX;"><span class="fc1-1">M. K. INDUSTRIES</span></DIV>
+
+<DIV style="left:27PX;top:135PX;width:255PX;height:28PX;TEXT-ALIGN:CENTER;">
+<table width="250PX" border=0 cellpadding=0 cellspacing=0>
+<tr><td class="fc1-1">Suite # 711, Arun Chambers,Tardeo,Mumbai-34. Tel : </td></tr>
+<tr><td class="fc1-1">022-23521453&nbsp;&nbsp;Fax : 40046848</td></tr></table>
+</DIV>
+
+<DIV style="left:567PX;top:106PX;width:7PX;height:14PX;"><span class="fc1-2">:</span></DIV>
+
+<DIV style="left:134PX;top:187PX;width:90PX;height:12PX;"><span class="fc1-0">AAAFM8844QXD001</span></DIV>
+
+<DIV style="left:306PX;top:187PX;width:111PX;height:12PX;"><span class="fc1-0">AAAFM8844QXD001</span></DIV>
+
+<DIV style="left:576PX;top:161PX;width:189PX;height:12PX;"><span class="fc1-0">MUMBAI-I</span></DIV>
+
+<DIV style="left:218PX;top:228PX;width:198PX;height:12PX;"><span class="fc1-0">AAAFM 8844 Q</span></DIV>
+
+<DIV style="left:506PX;top:226PX;width:67PX;height:14PX;"><span class="fc1-1">[% sale.invoice_no %]</span></DIV>
+
+<DIV style="left:506PX;top:245PX;width:67PX;height:14PX;"><span class="fc1-0">[% sale.challan_no %]</span></DIV>
+
+<DIV style="left:506PX;top:263PX;width:67PX;height:14PX;"><span class="fc1-0">[% sale.order_no %]</span></DIV>
+
+<DIV style="left:603PX;top:206PX;width:152PX;height:12PX;"><span class="fc1-0">[% sale.vehicle_no %]</span></DIV>
+
+<DIV style="left:590PX;top:226PX;width:30PX;height:14PX;"><span class="fc1-0"> Date</span></DIV>
+
+<DIV style="left:590PX;top:245PX;width:30PX;height:14PX;"><span class="fc1-0"> Date</span></DIV>
+
+<DIV style="left:591PX;top:260PX;width:31PX;height:14PX;"><span class="fc1-0"> Date</span></DIV>
+
+<DIV style="left:622PX;top:226PX;width:7PX;height:14PX;"><span class="fc1-0">:</span></DIV>
+
+<DIV style="left:623PX;top:260PX;width:7PX;height:14PX;"><span class="fc1-0">:</span></DIV>
+
+<DIV style="left:636PX;top:226PX;width:125PX;height:14PX;"><span class="fc1-1">[% sale.invoice_date %]</span></DIV>
+
+<DIV style="left:636PX;top:245PX;width:125PX;height:14PX;"><span class="fc1-0">[% sale.challan_date %]</span></DIV>
+
+<DIV style="left:636PX;top:263PX;width:125PX;height:14PX;"><span class="fc1-0">[% sale.order_date %]</span></DIV>
+
+<DIV style="left:26PX;top:243PX;width:160PX;height:12PX;"><span class="fc1-0">Date & Time of issue of Invoices</span></DIV>
+
+<DIV style="left:199PX;top:243PX;width:7PX;height:13PX;"><span class="fc1-0">:</span></DIV>
+
+<DIV style="left:26PX;top:260PX;width:158PX;height:12PX;"><span class="fc1-0">Date & Time of Removal of goods</span></DIV>
+
+<DIV style="left:199PX;top:260PX;width:7PX;height:13PX;"><span class="fc1-0">:</span></DIV>
+
+<DIV style="left:24PX;top:277PX;width:155PX;height:41PX;TEXT-ALIGN:CENTER;"><span class="fc1-0">Description of goods</span></DIV>
+
+<DIV style="left:227PX;top:277PX;width:35PX;height:41PX;TEXT-ALIGN:CENTER;">
+<table width="30PX" border=0 cellpadding=0 cellspacing=0>
+<tr><td ALIGN="CENTER" class="fc1-0"> </td></tr>
+<tr><td ALIGN="CENTER" class="fc1-0">Quantity</td></tr></table>
+</DIV>
+
+<DIV style="left:276PX;top:277PX;width:34PX;height:41PX;TEXT-ALIGN:CENTER;">
+<table width="29PX" border=0 cellpadding=0 cellspacing=0>
+<tr><td ALIGN="CENTER" class="fc1-0">Unit </td></tr>
+<tr><td ALIGN="CENTER" class="fc1-0">Rate</td></tr></table>
+</DIV>
+
+<DIV style="left:319PX;top:275PX;width:42PX;height:41PX;TEXT-ALIGN:CENTER;">
+<table width="37PX" border=0 cellpadding=0 cellspacing=0>
+<tr><td ALIGN="CENTER" class="fc1-0">Chapter </td></tr>
+<tr><td ALIGN="CENTER" class="fc1-0">Heading </td></tr></table>
+
+<table width="37PX" border=0 cellpadding=0 cellspacing=0><td ALIGN="CENTER" class="fc1-0">No.</td></table>
+</DIV>
+
+<DIV style="left:378PX;top:277PX;width:40PX;height:41PX;TEXT-ALIGN:CENTER;">
+<table width="35PX" border=0 cellpadding=0 cellspacing=0><td ALIGN="CENTER" class="fc1-0">Rate of</td></table>
+
+<table width="35PX" border=0 cellpadding=0 cellspacing=0><td ALIGN="CENTER" class="fc1-0">Duty</td></table>
+</DIV>
+
+<DIV style="left:424PX;top:277PX;width:38PX;height:41PX;TEXT-ALIGN:CENTER;">
+<table width="33PX" border=0 cellpadding=0 cellspacing=0>
+<tr><td ALIGN="CENTER" class="fc1-0">Amount </td></tr>
+<tr><td ALIGN="CENTER" class="fc1-0">of duty </td></tr>
+<tr><td ALIGN="CENTER" class="fc1-0">per unit</td></tr></table>
+</DIV>
+
+<DIV style="left:479PX;top:277PX;width:51PX;height:41PX;TEXT-ALIGN:CENTER;">
+<table width="46PX" border=0 cellpadding=0 cellspacing=0>
+<tr><td ALIGN="CENTER" class="fc1-0">Amt of duty </td></tr>
+<tr><td ALIGN="CENTER" class="fc1-0">involved in </td></tr>
+<tr><td ALIGN="CENTER" class="fc1-0">the qty </td></tr></table>
+</DIV>
+
+<DIV style="left:533PX;top:277PX;width:49PX;height:40PX;TEXT-ALIGN:CENTER;">
+<table width="44PX" border=0 cellpadding=0 cellspacing=0>
+<tr><td ALIGN="CENTER" class="fc1-0">Amt. of </td></tr>
+<tr><td ALIGN="CENTER" class="fc1-0">A.E.D. </td></tr></table>
+</DIV>
+
+<DIV style="left:586PX;top:277PX;width:50PX;height:40PX;TEXT-ALIGN:CENTER;">
+<table width="45PX" border=0 cellpadding=0 cellspacing=0>
+<tr><td ALIGN="CENTER" class="fc1-0">Amt. of </td></tr>
+<tr><td ALIGN="CENTER" class="fc1-0">Ed.Cess on </td></tr>
+<tr><td ALIGN="CENTER" class="fc1-0">Cenvat</td></tr></table>
+</DIV>
+
+<DIV style="left:643PX;top:277PX;width:47PX;height:40PX;TEXT-ALIGN:CENTER;">
+<table width="42PX" border=0 cellpadding=0 cellspacing=0>
+<tr><td ALIGN="CENTER" class="fc1-0">Ed.Cess </td></tr>
+<tr><td ALIGN="CENTER" class="fc1-0">Paid on </td></tr>
+<tr><td ALIGN="CENTER" class="fc1-0">Cenvat </td></tr></table>
+</DIV>
+
+<DIV style="left:699PX;top:277PX;width:65PX;height:39PX;TEXT-ALIGN:CENTER;">
+<table width="60PX" border=0 cellpadding=0 cellspacing=0>
+<tr><td ALIGN="CENTER" class="fc1-0">Value in Rupees </td></tr>
+<tr><td ALIGN="CENTER" class="fc1-0">(in figures)</td></tr></table>
+</DIV>
+
+<DIV style="left:184PX;top:44PX;width:338PX;height:17PX;TEXT-ALIGN:CENTER;"><span class="fc1-3">TAX&nbsp;&nbsp;&nbsp;INVOICE </span></DIV>
+
+<DIV style="left:186PX;top:63PX;width:336PX;height:38PX;TEXT-ALIGN:CENTER;">
+<table width="331PX" border=0 cellpadding=0 cellspacing=0><td ALIGN="CENTER" class="fc1-0">ISSUE OF INVOICE UNDER RULE 11 OF CENTRAL EXCISE RULES 2002</td></table>
+
+<table width="331PX" border=0 cellpadding=0 cellspacing=0><td ALIGN="CENTER" class="fc1-0">CENVAT CREDIT UNDER RULE 7 OF EXCISE RULES 2002</td></table>
+
+<table width="331PX" border=0 cellpadding=0 cellspacing=0><td ALIGN="CENTER" class="fc1-0">IMPORTER/FIRST/SECOND STAGE DEALER'S INVOICE</td></table>
+</DIV>
+
+<DIV style="left:534PX;top:320PX;width:43PX;height:15PX;TEXT-ALIGN:CENTER;"><span class="fc1-0">4%</span></DIV>
+
+<DIV style="left:588PX;top:320PX;width:43PX;height:15PX;TEXT-ALIGN:CENTER;"><span class="fc1-0">2%</span></DIV>
+
+<DIV style="left:645PX;top:319PX;width:45PX;height:15PX;TEXT-ALIGN:CENTER;"><span class="fc1-0">1%</span></DIV>
+
+<DIV style="left:185PX;top:24PX;width:338PX;height:18PX;TEXT-ALIGN:CENTER;"><span class="fc1-0">Subject to Mumbai Jurisdiction</span></DIV>
+
+<DIV style="left:218PX;top:259PX;width:55PX;height:14PX;"><span class="fc1-0">[% sale.invoice_date %]</span></DIV>
+
+<DIV style="left:283PX;top:260PX;width:112PX;height:13PX;"><span class="fc1-0">[% sale.invoice_time %]</span></DIV>
+
+<DIV style="left:218PX;top:244PX;width:55PX;height:11PX;"><span class="fc1-0">[% sale.removal_date %]</span></DIV>
+
+<DIV style="left:283PX;top:243PX;width:111PX;height:13PX;"><span class="fc1-0">[% sale.removal_time %]</span></DIV>
+
+<DIV style="left:577PX;top:107PX;width:184PX;height:15PX;"><span class="fc1-0">III Meher Bldg., Chowpatty, Mumbai.-7</span></DIV>
+
+<DIV style="left:528PX;top:33PX;width:38PX;height:13PX;TEXT-ALIGN:RIGHT;"><span class="fc1-0">(White)</span></DIV>
+
+<DIV style="left:528PX;top:53PX;width:38PX;height:13PX;TEXT-ALIGN:RIGHT;"><span class="fc1-0">(Pink)</span></DIV>
+
+<DIV style="left:529PX;top:75PX;width:38PX;height:13PX;TEXT-ALIGN:RIGHT;"><span class="fc1-0">(Green)</span></DIV>
+
+<DIV style="left:577PX;top:33PX;width:116PX;height:13PX;"><span class="fc1-0">FOR BUYER&nbsp;&nbsp;(Original )</span></DIV>
+
+<DIV style="left:577PX;top:53PX;width:137PX;height:13PX;"><span class="fc1-0">FOR TRANPORTER ( Duplicate)</span></DIV>
+
+<DIV style="left:578PX;top:75PX;width:180PX;height:13PX;"><span class="fc1-0">FOR REGISTERED PERSON ( Triplicate)</span></DIV>
+
+<DIV style="left:622PX;top:245PX;width:7PX;height:14PX;"><span class="fc1-0">:</span></DIV>
+
+<DIV style="left:100PX;top:206PX;width:123PX;height:15PX;"><span class="fc1-0">27480022091V&nbsp;&nbsp;Dt : 1-4-2006</span></DIV>
+
+<DIV style="left:279PX;top:206PX;width:138PX;height:15PX;"><span class="fc1-0">27480022091C&nbsp;&nbsp;Dt : 1-4-2006</span></DIV>
+
+<DIV style="left:183PX;top:275PX;width:36PX;height:43PX;TEXT-ALIGN:CENTER;">
+<table width="31PX" border=0 cellpadding=0 cellspacing=0><td ALIGN="CENTER" class="fc1-0">Page No</td></table>
+
+<table width="31PX" border=0 cellpadding=0 cellspacing=0><td ALIGN="CENTER" class="fc1-0">In</td></table>
+
+<table width="31PX" border=0 cellpadding=0 cellspacing=0><td ALIGN="CENTER" class="fc1-0">RG23 D</td></table>
+</DIV>
+
+<DIV style="left:287PX;top:105PX;width:134PX;height:48PX;">
+<table width="129PX" border=0 cellpadding=0 cellspacing=0><td ALIGN="CENTER" class="fc1-0">Authenticated for </td></table>
+
+<table width="129PX" border=0 cellpadding=0 cellspacing=0><td ALIGN="CENTER" class="fc1-0">M. K. INDUSTRIES&nbsp;</td></table>
+</DIV>
+
+<DIV style="left:285PX;top:151PX;width:135PX;height:16PX;TEXT-ALIGN:CENTER;"><span class="fc1-0">Partner / Authorised Signatory</span></DIV>
+
+<DIV style="z-index:15;left:25PX;top:23PX;width:159PX;height:80PX;">
+<img  SRC="rptt_excisechallan_mk000000g.jpg">
+</DIV>
+<DIV style="left:24PX;top:168PX;width:424PX;height:15PX;"><span class="fc1-0">Godown Address: Gala No.6, Part-II, Gajanan Wafekar Cmpd,Purna , Bhiwandi-421302 , Thane,MS</span></DIV>
+
+<DIV style="left:577PX;top:137PX;width:181PX;height:13PX;"><span class="fc1-0">A Meher Bldg., Chowpatty, Mumbai.-7</span></DIV>
+
+<DIV style="left:26PX;top:338PX;width:155PX;height:12PX;"><span class="fc1-0">product.description </span></DIV>
+
+<DIV style="left:221PX;top:338PX;width:44PX;height:11PX;TEXT-ALIGN:RIGHT;"><span class="fc1-0">[% sale.quantity %]</span></DIV>
+
+<DIV style="left:313PX;top:338PX;width:54PX;height:14PX;TEXT-ALIGN:CENTER;"><span class="fc1-0">[% product.chapter_heading %]</span></DIV>
+
+<DIV style="left:268PX;top:338PX;width:42PX;height:11PX;TEXT-ALIGN:RIGHT;"><span class="fc1-0">[% sale.rate %]</span></DIV>
+
+<DIV style="left:423PX;top:338PX;width:41PX;height:11PX;TEXT-ALIGN:RIGHT;"><span class="fc1-0">[% sale.unit_cenvat %]</span></DIV>
+
+<DIV style="left:644PX;top:338PX;width:45PX;height:11PX;TEXT-ALIGN:RIGHT;"><span class="fc1-0">[% sale.hs_edu_cess %]</span></DIV>
+
+<DIV style="left:695PX;top:338PX;width:64PX;height:11PX;TEXT-ALIGN:RIGHT;"><span class="fc1-0">[% sale.taxable_value %]</span></DIV>
+
+<DIV style="left:373PX;top:338PX;width:45PX;height:13PX;TEXT-ALIGN:RIGHT;"><span class="fc1-0">[% sale.cenvat_rate %]</span></DIV>
+
+<DIV style="left:474PX;top:338PX;width:53PX;height:13PX;TEXT-ALIGN:RIGHT;"><span class="fc1-4">[% sale.cenvat %]</span></DIV>
+
+<DIV style="left:586PX;top:338PX;width:48PX;height:13PX;TEXT-ALIGN:RIGHT;"><span class="fc1-0">[% sale.sec_edu_cess %]</span></DIV>
+
+<DIV style="left:534PX;top:338PX;width:43PX;height:13PX;TEXT-ALIGN:RIGHT;"><span class="fc1-0">[% sale.cvd %]</span></DIV>
+
+<DIV style="left:184PX;top:338PX;width:36PX;height:11PX;TEXT-ALIGN:CENTER;"><span class="fc1-0">[% purchase.rg_page_no %]</span></DIV>
+
+<DIV style="left:221PX;top:352PX;width:44PX;height:11PX;TEXT-ALIGN:RIGHT;"><span class="fc1-0">[% sale.uom %]</span></DIV>
+
+
+<DIV style="left:586PX;top:368PX;width:93PX;height:11PX;TEXT-ALIGN:RIGHT;"><span class="fc1-0">Sub-Total</span></DIV>
+
+
+<DIV style="left:695PX;top:368PX;width:64PX;height:11PX;TEXT-ALIGN:RIGHT;"><span class="fc1-0">[% sale.taxable_value %]</span></DIV>
+
+
+<DIV style="left:26PX;top:386PX;width:66PX;height:13PX;"><span class="fc1-0">A.E.D in words:</span></DIV>
+
+<DIV style="left:93PX;top:369PX;width:328PX;height:13PX;"><span class="fc1-5"> [% words.cenvat %]</span></DIV>
+
+<DIV style="left:26PX;top:405PX;width:66PX;height:14PX;"><span class="fc1-0">Cess in words :</span></DIV>
+
+<DIV style="left:94PX;top:404PX;width:429PX;height:15PX;"><span class="fc1-0"> [% words.sec_edu_cess %]</span></DIV>
+
+<DIV style="left:586PX;top:385PX;width:96PX;height:13PX;TEXT-ALIGN:RIGHT;"><span class="fc1-5"> Freight Charges :-</span></DIV>
+
+<DIV style="left:536PX;top:388PX;width:47PX;height:27PX;TEXT-ALIGN:CENTER;">
+<table width="42PX" border=0 cellpadding=0 cellspacing=0>
+<tr><td ALIGN="CENTER" class="fc1-0">Sold </td></tr>
+<tr><td ALIGN="CENTER" class="fc1-0">Against</td></tr></table>
+</DIV>
+
+<DIV style="left:26PX;top:444PX;width:66PX;height:13PX;"><span class="fc1-0">Total value in Rs</span></DIV>
+
+<DIV style="left:586PX;top:431PX;width:96PX;height:11PX;TEXT-ALIGN:RIGHT;"><span class="fc1-6"> Grand Total :</span></DIV>
+
+<DIV style="left:695PX;top:431PX;width:64PX;height:11PX;TEXT-ALIGN:RIGHT;"><span class="fc1-7">[% sale.total %]</span></DIV>
+
+<DIV style="left:94PX;top:444PX;width:669PX;height:13PX;"><span class="fc1-0">[%  words.total %]</span></DIV>
+
+<DIV style="left:695PX;top:414PX;width:64PX;height:11PX;TEXT-ALIGN:RIGHT;"><span class="fc1-7">[% sales_tax %]</span></DIV>
+
+<DIV style="left:585PX;top:414PX;width:96PX;height:13PX;TEXT-ALIGN:RIGHT;"><span class="fc1-5">VAT sales_tax_rate%</span></DIV>
+
+<DIV style="left:585PX;top:399PX;width:96PX;height:13PX;TEXT-ALIGN:RIGHT;"><span class="fc1-5">Discount :-</span></DIV>
+
+<DIV style="left:695PX;top:400PX;width:64PX;height:11PX;TEXT-ALIGN:RIGHT;"><span class="fc1-7">[% sale.discount %]</span></DIV>
+
+<DIV style="left:695PX;top:386PX;width:64PX;height:11PX;TEXT-ALIGN:RIGHT;"><span class="fc1-7">freight</span></DIV>
+
+
+<DIV style="left:26PX;top:423PX;width:66PX;height:14PX;"><span class="fc1-0">Hedu in words :</span></DIV>
+
+<DIV style="left:94PX;top:423PX;width:429PX;height:15PX;"><span class="fc1-0"> [% words.hs_edu_cess %]</span></DIV>
+
+<DIV style="left:26PX;top:368PX;width:66PX;height:13PX;"><span class="fc1-0">Duty in words:</span></DIV>
+
+<DIV style="left:94PX;top:384PX;width:427PX;height:16PX;"><span class="fc1-0">[%  words.cvd  %]</span></DIV>
+
+<DIV style="left:27PX;top:459PX;width:293PX;height:13PX;"><span class="fc1-0">(2) (i) Name & Address of the Cosignee :</span></DIV>
+
+<DIV style="left:27PX;top:476PX;width:295PX;height:11PX;"><span class="fc1-7"> [% buyer.name %]</span></DIV>
+
+<DIV style="left:343PX;top:459PX;width:84PX;height:13PX;TEXT-ALIGN:RIGHT;"><span class="fc1-0">(iii) C.Ex.Regn.No</span></DIV>
+
+<DIV style="left:431PX;top:459PX;width:7PX;height:12PX;"><span class="fc1-0">:</span></DIV>
+
+<DIV style="left:343PX;top:473PX;width:84PX;height:10PX;TEXT-ALIGN:RIGHT;"><span class="fc1-0">(iii) Range</span></DIV>
+
+<DIV style="left:431PX;top:473PX;width:7PX;height:11PX;"><span class="fc1-0">:</span></DIV>
+
+<DIV style="left:343PX;top:489PX;width:84PX;height:11PX;TEXT-ALIGN:RIGHT;"><span class="fc1-0">Division</span></DIV>
+
+<DIV style="left:430PX;top:489PX;width:7PX;height:11PX;"><span class="fc1-0">:</span></DIV>
+
+<DIV style="left:341PX;top:504PX;width:88PX;height:11PX;TEXT-ALIGN:RIGHT;"><span class="fc1-0">BST.TIN.No</span></DIV>
+
+<DIV style="left:431PX;top:503PX;width:7PX;height:12PX;"><span class="fc1-0">:</span></DIV>
+
+<DIV style="left:564PX;top:489PX;width:84PX;height:11PX;TEXT-ALIGN:RIGHT;"><span class="fc1-0">Commissionerate </span></DIV>
+
+<DIV style="left:651PX;top:489PX;width:7PX;height:11PX;"><span class="fc1-0">:</span></DIV>
+
+<DIV style="left:342PX;top:518PX;width:86PX;height:11PX;TEXT-ALIGN:RIGHT;"><span class="fc1-0">CST.No</span></DIV>
+
+<DIV style="left:430PX;top:519PX;width:7PX;height:12PX;"><span class="fc1-0">:</span></DIV>
+
+<DIV style="left:26PX;top:518PX;width:66PX;height:11PX;"><span class="fc1-0">Your ECC No.</span></DIV>
+
+<DIV style="left:93PX;top:518PX;width:7PX;height:11PX;"><span class="fc1-0">:</span></DIV>
+
+<DIV style="left:103PX;top:518PX;width:199PX;height:11PX;"><span class="fc1-0">[% buyer.ecc_no %]</span></DIV>
+
+<DIV style="left:448PX;top:518PX;width:313PX;height:11PX;"><span class="fc1-0">[% buyer.cst_no %]</span></DIV>
+
+<DIV style="left:448PX;top:474PX;width:312PX;height:12PX;"><span class="fc1-0">[% buyer.range %]</span></DIV>
+
+<DIV style="left:448PX;top:459PX;width:313PX;height:13PX;"><span class="fc1-0">[% buyer.ecc_no %]</span></DIV>
+
+<DIV style="left:662PX;top:489PX;width:103PX;height:11PX;"><span class="fc1-0">[% buyer.commissionerate %]</span></DIV>
+
+<DIV style="left:448PX;top:503PX;width:314PX;height:11PX;"><span class="fc1-0">[% buyer.vat_no %]</span></DIV>
+
+<DIV style="left:447PX;top:489PX;width:112PX;height:11PX;"><span class="fc1-0">[% buyer.division %]</span></DIV>
+
+<DIV style="left:27PX;top:492PX;width:305PX;height:25PX;">
+<table width="300PX" border=0 cellpadding=0 cellspacing=0>
+<tr><td class="fc1-0">[% buyer.w_address_1 _ "," _ buyer.w_address_2 _ "," _ buyer.w_address_3 -%] </td></tr>
+<tr><td class="fc1-0">[% buyer.city _ "," _ buyer.district _","_ buyer.state _","_ buyer.zip %]</td></tr></table>
+</DIV>
+
+<DIV style="z-index:5;clip: rect(0PX,737PX,266PX,0PX);left:24PX;top:533PX;width:737PX;height:266PX;">
+</DIV>
+<div style="left:383PX;top:558PX;border-color:000000;border-style:solid;border-width:0px;border-left-width:1PX;height:88PX;">
+<table width="0px" height="82PX"><td>&nbsp;</td></table>
+</div>
+<div style="left:384PX;top:577PX;border-color:000000;border-style:solid;border-width:0px;border-top-width:1PX;width:104PX;">
+</div>
+<div style="left:488PX;top:559PX;border-color:000000;border-style:solid;border-width:0px;border-left-width:1PX;height:52PX;">
+<table width="0px" height="46PX"><td>&nbsp;</td></table>
+</div>
+<div style="left:383PX;top:594PX;border-color:000000;border-style:solid;border-width:0px;border-top-width:1PX;width:379PX;">
+</div>
+<div style="left:383PX;top:610PX;border-color:000000;border-style:solid;border-width:0px;border-top-width:1PX;width:379PX;">
+</div>
+<div style="left:24PX;top:645PX;border-color:000000;border-style:solid;border-width:0px;border-top-width:1PX;width:738PX;">
+</div>
+<div style="left:25PX;top:558PX;border-color:000000;border-style:solid;border-width:0px;border-top-width:1PX;width:737PX;">
+</div>
+<div style="left:438PX;top:645PX;border-color:000000;border-style:solid;border-width:0px;border-left-width:1PX;height:79PX;">
+<table width="0px" height="73PX"><td>&nbsp;</td></table>
+</div>
+<div style="left:665PX;top:594PX;border-color:000000;border-style:solid;border-width:0px;border-left-width:1PX;height:17PX;">
+<table width="0px" height="11PX"><td>&nbsp;</td></table>
+</div>
+<div style="left:384PX;top:628PX;border-color:000000;border-style:solid;border-width:0px;border-top-width:1PX;width:378PX;">
+</div>
+<div style="left:463PX;top:610PX;border-color:000000;border-style:solid;border-width:0px;border-left-width:1PX;height:36PX;">
+<table width="0px" height="30PX"><td>&nbsp;</td></table>
+</div>
+<div style="left:539PX;top:610PX;border-color:000000;border-style:solid;border-width:0px;border-left-width:1PX;height:36PX;">
+<table width="0px" height="30PX"><td>&nbsp;</td></table>
+</div>
+<div style="left:619PX;top:611PX;border-color:000000;border-style:solid;border-width:0px;border-left-width:1PX;height:36PX;">
+<table width="0px" height="30PX"><td>&nbsp;</td></table>
+</div>
+<div style="left:689PX;top:611PX;border-color:000000;border-style:solid;border-width:0px;border-left-width:1PX;height:36PX;">
+<table width="0px" height="30PX"><td>&nbsp;</td></table>
+</div>
+<div style="left:439PX;top:679PX;border-color:000000;border-style:solid;border-width:0px;border-top-width:1PX;width:323PX;">
+</div>
+<div style="left:24PX;top:722PX;border-color:000000;border-style:solid;border-width:0px;border-top-width:1PX;width:738PX;">
+</div>
+<div style="left:302PX;top:723PX;border-color:000000;border-style:solid;border-width:0px;border-left-width:1PX;height:76PX;">
+<table width="0px" height="70PX"><td>&nbsp;</td></table>
+</div>
+<div style="left:354PX;top:723PX;border-color:000000;border-style:solid;border-width:0px;border-left-width:1PX;height:76PX;">
+<table width="0px" height="70PX"><td>&nbsp;</td></table>
+</div>
+<div style="left:24PX;top:782PX;border-color:000000;border-style:solid;border-width:0px;border-top-width:1PX;width:738PX;">
+</div>
+<div style="left:409PX;top:722PX;border-color:000000;border-style:solid;border-width:0px;border-left-width:1PX;height:77PX;">
+<table width="0px" height="71PX"><td>&nbsp;</td></table>
+</div>
+<div style="left:454PX;top:721PX;border-color:000000;border-style:solid;border-width:0px;border-left-width:1PX;height:77PX;">
+<table width="0px" height="71PX"><td>&nbsp;</td></table>
+</div>
+<div style="left:511PX;top:723PX;border-color:000000;border-style:solid;border-width:0px;border-left-width:1PX;height:76PX;">
+<table width="0px" height="70PX"><td>&nbsp;</td></table>
+</div>
+<div style="left:578PX;top:721PX;border-color:000000;border-style:solid;border-width:0px;border-left-width:1PX;height:77PX;">
+<table width="0px" height="71PX"><td>&nbsp;</td></table>
+</div>
+<div style="left:629PX;top:722PX;border-color:000000;border-style:solid;border-width:0px;border-left-width:1PX;height:77PX;">
+<table width="0px" height="71PX"><td>&nbsp;</td></table>
+</div>
+<div style="left:702PX;top:723PX;border-color:000000;border-style:solid;border-width:0px;border-left-width:1PX;height:76PX;">
+<table width="0px" height="70PX"><td>&nbsp;</td></table>
+</div>
+<div style="left:578PX;top:766PX;border-color:000000;border-style:solid;border-width:0px;border-top-width:1PX;width:184PX;">
+</div>
+<div style="left:180PX;top:722PX;border-color:000000;border-style:solid;border-width:0px;border-left-width:1PX;height:76PX;">
+<table width="0px" height="70PX"><td>&nbsp;</td></table>
+</div>
+<div style="left:229PX;top:722PX;border-color:000000;border-style:solid;border-width:0px;border-left-width:1PX;height:76PX;">
+<table width="0px" height="70PX"><td>&nbsp;</td></table>
+</div>
+<div style="left:24PX;top:798PX;border-color:000000;border-style:solid;border-width:0px;border-top-width:1PX;width:738PX;">
+</div>
+
+<DIV style="left:28PX;top:534PX;width:245PX;height:10PX;"><span class="fc1-0">Name & Address of the Buyer if he is not cosignee :</span></DIV>
+
+<DIV style="left:28PX;top:560PX;width:355PX;height:13PX;"><span class="fc1-0">Name & address of the supplier of goods if he is not a manufacturer/importer :</span></DIV>
+
+<DIV style="left:384PX;top:560PX;width:103PX;height:17PX;"><span class="fc1-0">Full postal add. of Range :</span></DIV>
+
+<DIV style="left:384PX;top:580PX;width:103PX;height:13PX;TEXT-ALIGN:CENTER;"><span class="fc1-0">Invoice No.</span></DIV>
+
+<DIV style="left:493PX;top:594PX;width:169PX;height:16PX;TEXT-ALIGN:CENTER;"><span class="fc1-0">Entry No. / Page No In RG 23 D Register</span></DIV>
+
+<DIV style="left:28PX;top:575PX;width:353PX;height:57PX;">
+<table width="348PX" border=0 cellpadding=0 cellspacing=0><td class="fc1-0">&nbsp;&nbsp;</td></table>
+
+<table width="348PX" border=0 cellpadding=0 cellspacing=0><td class="fc1-0">&nbsp;&nbsp;</td></table>
+
+<table width="348PX" border=0 cellpadding=0 cellspacing=0><td class="fc1-0">C.Ex.Regn.No.: &nbsp;&nbsp;</td></table>
+</DIV>
+
+<DIV style="left:488PX;top:560PX;width:266PX;height:22PX;"><span class="fc1-0">&nbsp; &nbsp; &nbsp;</span></DIV>
+
+<DIV style="left:385PX;top:612PX;width:74PX;height:13PX;TEXT-ALIGN:CENTER;"><span class="fc1-0">Qty</span></DIV>
+
+<DIV style="left:470PX;top:612PX;width:57PX;height:13PX;TEXT-ALIGN:CENTER;"><span class="fc1-0">BED Amt</span></DIV>
+
+<DIV style="left:552PX;top:612PX;width:57PX;height:13PX;TEXT-ALIGN:CENTER;"><span class="fc1-0">AED Amt</span></DIV>
+
+<DIV style="left:627PX;top:612PX;width:57PX;height:13PX;TEXT-ALIGN:CENTER;"><span class="fc1-0">CESS Amt</span></DIV>
+
+<DIV style="left:696PX;top:611PX;width:57PX;height:13PX;TEXT-ALIGN:CENTER;"><span class="fc1-0">HEDU Amt</span></DIV>
+
+<DIV style="left:469PX;top:629PX;width:59PX;height:12PX;TEXT-ALIGN:RIGHT;"><span class="fc1-0">0.00</span></DIV>
+
+<DIV style="left:552PX;top:632PX;width:59PX;height:12PX;TEXT-ALIGN:RIGHT;"><span class="fc1-0">0.00</span></DIV>
+
+<DIV style="left:624PX;top:629PX;width:59PX;height:12PX;TEXT-ALIGN:RIGHT;"><span class="fc1-0">0.00</span></DIV>
+
+<DIV style="left:697PX;top:628PX;width:59PX;height:12PX;TEXT-ALIGN:RIGHT;"><span class="fc1-0">0.00</span></DIV>
+
+<DIV style="left:28PX;top:648PX;width:245PX;height:16PX;"><span class="fc1-0">Name & Address of the Manufacturer / Importer.</span></DIV>
+
+<DIV style="left:442PX;top:651PX;width:103PX;height:27PX;">
+<table width="98PX" border=0 cellpadding=0 cellspacing=0>
+<tr><td class="fc1-0">Full postal add. of Range </td></tr>
+<tr><td class="fc1-0">:</td></tr></table>
+</DIV>
+
+<DIV style="left:446PX;top:686PX;width:86PX;height:13PX;"><span class="fc1-0">Division :</span></DIV>
+
+<DIV style="left:446PX;top:703PX;width:86PX;height:13PX;"><span class="fc1-0">Commissionerate :</span></DIV>
+
+<DIV style="left:184PX;top:722PX;width:44PX;height:37PX;TEXT-ALIGN:CENTER;">
+<table width="39PX" border=0 cellpadding=0 cellspacing=0>
+<tr><td ALIGN="CENTER" class="fc1-0">Invoice / </td></tr>
+<tr><td ALIGN="CENTER" class="fc1-0">Bill of Entry </td></tr>
+<tr><td ALIGN="CENTER" class="fc1-0">No. </td></tr></table>
+</DIV>
+
+<DIV style="left:230PX;top:722PX;width:71PX;height:16PX;TEXT-ALIGN:CENTER;"><span class="fc1-0">Date</span></DIV>
+
+<DIV style="left:28PX;top:722PX;width:147PX;height:54PX;TEXT-ALIGN:CENTER;">
+<table width="142PX" border=0 cellpadding=0 cellspacing=0>
+<tr><td ALIGN="CENTER" class="fc1-0">(5) (c)Description of goods Tariff </td></tr>
+<tr><td ALIGN="CENTER" class="fc1-0">Classification and Sub.Heading No.</td></tr></table>
+</DIV>
+
+<DIV style="left:311PX;top:722PX;width:37PX;height:40PX;TEXT-ALIGN:CENTER;">
+<table width="32PX" border=0 cellpadding=0 cellspacing=0>
+<tr><td ALIGN="CENTER" class="fc1-0">(e) </td></tr>
+<tr><td ALIGN="CENTER" class="fc1-0">Quantity</td></tr></table>
+</DIV>
+
+<DIV style="left:355PX;top:722PX;width:49PX;height:40PX;TEXT-ALIGN:CENTER;">
+<table width="44PX" border=0 cellpadding=0 cellspacing=0>
+<tr><td ALIGN="CENTER" class="fc1-0">(f) Ass. </td></tr>
+<tr><td ALIGN="CENTER" class="fc1-0">value in Rs.</td></tr></table>
+</DIV>
+
+<DIV style="left:411PX;top:723PX;width:34PX;height:44PX;TEXT-ALIGN:CENTER;">
+<table width="29PX" border=0 cellpadding=0 cellspacing=0>
+<tr><td ALIGN="CENTER" class="fc1-0">(g) (i) </td></tr>
+<tr><td ALIGN="CENTER" class="fc1-0">Rate of </td></tr>
+<tr><td ALIGN="CENTER" class="fc1-0">duty</td></tr></table>
+</DIV>
+
+<DIV style="left:457PX;top:722PX;width:48PX;height:43PX;TEXT-ALIGN:CENTER;">
+<table width="43PX" border=0 cellpadding=0 cellspacing=0>
+<tr><td ALIGN="CENTER" class="fc1-0">(ii) Amt of </td></tr>
+<tr><td ALIGN="CENTER" class="fc1-0">duty per </td></tr>
+<tr><td ALIGN="CENTER" class="fc1-0">unit</td></tr></table>
+</DIV>
+
+<DIV style="left:513PX;top:722PX;width:62PX;height:57PX;TEXT-ALIGN:CENTER;">
+<table width="57PX" border=0 cellpadding=0 cellspacing=0>
+<tr><td ALIGN="CENTER" class="fc1-0">(iii) Amt of duty </td></tr>
+<tr><td ALIGN="CENTER" class="fc1-0">paid (both) in </td></tr>
+<tr><td ALIGN="CENTER" class="fc1-0">words and </td></tr>
+<tr><td ALIGN="CENTER" class="fc1-0">figures</td></tr></table>
+</DIV>
+
+<DIV style="left:580PX;top:723PX;width:47PX;height:44PX;TEXT-ALIGN:CENTER;">
+<table width="42PX" border=0 cellpadding=0 cellspacing=0>
+<tr><td ALIGN="CENTER" class="fc1-0">(ii) Amt of </td></tr>
+<tr><td ALIGN="CENTER" class="fc1-0">A.E.D. (in </td></tr>
+<tr><td ALIGN="CENTER" class="fc1-0">figures)</td></tr></table>
+</DIV>
+
+<DIV style="left:629PX;top:723PX;width:69PX;height:44PX;TEXT-ALIGN:CENTER;">
+<table width="64PX" border=0 cellpadding=0 cellspacing=0>
+<tr><td ALIGN="CENTER" class="fc1-0">Amt of Ed.Cess </td></tr>
+<tr><td ALIGN="CENTER" class="fc1-0">on Cenvat (in </td></tr>
+<tr><td ALIGN="CENTER" class="fc1-0">figures)</td></tr></table>
+</DIV>
+
+<DIV style="left:705PX;top:724PX;width:54PX;height:44PX;TEXT-ALIGN:CENTER;">
+<table width="49PX" border=0 cellpadding=0 cellspacing=0>
+<tr><td ALIGN="CENTER" class="fc1-0">Ed.Cess Paid </td></tr>
+<tr><td ALIGN="CENTER" class="fc1-0">on Cenvat </td></tr>
+<tr><td ALIGN="CENTER" class="fc1-0">(SAH)</td></tr></table>
+</DIV>
+
+<DIV style="left:581PX;top:769PX;width:45PX;height:11PX;TEXT-ALIGN:CENTER;"><span class="fc1-0">4%</span></DIV>
+
+<DIV style="left:631PX;top:770PX;width:67PX;height:11PX;TEXT-ALIGN:CENTER;"><span class="fc1-0">2%</span></DIV>
+
+<DIV style="left:705PX;top:769PX;width:53PX;height:11PX;TEXT-ALIGN:CENTER;"><span class="fc1-0">1%</span></DIV>
+
+<DIV style="left:28PX;top:665PX;width:408PX;height:55PX;">
+<table width="403PX" border=0 cellpadding=0 cellspacing=0><td class="fc1-0">[% supplier.name %]</td></table>
+
+<table width="403PX" border=0 cellpadding=0 cellspacing=0><td class="fc1-0">[% "$supplier.w_address_1 , $supplier.w_address_2, $supplier.w_address_3" -%]<BR> [% "$supplier.city ,$supplier.state ,$supplier.zip" %]</td></table>
+
+<table width="403PX" border=0 cellpadding=0 cellspacing=0><td class="fc1-0">C.Ex.Regn.No.: [% supplier.ecc_no %]</td></table>
+</DIV>
+
+<DIV style="left:547PX;top:651PX;width:213PX;height:27PX;"><span class="fc1-0">[% supplier.range_address %]</span></DIV>
+
+<DIV style="left:536PX;top:703PX;width:149PX;height:13PX;"><span class="fc1-0">[% supplier.commissionerate %]</span></DIV>
+
+<DIV style="left:539PX;top:686PX;width:114PX;height:13PX;"><span class="fc1-0">[% supplier.division %]</span></DIV>
+
+<DIV style="left:28PX;top:782PX;width:149PX;height:12PX;"><span class="fc1-0">[% product.description %]</span></DIV>
+
+<DIV style="left:355PX;top:782PX;width:54PX;height:11PX;TEXT-ALIGN:RIGHT;"><span class="fc1-0">[% purchase.assessable_value %]</span></DIV>
+
+<DIV style="left:705PX;top:782PX;width:51PX;height:11PX;TEXT-ALIGN:RIGHT;"><span class="fc1-0">[% purchase.hs_edu_cess %]</span></DIV>
+
+<DIV style="left:631PX;top:782PX;width:67PX;height:11PX;TEXT-ALIGN:RIGHT;"><span class="fc1-0">[% purchase.sec_edu_cess %]</span></DIV>
+
+<DIV style="left:581PX;top:782PX;width:45PX;height:11PX;TEXT-ALIGN:RIGHT;"><span class="fc1-0">[% purchase.cvd %]</span></DIV>
+
+<DIV style="left:304PX;top:782PX;width:49PX;height:11PX;TEXT-ALIGN:RIGHT;"><span class="fc1-0">[% purchase.quantity %]</span></DIV>
+
+<DIV style="left:411PX;top:782PX;width:42PX;height:11PX;TEXT-ALIGN:RIGHT;"><span class="fc1-0">[% purchase.cenvat_rate %]</span></DIV>
+
+<DIV style="left:184PX;top:782PX;width:44PX;height:11PX;TEXT-ALIGN:CENTER;"><span class="fc1-0">[% purchase.invoice_no %]</span></DIV>
+
+<DIV style="left:230PX;top:782PX;width:71PX;height:11PX;TEXT-ALIGN:CENTER;"><span class="fc1-0"> [% purchase.invoice_date %]</span></DIV>
+
+<DIV style="left:513PX;top:782PX;width:62PX;height:11PX;TEXT-ALIGN:RIGHT;"><span class="fc1-0">[% purchase.cenvat %]</span></DIV>
+
+<DIV style="left:456PX;top:782PX;width:52PX;height:11PX;TEXT-ALIGN:RIGHT;"><span class="fc1-0">[% purchase.unit_cenvat %]</span></DIV>
+
+<DIV style="left:26PX;top:892PX;width:243PX;height:62PX;">
+<table width="238PX" border=0 cellpadding=0 cellspacing=0>
+<tr><td class="fc1-0">Certified that the goods covered under by the consignment </td></tr>
+<tr><td class="fc1-0">have been procured by us from the manufacture/manufacturer </td></tr>
+<tr><td class="fc1-0">depot mantioned at serial no 5/4 and therefore this invoice is </td></tr>
+<tr><td class="fc1-0">being issued as the FIRST DEALER'S INVOICE requiring no </td></tr>
+<tr><td class="fc1-0">authenticatin by Central Excise Offer.</td></tr></table>
+</DIV>
+
+<DIV style="left:274PX;top:893PX;width:129PX;height:62PX;">
+<table width="124PX" border=0 cellpadding=0 cellspacing=0><td class="fc1-0">This second stage dealer invoice</td></table>
+
+<table width="124PX" border=0 cellpadding=0 cellspacing=0><td class="fc1-0"> being issued for the goods base</td></table>
+
+<table width="124PX" border=0 cellpadding=0 cellspacing=0>
+<tr><td class="fc1-0">upon 1st stage valid dealer </td></tr>
+<tr><td class="fc1-0">invoice for the goods issued by </td></tr>
+<tr><td class="fc1-0">us. </td></tr></table>
+</DIV>
+
+<DIV style="left:409PX;top:893PX;width:352PX;height:63PX;">
+<table width="347PX" border=0 cellpadding=0 cellspacing=0>
+<tr><td class="fc1-5">*We hereby certiy that my/our registration certificate under the Maharashtra value added tax act.2002 is </td></tr>
+<tr><td class="fc1-5">in force on date on which the sale of goods specified in this tax invoice is made by me/us and that the </td></tr>
+<tr><td class="fc1-5">transaction of sale covered by this tax invoice has been effected by me/us and it shall be accounted for in </td></tr>
+<tr><td class="fc1-5">the turnover of sales while filling of return and the due tax, if any, payable on the sale has been paid or </td></tr>
+<tr><td class="fc1-5">shall be paid.</td></tr></table>
+</DIV>
+
+<DIV style="left:24PX;top:995PX;width:39PX;height:11PX;TEXT-ALIGN:RIGHT;"><span class="fc1-0"> Place</span></DIV>
+
+<DIV style="left:66PX;top:995PX;width:7PX;height:11PX;"><span class="fc1-0">:</span></DIV>
+
+<DIV style="left:88PX;top:995PX;width:126PX;height:11PX;"><span class="fc1-0">Mumbai</span></DIV>
+
+<DIV style="left:24PX;top:1014PX;width:39PX;height:13PX;TEXT-ALIGN:RIGHT;"><span class="fc1-0"> Date</span></DIV>
+
+<DIV style="left:65PX;top:1014PX;width:7PX;height:13PX;"><span class="fc1-0">:</span></DIV>
+
+<DIV style="left:26PX;top:1031PX;width:421PX;height:26PX;">
+<table width="416PX" border=0 cellpadding=0 cellspacing=0>
+<tr><td class="fc1-0">Certified that the particulars given above are true and correct and the amount indicated represents the price </td></tr>
+<tr><td class="fc1-0">actually charged and that there is no additional consideration following,directly or indirectly from the buyer.</td></tr></table>
+</DIV>
+
+<DIV style="left:449PX;top:995PX;width:313PX;height:14PX;"><span class="fc1-0">FOR <span class="fc1-9">M. K. INDUSTRIES</span> </span></DIV>
+
+<DIV style="left:451PX;top:1035PX;width:311PX;height:16PX;TEXT-ALIGN:CENTER;"><span class="fc1-0">Authorised Signatory</span></DIV>
+
+<DIV style="left:88PX;top:1014PX;width:126PX;height:13PX;"><span class="fc1-0">[% sale.invoice_date %]</span></DIV>
+
+<DIV style="left:26PX;top:955PX;width:736PX;height:37PX;">
+<table width="731PX" border=0 cellpadding=0 cellspacing=0><td class="fc1-0">CERTIFICATE: Certified that the goods covered under this invoice were,</td></table>
+
+<table width="731PX" border=0 cellpadding=0 cellspacing=0>
+<tr><td class="fc1-0"> (a) imported directly by us or received directly from that party: who have imported the said&nbsp;&nbsp;goods.&nbsp;&nbsp;(b) Received directly from the factory / depot/consignment agent/authorised permises of </td></tr>
+<tr><td class="fc1-0">M/s.&nbsp;<span class="fc1-7"> </span>(c) Received from M/.s . &nbsp; who are the first stage dealer of M/s.&nbsp;&nbsp;</td></tr></table>
+</DIV>
+<BR>
+</BODY></HTML>

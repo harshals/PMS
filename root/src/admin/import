@@ -1,0 +1,29 @@
+<form action="[% c.uri_for("/admin/import") %]" method="POST" enctype='multipart/form-data'>
+	<fieldset class="login">
+		<legend>Import Data</legend>
+		<p >
+			<label>CSV File: </label>
+			<input type="file" name="import" value="" />
+		</p>
+
+		<p >
+			<label>Append to Existing Data ?: </label>
+			<input type="checkbox" name="append" value="1" />
+		</p>
+		<p >
+			<label>Type : </label>
+			<select name=type>
+				[% FOREACH source IN sources %]
+					<option value="[% source %]">[% source %]</option>
+				[% END %]
+			</select>
+		</p>
+		<p >
+			[% IF message %] [% message %] [% END %]
+		</p>
+
+		<input type=submit value="Upload" />
+		<input type=reset value="Reset" />
+	</fieldset>
+</form>
+

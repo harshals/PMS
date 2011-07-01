@@ -1,0 +1,23 @@
+[% WRAPPER mobile/wrapper.tt
+ title = "Welcome to E-invoices" %]
+     <p>You may report these errors to support@einvoices.biz</p>
+        <ul>
+           [% FOREACH er IN errors %]
+                <li title="Email to support team"><b>Error:</b> [% er %] <BR/>
+			<b>Message : </b>[% message %] <BR/>
+			<b>URL :</b> [% c.req.path %] <BR/>
+			<b>Body Params:</b> 
+			   <p>
+			     <ol>
+			       [% FOREACH p IN c.req.params %] 
+				  <li>
+				   [% p.key _ ":" _ p.val %] 
+				  </li>
+			       [% END %]
+			     </ol>
+			   </p>
+			<b>User :</b> [% c.user.get("name") %] <BR/>
+                </li>
+             [% END %]
+        </ul>
+[% END %]

@@ -1,0 +1,29 @@
+
+<script>
+
+</script>
+
+<div id="jqb_object" class="">
+	
+	<div class="jqb_slides">
+		
+		<div class="jqb_slide " title="1. select Add Stock from the menu" >
+				<img src="[% c.uri_for("/static/images/purchase-1.jpg") %]" id="img1" />
+		</div>
+		<div class="jqb_slide " title="2. Select depot and invoice type" >
+				<img src="[% c.uri_for("/static/images/purchase-2.jpg") %]" id="img1" />
+		</div>
+	</div>
+
+	<div class="jqb_bar"> 
+		<div class="jqb_info"></div>	
+		<div id="btn_next" class="jqb_btn jqb_btn_next"></div>
+		<div id="btn_pauseplay" class="jqb_btn jqb_btn_pause"></div>
+		<div id="btn_prev" class="jqb_btn jqb_btn_prev"></div>
+	</div>
+
+</div>
+
+
+<br>
+

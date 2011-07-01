@@ -1,0 +1,75 @@
+[% INCLUDE pager_head %]
+<table summary="This table includes examples of as many table elements as possible" class="warehouse">
+    <caption></caption>
+    <colgroup>
+        <col class="colA" />
+        <col class="colB" />
+        <col class="colC" />
+        <col class="colD" />
+        <col class="colE" />
+        <col class="colF" />
+    </colgroup>
+    <thead>
+        <tr>
+            <th>Sales Tax Type</th>
+            <th>Rate</th>
+            <th>Addl. Tx Rate</th>
+            <th>Quantity</th>
+            <th>Tax</th>
+            <th>Additional Vat</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+	[% FOREACH row IN sale_rs %]
+
+	<tr class="warehouse_[% row.warehouse_id %]" >
+            <td>[% row.sales_tax_type %]</td>
+            <td>[% row.sales_tax_rate %]</td>
+            <td>[% row.addl_sales_tax_rate %]</td>
+            <td>[% row.total_quantity %]</td>
+            <td>[% row.total_sales_tax %]</td>
+            <td>[% row.total_addl_sales_tax %]</td>
+        </tr>
+        
+        [% END %]
+        <!--
+        <tr>
+            <th colspan=10 > Purchase </th>
+        </tr>
+        [% FOREACH row1 IN purchase_rs %]
+
+        [% IF row1.vat.form_type == "F Form" %]
+        <tr >
+            <td>[% row1.invoice_date %]</td>
+            <td>[% row1.invoice_no %]</td>
+            <td>[% row1.supplier.name %]</td>
+            <td>[% row1.supplier.vat_tin_no %]</td>
+            <td>[% row1.quantity %][% row.uom.name %]</td>
+            <td>[% row1.total_invoice_amount %]</td>
+            <td>[% row1.taxable_value %]</td>
+            <td>[% row1.sales_tax %]</td>
+            <td>[% row1.addl_sales_tax %]</td>
+            <td>[% row1.vat.form_type %]</td>
+        </tr>
+        [% ELSIF row1.vat.form_type == "C Form" %]
+        <tr>
+            <th colspan=10 > LR Purchase </th>
+        </tr>
+        <tr>
+            <td>[% row1.invoice_date %]</td>
+            <td>[% row1.invoice_no %]</td>
+            <td>[% row1.supplier.name %]</td>
+            <td>[% row1.supplier.vat_tin_no %]</td>
+            <td>[% row1.quantity %][% row.uom.name %]</td>
+            <td>[% row1.total_invoice_amount %]</td>
+            <td>[% row1.taxable_value %]</td>
+            <td>[% row1.sales_tax %]</td>
+            <td></td>
+            <td>[% row1.vat.form_type %]</td>
+        </tr>
+        [% END %]
+        [% END %]
+        -->
+    </tbody>
+</table>

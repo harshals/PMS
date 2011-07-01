@@ -1,0 +1,30 @@
+[% INCLUDE pager_head %]
+<table >
+    <caption><b>List of products</b></caption>
+    <thead>
+    
+        <tr>
+            <th>Product Name</th>
+            <th>Group</th>
+            <th>Description</th>
+            <th>Chapter Heading</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+<tr>
+</tr>
+        [% FOREACH row IN product_rs.serialize %]
+        <tr >
+            <td>[% row.name %]</td>
+            <td>[% row.product_group %]</td>
+            <td>[% row.description %]</td>
+            <td>[% row.chapter_heading %]</td>
+            <th ><span class='delete' id="product_[% row.id %]">Del&nbsp;</span>
+            <a href="[% c.uri_for("/db/product/get/$row.id") %]">Edit</a>
+            </th>
+        </tr>
+        [% END %]
+    </tbody>
+</table>
+

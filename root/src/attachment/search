@@ -1,0 +1,20 @@
+<div class="box"> <!-- begin search form -->
+<h2>
+		<a href="#" id="toggle-forms">Search Form2</a>
+	</h2>
+	<form action="[% c.uri_for("/db/search/attachment") %]" class="search" id="forms" method="POST">
+		<fieldset >
+			<p class="">
+				<label>Belongs to: </label>
+				<select name="belongs_to" class="">
+					<option value="Sale">Sale</option>
+					<option value="Purchase">Purchase</option>
+				</select>
+			</p>
+
+			[% INCLUDE search_date %]
+
+			<button class="button" type="submit" value="Search"> Search for Attachments</button>
+		</fieldset>
+	</form>
+</div><!-- end search form -->

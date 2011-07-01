@@ -1,0 +1,10 @@
+[% WRAPPER mobile/wrapper.tt
+    title = "Welcome to E-invoices" %]
+
+    [% IF c.req.param('sub_template') == "search" %]
+        [% INCLUDE mobile/purchase/search.tt%]
+    [% ELSE %]
+        [% INCLUDE mobile/purchase/list.tt%]
+    [% END %]
+
+[% END %]

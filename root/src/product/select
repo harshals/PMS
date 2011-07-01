@@ -1,0 +1,6 @@
+[% FOREACH product IN c.model("DemoDB::Product").all_products.serialize(8) %]
+    <option value="[% product.id %]" [% IF product.id == match %]selected="true" [% END %]>
+        [% product.name %]
+	</option>
+[% END %]
+

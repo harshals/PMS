@@ -1,0 +1,23 @@
+<form action="[% c.uri_for("/attachment/upload") %]" class="new_attachment" >
+<fieldset >
+	<legend>Attachments</legend>
+	<input type=hidden name="id" value="[% attachment.id %]" />
+	<input type=hidden name="owner_class" value="[%  c.req.params.owner_class || attachment.owner_class %]" class="required" />
+	<input type=hidden name="owner_id" value="[%  c.req.params.owner_id || attachment.owner_id %]" class="required"/>
+	<input type=hidden name="owner_uuid" value="[%  c.req.params.owner_uuid || attachment.onwer_uuid %]" class="" />
+	<p>
+		<label>name: </label>
+		<input type="text" name="name" value="[% attachment.name %]" class="required"/>
+	</p>
+	<p>
+		<label>Path</label>
+		<input type="file" name="path" value="[% attachment.path %]"  class="required"/>
+	</p>
+	
+	<button class="button" type="submit"> Add</button>
+	<button class="button" type="reset" >Cancel </button>
+</fieldset>
+</form>
+
+
+

@@ -1,0 +1,30 @@
+<form name="audit_form" action="[% c.uri_for("/admin/audit_trail") %]" method="POST">
+
+        <div class="block" >
+     	  	<p class="grid_5">
+		  		<label>Result Class</label>
+		  		<select name=class >
+					[% FOREACH source IN sources %]
+						<option value="[% source %]">[% source %]</option>
+					[% END %]
+		  		</select>
+			</p>
+  			<p class="grid_3">
+				<label>Id</label>
+				<input type=text name=id>
+			</p>
+		<p class="grid_2">
+			<input type=submit name="audit" value="Search">
+		</p>
+		</div>
+</form>
+
+<p>Audit Trail for object id [% id %]</p>
+<table>
+	[% FOREACH log IN logs %]
+	<tr>
+
+		<td> [% log %] </td>
+	</tr>
+	[% END %]
+</table>

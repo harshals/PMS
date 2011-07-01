@@ -1,0 +1,13 @@
+
+<ul data-role="listview" data-inset="false" data-theme="c" data-dividertheme="b">
+    [%# FOREACH product IN c.model("DemoDB::Product").groups.serialize %]
+    [% FOREACH product IN group_list %]
+        <li id="">
+            <!--<a href="/m/report/search/stockregister?product_group=[% product.product_group %]&warehouse_id=[%warehouse_id%]">-->
+            <a href="/m/report/search/stockregister?product_group=[% product.product.product_group %]&warehouse_id=[%c.req.params.warehouse_id%]">
+		[% product.product_group %]
+                [% product.product.product_group %]
+            </a>
+        </li>
+    [% END %]
+</ul>

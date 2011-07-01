@@ -1,0 +1,19 @@
+[% USE date %]
+[% manip = date.manip %]
+<ul data-role="listview" data-inset="false" data-theme="c" data-dividertheme="b">
+    [% FOREACH row IN sale_rs.serialize(4) %]
+    [%# FOREACH row IN invoice_list %]
+        <li id="">
+            <a href="[% c.uri_for("/sale/get/$row.id") %]">
+               <!-- <label id="no">[% c.req.params.warehouse_id %]</label> -->
+                <label id="cname">[% row.consignee.name %]</label>,
+                <label id="pname">[% row.product.name %]</label>,
+		<label id="no">No. [% row.invoice_no %]</label>,
+                [% row.invoice_date = manip.UnixDate(row.invoice_date,'%d/%m/%Y') %]
+		<label id="no">[% row.invoice_date %]</label>,
+                <label id="qty" style="color:red;"> [% row.quantity %]</label>
+                
+            </a>
+        </li>
+[% END %]
+</ul>

@@ -1,0 +1,129 @@
+[% UNLESS email %]
+<div class="block" id="menu" > <!-- menu block -->
+<h5>
+<ul class="nav main">
+    <li>
+        <a href="">Add</a>
+        <ul>
+            <li>
+                <a href="[% c.uri_for("/bill/get/new") %]">Bill</a>
+            </li>
+            
+     		<li>
+                <a href="[% c.uri_for("/db/product/get/new") %]">Products</a>
+            </li>
+            <!--
+            <li>
+                <a href="[% c.uri_for("/db/payment/get/new") %]">Payment</a>
+            </li>
+            -->
+
+[% IF c.user.id == 1%]
+            <li>
+                <a href="[% c.uri_for("/db/customer/get/new") %]">Customer</a>
+            </li>
+[% END %]
+     
+        </ul>
+    </li>
+	<li>
+        <a href="">Search</a>
+        <ul>
+            <li>
+                <a href="[% c.uri_for("/db/customer/0/search") %]">Customer</a>
+            </li>
+            <!-- <li>
+                <a href="[% c.uri_for("/db/search/payment") %]">Payment History</a>
+            </li>
+            -->
+    		<li>
+                <a href="[% c.uri_for("/bill/0/search") %]">Bills </a>
+            </li>
+            <li>
+                <a href="[% c.uri_for("/transaction/0/search") %]">Transactions </a>
+            </li>
+			<li>
+                <a href="[% c.uri_for("/db/product/0/search") %]">Products</a>
+            </li>
+ [% IF c.user.id == 1%]
+			<li>
+                <a href="[% c.uri_for("/db/user/0/search") %]">Users</a>
+            </li>
+ [% END %]
+        </ul>
+    </li>
+
+   <li>
+        <a href="">Business Intelligence</a>
+        <ul>
+[% IF c.user.id == 1%]
+       <!--     <li>
+                <a href="[% c.uri_for("/transaction/consignee/search") %]">Party Wise Transactions</a>
+            </li>
+            <li>
+                <a href="[% c.uri_for("/bill/supplier/search") %]">Party Wise Bill</a>
+            </li>
+            
+            <li>
+                <a href="[% c.uri_for("/report/search/ledger") %]">Party Wise Ledger </a>
+            </li>
+            <li>
+                <a href="[% c.uri_for("/report/search/transactionproduct") %]">Product Wise Transactions</a>
+            </li>
+          -->  
+            <li>
+                <a href="[% c.uri_for("/report/search/stockregister") %]">Stock Register</a>
+            </li>
+            <li>
+                <a href="[% c.uri_for("/report/search/current_stock") %]">Current Stock</a>
+            </li>
+            <li>
+                <a href="[% c.uri_for("/report/search/stock") %]">Stock Summary</a>
+            </li>
+           <!-- <li>
+                <a href="[% c.uri_for("/report/search/stock_statement") %]">Stock Statement (Banking)</a>
+            </li>
+            -->
+[% END %]
+        </ul>
+    </li>
+	<li>
+        <a href="">Administration</a>
+        <ul>
+ [% IF c.user.id == 1%]
+            <li>
+                <a href="[% c.uri_for("/admin/reset") %]">Reset Database</a>
+            </li>
+            <li>
+                <a href="[% c.uri_for("/admin/restore") %]">Restore Backup</a>
+            </li>
+            <li>
+                <a href="[% c.uri_for("/admin/import") %]">Import Data</a>
+            </li>
+            <li>
+                <a href="[% c.uri_for("/admin/backup") %]">Take Backup</a>
+            </li>
+[% END %]
+            <li>
+                <a href="[% c.uri_for("/user/get/$c.user.id") %]">Change Password</a>
+            </li>       
+            <li>
+                <a href="[% c.uri_for("/db/enumeration/groups/search") %]">Settings</a>
+            </li>       
+			<li>
+                <a href="[% c.uri_for("/admin/audit_trail") %]">Audit Trail</a>
+            </li>       
+
+        </ul>
+    </li>
+    <li class="secondary">
+        <a href="[% c.uri_for("/logout") %]" title="Click here to logout from Einvoices.biz">Logout</a>
+        <a href="javascript:printHTML();" title="Print">Print</a>
+    </li>
+        
+
+</ul>
+</h5>
+</div> <!-- menu block -->
+
+[% END %]

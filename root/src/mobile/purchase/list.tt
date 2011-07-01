@@ -1,0 +1,22 @@
+[% USE date %]
+[% manip = date.manip %]
+[% IF c.req.params.sub_temp %]
+    [% sub_template = c.req.params.sub_temp %]
+    [% INCLUDE "mobile/search.tt" %]
+
+[% ELSE %]
+    <ul data-role="listview" data-inset="false" data-theme="c" data-dividertheme="b">
+        [% FOREACH row IN purchase_rs.serialize(8) %]
+            <li class="warehouse_[% row.warehouse_id %]" >
+                            <a href="[% c.uri_for("/purchase/get/$row.id") %]">
+                                <label id="cname">[% row.supplier.name || row.manufacturer.name %]</label>,
+                                <label id="pname">[% row.product.name %]</label>,
+                                <label id="no">No. [% row.invoice_no %]</label>,
+                                [% row.invoice_date = manip.UnixDate(row.invoice_date,'%d/%m/%Y') %]
+                                <label id="no">[% row.invoice_date %]</label>,
+                                <label id="qty" style="color:red;"> [% row.quantity %] [% row.uom %]</label>
+                    </a>
+                </li>
+         [% END %]
+    </ul>
+[% END %]

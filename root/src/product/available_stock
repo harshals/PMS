@@ -1,0 +1,31 @@
+<div id="available-stock" class="block" style="display: block;">
+[% IF tmpl == 'table' %]
+
+<table >
+    <thead>
+        <tr>
+            <th colspan="3" class="table-head">Availabel Stock</th>
+        </tr>
+        <tr>
+            <th>Description</th>
+            <th>Qty</th>
+            <th>Type</th>
+        </tr>
+    </thead>
+    <tbody>
+        [% FOREACH stock IN c.model("DemoDB::Product").available_stock.serialize %]
+        <tr >
+            <td>[% stock.name %]</td>
+            <td>[% stock.balance %]</td>
+            <td>[% stock.product_type %]</td>
+        </tr>
+        [% END %]
+    </tbody>
+</table>
+
+[% ELSE %]
+<p>Please select one of the available stock</p>
+<ul class="menu" id="section-menu">
+</ul>
+[% END %]
+</div>

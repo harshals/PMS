@@ -1,0 +1,103 @@
+[% INCLUDE pager_head %]
+<table summary="This table includes examples of as many table elements as possible">
+    <caption></caption>
+    <colgroup>
+        <col class="colA" />
+        <col class="colB" />
+        <col class="colC" />
+        <col class="colD" />
+        <col class="colE" />
+        <col class="colF" />
+        <col class="colG" />
+        <col class="colH" />
+        <col class="colI" />        
+    </colgroup>
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Invoice No</th>
+            <th>Party Name</th>
+            <th>Tin no.</th>
+            <th>Quantity</th>
+            <th>Total Amount</th>
+            <th>Taxable Amount</th>
+            <th>Vat</th>
+            <th>Additional Vat</th>
+            <th>Form</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th colspan=10 > Sale </th>
+        </tr>
+        [% FOREACH row IN sale_rs %]
+        [% IF row.sales_tax_type == "F" %]
+        <tr >
+            <td>[% row.invoice_date %]</td>
+            <td>[% row.invoice_no %]</td>
+            <td>[% row.buyer.name %]</td>
+            <td>[% row.buyer.vat_tin_no %]</td>
+            <td>[% row.quantity %][% row.uom.name %]</td>
+            <td>[% row.total %]</td>
+            <td>[% row.taxable_value %]</td>
+            <td></td>
+            <td></td>
+            <td>Against Form F</td>
+        </tr>
+        [% ELSIF row.sales_tax_type == "C" %]
+        <tr>
+            <th colspan=9 > LR SALE </th>
+        </tr>
+        <tr>
+            <td>[% row.invoice_date %]</td>
+            <td>[% row.invoice_no %]</td>
+            <td>[% row.buyer.name %]</td>
+            <td>[% row.buyer.vat_tin_no %]</td>
+            <td>[% row.quantity %][% row.uom.name %]</td>
+            <td>[% row.total_invoice_amount %]</td>
+            <td>[% row.taxable_value %]</td>
+            <td>[% row.sales_tax %]</td>
+            <td></td>
+            <td>Against Form C</td>
+        </tr>
+        [% END %]
+        [% END %]
+        <tr>
+            <th colspan=10 > Purchase </th>
+        </tr>
+        [% FOREACH row1 IN purchase_rs %]
+
+        [% IF row1.vat.form_type == "F Form" %]
+        <tr >
+            <td>[% row1.invoice_date %]</td>
+            <td>[% row1.invoice_no %]</td>
+            <td>[% row1.supplier.name %]</td>
+            <td>[% row1.supplier.vat_tin_no %]</td>
+            <td>[% row1.quantity %][% row.uom.name %]</td>
+            <td>[% row1.total_invoice_amount %]</td>
+            <td>[% row1.taxable_value %]</td>
+            <td>[% row1.sales_tax %]</td>
+            <td>[% row1.addl_sales_tax %]</td>
+            <td>[% row1.vat.form_type %]</td>
+        </tr>
+        [% ELSIF row1.vat.form_type == "C Form" %]
+        <tr>
+            <th colspan=10 > LR Purchase </th>
+        </tr>
+        <tr>
+            <td>[% row1.invoice_date %]</td>
+            <td>[% row1.invoice_no %]</td>
+            <td>[% row1.supplier.name %]</td>
+            <td>[% row1.supplier.vat_tin_no %]</td>
+            <td>[% row1.quantity %][% row.uom.name %]</td>
+            <td>[% row1.total_invoice_amount %]</td>
+            <td>[% row1.taxable_value %]</td>
+            <td>[% row1.sales_tax %]</td>
+            <td></td>
+            <td>[% row1.vat.form_type %]</td>
+        </tr>
+        [% END %]
+        [% END %]
+        
+    </tbody>
+</table>

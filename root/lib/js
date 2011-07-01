@@ -1,0 +1,192 @@
+
+/* Global AJAX options */
+var ajax_options = {
+			
+	target: null,
+	url: null,
+	type:"POST",
+	beforeSubmit: function(form_data, form_object, options_object) {
+	
+		$(form_object).validate({
+				
+				errorElement: 'span',
+				errorClass: 'error'
+		});
+
+		if (!$(form_object).valid())
+			return false;
+
+	//	form_data.push({ "_v" : 'json'});
+	},
+	success : function(json_data, status) {
+	
+		if (status == 'success' && json_data != null && json_data['error'] == null) {
+			
+            if (!( typeof(this.target) == 'function')) {
+                
+                $().message("Cant find appropriate function to handle this data.Please contact support@einvoices.biz");
+				
+				return;
+            }
+			$().message(json_data['message']);
+
+			$("div.sidebar").find("form:visible").clearForm();
+            this.target(json_data);
+		}else if (json_data['error'] != null) {
+		
+			$().message(json_data['error']);
+		}
+	},
+	error : function(xhr, status, errorThrown) {
+		$().message("I am not able to send information. Please check if your Internet/Network connection is online" + status );
+	},
+	dataType: 'json',
+ };
+
+/* Global sidebar actions */
+var sidebar_forms = { };
+var validation_rules = {};
+var beforeSubmit = function() { return 1};
+var loader_data = {cssclass:'loader-text', text:'Please Wait....', width: 100, height: 30}
+
+
+$(document).ajaxStart( function(){
+	$('body').loader('open', loader_data);
+	setTimeout("$('body').loader('close')", 3000);
+})
+.ajaxStop(function(){
+	$('body').loader('close');
+	return false;
+});
+
+function init_sidebar_forms() {
+	
+	$("div.sidebar form[action$=put]").hide().append("<input type=hidden name=_v value='json' />");
+
+	$.each(sidebar_forms, function(key,targets) {
+
+		var form_name = "new_" + key;
+		$(".mainbar span.add_" + key ).click(function() {
+
+			/* Minimize the recent invoices tab */
+			if (!$("#toggle-section-menu").hasClass("hidden")) 
+				$("#toggle-section-menu").click();
+		
+			/* hide other forms */
+			$("div.sidebar form").hide();
+
+			/* show your self */
+			$("form." + form_name ).show().attr("target", $(this).prev().attr("name"));
+
+			/* make your exit route */
+			$("form." + form_name + " button[type=reset]").click(function() {
+				
+				$("form." + form_name ).hide();
+			});
+      		      
+		});
+
+		/* execute ajax */
+		$("form." + form_name).submit(function() {
+				
+				// shift focus back to top
+				$(this).find("input:text:visible:first").focus();
+				
+				/* set the required ajax_options */
+				ajax_options['target'] = targets;
+				ajax_options['url'] = $("form." + form_name  ).attr("action");
+				
+				if (!$("form." + form_name  ).ajaxSubmit(ajax_options)) {
+					$(this).hide();        
+				}
+
+				return false;
+
+		});
+	});
+    [% IF message %]
+    
+		$().message("[% message %]");
+    [% END %]
+
+    $("input[name$=date], input.datepicker").datepicker({dateFormat:'yy-mm-dd'});
+
+	$(".mainbar tbody tr:odd").addClass("odd");
+	$("p.feildtag input").fieldtag();
+	/* validate the main form */
+    
+    $("div.mainbar form").submit(function(ev) {
+		
+		var status = beforeSubmit();
+		status = status && $(this).valid();
+		return status ;
+	}).validate({
+				
+	    errorElement: 'span',
+		errorClass: 'error',
+        rules : validation_rules,
+        highlight: function(element, errorClass) {
+            $(element).addClass(errorClass);
+		if  ($("div.mainbar form").hasClass("wizard")) {
+
+			var container_id = $(element).closest("fieldset").parent("div:first").attr("id").replace('step','');
+			$("ul#steps").find("li#stepDesc" + container_id).find("span").addClass("error");
+		}
+        },
+      /*  unhighlight: function(element, errorClass) {
+            $(element).removeClass(errorClass);
+		if  ($("div.mainbar form").hasClass("wizard")) {
+			
+			var container_id = $(element).closest("fieldset").parent("div:first").attr("id").replace('step','');
+			$("ul#steps").find("li#stepDesc" + container_id).find("span").removeClass("error");
+		}
+        }
+		*/
+    });
+	
+
+}
+
+function init_app() {
+
+	$(".sidebar span#advance_search").click(function(ev) {
+			
+		if ($(this).text().match('more')) {
+				
+			$(".sidebar p.advance_option").show();
+			$(this).text("less");
+		}else {
+			$(".sidebar p.advance_option").hide();
+			$(this).text("more");
+
+		}
+
+	}).click();
+}
+
+function printHTML() {
+	
+	$("div#content").jqprint();
+}
+
+//AHGPM 8050 KEM 001
+
+jQuery.validator.addMethod("check_ecc", function(ecc, element) {
+    ecc = ecc.replace(/\s+/g, "");
+
+	return this.optional(element) || ecc.match("na|NA") || (ecc.length == 15 &&
+		ecc.match(/^\w{5}\d{4}\w[x|X|e|E][d|D|m|M]\d{3}$/));
+}, "Please specify a valid ecc number or Just type `NA`");
+
+jQuery.validator.addMethod("check_product_group_name", function validate(product_group, element){
+
+	return this.optional(element) || product_group.match(/\w+/);
+
+}, "Please use only [A-Z,a-z,_,0-9] characters");
+
+jQuery.validator.addMethod("check_number", function validate(number, element){
+
+	return this.optional(element) || number.match(/\b[1-9][0-9]{0,15}\b/);
+
+
+}, "Please use only [A-Z,a-z,_,0-9] characters");

@@ -1,0 +1,3 @@
+[% FOREACH user IN c.model("DemoDB::User").users.serialize %]
+	<option value="[% user.id %]" [% IF match == user.id %] selected [% END %]>[% user.name %]</option>
+[% END %]

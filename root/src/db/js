@@ -1,0 +1,99 @@
+
+$(document).ready(function() {
+
+    [% IF message %]
+    
+	$().message("[% message %]");
+    [% END %]
+
+	$(".sidebar select[name=manufacturer_id]").select_autocomplete();
+	$(".mainbar select[name=company_id]").select_autocomplete();
+
+    $("input[name$=date], input.datepicker").datepicker({dateFormat:'yy-mm-dd'});
+
+	/* validate the main form */
+    
+	$("p.feildtag input").fieldtag();
+
+	sidebar_forms = {
+
+	};
+
+	[% IF tmpl == 'list' || type == 'company' %]
+    	init_sidebar_forms();
+	[% END %]
+
+	$("div.sidebar form").show();
+
+	var selection,parent ;
+
+
+	if ($(".mainbar .list").length > 0 ) {
+		
+		selection = $(".mainbar .list").find("span.delete");
+		parent = 'li';
+	}else {
+		
+		selection = $(".mainbar tbody tr").find("td:first").css("color", "blue") .siblings().find("span.delete");
+		parent = 'tr';
+	}
+
+	$(selection).click(function() {
+		
+		console.log("coming hre");
+		var splat = $(this).attr("id").split('_');
+
+		var entity = splat[0];
+		var id = splat[1];
+
+		if ( id && confirm("Sure  you want to delete [% type %]  id " + id + " ?") ) {
+			
+			$(this).parents( parent + ":first").hide();
+			
+			var url = "[% c.uri_for("/$type/delete/") %]" + id  + "?_v=json";
+
+			$.post(url , function(json_data, status) {
+				
+				if (!json_data['error'])  
+					$().message("Delete Successful");
+
+			});
+		}
+	});
+	[% IF type != 'company' %]
+		var table = $(".mainbar table");
+		var pager = $(table).siblings("div.pager");
+		
+		if ($(table).find("tbody").find("tr").size() > 0)
+		$(table)
+				.tablesorter()
+				.tablesorterPager({container: pager, positionFixed: false});
+				
+        $(pager).css({position: 'relative',top: '1px'});
+		
+		if (!$(".mainbar table").hasClass("warehouse")) {
+			$(".mainbar tbody tr:odd").addClass("odd");
+		}
+		
+	[% ELSE %]
+		
+		var list = $(".mainbar #NavList");
+
+		$(list).listnav();
+	
+	[% END %]
+	$(".mainbar a#print_company_address").click(function(ev) {
+        	
+        	var id = $('.mainbar select[name=company_id]').val();
+        	if (id) 
+        	window.location = "[% c.uri_for( "/db/publish/company_address/") %]" + id;
+
+        	return false;
+     });
+	$("#toggle-search").click();
+
+});
+
+/* Do something after regular forms gets submitted */
+
+

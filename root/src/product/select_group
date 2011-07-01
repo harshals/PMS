@@ -1,0 +1,3 @@
+[% FOREACH product IN c.model("DemoDB::Product").groups.serialize %]
+    <option [% IF match == product.product_group %]selected[% END %] value="[% product.product_group %]"> [% product.product_group %] </option>
+[% END %]

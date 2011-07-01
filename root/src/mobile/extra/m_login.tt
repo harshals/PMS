@@ -1,0 +1,13 @@
+<form id="frmLogin">
+                    <div data-role="fieldcontain">
+                        <label for="username">User Name</label>
+                        <input type="text" id="username" name="usernaame" />
+                    </div>
+                    <div>
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" />
+                    </div>
+                    <div>
+                        <a href="/menu" data-role="button" data-icon="check" style="margin:2em;"id="submit">Sign-in</a>
+                    </div>
+                </form>

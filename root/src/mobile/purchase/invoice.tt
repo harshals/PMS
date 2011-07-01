@@ -1,0 +1,59 @@
+[% USE date %]
+[% manip = date.manip %]
+    <div class="ui-grid-a">
+        <div class="ui-block-a">
+		Supplier / Manufacture Name
+	</div>
+	<div class="ui-block-b">
+		[% purchase.supplier.name || purchase.manufacturer.name %]
+	</div>
+        <div class="ui-block-a">
+		Product Name
+	</div>
+	<div class="ui-block-b">
+		[% purchase.product.name %]
+	</div>
+	<div class="ui-block-a">
+		Invoice No.
+	</div>
+	<div class="ui-block-b">
+		[% purchase.invoice_no %]
+	</div>
+	<div class="ui-block-a">
+		Invoice Date
+	</div>
+	<div class="ui-block-b">
+                [% purchase.invoice_date = manip.UnixDate(purchase.invoice_date,'%d/%m/%Y') %]
+		[% purchase.invoice_date %]
+	</div>
+	<!-- <div class="ui-block-a">
+		Invoice Date
+	</div>
+	<div class="ui-block-b">
+		[% purchase.invoice_date %]
+	</div> -->
+	<div class="ui-block-a">
+		Quantity
+	</div>
+	<div class="ui-block-b">
+                [% purchase.quantity%] [%purchase.uom %]
+        </div>
+	<div class="ui-block-a">
+		Modvat
+	</div>
+	<div class="ui-block-b">
+		[% purchase.cenvat %]
+	</div>
+	<div class="ui-block-a">
+		Total Amount
+	</div>
+	<div class="ui-block-b">
+		[% purchase.total %]
+	</div>
+    </div>
+    <fieldset class="ui-grid-a">
+        <div class="ui-block-a"><a href="[% c.uri_for("/purchase/fax/$purchase.id") %]" rel="external" ><button type="submit" data-theme="a">Fax</button></a></div>
+        <div class="ui-block-b"><a href="sms:18005555555?body=Text"><button type="submit" data-theme="a">SMS</button></a></div>
+    </fieldset>
+
+    <div><a href="[% c.uri_for("/sale/0/search") %]?purchase_id=[% purchase.id %]") %]">Corresponding Sale List</a></div>

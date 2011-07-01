@@ -1,0 +1,10 @@
+[% WRAPPER mobile/wrapper.tt
+ title = "Welcome to E-invoices" %]
+       <label>Company Name</label><br><br>
+        <ul data-role="listview" data-filter="true" data-inset="true">
+                  [%# FOREACH company IN  c.model("DemoDB::Company").look_for %]
+                  [% FOREACH company IN list %]
+                     <li><a href="/m/report/search/company/get/[%company.id%]">[%company.company_name%]</a></li>
+                  [% END %]
+        </ul>
+[% END %]

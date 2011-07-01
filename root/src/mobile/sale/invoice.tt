@@ -1,0 +1,58 @@
+[% USE date %]
+[% manip = date.manip %]
+
+
+    <div class="ui-grid-a">
+        <div class="ui-block-a">
+		Consignee Name
+	</div>
+	<div class="ui-block-b">
+		[% sale.consignee.name %]
+	</div>
+	<div class="ui-block-a">
+		Product Name
+	</div>
+	<div class="ui-block-b">
+		[% sale.product.name %]
+	</div>
+	<div class="ui-block-a">
+		Invoice No.
+	</div>
+	<div class="ui-block-b">
+		[% sale.invoice_no %]
+	</div>
+
+        [% to_date = sale.invoice_date %]
+
+        [% invoice_date = manip.UnixDate(manip.ParseDate(to_date),'%d-%m-%Y') %]
+	<div class="ui-block-a">
+		Invoice Date
+	</div>
+	<div class="ui-block-b">
+		[% invoice_date %]
+	</div>
+	<div class="ui-block-a">
+		Quantity
+	</div>
+	<div class="ui-block-b">
+		[% sale.quantity %] [% sale.uom %]
+	</div>
+	<div class="ui-block-a">
+		Modvat
+	</div>
+	<div class="ui-block-b">
+		[% sale.cenvat + sale.sec_edu_cess + sale.hs_edu_cess + sale.cvd %]
+	</div>
+	<div class="ui-block-a">
+		Total Amount
+	</div>
+	<div class="ui-block-b">
+		[% sale.total %]
+	</div>
+    </div>
+    <fieldset class="ui-grid-b">
+        <div class="ui-block-a"><a href="[% c.uri_for("/sale/fax/$sale.id") %]" rel="external" ><button type="submit" data-theme="a">Fax</button></a></div>
+        <div class="ui-block-b"><a href="[% c.uri_for("/sale/email/$sale.id") %]?_v=json" rel="external"><button type="submit" data-theme="a">Email</button></a></div>
+        <div class="ui-block-b"><a href="sms:18005555555?body=Text"><button type="submit" data-theme="a">SMS</button></a></div>
+    </fieldset>
+    <div><a href="[% c.uri_for("/purchase/get/$sale.purchase_id") %]">Corresponding Purchase Invoice</a></div>

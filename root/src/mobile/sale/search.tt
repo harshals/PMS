@@ -1,0 +1,46 @@
+
+<form id="search" method="post" action="[% c.uri_for("/sale/0/search") %]" data-ajax="false" >
+   <ul data-role="listview" data-inset="false" data-theme="c" data-dividertheme="b">
+        <li>
+	   Select Warehouse<br/>
+            <select name="warehouse_id">
+                    <option value="" >
+                        Choose Warehouse
+                    </option>
+	        [% FOREACH company IN  c.model("DemoDB::Company").warehouse.serialize %]
+		      <option value="[% company.id %]" >
+		          [% company.name %]
+		      </option>
+		[% END %]
+	    </select>
+        </li>
+	<li>
+	   List of Invoice No.<br/>
+	   <input type="text" id="invoice_no" name="invoice_no" />
+	</li>
+	<li data-role="fieldcontain">
+	    <label for="from_date">From Date</label><br/>
+	    <input value="" name="from_date" type=""  data-options='{"mode": "calbox"}' data-role="datebox" id="from_date" />
+        </li>
+        <li data-role="fieldcontain">
+	    <label for="to_date">To Date</label><br/>
+	    <input value="" name="to_date" type="" data-options='{"mode": "calbox"}'data-options='{"dateFormat": "DD-MM-YYYY",}'  data-role="datebox" id="to_date" />
+	</li>
+        <li>
+	    Select Product<br/>
+	    <select name="product_id">
+                    <option value="">
+                        Choose Product
+                    </option>
+	        [% FOREACH product IN c.model("DemoDB::Product").all_products.serialize(8) %]
+                    <option value="[% product.id %]">
+                        [% product.name %]
+                    </option>
+		[% END %]
+
+	    </select>
+	</li>
+   </ul><br>
+   <!-- <a href="/sale/search/list" data-role="button" type="submit" data-icon="check">Search Invoice</a> -->
+   <input type="submit" value="search" />
+ </form>

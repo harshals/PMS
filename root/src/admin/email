@@ -1,0 +1,29 @@
+<form action="[% c.uri_for("/admin/email") %]" method="POST" enctype='multipart/form-data'>
+	<fieldset class="">
+		<legend>Import Data</legend>
+		<p>
+			<label>[% message%] </label>
+		</p>
+		<p >
+			<label>To: </label>
+			<input type="text" name="to" value="" />
+		</p>
+		<p >
+			<label>Subject: </label>
+			<input type="text" name="subject" value="" />
+		</p>
+		<p >
+			<label>Attachment ?: </label>
+			<input type="file" name="attachment" value="1" />
+		</p>
+		<p >
+			<label>body: </label>
+
+			<textarea name=body></textarea>
+		</p>
+		
+		<input type=submit value="Email" />
+		<input type=reset value="Reset" />
+	</fieldset>
+</form>
+

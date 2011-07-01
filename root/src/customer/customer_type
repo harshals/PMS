@@ -1,0 +1,5 @@
+
+[% FOREACH ctype IN c.model("DemoDB::Enumeration").for("Company", "customer_type").serialize %]
+<option value="[% ctype.value %]" [% IF match == ctype.value %] selected [% END %]> [% ctype.description %] </option>
+[% END %]
+

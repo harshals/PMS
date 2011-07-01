@@ -1,0 +1,353 @@
+<style>
+/* form wizards 
+------------------------------------------------*/
+
+
+.prev, .next { background-color:#b0232a; padding:5px 10px; color:#fff; text-decoration:none; margin-top:5px;margin-bottom:5px;}
+
+.prev:hover, .next:hover { background-color:#000; text-decoration:none;}
+
+.prev { float:left;}
+
+.next { float:right;}
+
+#steps { list-style:none; width:100%; overflow:hidden; margin:0px; padding:0px;}
+
+#steps li {font-size:16px; float:left; padding:1px; color:#b0b1b3;}
+
+#steps li span {font-size:11px; display:block;}
+
+#steps li.current { color:#000;}
+
+#steps li span.error {color:red;}
+
+#steps li.ButtonPanel {
+	padding:0px;
+	font-size:10px;
+}
+input.locked, input.unlocked {
+	width:85%
+}
+span.locked {
+	width:20px;
+	height:20px;
+	float:right;
+	background-image: url('../../static/img/Lock.png');
+}
+span.unlocked {
+
+	width:20px;
+	height:20px;
+	float:right;
+	background-image: url('../../static/img/Unlock.png');
+
+}
+
+#steps li.ButtonPanel {
+	padding:0px;
+	font-size:10px;
+	cursor:pointer;
+}
+
+
+
+#steps li.ButtonPanel a.Buttons {
+	
+	font-size:10px;
+	float:right;
+	cursor
+}
+
+</style>
+
+<h2>
+<a href="#" id="toggle-forms">Bill Invoice No. [% bill.invoice_no %] dated [% bill.invoice_date %]</a>
+</h2>
+<form action="[% c.uri_for("/bill/put") %]" method="POST" class="wizard">
+
+	<input type=hidden name="id" value="[% bill.id %]"/>
+	<fieldset >
+		<legend>Invoice Details</legend>
+		<div class="grid_5 box"> <!-- grid_5 -->
+
+		<p>
+			<label>Invoice Type: </label>
+			<select id="invoice_type" name="invoice_type" [% IF bill.id %]disabled="true"[% END %]>
+				[% PROCESS sale/select_invoice_type
+			    	match = bill.invoice_type %]
+			</select>
+		</p>
+		<p class="">
+			<label>Warehouse: </label>
+			<select name="warehouse_id" class="required">
+			<option value="">Select Warehouse</option>
+            [% PROCESS company/select_warehouse
+                match = bill.warehouse_id 
+            %]
+			</select>
+			
+		</p>
+
+
+		<p>
+			<label>Supplier Type: </label>
+			<select name="supplier_type" class="required">
+				
+				[% PROCESS bill_type
+					match = bill.supplier_type %]
+
+			</select>
+		</p>
+		
+
+		
+		</div>
+		<div class="grid_5 box"> <!-- grid_5 -->
+		
+		<p>
+			<label>Received Date: </label>
+			<input type="text" name="received_date" value="[% bill.received_date %]"/>
+		</p>
+		<p>
+			<label>Received Time: </label>
+			<input type="text" name="received_time" value="[% bill.received_time %]" alt="time" />
+			<span class="help">for eg. 12:45 pm</span>
+		</p>
+		<p>
+			<label>Product Description: </label>
+			<select name="product_id" class="required" >
+			<option value="">Select Product</option>
+                [% PROCESS product/select
+                    match = bill.product_id %]
+			</select>
+			<span class="help add_product"> Not found ? Click here to add</span>
+		</p>
+		<p>
+			<label>Units: </label>
+			<select name="uom" class="required">
+			<option value="">Select Unit</option>
+				[% PROCESS uom/select 
+					match =  bill.uom %]
+			</select>
+			<span class="help add_uom" > Not found ? Click here to add</span>
+		</p>
+
+				</div>
+	</fieldset>
+	
+
+
+		
+	<fieldset >
+	
+		<legend>Manufacturer/Importer</legend>
+		<div class="grid_5 box"> <!-- grid_5 -->
+		<p>
+			<label for="invoice_no">Excise Invoice No: </label>
+			<input type="text" name="invoice_no" value="[% bill.invoice_no %]" class="required"/>
+		</p>
+		<p>
+			<label for="invoice_date">Excise Invoice Date: </label>
+			<input type="text" name="invoice_date" value="[% bill.invoice_date %]"/>
+		</p>
+
+	
+        <p class="">
+			<label>Name: </label>
+			<select name="manufacturer_id" class="required">
+			<option value="">Select Manufacturer/Importer</option>
+            [% PROCESS company/select 
+                match = bill.manufacturer_id
+            %]
+			</select>
+			<span class="help add_manufacturer" > Not found ? Click here to add</span>
+		</p>
+       <p id="rate">
+			<label>Rate: </label>
+			<input type="text" name="rate" value="[% bill.rate %]" class="required check_number"/>
+		</p>
+		<p class="" id="quantity">
+			<label>Quantity: </label>
+			<input type="text" name="m_quantity" value="[% bill.m_quantity %]" class="required check_number" />
+		</p>
+		</div>
+		<div class="grid_5 box"> <!-- grid_5 -->
+        <p class="">
+			<label>Assessable Value: </label>
+			<input type="text" name="assessable_value" value="[% bill.assessable_value %]" class="number" />
+		</p>
+		<p >
+			<label>Cenvat : </label>
+			<input type="text" name="cenvat_rate" value="[% bill.cenvat_rate || 10 %]" class="number small" /> % : <input type="text" name="cenvat" value="[% bill.cenvat %]" class="number medium" />
+		</p>
+
+		<p >
+			<label>Higher Education Cess : </label>
+			<input type="text" name="sec_edu_cess_rate" value="[% bill.sec_edu_cess_rate || 2 %]" class="number small" /> % : <input type="text" name="sec_edu_cess" value="[% bill.sec_edu_cess %]" class="number medium" />
+		</p>
+		<p >
+			<label>Higher Secondary Education Cess (1%): </label>
+			<input type="text" name="hs_edu_cess_rate" value="[% bill.hs_edu_cess_rate || 1 %]" class="number small" /> % : <input type="text" name="hs_edu_cess" value="[% bill.hs_edu_cess %]" class="number medium" />
+		</p>
+
+		<p >
+			<label>Total Additional Duty (CVD / SAD): </label>
+			<input type="text" name="cvd_rate" value="[% bill.cvd_rate || 4 %]" class="number small" /> % : <input type="text" name="cvd" value="[% bill.cvd %]" class="number medium" />
+		</p>
+		<p >
+			<span id="CalcMfr" class="button " style="cursor:pointer"/> <b>Auto Fill	</b></span>
+		</p>
+
+
+<!--
+		<p>
+				[% bill.unit_cenvat %]		,
+				[% bill.unit_assessable_value %]		
+
+		</p>
+			
+	-->
+		</div>
+
+
+	</fieldset>
+	<fieldset > <!-- active only in case of 1st stage dealer -->
+		<legend>Supplier Details</legend>
+		<div class="grid_5 box"> <!-- grid_5 -->
+		<p>
+			<label for="s_invoice_no">Excise Invoice No: </label>
+			<input type="text" name="s_invoice_no" value="[% bill.s_invoice_no %]" />
+		</p>
+		<p>
+			<label for="s_invoice_date">Excise Invoice Date: </label>
+			<input type="text" name="s_invoice_date" value="[% bill.s_invoice_date %]"/>
+		</p>
+		<p class="">
+			<label>Name: </label>
+			<select name="supplier_id" class="">
+			<option value="">Select Supplier</option>
+            [% PROCESS company/select 
+                match = bill.supplier_id 
+            %]
+			</select>
+			
+			<span class="help add_supplier" > Not found ? Click here to add</span>
+		</p>
+
+
+
+		<p class="" id="s_quantity">
+			<label>Quantity: </label>
+			<input type="text" name="s_quantity" value="[% bill.s_quantity || 0 %]" class="number" />
+		</p>
+		<p class="" id="s_rate">
+			<label>Rate: </label>
+			<input type="text" name="s_rate" value="[% bill.s_rate || 0 %]" class="number" />
+		</p>
+
+        </div>
+
+		<div class="grid_5 box"> <!-- grid_5 -->		
+		<p class="">
+			<label>Assessable Value: </label>
+			<input type="text" name="s_assessable_value" value="[% bill.s_assessable_value %]" class="number" />
+		</p>
+
+
+		<p >
+			<label>Cenvat : </label>
+			<input type="text" name="s_cenvat_rate" value="[% bill.s_cenvat_rate || 10 %]" class="number small" /> % : <input type="text" name="s_cenvat" value="[% bill.s_cenvat %]" class="number medium" />
+		</p>
+
+		<p >
+			<label>Higher Education Cess : </label>
+			<input type="text" name="s_sec_edu_cess_rate" value="[% bill.s_sec_edu_cess_rate || 2 %]" class="number small" /> % : <input type="text" name="s_sec_edu_cess" value="[% bill.s_sec_edu_cess %]" class="number medium" />
+		</p>
+		<p >
+			<label>Higher Secondary Education Cess (1%): </label>
+			<input type="text" name="s_hs_edu_cess_rate" value="[% bill.s_hs_edu_cess_rate || 1 %]" class="number small" /> % : <input type="text" name="s_hs_edu_cess" value="[% bill.s_hs_edu_cess %]" class="number medium" />
+		</p>
+
+		<p >
+			<label>Total Additional Duty (CVD / SAD): </label>
+			<input type="text" name="s_cvd_rate" value="[% bill.s_cvd_rate || 4 %]" class="number small" /> % : <input type="text" name="s_cvd" value="[% bill.s_cvd %]" class="number medium" />
+		</p>
+
+		<p >
+			<span id="CalcSupplier" class="button " style="cursor:pointer"/> <b>Auto Fill	</b></span>
+		</p>
+    
+		</div>
+	</fieldset>
+
+    <fieldset>
+		<legend>Transport & Taxes </legend>
+		<div class="grid_5 box"> <!-- grid_5 -->
+		<p>
+			<label>LR No: </label>
+			<input type="text" name="lr_no" value="[% bill.lr_no %]" />
+		</p>
+		<p>
+			<label>Batch No: </label>
+			<input type="text" name="batch_no" value="[% bill.batch_no %]" />
+		</p>
+		<p>
+            <label>Transporter Name: </label>
+			<select name="transporter_name" class="">
+			<option value="">Select Warehouse</option>
+		    	[% PROCESS company/select_transporter
+					match = sale.transporter_name
+		    	%]
+			</select>
+			<span class="help add_transporter" > Not found ? Click here to add</span>
+        </p>
+
+		<p>
+			<label>Summary: </label>
+			<textarea name=summary>[% bill.summary %]</textarea>
+		</p>
+			<span id="CalcTotal" class="button " style="cursor:pointer"/> <b>Auto Fill	</b></span>
+		</div>
+		<div class="grid_5 box"> <!-- grid_5 -->
+		<p>
+			<label>Taxable Value: </label>
+			<input type="text" name="taxable_value" value="[% bill.taxable_value %]"  class="required" />
+		</p>
+
+		<p>
+			<label>Sales Tax Type: </label>
+
+				<select name="sales_tax_type" >
+				[% PROCESS sales_tax_type 
+					match = bill.sales_tax_type %]
+				</select>
+		</p>
+		<p class="">
+			<label>Sales Tax@ </label>
+			<input type="text" name="sales_tax_rate" value="[% bill.sales_tax_rate || 5 %]" class="number small" /> % : <input type="text" name="sales_tax" value="[% bill.sales_tax %]" class="number medium" />
+		</p>
+		<p>
+			<label>Additional Sales Tax @ : </label>
+			<input type="text" name="addl_sales_tax_rate" value="[% bill.addl_sales_tax_rate || 0 %]" class="number small" /> % : <input type="text" name="addl_sales_tax" value="[% bill.addl_sales_tax %]" class="number medium" />
+		</p>
+		<p>
+			<label>Total Amount: </label>
+			<input type="text" name="total" value="[% bill.total %]"/>
+		</p>
+
+		<p>
+			<label>RG Page No : </label>
+			<input type="text" name="rg_page_no" value="[% bill.rg_page_no %]"  class="number" readonly="true" />
+		</p>
+		[% IF bill.id %]
+		<p>
+			<a href="[% c.uri_for("/db/list/attachment/from_cgi_params") %]?owner_id=[% bill.id %]&owner_class=Bill&owner_uuid=[% bill._id %]"> Attach Documents </a>
+		</p>
+		[% END %]
+	</fieldset>
+
+        <span class="button hide"  style="display:none;" id="recalculate">Recalc</span>
+
+</form>
+
+

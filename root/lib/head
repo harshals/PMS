@@ -1,0 +1,31 @@
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<title>[% title %]</title>
+
+[% IF c.req.params._v.match('pdf|PDF|email|EMAIL') %]
+
+	[% FOREACH css IN ["reset", "text", "960", "layout" ] %]
+		[% INCLUDE "static/css/$css.css" %]
+	[% END %]
+
+[% ELSE %]
+
+
+    	<link rel="icon" href="/static/images/einvoices.ico" type="image/x-icon" />
+		<link rel="stylesheet" type="text/css" href="[% c.uri_for("/css") %]" media="print,screen" />
+		<link rel="stylesheet" type="text/css" href="[% c.uri_for("/static/css/ui-lightness/jquery-ui-1.8.2.custom.css") %]" media="print,screen" />
+		<style>
+
+			[% FOREACH warehouse IN c.model("DemoDB::Company").warehouse.serialize %]	
+				
+				.warehouse_[% warehouse.id %], .warehouse_[% warehouse.id %] td {
+					background-color :	[% warehouse.color %];
+				}
+			[% END %]
+		</style>
+		
+		<!--[if IE 6]><link rel="stylesheet" type="text/css" href="../../..//static/css/ie6.css" media="screen" /><![endif]-->
+		<!--[if gte IE 7]><link rel="stylesheet" type="text/css" href="../../..//static/css/ie.css" media="screen" /><![endif]-->
+        <!-- switching to new jquery version -->
+     		
+		<script type="text/javascript" src="[% c.uri_for("/js") %]"></script>
+[% END %]

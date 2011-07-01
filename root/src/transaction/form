@@ -1,0 +1,334 @@
+ 
+<style>
+/* form wizards 
+------------------------------------------------*/
+
+
+.prev, .next { background-color:#b0232a; padding:5px 10px; color:#fff; text-decoration:none; margin-top:5px;margin-bottom:5px;}
+
+.prev:hover, .next:hover { background-color:#000; text-decoration:none;}
+
+.prev { float:left;}
+
+.next { float:right;}
+
+#steps { list-style:none; width:100%; overflow:hidden; margin:0px; padding:0px;}
+
+#steps li {font-size:16px; float:left; padding:1px; color:#b0b1b3;}
+
+#steps li span {font-size:11px; display:block; color:#b0b1b3;}
+#steps li span.error {color:red;}
+
+
+#steps li.current { color:#000;}
+
+#steps li.ButtonPanel {
+	padding:0px;
+	font-size:10px;
+	cursor:pointer;
+}
+
+#steps li.ButtonPanel a.Buttons {
+	
+	font-size:10px;
+	float:right;
+}
+
+</style>
+<h2>
+<a href="#" id="toggle-forms">Transactions Invoice</a>
+</h2>
+
+<form action="[% c.uri_for("/transaction/put") %]" method="POST" class="wizard" id="transaction_form">
+ 
+	
+    <input type=hidden name="id" value="[% transaction.id %]"/>
+    <input type=hidden name="purchase_id" value="[% transaction.purchase_id %]" />
+    <input type=hidden name="is_cancelled" value="[% transaction.is_cancelled %]" />
+	[% FOREACH col=["assessable_value", "cenvat", "sec_edu_cess", "hs_edu_cess", "cvd"] %]
+		
+		[% vcol = "unit_$col" %]
+		<input type=hidden name="[% "unit_$col" %]" value="[% transaction.$vcol %]"/>
+
+	[% END %]
+    <fieldset class="login" >
+		<legend>Invoice Details</legend>
+        <div class="grid_5 box" >
+       <p class="">
+		<label>Warehouse: </label>
+		<select name="warehouse_id" class="required">
+		<option value="">Select Warehouse</option>
+		    [% PROCESS company/select_warehouse
+			match = transaction.warehouse_id 
+		    %]
+		</select>
+	</p>
+
+	<p>
+		<label>Invoice Type: </label>
+		<select id="invoice_type" name="invoice_type" [% IF transaction.id %]disabled="true"[% END %]>
+			[% PROCESS transaction/select_invoice_type
+			    match = transaction.invoice_type %]
+		</select>
+	</p>
+        [% IF transaction.invoice_type == 1 || transaction.invoice_type == 3 || transaction.invoice_type == 5 %]
+	     <p>
+		 <label>Excise Invoice No: </label>
+		 <input type="text" name="invoice_no" value="[% transaction.invoice_no  %]" readonly />
+	     </p>
+        [% END %]
+	<p>
+		<label> Invoice Date: </label>
+		<input type="text" name="invoice_date" value="[% transaction.invoice_date %]" class="required" />
+        </p>
+	<p>
+		<label>Invoice Time: </label>
+		<input type="text" name="invoice_time" value="[% transaction.invoice_time %]" alt="time" class="required" />
+	</p>
+        [% IF transaction.invoice_type == 2 || transaction.invoice_type == 3  %]
+	    <p>
+		<label>Comm. Tax Invoice No: </label> 
+		<input type="text" name="comm_invoice_no" value="[% transaction.comm_invoice_no  %]" readonly />
+	   </p>
+        [% END %]
+        [% IF transaction.invoice_type == 4 || transaction.invoice_type == 5  %]
+        <p>
+			<label>Comm. Retail Invoice No: </label> 
+			<input type="text" name="comm_invoice_no" value="[% transaction.comm_invoice_no  %]" readonly />		
+		</p>
+        [% END %]
+
+        [% IF transaction.invoice_type == 1 && transaction.has_commercial %]
+		<p>
+			<label>Comm. Invoice No: </label> 
+			<input type="text" name="comm_invoice_no" value="[% transaction.comm_invoice_no  %]"  readonly/>
+		</p>
+		[% END %]
+        [% IF transaction.invoice_type == 1 && !transaction.has_commercial %]
+		<p>
+			<label>Need Commercial Invoice ?</label> 
+			<input type="checkbox" name="has_commercial" value="1"  />
+
+		</p>
+        [% END %]
+		</div><!-- grid_5 -->
+        <div class="grid_5 box" >
+		<p>
+			<label>Challan No: </label>
+			<input type="text" name="challan_no" value="[% transaction.challan_no %]" />
+		</p>
+		<p>
+			<label>Challan Date: </label>
+			<input type="text" name="challan_date" value="[% transaction.challan_date %]" />
+		</p>
+		<p>
+			<label>Order No: </label>
+			<input type="text" name="order_no" value="[% transaction.order_no %]" />
+		</p>
+		<p>
+			<label>Order Date: </label>
+			<input type="text" name="order_date" value="[% transaction.order_date %]" />
+		</p>
+        <p>
+			<label>Removal Date: </label>
+			<input type="text" name="removal_date" value="[% transaction.removal_date %]" />
+		</p>
+		
+		<p>
+			<label>Removal Time: </label>
+			<input type="text" name="removal_time" value="[% transaction.removal_time %]" alt="time" />
+			<span class="help">for eg. 2:45 pm</span>
+		</p>
+
+	</div><!-- grid_5 -->
+	</fieldset>
+
+    <fieldset >
+        <legend>Buyer Details</legend>
+        <div class="grid_5 box"> <!-- grid_5 -->
+        <p>
+            <label>Buyer: </label>
+            <select name="buyer_id" class="required">
+            <option value="">Select Buyer</option>
+                [% PROCESS company/select
+                    match = transaction.buyer_id %]
+            </select>
+            
+            <span class="help add_company" > Not found ? Click here to add</span>
+        </p>
+        <p>
+            <label>Consignee: </label>
+            <select name="consignee_id" class="required">
+            <option value="">Select Consignee</option>
+                [% PROCESS company/select
+                    match = transaction.consignee_id %]
+                        
+            </select>
+            
+            <span class="help add_company" > Not found ? Click here to add</span>
+        </p>
+        <p>
+            <label>Product Description: </label>
+            <input name="product_id" class="required" type=hidden value="[% transaction.product_id %]">
+            <select name="product_group" class="required">
+                <option value="">Please select a Product</option>
+                [% PROCESS product/select_group
+                    match = transaction.product.product_group %]
+            </select>
+        </p>
+    </div>
+    <div class="grid_5 box"> <!-- grid_5 -->
+        <p>
+            <label>Units of Measurement: </label>
+            <input type="text" name="uom" value="[% transaction.uom %]" id="uom" class="required" readonly=true/>
+        </p>
+        <p>
+            <label>Product : <span id="product">[% transaction.product.name %]</span></label>
+            <label>Balance Quantity :<span id="balance_quantity">[% IF transaction.purchase_id %][% transaction.purchase.balance %][% END %]</span> out of <span id="purchase_quantity">[% IF transaction.purchase_id %][% transaction.purchase.quantity %][% END %]</span> </label>
+        </p>
+        <p>
+            <label>Assessable Value per Unit: <span id="unit_assessable_value">[% transaction.purchase.unit_assessable_value  %]</span></label>
+            <label>Cenvat per Unit: <span id="unit_cenvat">[% transaction.purchase.unit_cenvat %]</span></label>
+            <label>Sec Edu Cess per Unit: <span id="unit_sec_edu_cess">[% transaction.purchase.unit_sec_edu_cess  %]</span></label>
+            <label>Higher Edu Cess per Unit: <span id="unit_hs_edu_cess">[% transaction.purchase.unit_hs_edu_cess  %]</span></label>
+            <label>CVD per Unit: <span id="unit_cvd">[% transaction.purchase.unit_cvd  %]</span></label>
+			[% IF transaction.id %]
+            <label><a href="[% c.uri_for("/purchase/get/$transaction.purchase_id") %]" >
+					Purchase Invoice No [% transaction.purchase.invoice_no %] [ [% transaction.purchase.invoice_date %] ]
+				</a>
+			</label>
+			[% END %]
+        </p>
+
+        </div> <!-- grid5 -->
+    </fieldset>
+    
+	<fieldset >
+		<legend>Product Information</legend>
+        <div class="grid_5 box" >
+		<p>
+			<label>Rate: </label>
+			<input type="text" name="rate" value="[% transaction.rate || 0 %]" class="number required"/>
+		</p>
+		<p>
+			<label>Quantity: </label>
+			<input type="text" name="quantity" value="[% transaction.quantity || 0 %]" class="number required"/>
+		</p>
+		<p>
+			<label>Taxable Value: </label>
+			<input type="text" name="taxable_value" value="[% transaction.taxable_value %]" readonly="true"/>
+		</p>
+		
+		<p>     
+		          
+			<label>Transactions Tax Type: </label>
+				<select name="transactions_tax_type" >
+				
+				[% PROCESS transactions_tax_type 
+					match = transaction.transactions_tax_type %]
+				</select>
+
+		</p>
+		<p>
+		   <label>Transactions Tax: </label>
+		  	<input type="text" name="transactions_tax_rate" value="[% transaction.transactions_tax_rate || 5 %]" class="number small" /> % : <input type="text" name="transactions_tax" value="[% transaction.transactions_tax %]" class="number medium" />
+		</p>
+		<p>
+			<label>Additional Transactions Tax: </label>
+			<input type="text" name="addl_transactions_tax_rate" value="[% transaction.addl_transactions_tax_rate || 0 %]" class="number small" /> % : <input type="text" name="addl_transactions_tax" value="[% transaction.addl_transactions_tax %]" class="number medium" />
+		</p>
+
+        </div><!-- grid_5 -->
+        <div class="grid_5 box" >
+		<p >
+			<label>Assessable Value : </label>
+			<input type="text" name="assessable_value" value="[% transaction.assessable_value || 0 %]" class="number required" readonly="true" />
+		</p>
+		
+		<p >
+			<label>Cenvat : </label>
+			<input type="text" name="cenvat_rate" value="[% transaction.cenvat_rate || 10 %]" class="number small" /> % : <input type="text" name="cenvat" value="[% transaction.cenvat %]" class="number medium" />
+		</p>
+
+		<p >
+			<label>Higher Education Cess : </label>
+			<input type="text" name="sec_edu_cess_rate" value="[% transaction.sec_edu_cess_rate || 2 %]" class="number small" /> % : <input type="text" name="sec_edu_cess" value="[% transaction.sec_edu_cess %]" class="number medium" />
+		</p>
+		<p >
+			<label>Higher Secondary Education Cess (1%): </label>
+			<input type="text" name="hs_edu_cess_rate" value="[% transaction.hs_edu_cess_rate || 1 %]" class="number small" /> % : <input type="text" name="hs_edu_cess" value="[% transaction.hs_edu_cess %]" class="number medium" />
+		</p>
+
+		<p >
+			<label>Total Additional Duty (CVD): </label>
+			<input type="text" name="cvd_rate" value="[% transaction.cvd_rate || 4 %]" class="number small" /> % : <input type="text" name="cvd" value="[% transaction.cvd %]" class="number medium" />
+		</p>
+		<p >
+			<span id="ReCenvat" class="button " style="cursor:pointer"/> <b>Auto Fill	</b></span>
+		</p>
+
+        </div><!-- grid_5 -->
+
+	</fieldset>
+    <fieldset >
+        <legend>Transport & Summary</legend>
+        <div class="grid_5 box"> <!-- grid_5 -->
+        <p>
+            <label>LR No: </label>
+            <input type="text" name="lr_no" value="[% transaction.lr_no %]" >
+        </p>
+        <p>
+            <label>Batch No: </label>
+            <input type="text" name="batch_no" value="[% transaction.batch_no %]" />
+        </p>
+        <p>
+            <label>Vehicle No: </label>
+            <input type="text" name="vehicle_no" value="[% transaction.vehicle_no %]" />
+        </p>
+        <p>
+            <label>Mode of Transport: </label>
+            <select name="transport_mode">
+            [% PROCESS transport_modes 
+				match = transaction.transport_mode %]
+            </select>
+        </p>
+        <p>
+            <label>Transporter Name: </label>
+			<select name="transporter_name" class="">
+			<option value="">Select Warehouse</option>
+		    	[% PROCESS company/select_transporter
+					match = transaction.transporter_name
+		    	%]
+			</select>
+            <span class="help add_transporter" > Not found ? Click here to add</span>
+        </p>
+        </div>
+        <div class="grid_5 box"> <!-- grid_5 -->
+        <p>
+            <label>Summary: </label>
+            <textarea name=summary>[% transaction.summary %]</textarea>
+        </p>
+	<p>
+		<label>Payment within Days: </lable>
+		<input type="text" name="credit_days" value="[% credit_days %]" />
+	</p>
+	<p>
+		<label>Documents Through: </lable>
+		<input type="text" name="documents_through" value="[% documents_through %]" />
+	</p>	
+        <p>
+			<label>Total Amount: </label>
+			 
+			<input type="text" name="total" value="[% transaction.total %]"/>
+			     
+	</p>
+
+
+    </div> <!-- grid_5 -->
+    </fieldset>
+
+        <span class="button hide"  style="display:none;" id="recalculate">Recalc</span>
+
+</form>
+
+

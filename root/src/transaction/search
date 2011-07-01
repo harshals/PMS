@@ -1,0 +1,73 @@
+<div class="box"> <!-- begin form box -->
+<h2>
+		<a href="#" id="toggle-forms">Search Transactions</a>
+		[% type = type || 0 %]
+	</h2>
+	<form action="[% c.uri_for("/transaction/$type/search") %]" class="search" id="forms" method="POST">
+		<fieldset >
+
+			<p class="">
+				<label>Warehouse: </label>
+				<select name="warehouse_id" class="required">
+				[% UNLESS c.user.id == 4 %]
+					<option value="">Select Warehouse</option>
+				[% END %]
+
+            	[% PROCESS company/select_warehouse %]
+				</select>
+				
+			</p>
+
+			[% INCLUDE search_date %]
+
+			<p>
+				<label>Invoice No: </label>
+				<input type="text" name="invoice_no" value="" />
+				<span class="help"> for eg. 55-60, to search for range</span>
+			</p>
+			<p class="advance_option">
+				<label>Invoice Type: </label>
+				<select id="invoice_type" name="invoice_type" >
+					[% PROCESS transaction/select_invoice_type %]
+				</select>
+			</p>
+			<p class="advance_option">
+				<label>Purchase Invoice : </label>
+				<input type="text" name="purchase_invoice_no" value="" />
+			</p>
+			<p class="advance_option">
+				<label>Consignee: </label>
+				<select name="consignee_id" >
+				<option value=""> Choose Consignee</option>
+				[% INCLUDE company/select %]
+				</select>
+			</p>
+			<p class="advance_option">
+				<label>Product: </label>
+				<select name="product_id" >
+                	<option value=""> Choose Product </option>
+
+					[% PROCESS product/select %]
+
+                </select>
+			</p>
+			<p class="advance_option">
+				<label>Product Group: </label>
+				<select name="product_group" >
+                	<option value=""> Choose Product Group</option>
+
+					[% PROCESS product/select_group %]
+                   
+                </select>
+			</p>
+			[% INCLUDE output_format 
+				class="advance_option"
+			%]
+
+			<p>
+			<button class="button" type="submit"> Search </button> &nbsp;&nbsp;
+			<span class="link" id="advance_search">less</span>
+			</p>
+		</fieldset>
+	</form>
+</div>

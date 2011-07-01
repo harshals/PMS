@@ -1,0 +1,26 @@
+<link rel="stylesheet" type="text/css" href="[% c.uri_for("/static/css/annotation.css") %]" media="all">
+
+<script type="text/javascript" src="[% c.uri_for("/static/js/jquery.annotate.js") %]"></script>
+<script>
+$(document).ready(function() {
+				
+			
+	$("#img1")
+	.annotateImage({
+		editable: false,
+		useAjax: false,
+		notes: [ 	{top: 40, left : 35, width: 250, height : 330, text: "Please Select the buyer's 'Name', Consignee's Name,  'Product'", editable : false },
+				{top: 400, left : 35, width: 250, height : 170, text: "Please specify the 'LR No', 'Batch No' and 'Name of the transporter' " , editable : false},
+				{top: 40, left : 320, width: 300, height : 270, text: "Please specify the 'Invoice number', 'Date', and 'Time' associated with supplied goods." , editable : false},
+				{top: 370, left : 320, width: 300, height : 510, text: "Please specify for the goods 'Sales Duty' associated with supplied goods and 'Rate of Duty' as specified by Manufacturer." , editable : false},
+				
+				
+			]
+	});
+
+});
+</script>
+<img src="[% c.uri_for("/static/images/make_a_sale_1.jpg") %]" ><br>
+<br><br>
+<img src="[% c.uri_for("/static/images/make_a_sale_90.jpg") %]" id="img1"><br>
+

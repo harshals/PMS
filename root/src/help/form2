@@ -1,0 +1,36 @@
+<link rel="stylesheet" type="text/css" href="[% c.uri_for("/static/css/annotation.css") %]" media="all">
+
+<script type="text/javascript" src="[% c.uri_for("/static/js/jquery.annotate.js") %]"></script>
+<script>
+$(document).ready(function() {
+				
+			
+	$("#img1")
+	.annotateImage({
+		editable: false,
+		useAjax: false,
+		notes: [
+				{top: 120, left : 2, width: 200, height : 190, text: "Section for searching the required invoices to be used in generating Form2", editable : false } 
+			]
+	});
+
+});
+</script>
+
+<br>
+
+<font face="verdana" size ="15">
+
+<b>- Login in to http://www.einvoices.biz/try and select Tax Report -> Form 2 <b>
+
+</font>
+<br>
+<br>
+<img src="[% c.uri_for("/static/images/Generate_form2.jpg")%]" id="img1" />
+<br><br>
+<b>- Click on Generate Form2 </b>
+<br>
+<b>- Geneated Form2 print out </b>
+<br>
+<br>
+<img src="[% c.uri_for("/static/images/Form2 [640x480].jpg")%]" />

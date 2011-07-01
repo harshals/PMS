@@ -1,0 +1,56 @@
+
+[% INCLUDE pager_head %]
+[% USE date %]
+[% manip = date.manip%]
+
+<table summary="This table includes examples of as many table elements as possible" class="warehouse">
+<caption><b>Current Stock as of today</b></caption>
+<colgroup>
+	<col class="colA" />
+	<col class="colB" />
+	<col class="colC" />
+	<col class="colD" />
+	<col class="colE" />
+	<col class="colF" />
+	<col class="colG" />
+</colgroup>
+<thead>
+   <tr>
+    	<th>Group</th>
+    	<th>Name</th>
+    	<th>Invoice Date</th>
+	    <th>Invoice No.</th>
+	    <th>Quantity</th>
+	    <th>Basic Rate</th>
+	    <th>Low Modvat</th>
+	    <th>Full Modvat</th>
+    </tr>
+    </thead>
+    <tbody>
+
+
+    [% FOREACH row IN stock_rs %]
+
+    	[% 	balance = row.quantity 
+    	 	low_modvat = row.unit_cenvat - row.unit_sec_edu_cess - row.unit_hs_edu_cess
+    	 	full_modvat = low_modvat + row.unit_cvd
+			p_basic_rate = row.rate - full_modvat %]
+
+        <tr class='warehouse_[% row.warehouse_id %]'>
+			<td>[% row.product.product_group %]</td>
+			<td>[% row.product.name %] </td>
+			[% row.invoice_date  = manip.UnixDate(row.invoice_date,'%d-%m-%Y') %]
+			<td>[% row.invoice_date %]</td>
+			<td><a href="[% c.uri_for("/purchase/get", row.id ) %]"> [% row.invoice_no %] </a></td>
+			<td>[% row.balance %] [% row.uom %]</td>
+			<td>[% p_basic_rate %] </td>
+			<td>[% low_modvat %] </td>
+			<td>[% full_modvat %] </td>
+		</tr>
+		
+		
+    [% END %]
+		
+    </tbody>
+</table>
+

@@ -1,0 +1,58 @@
+[% INCLUDE pager_head %]
+<table summary="" class="warehouse">
+<caption></caption>
+<colgroup>
+	<col class="colA" />
+	<col class="colB" />
+	<col class="colC" />
+	<col class="colD" />
+	<col class="colE" />
+	<col class="colF" />
+	<col class="colG" />
+</colgroup>
+<thead>
+	<tr>
+		<th colspan="7" class="table-head">SAD refund Statement</th>
+	</tr>
+        <tr>
+            <th>Bill of Entry</th>
+            <th>Quantity</th>
+            <th>CVD</th>
+            <th>Sold Quantity</th>
+            <th>CVD Passed</th>
+            <th>Quantity w/o SAD</th>
+            <th>CVD remaining</th>
+        </tr>
+    </thead>
+    <tbody>
+    	[% total_cvd = 0 %]
+
+        [% FOREACH row IN  rs.sort('invoice_no') %]
+		
+		[% cvd = row.cvd - row.total_sale_cvd 
+			total_cvd = total_cvd + cvd %]
+     
+     	<tr class="warehouse_[% row.warehouse_id %]" >
+            <td><a href="[% c.uri_for("/report/search/sad_refund") %]?bill_of_entry=[% row.id %]&to_date=[% c.req.params.to_date %]">[% row.invoice_no %]</a> </td>
+            <td>[% row.quantity %]  </td>
+            <td>[% row.cvd %]</td>
+            <td>[% row.total_sale_quantity %]</td>
+            <td>[% row.total_sale_cvd %] </td>
+            <td>[% row.total_cvd_quantity %] </td>
+            <td>[% cvd  %]  </td>
+		</tr>
+			
+        [% END %]
+    </tbody>
+	<tfoot>
+		<tr>
+			<td>Total</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td>[% total_cvd %]</td>
+		</tr>
+	</tfoot>
+</table>

@@ -1,0 +1,15 @@
+<div class="block">
+
+	<h1 id="article"> <a href="[% c.uri_for("/") %]" ><img src="[% c.uri_for("/static/images/logo.png") %]" ></img></a></h1>
+	<div class="article">
+		<p>Welcome 
+			[% IF c.user_exists %] 
+				<a class="meta" href="[% c.uri_for("/user/get/$c.user.id") %]">[% c.user.get('name') %] </a>
+			[% ELSE %]
+				Guest
+			[% END %]
+		</p>
+
+	</div>
+</div>
+	

@@ -1,0 +1,63 @@
+
+<div class="grid_6 " >
+<table >
+    <thead>
+        <tr>
+            <th colspan="7" class="table-head">Invoices </th>
+        </tr>
+        <tr>
+            <th>Number</th>
+            <th>Date</th>
+            <th>Amount.</th>
+        </tr>
+    </thead>
+    <tbody>
+        [% FOREACH row IN sale_rs %]
+        [% total = row.total_invoice_amount + total %]
+        <tr>
+            <td>[% row.invoice_no %]</td>
+            <td>[% row.invoice_date %]</td>
+            <td>[% row.total_invoice_amount %]</td>
+        </tr>
+        [% END %]
+        <tr>
+            <td colspan=2> Total Payments </td>
+            <td>[% total %]
+        </tr>
+    </tbody>
+</table>
+
+</div>
+
+<div class="grid_5 " >
+<table >
+    <thead>
+        <tr>
+            <th colspan="7" class="table-head">Ledger for </th>
+        </tr>
+        
+        <tr>
+            <th>Date</th>
+            <th>Type</th>
+            <th>Number</th>
+            <th>Amount.</th>
+        </tr>
+    </thead>
+    <tbody>
+        [% FOREACH row IN payment_rs %]
+            [% total_amt = total_amt + row.amount %]
+        <tr>
+            <td>[% row.instrument_date %]</td>
+            <td>[% row.payment_type %]</td>
+            <td>[% row.instrument_no %]</td>
+            <td>[% row.amount %]</td>
+        </tr>
+        [% END %]
+        <tr>
+            <td colspan=3> Total Payments </td>
+            <td>[% total_amt %]</td>
+    </tbody>
+</table>
+
+</div>
+

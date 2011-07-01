@@ -1,0 +1,20 @@
+<div class="box"> <!-- begin search form -->
+<h2>
+		<a href="#" id="toggle-forms">Search Form2</a>
+	</h2>
+	<form action="[% c.uri_for("/report/search/sad_refund") %]" class="search" id="forms" method="POST">
+		<fieldset >
+			<p class="">
+				<label>Warehouse: </label>
+				<select name="warehouse_id" class="required">
+					<option value="">Select Warehouse</option>
+            		[% PROCESS company/select_warehouse %]
+				</select>
+			</p>
+
+			[% INCLUDE search_date %]
+
+			<button class="button" type="submit" value="Form2">SAD refund statment</button>
+		</fieldset>
+	</form>
+</div><!-- end search form -->

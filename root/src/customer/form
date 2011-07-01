@@ -1,0 +1,147 @@
+
+<form action="[% c.uri_for("/db/customer/put") %]" class="new_customer"  method="POST" >
+
+	<fieldset>
+		<legend>Edit/Add Customer</legend>
+		<input type=hidden name="id" value="[% customer.id %]" />
+		<div class="block [% UNLESS render_vertical %] grid_5 [% END %]">
+		<p>
+			<label>Name: </label>
+											
+			<input type="text" name="name" value="[% customer.name %]" class="required"/>
+
+		</p>
+		<p class="">
+			<label>Customer Type : </label>
+			<select name="customer_type" class="required">
+            	[% PROCESS customer/customer_type
+		            match = customer.customer_type %]
+			</select>
+		</p>
+		<p>
+			<label>Contact Name: </label>
+			<input type="text" name="contact_name" value="[% customer.contact_name %]" class="required"/>
+		</p>
+		<p>
+			<label>Contact Number: </label>
+			<input type="text" name="contact_number" value="[% customer.contact_number %]" class="required"/>
+		</p>
+		
+		<p>
+			<label>Email: </label>
+			<input type="text" name="email" value="[% customer.email %]" class="required"/>
+		</p>
+		<p>
+			<label>PAN: </label>
+			<input type="text" name="pan_no" value="[% customer.pan_no %]" />
+		</p>
+		<p class="fieldtag">
+			<label>Billing Address : </label>
+			<input type="text" name="address_1" value="[% customer.address_1 %]" title="Addres Line 1"/>
+			<input type="text" name="address_2" value="[% customer.address_2 %]" title="Addres Line 2"/>
+			<input type="text" name="address_3" value="[% customer.address_3 %]" title="Addres Line 3"/>
+			<input type="text" name="city" value="[% customer.city %]" title="City1"/>
+			<input type="text" name="state" value="[% customer.state %]" title="State"/>
+			<input type="text" name="zip" value="[% customer.zip %]" title="zip"/>
+			<input type="text" name="country" value="India" title="country"/>
+	
+		</p>
+		
+		<p>
+			<label>Summary: </label>
+			<textarea name=summary value="[% customer.summary %]"></textarea>
+		</p>
+		</div>
+		<div class="block [% UNLESS render_vertical %] grid_5 [% END %]">
+		<p>
+			<label>ECC: </label>
+			<input type="text" name="ecc" value="[% customer.ecc %]" class="required check_ecc"/>
+			<span class="help import_data" onClick="import_data(this);"> Click here to Import</span>
+		</p>
+		<p>
+			<label>Range: </label>
+			<input type="text" name="range" value="[% customer.range %]" />
+		</p>
+		<p>
+			<label>Range Address: </label>
+			<input type="text" name="range_address" value="[% customer.range_address %]" />
+		<p>
+			<label>Division: </label>
+			<input type="text" name="division" value="[% customer.division %]" />
+		</p>
+		<p>
+			<label>Commissionerate: </label>
+			<input type="text" name="commissionerate" value="[% customer.commissionerate %]" />
+		</p>
+		
+		<p>
+			<label>VAT TIN No: </label>
+			<input type="text" name="vat_tin_no" value="[% customer.vat_tin_no %]" class="required"/>
+		</p>
+		<p>
+			<label>VAT TIN Date: </label>
+			<input type="text" name="vat_tin_date" value="[% customer.vat_tin_date %]" class="datepicker"/>
+		</p>
+		<p>
+			<label>CST TIN No: </label>
+			<input type="text" name="cst_tin_no" value="[% customer.cst_tin_no %]" class="required"/>
+		</p>
+		<p>
+			<label>CST TIN Date: </label>
+			<input type="text" name="cst_tin_date" value="[% customer.cst_tin_date %]" class="datepicker"/>
+		</p>
+		<p class="fieldtag">
+			<label>Shipping Address : </label>
+			<input type="text" name="w_address_1" value="[% customer.w_address_1 %]" title = "Address Line 1" class="required"/>
+			<input type="text" name="w_address_2" value="[% customer.w_address_2 %]"  title = "Address Line 2" class="required"/>
+			<input type="text" name="w_address_3" value="[% customer.w_address_3 %]"  title = "Address Line 3 class="required"/>
+			<input type="text" name="w_city" value="[% customer.w_city %]"  title = "City" class="required"/>
+			<input type="text" name="w_state" value="[% customer.w_state %]"  title = "State" class="required"/>
+			<input type="text" name="w_zip" value="[% customer.w_zip %]"  title = "Zip" class="required"/>
+			<input type="text" name="w_country" value="India" class="required"/>
+	
+		</p>
+ 		<p class="">
+			<label>Warehouse: </label>
+			<select name="warehouse_id" class="required">
+			<option value="">Select Preferred Warehouse</option>
+            [% PROCESS customer/select_warehouse
+                match = customer.warehouse_id 
+            %]
+			</select>
+			
+		</p>       
+		
+		<p class="">
+			<label>Customer Logo: </label>
+			[% IF customer.customer_logo %]
+				<img width=100 height=100 src="[% c.uri_for("/static/extra/$customer.customer_logo") %]" >
+			[% END %]
+			<input type=file name="customer_logo" >
+		</p>
+
+		<p>
+			<label>Form Template </label>
+			<input type="text" name="form_template" value="[% customer.form_template || form_template %]" class="required"/>
+		</p>
+
+		<button type="submit" class="register-button" >Add</button>
+		<button type="reset"  class="register-button" >Cancel</button>
+		</div>
+	</fieldset>
+
+</form>
+
+<script language=javascript>
+
+	function import_data(ev) {
+		
+		var ecc = $(ev).siblings("input[name=ecc]").first().val();
+		
+		$.get("/ecc_details?ecc=" + ecc, function(html) {
+			
+		});
+
+	}
+
+</script>

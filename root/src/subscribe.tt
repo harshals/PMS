@@ -1,0 +1,41 @@
+<form action="[% c.uri_for("/subscribe") %]" method="POST">
+
+	<fieldset class="login">
+<p>
+    Please enter your contact details and our representative will be in touch with you shortly. Thank you.
+</p>
+		<legend>Subscribe</legend>
+		<p >
+			<label>Email: </label>
+			<input type="text" name="email" value="" class="required email"/>
+			<span class="help">for eg. yourname@email.com</span>
+		</p>
+		<p >
+			<label>Name: </label>
+			<input type="text" name="name" value="" />
+		</p>
+		<p >
+			<label>Company: </label>
+			<input type="text" name="company" value="" class="required"/>
+		</p>
+		<p >
+			<label>Address: </label>
+			<input type="text" name="address" value="" />
+		</p>
+		<p >
+			<label>City: </label>
+			<input type="text" name="city" value="" class="required"/>
+		</p>
+		<p >
+			<label>Contact No: </label>
+			<input type="text" name="contact_no" value="" class="required number"/>
+		</p>
+        <p>
+			 [% c.stash.recaptcha %] 
+		</p>
+
+		<input type=submit value="Register" />
+		<input type=reset value="Reset" />
+	</fieldset>
+</form>
+

@@ -1,0 +1,11 @@
+1. Cache in company and product tables
+2. implement sad refund and vat report , c/f form
+3. Email bug report
+4. import company_type into live data
+5. solve bug in resultclass.pm for fetching base columns
+6. Setup inital checks for -
+	a. perl modules
+	b. company name and financial year
+	c. invoice pdf
+	d. at least one depot
+	e. enumeration table with comm_invoice_no set to 1

@@ -1,0 +1,14 @@
+<div class="box" id="list-items">
+
+<h2>
+	<a href="#" id="toggle-section-menu">Recent Bills </a>
+</h2>
+<p>You can make a duplicate copy from one of the recent bills </p>
+<ul class="menu" id="section-menu">
+	[% FOREACH invoice IN c.model("DemoDB::Bill").recent.serialize(4) %]
+<li>
+<a href="[% IF duplicate %]#[% ELSE %][% c.uri_for("/bill/get/$invoice.id") %][% END %]">No. [% invoice.invoice_no %] dated [% invoice.invoice_date %], [% invoice.supplier.name || invoice.manufacturer.name %], [% invoice.quantity %] [% invoice.uom %]</a>
+</li>
+	[% END %]
+                </ul>
+</div>

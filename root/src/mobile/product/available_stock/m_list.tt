@@ -1,0 +1,44 @@
+
+<ul data-role="listview" data-inset="false" data-theme="c" data-dividertheme="b">
+    <div class="ui-grid-c">
+        <li>
+            <div class="ui-block-a">
+                    Product Name
+            </div>
+            <div class="ui-block-b">
+                Quantity
+            </div>
+            <div class="ui-block-c">
+                Half Modvat
+            </div>
+	    <div class="ui-block-d">
+                Full Modvat
+            </div>
+         </li>
+    </div>
+  [%# FOREACH stock IN c.model("DemoDB::Purchase").available_stock("product").serialize %]
+  [% FOREACH stock IN product_list %]
+       <div class="ui-grid-c">
+            <li>
+                <div class="ui-block-a">
+                    <a href="/m/purchase/0/search?warehouse_id=[% c.req.params.warehouse_id %]& product_id=[% stock.product.id%]">
+                        [% stock.product.name %]
+                    </a>
+                </div>
+                <div class="ui-block-b">
+                    [% balance = stock.p_quantity - stock.s_quantity %]
+                    [% balance %]
+                    [% stock.uom %]
+                </div>
+                <div class="ui-block-c">
+                    [% half_modvat = stock.unit_cenvat + stock.unit_sec_edu_cess + stock.unit_hs_edu_cess %]
+                    [% half_modvat %]
+                </div>
+                <div class="ui-block-d">
+                    [% full_modvat = stock.unit_cenvat + stock.unit_sec_edu_cess + stock.unit_hs_edu_cess + stock.unit_cvd %]
+                    [% full_modvat %]
+                </div>
+            </li>
+        </div>
+   [% END %]
+</ul>

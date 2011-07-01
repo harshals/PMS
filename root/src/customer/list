@@ -1,0 +1,47 @@
+<!--
+<table >
+    <thead>
+        <tr>
+            <th colspan="7" class="table-head">Customer Details</th>
+        </tr>
+
+        <tr>
+            <th>Name</th>
+            <th>Contact Number</th>
+            <th>Ecc No.</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        [%# FOREACH row IN customer_rs.serialize %]
+        <tr>
+            <td>[%# row.name %]</td>
+            <td>[%# row.contact_number %]</td>
+            <td>[%# row.ecc %]</td>
+            <th ><span class='delete {id : "[%# row.id %]" }' >Del&nbsp;</span>
+            <a href="[%# c.uri_for("/db/list/customer/0/$row.id") %]">Edit</a>
+            </th>
+        </tr>
+        [%# END %]
+    </tbody>
+</table>
+
+-->
+<div id="NavList-nav"></div> 
+<ul id="NavList" class="list">
+   [% FOREACH row IN customer_rs.serialize %]
+	
+	<li class="[% loop.parity %]"> 
+	
+		[% row.name %] <img width=16 height=16 src="/static/img/customer_type_[% row.customer_type %].png">
+	
+	
+	  <span class='delete' id="customer_[% row.id %]" style="float:right">Del&nbsp;</span>
+      <span class="action">
+           <a href="[% c.uri_for("/db/customer/get/$row.id") %]" style="float:right">Edit</a> 
+           <a href="[% c.uri_for("/db/publish/customer_address/$row.id") %]" style="float:right">Print</a> 
+      </span>
+   
+   </li>
+   [% END %]
+</ul>

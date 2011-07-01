@@ -1,0 +1,93 @@
+<style>
+tr.selected {
+	border: 2px solid ;
+}
+</style>
+
+[% USE date %]
+[% INCLUDE pager_head %]
+<table summary="This table includes examples of as many table elements as possible" class="warehouse">
+<caption></caption>
+<colgroup>
+	<col class="colA" />
+	<col class="colB" />
+	<col class="colC" />
+	<col class="colD" />
+	<col class="colE" />
+	<col class="colF" />
+    <col class="colG" />	
+    <col class="colH" />	
+</colgroup>
+<thead>
+	<tr>
+		<th colspan="8" class="table-head">List of Sale Invoice</th>
+	</tr>
+	<tr>
+		<th>Invoice No</th>
+		<th>Date</th>
+		<th>Buyer</th>
+		<th>Tax</th>
+		<th>Sale Type</th>
+		<th>Quantity</th>
+		<th class="">SAD </th>
+		<th class="">Amount</th>
+
+	</tr>
+</thead>
+<tbody>
+
+        [% FOREACH row IN rs %]
+	
+[% to_date = row.invoice_date %]
+[% manip = date.manip %]
+[% invoice_date = manip.UnixDate(manip.ParseDate(to_date),'%d-%m-%Y') %]
+		
+		[% total_cvd = total_cvd + row.cvd %]
+
+			<tr class="warehouse_[% row.warehouse_id %]" id="row_id_[% row.id %]">
+            <td>[% row.invoice_no %]</td>
+            <td>[% invoice_date %]</td>
+            <td>[% row.buyer.name %]</td>
+            <td>[% row.sales_tax + row.addl_sales_tax %]</td>
+            <td>[% row.sales_tax_type %]</td>
+            <td>[% row.quantity %] [% row.uom %]</td>
+            <th class="">[% row.cvd %]</th>
+            <th class="">[% row.total %]</th>
+            
+        </tr>
+
+	[% END %]
+ 	
+</tbody>
+<tfoot>
+	<tr class="total">
+		<th>Total</th>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td ></td>
+		<td ></td>
+		<th class="currency">[% total_cvd %]</th>
+		<td ></td>
+	</tr>
+</tfoot>
+
+</table>
+<!--
+<th >
+	     	 <select name="sale_action">
+				<option value = "" >Action</option>
+				<option value = "[% c.uri_for("/sale/get/$row.id") %]" >Edit</option>
+				<option value = "[% c.uri_for("/sale/publish/sale_invoices/$row.id") %]"  >Print</option> 
+				<option value = "[% c.uri_for("/sale/publish/sale_invoice/$row.id") %]"  >Single</option> 
+				<option value = "[% c.uri_for("/sale/publish/form_403/$row.id") %]" >Form 403</option> 
+				<option value = "[% c.uri_for("/sale/publish/delivery_challan/$row.id") %]" >Challan</option> 
+				<option value = "[% c.uri_for("/sale/publish/commercial_invoice/$row.id") %]" >Commercial</option> 
+				<option value = "[% c.uri_for("/sale/email/$row.id") %]?_v=json" >Email</option> 
+				<option value = "[% c.uri_for("/db/publish/company_address/$row.buyer_id") %]" >Address</option> 
+				<option value = "fax" >Fax</option> 
+				<option value = "[% c.uri_for("/db/list/attachment/from_cgi_params") %]?owner_id=[% row.id %]&owner_class=Sale&owner_uuid=[% row._id %]">Documents</option>
+				<option value = "[% c.uri_for("/sale/copy/$row.id") %]" >Copy</option>
+	    	</select>
+	    </th>
+-->

@@ -1,0 +1,42 @@
+ <ul data-role="listview" data-inset="false" data-theme="c" data-dividertheme="b">
+            <div class="ui-grid-c">
+                <li>
+                    <div class="ui-block-a">
+                            Product Name
+                    </div>
+                    <div class="ui-block-b">
+                        Quantity
+                    </div>
+                    <div class="ui-block-c">
+                        Half Modvat
+                    </div>
+                    <div class="ui-block-d">
+                        Full Modvat
+                    </div>
+                 </li>
+            </div>
+            [% FOREACH row  IN  stock_rs %]
+            [% 	balance = row.quantity
+    	 	low_modvat = row.unit_cenvat - row.unit_sec_edu_cess - row.unit_hs_edu_cess
+    	 	full_modvat = low_modvat + row.unit_cvd
+			p_basic_rate = row.rate - full_modvat %]
+               <div class="ui-grid-c" >
+                    <li class="warehouse_[% row.warehouse_id %]" >
+                        <div class="ui-block-a">
+                            <a href="[% c.uri_for("/purchase/get", row.id ) %]">
+                                [% row.product.name %]
+                            </a>
+                        </div>
+                        <div class="ui-block-b">
+                            [% row.balance %] [% row.uom %]
+                        </div>
+                        <div class="ui-block-c">
+                            [% low_modvat %]
+                        </div>
+                        <div class="ui-block-d">
+                            [% full_modvat %]
+                        </div>
+                    </li>
+                </div>
+           [% END %]
+        </ul>

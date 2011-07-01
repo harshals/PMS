@@ -1,0 +1,41 @@
+<div class="box"> <!-- begin search form -->
+<h2>
+		<a href="#" id="toggle-forms">Search RG23d</a>
+	</h2>
+	<form action="[% c.uri_for("/report/search/rg23d") %]" class="search" id="forms" method="POST">
+		<fieldset >
+			<p class="">
+				<label>Warehouse: </label>
+				<select name="warehouse_id" class="required">
+				[% UNLESS c.user.id == 4 %]
+					<option value="">Select Warehouse</option>
+				[% END %]
+            	[% PROCESS company/select_warehouse %]
+				</select>
+			</p>
+
+
+
+			<p>
+				<label>From Date: </label>
+				<input type="text" name="from_date" />
+			</p>
+			<p>
+				<label>To Date: </label>
+				<input type="text" name="to_date" />
+			</p>
+			<p>
+				<label>Product : </label>
+                <select name="product_id" >
+                        <option value=""> Choose Product </option>
+                [% FOREACH product IN c.model("DemoDB::Product").look_for.serialize %]
+                    <option value="[% product.id %]" >
+                        [% product.name %]
+                    </option>
+                [% END %]
+                </select>
+			</p>
+			<button class="button" type="submit" value="RG23D"> Generate RG</button>
+		</fieldset>
+	</form>
+</div><!-- end search form -->

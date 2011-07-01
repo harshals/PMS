@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <title>e-invoices View</title>
+        <script src="http://code.jquery.com/jquery-1.5.2.min.js"></script>
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a4.1/jquery.mobile-1.0a4.1.min.css" />
+       <link rel="stylesheet" type="text/css" href="[% c.uri_for("/static/css/layout.css") %]" media="print,screen" />
+        <script src="http://code.jquery.com/mobile/1.0a4.1/jquery.mobile-1.0a4.1.min.js"></script>
+	<script type="text/javascript">
+	    /*$(document).ready(function() {
+               $("#select").searchable();
+	       $("#value").html($("#myselect :selected").text() + " (VALUE: " + $("#myselect").val() + ")");
+		$("select").change(function(){
+			$("#value").html(this.options[this.selectedIndex].text + " (VALUE: " + this.value + ")");
+		});
+	    })*/
+	 </script>
+         
+    </head>
+    <body>
+        <!-- Whole Page -->
+        <div data-role="page">
+
+            <!-- Header -->
+            <div data-role="header">
+                
+		<h1><a href="/">Einvoices</a></h1>
+            </div>
+            
+            <!-- Header -->
+
+		
+
+            <!-- Main -->
+            <div data-role="content">
+                [% content %]
+            </div>
+            <!-- Main -->
+
+            <!-- Footer -->
+            <div data-role="footer">
+                [% IF c.user_exists %]
+                     <label><a href="[% c.uri_for("/logout") %]">Log Out</a></label>
+                [% END %]
+                <div>
+                    <p>E-Invoices.biz, created by <a href="http://www.mksoftware.in">MK Software</a> .</p>
+                </div>
+            </div>
+            <!-- Footer -->
+
+        </div>
+        <!-- Whole Page -->
+    </body>
+</html>

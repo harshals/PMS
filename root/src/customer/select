@@ -1,0 +1,6 @@
+[% value_key = value_key || 'id' %]
+[% FOREACH customer IN  c.model("DemoDB::Customer").everyone.serialize %]
+    <option value="[% customer.$value_key %]" [% IF customer.$value_key == match %] selected="true"[% END %]>
+        [% customer.name %]
+</option>
+[% END %]

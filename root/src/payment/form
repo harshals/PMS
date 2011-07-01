@@ -1,0 +1,58 @@
+<form action="[% c.uri_for("/db/payment/put") %]" class="new_payment">
+
+	<fieldset>
+		<legend>[% UNLESS payment.id %]New [% END %]Payment</legend>
+		<input type=hidden name="id" value="[% payment.id %]" />
+		<p>
+			<label>Company : </label>
+                <select name=company_id class=required>
+                [% PROCESS company/select
+                    match = payment.company_id %]
+                </select>
+		</p>
+		<p>
+			<label>Instrument No.: </label>
+			<input type="text" name="instrument_no" value="[% payment.instrument_no %]" class="required"/>
+		</p>
+		<p>
+			<label>Instrument Type: </label>
+            <select name=instrument class=required>
+                [% FOREACH instrument_type = ["Cheque", "Cash", "RTGS/NEFT", "Transfer" ] %]
+                    <option [% IF instrument_type == payment.instrument %] selected [% END %] > [% instrument_type %] </option>
+                [% END %]
+            </select>
+		</p>
+		<p>
+			<label>Instrument Date: </label>
+			<input type="text" name="instrument_date" value="[% payment.instrument_date %]" class="required datepicker"/>
+		</p>
+		<p>
+			<label>Payment Type: </label>
+            <select name=payment_type class=required>
+                [% FOREACH payment_type = ["Collection", "Expense", "Transport", "Payment", "Others" ] %]
+                    <option [% IF payment_type == payment.payment_type %] selected [% END %] > [% payment_type %] </option>
+                [% END %]
+            </select>
+		</p>
+		<p>
+			<label>Amount: </label>
+			<input type="text" name="amount" value="[% payment.amount %]" class="required"/>
+		</p>
+		<p>
+			<label>Has it been realized ?: </label>
+			
+			<input type=radio name=is_realized value="1">Yes
+			
+            <input type=radio name=is_realized value="0">No
+			
+		</p>
+		<p>
+			<label>Summary: </label>
+			<textarea name=summary value="[% payment.summary %]"></textarea>
+		</p>
+		<button type="submit" class="register-button" >Add</button>
+		<button type="reset"  class="register-button" >Cancel</button>
+	</fieldset>
+
+</form>
+

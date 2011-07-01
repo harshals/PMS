@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+
+		[% PROCESS head 
+			title = "E-Invoices"  %]
+
+		<script language="javascript">
+
+		 </script>
+
+	</head>
+	<body>
+		<div class="container_12">
+			
+			<div class="clear"></div>
+			<!-- sidebar form container -->
+			<div class="grid_12 ">
+
+				[% INCLUDE logo %]	
+
+           	<!-- sidebar form container-->
+
+
+			</div><!-- grid_4 -->
+			<div class="grid_12 mainbar" >
+
+				<div class="box" > <!-- begin form box -->
+					[% content %]
+				</div>
+
+			</div>
+				
+			<div class="clear"></div>
+			<div class="grid_12" id="site_info">
+
+				[% INCLUDE footer %]
+			</div>
+			<div class="clear"></div>
+		</div>
+	</body>
+</html>
+

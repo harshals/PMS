@@ -1,0 +1,20 @@
+
+
+<div class="box"> <!-- begin search form -->
+<h2>
+		<a href="#" id="toggle-forms">Search Customer</a>
+	</h2>
+	<form action="[% c.uri_for("/db/customer/0/search") %]" class="search" id="forms" method="POST">
+		<fieldset >
+
+			<p>
+				<label>Customer : </label>
+				<input type=text name=name >
+				</p>
+			<button class="button" type="submit" value="Search"> Find it</button>
+		</fieldset>
+	</form>
+</div><!-- end search form -->
+	
+
+

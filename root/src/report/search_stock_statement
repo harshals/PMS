@@ -1,0 +1,42 @@
+<div class="box"> <!-- begin search form -->
+<h2>
+		<a href="#" id="toggle-section-menu" >Search Stock Summary</a>
+	</h2>
+	<form action="[% c.uri_for("/report/search/stock") %]" class="new_search" id="forms" method="POST">
+		<fieldset >
+		<p class="">
+				<label>Warehouse: </label>
+				<select name="warehouse_id" class="required">
+				[% UNLESS c.user.id == 4 %]
+					<option value="">Select Warehouse</option>
+				[% END %]
+            	[% PROCESS company/select_warehouse %]
+				</select>
+			</p>
+
+
+			[% INCLUDE search_date %]
+
+			<p>
+				<label>Product : </label>
+                <select name="product_id" >
+
+                       <option value="">Select Product</option>
+					   [% INCLUDE product/select %]
+				</select>
+			</p>
+			<p>
+				<label>Product Group: </label>
+				<select name="product_group" >
+                	<option value=""> Choose Product Group</option>
+
+					[% PROCESS product/select_group %]
+                   
+                </select>
+			</p>
+			
+
+			<button class="button" type="submit" value="RG23D"> Generate Stock Summary</button>
+		</fieldset>
+	</form>
+</div><!-- end search form -->

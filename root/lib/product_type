@@ -1,0 +1,5 @@
+
+<option value="">Select Product Type</option>
+[% FOREACH mode = ["EQ","DR"] %]
+<option value="[% mode %]" [% IF mode == match %] selected [% END %]> [% mode %] </option>
+[% END %]

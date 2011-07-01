@@ -1,0 +1,32 @@
+<div class="box menu">
+				
+		<h2><a class=visible href="#" id="toggle-section-menu">Group Actions</a></h2>
+        <div class="block" id="section-menu"> 
+			
+			<ul class="section menu">
+				
+				<li>
+					<a href="#" id="#" class="menuitem">&nbsp;&nbsp;&nbsp;Actions</a>
+					<ul class="submenu">
+						<li><a href="#edit_invoice" class="single_action">Edit</a></li>
+						<li><a href="#view_sales" class="single_action">Existing Transactions</a></li>
+						<li><a href="#add_sale" class="single_action">New Transaction</a></li>
+						<li><a href="#attachments" class="single_action">Attachments</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="#" id="#" class="menuitem">&nbsp;&nbsp;&nbsp; Discounts</a>
+					<ul class="submenu">
+						<li>Regional Discount <input name="regional_discount" type=text/></li>
+						<li>Trade Discount <input name="trade_discount"  type=text/></li>
+						<li>Insurance<input name="insurance"  type=text/></li>
+						<li>Frieght  <input name="fieght"  type=text/></li>
+						<li>Per Unit ?<input name="per_unit"  type=checkbox value=1/></li>
+						<li><a href="#" id="apply_discounts">Apply to selected</a></li>
+						<!-- <li><input type=button value="Apply to selected" id="apply_discounts" /></li> -->
+					</ul>
+				</li>
+			</ul>
+
+		</div>	
+	</div>

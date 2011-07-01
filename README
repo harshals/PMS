@@ -1,0 +1,6 @@
+Run script/app_server.pl to test the application.
+
+TODO:
+
+write a jemplate plugin to convert all c.model requests to ajax return json data
+yahoo

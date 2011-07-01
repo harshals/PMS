@@ -1,0 +1,31 @@
+[% INCLUDE pager_head 
+	no_warehouse_legend = 1 %]
+<table >
+    <thead>
+        <tr>
+            <th colspan="5" class="table-head">List of Company</th>
+        </tr>
+
+        <tr>
+            <th>Instrument </th>
+            <th>Date</th>
+            <th>Number</th>
+            <th>Amount.</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        [% FOREACH row IN payment_rs.serialize %]
+        <tr>
+            <td>[% row.instrument %]</td>
+            <td>[% row.instrument_date %]</td>
+            <td>[% row.instrument_no %]</td>
+            <td>[% row.amount %]</td>
+            <th ><span class='delete {id : "[% row.id %]" }' >Del&nbsp;</span>
+            <a href="[% c.uri_for("/db/payment/get/$row.id") %]">Edit</a>
+            </th>
+        </tr>
+        [% END %]
+    </tbody>
+</table>
+

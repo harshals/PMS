@@ -1,0 +1,20 @@
+<div  class="pager noPrint box">
+
+        <form>
+        <img src="[% c.uri_for("/static/images/tablesorter/first.png") %]" class="first"/>
+        <img src="[% c.uri_for("/static/images/tablesorter/prev.png") %]" class="prev"/>
+        <input type="text" class="pagedisplay"/>
+        <img src="[% c.uri_for("/static/images/tablesorter/next.png") %]" class="next"/>
+        <img src="[% c.uri_for("/static/images/tablesorter/last.png") %]" class="last"/>
+        <select class="pagesize">
+        <option selected="selected"  value="10">10</option>
+        <option value="20">20</option>
+        <option value="30">30</option>
+        <option  value="40">40</option>
+        <option  value="100000">All</option>
+        </select>
+        <div class="button_bar"></div>
+        </form>
+		
+</div>
+
