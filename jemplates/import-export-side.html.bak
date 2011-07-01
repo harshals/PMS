@@ -1,7 +1,0 @@
-<p>Choose Action</p>
-<ul>
-	  <li><a id="data" value="data" selected><u>Data</u></a></li>
-	  <li><a id="trans" value="transcation"><u>Transaction</u></a></li>
-	  <li><a id="bills" value="bills"><u>Bills</u></a></li>
-	  <li><a id="acc" value="account"><u>Account</u></a></li>
-</ul>
