@@ -25,23 +25,56 @@
         [%# END %]
     </tbody>
 </table>
+-->
+<!--<ul id="NavList" class="list">
 
+	[% FOREACH row IN customer_rs.serialize %]
+
+		<li class="[% loop.parity %]"> 
+			[% row.name %]
+			<img width=16 height=16 src="/static/img/customer_type_[% row.customer_type %].png">
+			<span class='delete' id="customer_[% row.id %]" style="float:right">Del&nbsp;</span>
+			<span class="action">
+				<a href="[% c.uri_for("/db/customer/get/$row.id") %]" style="float:right">Edit</a> 
+				<a href="[% c.uri_for("/db/publish/customer_address/$row.id") %]" style="float:right">Print</a> 
+			</span>
+		</li>
+
+	[% END %]
+
+</ul>
 -->
 <div id="NavList-nav"></div> 
-<ul id="NavList" class="list">
-   [% FOREACH row IN customer_rs.serialize %]
-	
-	<li class="[% loop.parity %]"> 
-	
-		[% row.name %] <img width=16 height=16 src="/static/img/customer_type_[% row.customer_type %].png">
-	
-	
-	  <span class='delete' id="customer_[% row.id %]" style="float:right">Del&nbsp;</span>
-      <span class="action">
-           <a href="[% c.uri_for("/db/customer/get/$row.id") %]" style="float:right">Edit</a> 
-           <a href="[% c.uri_for("/db/publish/customer_address/$row.id") %]" style="float:right">Print</a> 
-      </span>
-   
-   </li>
-   [% END %]
-</ul>
+[% INCLUDE pager_head %]
+<table summary="This table includes examples of as many table elements as possible">
+	<caption><b>List of Customer </b></caption>
+	<colgroup>
+		<col class="colA" />
+		<col class="colB" />
+		<col class="colC" />
+		<col class="colD" />
+		<col class="colE" />
+	</colgroup>
+	<thead>
+		<tr>
+			<th colspan="5" class="table-head"></th>
+		</tr>
+		<tr>
+			<th class="grid_3"> Account Name </th>
+			<th class="grid_3"> Address </th>
+			<th class="grid_3"> Telephone </th>
+		</tr>
+	</thead>
+	[% total_brokerage = 0 %]
+	[% final_total = 0 %]
+	<tbody>
+		[% FOREACH row IN customer_rs.serialize(4) %]
+			<tr>
+				<td class=" grid_3" >[%row.name%]</td>
+				[% address = row.address_1 _ row.address_2 _ row.address_3 _ row.city _ row.state _ row.zip _ row.country %]
+				<td class=" grid_3">[%row.city%]</td>
+				<td class=" grid_3">[%row.tel_no ]</td>
+			</tr>
+		[% END %]
+	</tbody>
+</table>

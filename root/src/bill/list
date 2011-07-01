@@ -1,111 +1,58 @@
 <style>
-tr.selected {
-	border: 2px solid ;
-}
+	tr.selected 
+	{
+		border: 2px solid ;
+	}
 </style>
 
 [% INCLUDE pager_head %]
 <table summary="This table includes examples of as many table elements as possible">
-    <caption><b>List of Bill Invoice</b></caption>
-    <colgroup>
-        <col class="colA" />
-        <col class="colB" />
-        <col class="colC" />
-        <col class="colD" />
-        <col class="colE" />
-        <col class="colF" />
-        <col class="colG" />
-    </colgroup>
-    <thead>
-        <tr>
-            <th colspan="7" class="table-head"></th>
-        </tr>
-        <tr>
-            <th>Invoice No</th>
-            <th>Date</th>
-            <th>Supplier</th>
-            <th>Product</th>
-            <th>Quantity</th>
-            <th class="currency">Cenvat</th>
-            <th class="currency">Amount</th>
-        </tr>
-    </thead>
-        [% total_cenvat = 0 %]
-        [% total_amount = 0 %]
-        [% total_quantity = 0 %]
-	
-		[% IF type %]
-
-			[% prev = '' %]
-        [% END %]
-
-
-    <tbody>
-    [% FOREACH row IN purchase_rs.serialize(4) %]
-    
-    
-    [% USE date %]
-    [% manip = date.manip %]
-    [% invoice_date = manip.UnixDate(manip.ParseDate(row.invoice_date),'%d-%m-%Y') %]
-
-		
-		[% IF type && prev !=  row.$type %]
-			[% prev = row.$type %]
-
-			[% IF subtotal_amount > 0 %]
-			<tr class="total">
-					<th>SubTotal</th>
-					<td>[% row.$type %]</td>
-					<td></td>
-					<td>[% subtotal_quantity %]</td>
-					<th class="currency">[% subtotal_cenvat %]</th>
-					<th class="currency">[% subtotal_amount %]</th>
-					<th ></th>
-
+	<caption><b>List of Bills </b></caption>
+	<colgroup>
+		<col class="colA" />
+		<col class="colB" />
+		<col class="colC" />
+		<col class="colD" />
+		<col class="colE" />
+	</colgroup>
+	<thead>
+		<tr>
+			<th colspan="5" class="table-head"></th>
+		</tr>
+		<tr>
+			<th class="grid_3"> Account </th>
+			<th class="grid_3"> Bill No. </th>
+			<th class="grid_3"> Bill Date </th>
+			<th class="grid_3"> Brokerage </th>
+			<th class="grid_3"> Amount </th>
+		</tr>
+	</thead>
+	[% total_brokerage = 0 %]
+	[% final_total = 0 %]
+	<tbody>
+		[% FOREACH row IN bill_rs.serialize(4) %]
+			[% USE date %]
+			[% manip = date.manip %]
+			[% bill_date = manip.UnixDate(manip.ParseDate(row.bill_date),'%d-%m-%Y') %]
+			<tr>
+				<td class=" grid_3" >[%row.customer.name%]</td>
+				<td class=" grid_3"><a href="[% c.uri_for(/bill/get/$row.id) %]">[%row.bill_no%]</a></td>
+				<td class=" grid_3">[%bill_date%]</td>
+				<td class=" grid_3">[%row.transactions.brokerage%]</td>
+				<td class=" grid_3">[% row.total]</td>
 			</tr>
-			[% END %]
-
-			[% subtotal_cenvat = 0 %]
-			[% subtotal_amount = 0 %]
-			[% subtotal_quantity = 0 %]
-
+			[% total_brokerage = total_brokerage + row.transactions.brokerage %]
+			[% final_total = final_total + row.total %]
 		[% END %]
-
-		<tr class="warehouse_[% row.warehouse_id %]" id="row_id_[% row.id %]">
-            <td>[% row.invoice_no %]</td>
-            <td>[% invoice_date %]</td>
-            <td>[% row.supplier.name || row.manufacturer.name %]</td>
-            <td>[% row.product.name %]</td>
-            <td>[% row.quantity %] [% row.uom %]</td>
-            <th class="currency">[% row.cenvat %]</th>
-            <th class="currency">[% row.total %]</th>
-            
-        </tr>
-        [% total_cenvat = total_cenvat + row.cenvat %]
-        [% total_amount = total_amount + row.total %]
-        [% total_quantity = total_quantity + row.quantity %]
-
-		[% IF type && prev ==  row.$type %]
-				[% subtotal_cenvat = subtotal_cenvat + row.cenvat %]
-				[% subtotal_amount = subtotal_amount + row.total %]
-				[% subtotal_quantity = subtotal_quantity + row.quantity %]
-
-		[% END %]
-
-    [% END %]
-    </tbody>
-    <tfoot>
-     <tr class="total">
-            <th>Total</th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <th class="currency">[% total_cenvat %]</th>
-            <th class="currency">[% total_amount %]</th>
-
-        </tr>
-    </tfoot>
-
+	</tbody>
+	<tfoot>
+		<tr class="total">
+			<th>Total</th>
+			<td></td>
+			<td></td>
+			<th class="currency">[% total_brokerage %]</th>
+			<th class="currency">[% final_total %]</th>
+		</tr>
+	</tfoot>
 </table>
 

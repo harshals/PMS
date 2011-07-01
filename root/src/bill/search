@@ -1,64 +1,67 @@
-<div class="box"> <!-- begin form box -->
-<h2>
-		<a href="#" id="toggle-forms">Search Purchase</a>
-		[% UNLESS type %] [% type = "0" %] [% END %]
-	</h2>
-	<form action="[% c.uri_for("/purchase/$type/search") %]" class="search" id="forms" method="POST">
-		<fieldset >
-			<p class="">
-				<label>Warehouse: </label>
-				<select name="warehouse_id" class="required">
-				[% UNLESS c.user.id == 4 %]
-					<option value="">Select Warehouse</option>
-				[% END %]
-            	[% PROCESS company/select_warehouse %]
-				</select>
-			</p>
-
-
-			<p>
-				<label>List of Invoice Nos: </label>
-				<input type="text" name="invoice_no" value="" />
-				<span class="help"> for eg. 55,60,75 to search for invoices</span>
-			</p>
-			<p>
-				<label>From Date: </label>
-				<input type="text" name="from_date" />
-			</p>
-			<p>
-				<label>To Date: </label>
-				<input type="text" name="to_date" />
-			</p>
-			[% UNLESS type.match('company') %]
-			<p>
-				<label>Supplier: </label>
-
-                <select name="supplier_id" class="incremental">
-                    <option value=""> Choose Supplier</option>
-                    [% PROCESS company/select %]
-                </select>
-			</p>
-			[% END %]
-			<p>
-				<label>Product: </label>
-				<select name="product_id" >
-                	<option value=""> Choose Product </option>
-
-					[% PROCESS product/select %]
-
-                </select>
-			</p>
-			<p>
-				<label>Product Group: </label>
-				<select name="product_group" >
-                	<option value=""> Choose Product Group</option>
-
-					[% PROCESS product/select_group %]
-                   
-                </select>
-			</p>
-			
-			<button class="button" type="submit" value="purchase_search"> Search Purchase Invocies</button>
+<div class="grid_17 main blue box" id="bill_report" >
+	<form action="[% c.uri_for("/bill/$type/search") %]" class="search" id="forms" method="post">
+		<fieldset class="">
+		<ul class="form hii">
+			<li class="grid_8">
+				<label class="grid_3">From Date</label>
+				<input type="text" class="datepicker grid_4" name="bill_from_date"/>
+			</li>
+			<li class="grid_8">
+				<label class="grid_3">Settelment No.</label>
+				<input   type="text" class="grid_4" name="settelment_no" />
+			</li>
+<!-- ---------------------------------------------------------------------------- -->
+			<li class="grid_8">
+				<label class="grid_3">To Date</label>
+				<input type="text" class="datepicker grid_4" name="bill_to_date" />
+			</li>
+			<li class="grid_8">
+				<label class="grid_3">Security</label>
+				<input type="text" class="grid_4" name="product_id" id="security" />
+				<span class="leftNote offset1 small"> <a id="add_security">Not found ? Click here to add</a></span>
+			</li>
+<!-- ---------------------------------------------------------------------------- -->
+			<li class="grid_8">
+				<label class="grid_3">Settlement Type</label>
+				   [% PROCESS settlement_type 
+						match = bill.settlement_type %]
+			</li>
+			<li class="grid_8">
+				<label class="grid_3">Family/Group</label>
+				<input type="text" class="grid_4" name="family" />
+				<span class="bottomNote offset1 small"><a id="family_group">Not found ? Click here to add</a></span>
+			</li>
+<!-- ------------------------------------------------------------------------------ -->
+			<li class="grid_8">
+				<label class="grid_3">Exchange</label>
+				    [% PROCESS exchange 
+						match = bill.exchange_type %]
+			</li>
+			<li class="grid_8">
+				<label class="grid_3" id="broker">Broker</label>
+				<input type="text" class="grid_4" name="broker_name"/>
+				<span class="bottomNote offset1 small"><a id="broker">Not found ? Click here to add</a></span>
+			</li>
+<!-- ---------------------------------------------------------------------------- -->
+			<li class="grid_8">
+				<label class="grid_3">Transcation Type</label>
+				     [% PROCESS transaction_type  
+						match = bill.transcation_type %]
+			</li>
+			<li class="grid_8">
+				<label class="grid_3">Account</label>
+				<input type="text" class="grid_4" name="account"/>
+				<span class="bottomNote offset1 small"><a id="account">Not found ? Click here to add</a></span>
+			</li> 
+<!-- ---------------------------------------------------------------------------- -->			 
+			<li class="grid_17">
+				<label class="grid_3">Report Name</label>
+				<input type="text" class="grid_4" name="report_name" />
+			</li>
+		</ul>
 		</fieldset>
+		<li class="form hii">
+			<button class="button" type="submit"> Search </button> 
+		</li>
 	</form>
 </div>

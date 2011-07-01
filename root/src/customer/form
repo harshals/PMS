@@ -23,6 +23,10 @@
 			<input type="text" name="contact_name" value="[% customer.contact_name %]" class="required"/>
 		</p>
 		<p>
+			<label>Family: </label>
+			<input type="text" name="family" value="[% customer.family %]" class="required"/>
+		</p>
+		<p>
 			<label>Contact Number: </label>
 			<input type="text" name="contact_number" value="[% customer.contact_number %]" class="required"/>
 		</p>

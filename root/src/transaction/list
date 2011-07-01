@@ -7,62 +7,47 @@ tr.selected {
 [% USE date %]
 [% INCLUDE pager_head %]
 <table summary="This table includes examples of as many table elements as possible">
-<caption><b>List of Transaction Invoice</b></caption>
+<caption><b>List of Transactions</b></caption>
 <colgroup>
 	<col class="colA" />
 	<col class="colB" />
 	<col class="colC" />
 	<col class="colD" />
 	<col class="colE" />
-	<col class="colF" />
-    <col class="colG" />	
+		
 </colgroup>
 <thead>
 	<tr>
-		<th>Invoice No</th>
+		<th>Transaction No</th>
 		<th>Date</th>
-		<th>Buyer</th>
-		<th>Product</th>
-		<th>Quantity</th>
-		<th class="">Cenvat</th>
-		<th class="">Amount</th>
-
+		<th>Security</th>
+		<th>Type</th>
+		<th>Amount</th>
 	</tr>
 </thead>
 <tbody>
-        [% total_cenvat = 0 %]
+       
         [% total_amount = 0 %]
-        [% total_quantity = 0 %]
-		[% IF type %]
-
-        [% subtotal_cenvat = 0 %]
-        [% subtotal_amount = 0 %]
-        [% subtotal_quantity = 0 %]
-		[% prev = '' %]
-		[% END %]
-
-        [% FOREACH row IN transaction_rs.serialize(4) %]
+        
+	    [% FOREACH row IN transaction_rs.serialize(4) %]
 	
-[% to_date = row.invoice_date %]
-[% manip = date.manip %]
-[% invoice_date = manip.UnixDate(manip.ParseDate(to_date),'%d-%m-%Y') %]
-	
-			<tr class="warehouse_[% row.warehouse_id %]" id="row_id_[% row.id %]">
-            <td>[% row.invoice_no %]</td>
-            <td>[% invoice_date %]</td>
-            <td>[% row.consignee.name %]</td>
-            <td>[% row.product.name %]</td>
-            <td>[% row.quantity %] [% row.uom %]</td>
-            <th class="">[% row.cenvat %]</th>
-            <th class="">[% row.total %]</th>
-            
-        </tr>
+			[% to_date = row.transaction_date %]
+			[% manip = date.manip %]
+			[% transaction_date = manip.UnixDate(manip.ParseDate(to_date),'%d-%m-%Y') %]
+		
+			<tr>
+				<td>[% row.transaction_no %]</td>
+				<td>[% transaction_date %]</td>
+				<td>[% row.product_id %]</td>
+				<td>[% row.transaction_type %]</td>
+				<td>[% row.total %]</td>     
+			</tr>
 
-        [% total_cenvat = total_cenvat + row.cenvat %]
-        [% total_amount = total_amount + row.total %]
-        [% total_quantity = total_quantity + row.quantity %]
+			
+			[% total_amount = total_amount + row.total %]
+        
 	
-	[% END %]
+	     [% END %]
  	
 </tbody>
 <tfoot>
@@ -71,8 +56,6 @@ tr.selected {
 		<td></td>
 		<td></td>
 		<td></td>
-		<td ></td>
-		<th class="currency">[% total_cenvat %]</th>
 		<th class="currency">[% total_amount %]</th>
 	</tr>
 </tfoot>
