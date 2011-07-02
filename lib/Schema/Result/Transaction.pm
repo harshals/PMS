@@ -9,10 +9,11 @@ use namespace::clean -except => 'meta';
 extends qw/DBICx::Hybrid::Result/;
 #extends qw/Schema::Base::Result/;
 
-__PACKAGE__->table("transaction");
+__PACKAGE__->table("trans");
 __PACKAGE__->add_columns(
 	
 		"bill_id", { data_type => "INTEGER", is_nullable => 0 },
+		"product_id", { data_type => "INTEGER", is_nullable => 0 },
 		"transaction_no", { data_type => "INTEGER", is_nullable => 0 },
 		"transaction_date", { data_type => "DATETIME", is_nullable => 0 },
 		"transaction_type", { data_type => "VARCHAR(100)", is_nullable => 0 },

@@ -67,7 +67,7 @@ sub available_stock {
 	my $self = shift;
 	my $product_type = shift;
 
-	my $search = { balance => { '>' , 0 };
+	my $search = { balance => { '>' , 0 }};
 
 	$search->{product_type} = $product_type if $product_type;
 

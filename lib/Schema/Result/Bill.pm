@@ -34,7 +34,7 @@ __PACKAGE__->add_unique_constraint([ qw/bill_no/ ]);
 
 __PACKAGE__->has_many(
   "transactions",
-  "Schema::Result::Transcation",
+  "Schema::Result::Transaction",
   { "foreign.bill_id" => "self.id" },
 );
 __PACKAGE__->belongs_to(
@@ -45,7 +45,7 @@ __PACKAGE__->belongs_to(
 
 __PACKAGE__->has_many(
   "attachments",
-  "Schema::Result::Attachments",
+  "Schema::Result::Attachment",
   { "foreign.owner_uuid" => "self._id" },
 );
 

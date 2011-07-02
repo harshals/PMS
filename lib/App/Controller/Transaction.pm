@@ -1,4 +1,4 @@
-package App::Controller::Sale;
+package App::Controller::Transaction;
 
 use strict;
 use warnings;
